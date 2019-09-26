@@ -1,0 +1,39 @@
+academia,158,36,8	script	Jounin Shiken	417,{
+
+if(Class > 9 || Class < 7) { 
+	mes "[Jounin Shiken]"; 
+	mes "Você não é um chunin."; 
+	close; 
+}
+
+if(BaseLevel < 99 || JobLevel < 35) { 
+	mes "[Jounin Shiken]"; 
+	mes "Você não tem level de Base ou Job suficiente."; 
+	close; 
+}
+
+	if(konoha)
+		getitem 30200,1;
+	if(suna)
+		getitem 30201,1;
+	if(nevoa)
+		getitem 30202,1;
+	if(nuvem)
+		getitem 30203,1;
+	if(pedra)
+		getitem 30204,1;
+	if(Class == 7) { 
+		jobchange 4008;
+		SkillPoint += 1;
+		mes "[Jounin Shiken]";
+		mes "Parabéns você acaba de se tornar um Jounin, agora inicia sua jornada para se tornar um Jounin de Elite.";
+		close;
+	}
+	if(Class == 9) {
+		jobchange 4010; 
+		SkillPoint += 1;
+		mes "[Jounin Shiken]";
+		mes "Parabéns você acaba de se tornar um Jounin, agora inicia sua jornada para se tornar um Jounin de Elite.";
+		close;
+	}
+}

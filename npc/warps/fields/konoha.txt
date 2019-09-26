@@ -1,0 +1,138 @@
+// Konoha
+
+konoha3,191,53,0	warp	konoha_entrada#1	2,2,pay_fild07,280,376
+pay_fild07,280,382,0	warp	konoha_entrada#2	2,2,konoha3,194,56
+
+pay_fild07,382,291,0	warp	fild_konoha#12	2,2,mjolnir_08,34,236
+mjolnir_08,30,235,0	warp	fild_konoha#11	2,2,pay_fild07,377,291 
+
+pay_fild07,16,200,0	warp	fild_konoha#13	2,2,gef_fild02,375,158
+gef_fild02,380,158,0	warp	fild_konoha#14	2,2,pay_fild07,20,204
+
+gef_fild02,212,349,0	warp	fild_konoha#15	2,2,cmd_fild01,222,30
+cmd_fild01,222,24,0	warp	fild_konoha#16	2,2,gef_fild02,217,347
+
+mjolnir_11,173,20,0	warp	fild_konoha#1	2,2,mjolnir_05,219,377 
+mjolnir_05,219,383,0	warp	fild_konoha#2	2,2,mjolnir_11,173,25
+
+mjolnir_05,16,171,0	warp	fild_konoha#3	2,2,mjolnir_01,376,256
+mjolnir_01,381,256,0	warp	fild_konoha#4	2,2,mjolnir_05,22,171
+
+mjolnir_05,236,16,0	warp	fild_konoha#5	2,2,mjolnir_10,235,376
+mjolnir_10,235,381,0	warp	fild_konoha#6	2,2,mjolnir_05,236,21
+
+mjolnir_08,29,347,0	warp	fild_konoha#7	2,2,mjolnir_01,45,57
+mjolnir_01,41,56,0	warp	fild_konoha#8	2,2,mjolnir_08,34,343
+
+mjolnir_10,15,258,0	warp	fild_konoha#9	2,2,mjolnir_08,363,258
+mjolnir_08,369,258,0	warp	fild_konoha#10	2,2,mjolnir_10,21,258
+
+cmd_fild01,26,318,0	warp	fild_konoha#17	2,2,prt_fild05,366,205
+prt_fild05,370,205,0	warp	fild_konoha#18	2,2,cmd_fild01,29,318
+
+prt_fild05,14,332,0	warp	fild_konoha#19	2,2,prt_fild00,377,250
+prt_fild00,381,250,0	warp	fild_konoha#20	2,2,prt_fild05,18,332
+
+mjolnir_11,20,221,0	warp	fild_konoha#21	2,2,myouboku,356,195
+myouboku,359,195,0	warp	fild_konoha#22	2,2,mjolnir_11,23,221
+
+// País dos rios:
+
+gef_fild02,14,79,0	warp	fild_rios#1	2,2,gef_fild03,377,278
+gef_fild03,382,278,0	warp	fild_rios#2	2,2,gef_fild02,19,79
+
+gef_fild03,312,16,0	warp	fild_rios#3	2,2,gef_fild10,248,368
+gef_fild10,251,371,0	warp	fild_rios#4	2,2,gef_fild03,312,21
+
+gef_fild03,18,52,0	warp	fild rios#5	2,2,hu_fild03,374,283
+hu_fild03,379,283,0	warp	fild rios#6	2,2,gef_fild03,23,52
+
+hu_fild03,38,166,0	warp	fild rios#7	2,2,moc_fild02,373,272
+moc_fild02,379,272,0	warp	fild rios#8	2,2,hu_fild03,43,166
+
+gef_fild10,26,218,0	warp	fild rios#9	2,2,gef_fild14,368,219
+gef_fild14,373,219,0	warp	fild rios#10	2,2,gef_fild10,31,217
+
+gef_fild14,58,40,0	warp	fild rios#11	2,2,moc_fild13,302,50
+moc_fild13,308,50,0	warp	fild rios#12	2,2,gef_fild14,63,43
+
+// País do Chá
+
+mjolnir_10,384,220,0	warp	fild_cha#1	2,2,um_fild03,24,334
+um_fild03,18,334,0	warp	fild_cha#2	2,2,mjolnir_10,379,219
+
+um_fild03,117,50,0	warp	fild_cha#3	2,2,moc_fild03,69,335
+moc_fild03,69,341,0	warp	fild_cha#4	2,2,um_fild03,114,55
+
+moc_fild03,303,171,0	warp	fild_cha#5	2,2,prt_fild07,19,289
+prt_fild07,14,289,0	warp	fild_cha#6	2,2,moc_fild03,298,171
+
+prt_fild07,384,240,0	warp	fild_cha#7	2,2,prt_fild08,22,240
+prt_fild08,16,240,0	warp	fild_cha#8	2,2,prt_fild07,378,240
+
+prt_fild07,385,188,0	warp	fild_cha#9	2,2,prt_fild08,21,186
+prt_fild08,16,188,0	warp	fild_cha#10	2,2,prt_fild07,379,188
+
+prt_fild08,371,212,0	warp	fild_cha#11	2,2,gon_fild01,89,264
+gon_fild01,89,269,0	warp	fild_cha#12	2,2,prt_fild08,366,212
+
+gon_fild01,257,77,0	warp	fild_cha#13	2,2,alb2trea,51,60
+alb2trea,46,55,0	warp	fild_cha#14	2,2,gon_fild01,257,83
+
+hu_fild03,19,340,0	warp	fild cha#15	2,2,es_fild01,184,54
+es_fild01,188,54,0	warp	fild cha#16	2,2,hu_fild03,23,337
+
+es_fild01,99,86,0	warp	akat#1	2,2,akatsuki,240,99
+akatsuki,244,99,0	warp	akat#2	2,2,es_fild01,99,80
+
+
+// País da Cachoeira
+
+taki_fild01,189,272,0	warp	cachoeira#1	2,2,takigakure,102,30
+takigakure,99,27,0	warp	cachoeira#2	2,2,taki_fild01,189,268
+
+taki_fild01,362,323,0	warp	cachoeira#3	2,2,oto_fild04,11,106
+oto_fild04,8,106,0	warp	cachoeira#4	2,2,taki_fild01,359,323
+
+taki_fild01,191,14,0	warp	cachoeira#5	2,2,gef_fild08,207,333
+gef_fild08,207,336,0	warp	cachoeira#6	2,2,taki_fild01,191,17
+
+prt_fild00,159,373,0	warp	cachoeira#7	2,2,gef_fild08,217,26
+gef_fild08,217,23,0	warp	cachoeira#8	2,2,prt_fild00,159,370
+
+// País do Som
+
+otogakure,14,153,0	warp	som#5	2,2,oto_fild01,373,217
+oto_fild01,376,217,0	warp	som#6	2,2,otogakure,22,153
+
+oto_fild04,356,282,0	warp	som#1	2,2,oto_fild02,17,271
+oto_fild02,14,268,0	warp	som#2	2,2,oto_fild04,352,284
+
+oto_fild02,384,145,0	warp	som#3	2,2,oto_fild01,34,146
+oto_fild01,31,146,0	warp	som#4	2,2,oto_fild02,380,146
+
+oto_fild02,181,381,0	warp	som#7	2,2,oto_fild03,182,34
+oto_fild03,182,31,0	warp	som#8	2,2,oto_fild02,181,378
+
+oto_fild00,7,85,0	warp	som#9	2,2,otogakure,278,144
+otogakure,285,144,0	warp	som#10	2,2,oto_fild00,10,85
+
+oto_fild00,182,104,0	warp	som#11	2,2,dic_fild01,31,139
+dic_fild01,28,136,0	warp	som#12	2,2,oto_fild00,179,104
+
+oto_fild03,41,171,0	warp	som#13	2,2,ryuuchi,276,265
+ryuuchi,279,262,0	warp	som#14	2,2,oto_fild03,44,171
+
+
+// Amegakure
+
+amegakure,158,325,0	warp	amegakure#1	2,2,ame_fild01,63,23
+ame_fild01,63,19,0	warp	amegakure#2	2,2,amegakure,158,321
+
+// Kusagakure
+
+kusagakure,23,238,0	warp	kusagakure#1	2,2,ame_fild01,359,313
+ame_fild01,363,313,0	warp	kusagakure#2	2,2,kusagakure,26,238
+
+kusagakure,378,304,0	warp	kusagakure#3	2,2,prt_fild00,30,125
+prt_fild00,26,125,0	warp	kusagakure#4	2,2,kusagakure,374,304

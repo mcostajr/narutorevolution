@@ -1,0 +1,34 @@
+academia,151,81,4	script	Renegado Shiken	80,{
+
+if(Class > 4063 || Class < 4062) { 
+	mes "[Renegado Shiken]"; 
+	mes "Você não é um procurado."; 
+	close; 
+}
+if(BaseLevel < 175 || JobLevel < 10) { 
+	mes "[Renegado Shiken]"; 
+	mes "Você não tem level de Base ou Job suficiente."; 
+	close; 
+}
+	
+	mes "[Renegado Shiken]";
+	mes "Você tem certeza que quer virar Renegado ?";
+	if(select("- Não:- Sim") == 1) close;
+	
+	if(Class == 4062) { 
+		jobchange 4073;
+		getitem 30222,1;
+		SkillPoint += 11;
+		mes "[Renegado Shiken]";
+		mes "Parabéns você acaba de se tornar um Renegado.";
+		close;
+	}
+	if(Class == 4063) {
+		jobchange 4074;
+		getitem 30222,1;
+		SkillPoint += 11;
+		mes "[Renegado Shiken]";
+		mes "Parabéns você acaba de se tornar um Renegado.";
+		close;
+	}
+}

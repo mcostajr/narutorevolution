@@ -1,0 +1,147 @@
+-	shop	battle_shops	139,510:-1
+
+-	script	shop_conf#01	-1,{
+
+OnInit:
+	setarray $Battle_Itens[0],753,3050,3051,3052,3053,3054;
+	setarray $Battle_Custo[0],5000,2000,500,100,50,50;
+
+        npcshopdelitem "battle_shops",510;
+        if(getarraysize($Battle_Itens) >= 1) {
+			npcshopitem "battle_shops",$Battle_Itens[0],$Battle_Custo[0];
+			for (set .@i,1; .@i < getarraysize($Battle_Itens); set .@i,.@i+1) {
+				npcshopadditem "battle_shops",$Battle_Itens[.@i],$Battle_Custo[.@i];
+			}
+		}
+	end;
+	
+}
+
+
+
+pvp_room,27,66,6	script	Battle Recompensa	4_m_across,{
+
+mes "[ ^0000ffBattle Recompensa^000000 ]";
+mes "Olá, gostaria de trocar pontos de batalha por qual desses itens..";
+close2;
+npcshopattach "battle_shops",1;
+callshop "battle_shops",1;
+end;
+
+OnBuyItem:
+
+	for(set .@i,0; .@i < getarraysize(@bought_nameid); set .@i,.@i+1) {
+        set @cost,callfunc("battle_custom",@bought_nameid[.@i]);
+		//-----------------------------------------
+        if (@bought_nameid[.@i]== 753) {
+			if((countitem(735)== 5000)){
+				delitem 735,5000;
+				getitem @bought_nameid[.@i],1;
+				end;
+				deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+				deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+				end;
+			}else{
+				dispbottom "Me desculpe, mas você não possui battle points suficiente.";
+				end;
+				deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+				deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+				end;
+			}      
+		}
+		//-----------------------------------------
+		if (@bought_nameid[.@i]== 3050) {
+			if((countitem(735)== 2000)){
+				delitem 735,2000;
+				getitem @bought_nameid[.@i],1;
+				end;
+				deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+				deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+				end;
+			}else{
+				dispbottom "Me desculpe, mas você não possui battle points suficiente.";
+				end;
+				deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+				deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+				end;
+			}      
+		}
+		//-----------------------------------------
+		if (@bought_nameid[.@i]== 3051) {
+			if((countitem(735)== 500)){
+				delitem 735,500;
+				getitem @bought_nameid[.@i],1;
+				end;
+				deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+				deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+				end;
+			}else{
+				dispbottom "Me desculpe, mas você não possui battle points suficiente.";
+				end;
+				deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+				deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+				end;
+			}      
+		}
+		//-----------------------------------------
+		if (@bought_nameid[.@i]== 3052) {
+			if((countitem(735)== 100)){
+				delitem 735,100;
+				getitem @bought_nameid[.@i],1;
+				end;
+				deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+				deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+				end;
+			}else{
+				dispbottom "Me desculpe, mas você não possui battle points suficiente.";
+				end;
+				deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+				deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+				end;
+			}      
+		}
+		//-----------------------------------------
+		if (@bought_nameid[.@i]== 3053) {
+			if((countitem(735)== 50)){
+				delitem 735,50;
+				getitem @bought_nameid[.@i],1;
+				end;
+				deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+				deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+				end;
+			}else{
+				dispbottom "Me desculpe, mas você não possui battle points suficiente.";
+				end;
+				deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+				deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+				end;
+			}      
+		}
+		//-----------------------------------------
+		if (@bought_nameid[.@i]== 3054) {
+			if((countitem(735)== 50)){
+				delitem 735,50;
+				getitem @bought_nameid[.@i],1;
+				end;
+				deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+				deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+				end;
+			}else{
+				dispbottom "Me desculpe, mas você não possui battle points suficiente.";
+				end;
+				deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+				deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+				end;
+			}      
+		}
+		//-----------------------------------------
+}
+}
+function	script	battle_custom	{
+	for(set .@i,0; .@i < getarraysize($Battle_Itens); set .@i,.@i+1) {
+		if($Battle_Itens[.@i] == getarg(0)) {
+			return $Battle_Custo[.@i];
+        }
+    }
+return;
+}

@@ -1,0 +1,139 @@
+
+pay_fild07,0,0,0,0	monster	Fabre	1007,50,0,0,0
+pay_fild07,0,0,0,0	monster	Roda Frog	1012,50,0,0,0
+pay_fild07,0,0,0,0	monster	Wilow	1010,50,0,0,0
+pay_fild07,0,0,0,0	monster	Snake	1025,50,0,0,0
+
+mjolnir_08,0,0,0,0	monster	Stainer	1174,50,0,0,0
+mjolnir_08,0,0,0,0	monster	Caramel	1103,50,0,0,0
+mjolnir_08,0,0,0,0	monster	Smokie	1056,50,0,0,0
+
+gef_fild02,0,0,0,0	monster	Horn	1128,50,0,0,0
+gef_fild02,0,0,0,0	monster	Yoyo	1057,50,0,0,0
+gef_fild02,0,0,0,0	monster	Wolf	1013,50,0,0,0
+
+// Konoha ->
+mjolnir_01,0,0,0,0	monster	Naruto	30065,50,0,0,0
+mjolnir_01,0,0,0,0	monster	Sasuke	30081,50,0,0,0
+mjolnir_01,0,0,0,0	monster	Sakura	30079,50,0,0,0
+
+// Konoha <-
+cmd_fild01,0,0,0,0	monster	Hinata	30044,50,0,0,0
+cmd_fild01,0,0,0,0	monster	Shino	30086,50,0,0,0
+cmd_fild01,0,0,0,0	monster	Kiba	30052,50,0,0,0
+
+// Grama ->
+prt_fild00,0,0,0,0	monster	Genin Konoha	30119,75,0,0,0
+prt_fild00,0,0,0,0	monster	Shikamaru	30084,75,0,0,0
+prt_fild00,0,0,0,0	monster	Choji	30036,75,0,0,0
+
+gef_fild08,0,0,0,0	monster	Shecil	1638,50,0,0,0
+gef_fild08,0,0,0,0	monster	C4_Rake_Scaraba	2693,50,0,0,0
+gef_fild08,0,0,0,0	monster	C3_Celia	2875,50,0,0,0
+
+// Grama ->->
+prt_fild05,0,0,0,0	monster	Tenten	30113,50,0,0,0
+prt_fild05,0,0,0,0	monster	Lee	30059,50,0,0,0
+prt_fild05,0,0,0,0	monster	Neji	30071,50,0,0,0
+
+// <-
+gef_fild03,0,0,0,0	monster	Luciola Vespa	1994,50,0,0,0
+gef_fild03,0,0,0,0	monster	Deleter	1384,50,0,0,0
+gef_fild03,0,0,0,0	monster	Aliot	1736,50,0,0,0
+
+gef_fild10,0,0,0,0	monster	Horn Scaraba	2083,50,0,0,0
+gef_fild10,0,0,0,0	monster	Ferus	1714,50,0,0,0
+gef_fild10,0,0,0,0	monster	Violy	1390,50,0,0,0
+gef_fild10,0,0,0,0	monster	Mini Demon	1292,50,0,0,0
+// Pais do Rio
+gef_fild14,0,0,0,0	monster	Duneyrr	2018,50,0,0,0
+gef_fild14,0,0,0,0	monster	Rhyncho	2020,50,0,0,0
+gef_fild14,0,0,0,0	monster	Menblatt	2363,50,0,0,0
+gef_fild14,0,0,0,0	monster	Dark Shadow	2023,50,0,0,0
+
+hu_fild03,0,0,0,0	monster	Itachi	30047,50,0,0,0
+hu_fild03,0,0,0,0	monster	Deidara	30097,50,0,0,0
+hu_fild03,0,0,0,0	monster	Anbu	30006,50,0,0,0
+
+// -> cima
+
+mjolnir_10,0,0,0,0	monster	Choji Shippuuden	30037,50,0,0,0
+mjolnir_10,0,0,0,0	monster	Shikamaru Shippuuden	30085,50,0,0,0
+mjolnir_10,0,0,0,0	monster	Jounin Konoha	30125,80,0,0,0
+
+mjolnir_05,0,0,0,0	monster	Hinata_Shippuuden	30045,50,0,0,0
+mjolnir_05,0,0,0,0	monster	Kiba_Shippuuden	30053,50,0,0,0
+mjolnir_05,0,0,0,0	monster	Shino_Shippuuden	30087,50,0,0,0
+
+mjolnir_11,0,0,0,0	monster	Lee Shippuuden	30060,50,0,0,0
+mjolnir_11,0,0,0,0	monster	Neji Shippuuden	30072,50,0,0,0
+mjolnir_11,0,0,0,0	monster	Tenten Shippuuden	30114,50,0,0,0
+
+prt_fild02,0,0,0,0	monster	Tsunade	30092,75,0,0,0
+prt_fild02,0,0,0,0	monster	Medinin	30107,75,0,0,0
+prt_fild02,0,0,0,0	monster	Capitão Anbu	30005,75,0,0,0
+
+// -> baixo
+um_fild03,0,0,0,0	monster	Naruto Shippuuden	30069,50,0,0,0
+um_fild03,0,0,0,0	monster	Sakura Shippuuden	30080,50,0,0,0
+um_fild03,0,0,0,0	monster	Sasuke Shippuuden	30082,50,0,0,0
+
+moc_fild03,0,0,0,0	monster	Asuma	30096,50,0,0,0
+moc_fild03,0,0,0,0	monster	Gai	30098,50,0,0,0
+moc_fild03,0,0,0,0	monster	Kakashi	30131,50,0,0,0
+moc_fild03,0,0,0,0	monster	Yamato	30117,50,0,0,0
+
+prt_fild07,0,0,0,0	monster	Hiruzen	30046,50,0,0,0
+prt_fild07,0,0,0,0	monster	Tobirama	30090,50,0,0,0
+prt_fild07,0,0,0,0	monster	Minato	30064,50,0,0,0
+
+prt_fild08,0,0,0,0	monster	Hiruzen Bushin	30104,50,0,0,0
+prt_fild08,0,0,0,0	monster	Tobirama Bushin	30115,50,0,0,0
+prt_fild08,0,0,0,0	monster	Minato Bushin	30108,50,0,0,0
+
+gon_fild01,0,0,0,0	monster	Banshee	1867,50,0,0,0
+gon_fild01,0,0,0,0	monster	Solace	1703,50,0,0,0
+gon_fild01,0,0,0,0	monster	Bungisngis	2309,50,0,0,0
+gon_fild01,0,0,0,0	monster	King Dramoh	2198,50,0,0,0
+
+// --------- Pais do Gelo ---------
+dic_fild01,0,0,0,0	monster	Ice Titan	1777,50,0,0,0
+dic_fild01,0,0,0,0	monster	Gazeti	1778,50,0,0,0
+dic_fild01,0,0,0,0	monster	Tatacho	1986,50,0,0,0
+dic_fild01,0,0,0,0	monster	Dolomedes	2092,50,0,0,0
+
+// --------- Pais do Som ---------
+oto_fild00,0,0,0,0	monster	Dosu	30039,30,0,0,0
+oto_fild00,0,0,0,0	monster	Kin	30058,30,0,0,0
+oto_fild00,0,0,0,0	monster	Zaku	30093,30,0,0,0
+oto_fild00,0,0,0,0	monster	Genin Som	30124,30,0,0,0
+
+oto_fild01,0,0,0,0	monster	Jirobou	30048,50,0,0,0
+oto_fild01,0,0,0,0	monster	Kidoumaru	30054,75,0,0,0
+oto_fild01,0,0,0,0	monster	Sakon	30077,50,0,0,0
+oto_fild01,0,0,0,0	monster	Tayuya	30088,50,0,0,0
+
+oto_fild02,0,0,0,0	monster	Ninja Som	30074,50,0,0,0
+oto_fild02,0,0,0,0	monster	Kimimaro	30056,50,0,0,0
+
+oto_fild04,0,0,0,0	monster	Fatninja	30040,50,0,0,0
+oto_fild04,0,0,0,0	monster	Ninja Som2	30075,50,0,0,0
+oto_fild04,0,0,0,0	monster	Kabuto	30050,50,0,0,0
+oto_fild04,0,0,0,0	monster	Kimimaro2	30057,50,0,0,0
+
+oto_fild03,0,0,0,0	monster	Kidoumaru2	30055,50,0,0,0
+oto_fild03,0,0,0,0	monster	Jirobou2	30049,50,0,0,0
+oto_fild03,0,0,0,0	monster	Sakon2	30078,50,0,0,0
+oto_fild03,0,0,0,0	monster	Tayuya2	30089,50,0,0,0
+
+pay_fild02,0,0,0,0	monster	Sasuke2	30083,50,0,0,0
+pay_fild02,0,0,0,0	monster	Jounin Som	30130,50,0,0,0
+pay_fild02,0,0,0,0	monster	Bandido	30007,50,0,0,0
+
+// --------- Takigakure ---------
+taki_fild01,0,0,0,0	monster	Hidan	30043,100,0,0,0
+
+// --------- Amegakure ---------
+
+ame_fild01,0,0,0,0	monster	Hanzo	30101,50,0,0,0
+

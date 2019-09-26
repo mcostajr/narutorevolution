@@ -1,0 +1,9 @@
+-	script	correcaaoskill	-1,{
+
+OnPCLoginEvent:
+	if(loginskill2 == 0) {
+		ResetSkill;
+		loginskill2 = 1;
+		end;
+	}
+}

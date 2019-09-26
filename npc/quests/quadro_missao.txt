@@ -1,0 +1,164 @@
+salakage,26,20,4	script	Missões::missao	4_board3,{
+
+	mes "[Missões]";
+	if(#EventoMissao > 0) {
+		mes "Voce deve "+($@MissaoType[#EventoMissao]?"mata":"me trazer")+" "+$@MissaoAmount[#MissaoQuant]+"x "+($@MissaoType[#EventoMissao]?""+getmonsterinfo($@MissaoID[#EventoMissao],0)+"":""+getitemname($@MissaoID[#EventoMissao]+""))+".";
+	}
+	if(#EventoMissao == 0) {
+		mes "Olá "+strcharinfo(0)+", oque o senhor deseja?";
+	}
+	switch(select( ( (!#EventoMissao)?"- Pegar Missão::":":- Completar Missão:- Abandonar Missão")+":- Informações:- Cancelar")){
+
+	next;
+		case 1:
+			if(missao_time >= gettimetick(2)) {	
+				mes "[Missões]";
+				mes "Voce ainda deve aguardar "+((missao_time-gettimetick(2))/60)+" minuto(s).";
+				close;
+			}
+			mes "[Missões]";
+			mes "Voce pegou uma missão.";
+			if(Baselevel <= 50){
+				set #EventoMissao, rand( 1, 50);
+				set #MissaoQuant, rand( 1, 4);
+			}else if(Baselevel <= 100){
+				set #EventoMissao, rand( 51, 90);
+				set #MissaoQuant, rand( 1, 4);
+			}else if(Baselevel <= 150){
+				set #EventoMissao, rand( 91, 128);
+				set #MissaoQuant, rand( 1, 4);
+			}else if(Baselevel <= 200){
+				set #EventoMissao, rand( 129, 152);
+				set #MissaoQuant, rand( 1, 4);
+			}else if(Baselevel <= 255){
+				set #EventoMissao, rand( 153, 174);
+				set #MissaoQuant, rand( 1, 4);
+			}if (getgroupid() >= 1) {
+				set missao_time, gettimetick(2) + 1800;
+			} else {
+				set missao_time, gettimetick(2) + 3600;
+			}
+			next;
+			mes "[Missões]";
+			mes "Voce deve "+($@MissaoType[#EventoMissao]?"mata":"me trazer")+" "+$@MissaoAmount[#MissaoQuant]+"x "+($@MissaoType[#EventoMissao]?""+getmonsterinfo($@MissaoID[#EventoMissao],0)+"":""+getitemname($@MissaoID[#EventoMissao]+""))+".";
+			close;
+		case 2:
+			if( ($@MissaoType[#EventoMissao] && MissaoKill >= $@MissaoAmount[#MissaoQuant]) || 
+				($@MissaoType[#EventoMissao] && countitem($@MissaoID[#EventoMissao]) >= $@MissaoAmount[#MissaoQuant]) ) 
+				{
+					mes "[Missões]";
+					mes "Parabens, conseguiu "+($@MissaoType[#EventoMissao]?"mata":"me trazer")+" "+$@MissaoAmount[#MissaoQuant]+"x "+($@MissaoType[#EventoMissao]?getmonsterinfo($@MissaoID[#EventoMissao],0):getitemname($@MissaoID[#EventoMissao]))+"!";
+						if($@MissaoType[#EventoMissao] == 1) {
+							set MissaoKill, 0;
+						}else {
+							delitem $@MissaoID[#EventoMissao], $@MissaoAmount[#MissaoQuant];
+						}
+						BaseExp += 2000000;
+						dispbottom "2.000,000 Exp Adiquirido";
+						
+						set sacolazeny,rand( 1 , 10000 );
+						if(sacolazeny <= 1) { Zeny += 10000000; dispbottom "10.000,000 Zeny Adiquirido"; } else
+						if(sacolazeny <= 10) { Zeny += 3000000; dispbottom "3.000,000 Zeny Adiquirido"; } else
+						if(sacolazeny <= 50) { Zeny += 1000000; dispbottom "1.000,000 Zeny Adiquirido"; } else
+						if(sacolazeny <= 100) { Zeny += 300000; dispbottom "300,000 Zeny Adiquirido"; } else
+						if(sacolazeny <= 10000) { Zeny += 100000; dispbottom "100,000 Zeny Adiquirido"; }
+						
+						set #MissaoPoint, #MissaoPoint + 1;
+						//dispbottom "1 Ponto de Missao Adiquirido";
+						
+						// Caixa Ramen
+						set caixaramen,rand( 1 , 100 );
+						if(caixaramen <= 20) {
+							getitem 9015,1;
+						}
+						// Caixa Pilula
+						set caixapilula,rand( 1 , 100 );
+						if(caixapilula <= 50) {
+							getitem 9016,1;
+						}
+						// Caixa Magatama
+						set caixamagatama,rand( 1 , 100 );
+						if(caixamagatama <= 100) {
+							getitem 9018,1;
+						}
+						// Oridecon
+						set sorteioridecon,rand( 1 , 100 );
+						if(sorteioridecon <= 70) {
+							getitem 984,1;
+						}
+						// Elunium
+						set sorteielunium,rand( 1 , 100 );
+						if(sorteielunium <= 70) {
+							getitem 985,1;
+						}
+						// Caixa Missao
+						set caixamissao,rand( 1 , 100 );
+						if(caixamissao == 1) {
+							getitem 9014,1;
+						}
+						set #EventoMissao,0;
+						close;
+				}
+			mes "[Missões]";
+			mes "Voce não completou a missão";
+			close;
+			
+		case 3:
+			mes "[Missões]";
+			mes "Voce deletou a missão";
+			set #EventoMissao,0;
+			if (getgroupid() >= 1) {
+				set missao_time, gettimetick(2) + 1800;
+			} else {
+				set missao_time, gettimetick(2) + 3600;
+			}
+			close;
+			
+		case 4:
+			mes "[Missões]";
+			mes "Ao realizar uma missao voce tem chance de ganhar caixa de missao e ganhar recompensas.";
+			next;
+			mes "[Missões]";
+			mes "Toda missao voce será bonificado com experiencia de acordo com a dificuldade da missao.";
+			close;
+			
+		case 5:
+			mes "[Missões]";
+			mes "Volte sempre.";
+			close;
+	}
+	
+	OnInit:
+		setarray $@MissaoID[1],		1113,1063,1240,1008,1011,1007,1010,1017,1901,1004,1009,1012,1107,1167,1052,1027,1024,1025,1014,1094,1174,1051,1175,1055,1018,1103,1019,1089,1056,1060,1031,1105,1093,1128,1160,1068,1176,1265,1242,1057,1104,1145,1249,1034,1121,1023,1013,1064,30119,1041,1170,30036,1283,30084,30120,30121,30122,30123,30124,30044,1126,1035,30052,1091,1211,30086,30059,30071,30113,30105,30079,1304,30133,30100,30058,30111,1513,30093,30074,30065,30134,30041,30039,30048,30054,30077,30088,30056,30081,1257,30126,1384,1259,1778,1310,1994,1587,1777,1736,1108,1698,1292,30106,1390,30042,1044,1633,1295,1323,1701,1714,30112,1986,1706,2083,1713,2092,2018,2693,2020,1638,2875,3020,2285,2363,2023,30097,1867,1703,30047,2309,2198,30125,30127,30129,30130,30040,30075,30055,30037,30085,30053,30089,30045,30049,30087,30057,30050,30078,30114,30060,30072,30080,30069,30082,30096,30117,30098,30131,30118,30038,30076,30063,30110,30101,30043,30107,30092,30046,30090,30064,30104,30108,30115;
+		setarray $@MissaoAmount[1], 75,100,150,200;
+		setarray $@MissaoLevel[1],	2,3,3,4,5,6,8,10,10,11,12,13,14,14,15,17,17,18,18,19,21,21,22,23,23,25,25,27,29,29,30,31,31,32,32,34,35,35,37,38,38,39,39,40,42,44,45,46,50,50,54,55,57,60,60,60,60,60,60,61,61,63,68,68,71,72,75,79,81,82,85,85,86,87,88,89,89,89,89,90,90,91,91,91,91,91,91,91,95,95,103,105,105,106,107,109,109,110,112,112,114,117,117,118,118,119,120,120,123,125,126,128,128,129,130,130,132,135,139,139,141,141,141,142,143,147,148,150,156,158,160,165,175,175,175,175,176,178,179,180,181,181,181,182,182,183,183,184,185,193,197,200,205,217,220,230,235,240,240,240,240,240,240,240,240,240,245,250,250,250,250,250,250,250;
+		setarray $@MissaoType[1],	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1;
+		
+		// IDs de cada missão.
+		// Quantidade de cada missão.
+		// Level da missão.
+		// Tipo de missão: 0 = Item | 1 = Monstro.
+
+}
+
+-	script	matarmissao	-1,{
+	OnNPCKillEvent:
+		if(killedrid == $@MissaoID[#EventoMissao])
+		{
+			if($@MissaoType[#EventoMissao])
+			if(MissaoKill <= $@MissaoAmount[#MissaoQuant])
+			{
+				set MissaoKill, MissaoKill + 1;
+				dispbottom "Voce já matou "+MissaoKill+"x "+getmonsterinfo($@MissaoID[#EventoMissao],0)+".";
+				end;
+			}
+			end;
+		}
+	end;
+}
+
+salakage2,26,20,4	duplicate(missao)	Missões#2	4_board3
+salakage3,26,20,4	duplicate(missao)	Missões#3	4_board3
+salakage4,26,20,4	duplicate(missao)	Missões#4	4_board3
+salakage5,26,20,4	duplicate(missao)	Missões#5	4_board3
+prtbar,29,29,4	duplicate(missao)	Missões#6	4_board3

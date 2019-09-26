@@ -1,0 +1,11 @@
+// Instance Database
+//
+// Structure of Database:
+// ID,Name,LimitTime,IdleTimeOut,EnterMap,EnterX,EnterY,Map2,Map3,...,Map255
+//
+// EnterMap is considered as Map1
+
+1,Exame Chunin,3600,300,1@exame,29,133
+2,Grande Ponte,3600,300,1@ponte,40,63
+3,Resgate Gaara,3600,300,1@resgate,199,65,2@resgate,3@resgate,4@resgate,5@resgate
+4,Ponte Tenchi,3600,300,1@ponte_ten,40,63,2@ponte_ten

@@ -1,0 +1,24 @@
+moc_fild12,0,0,0,0	monster	Raptice	1027,50,0,0,0
+moc_fild12,0,0,0,0	monster	Desert Wolf	1107,50,0,0,0
+moc_fild12,0,0,0,0	monster	Thief Bug Female	1017,50,0,0,0
+moc_fild12,0,0,0,0	monster	Pupa	1008,50,0,0,0
+
+moc_fild09,0,0,0,0	monster	Giearth	1121,50,0,0,0
+moc_fild09,0,0,0,0	monster	Martin	1145,50,0,0,0
+moc_fild09,0,0,0,0	monster	Piere	1160,50,0,0,0
+
+moc_fild05,0,0,0,0	monster	Genin Suna	30120,85,0,0,0
+
+moc_fild04,0,0,0,0	monster	Deniro	1105,50,0,0,0
+moc_fild04,0,0,0,0	monster	Muka	1055,50,0,0,0
+moc_fild04,0,0,0,0	monster	Thief Bug	1051,50,0,0,0
+
+moc_fild01,0,0,0,0	monster	Gaara	30041,70,0,0,0
+moc_fild01,0,0,0,0	monster	Temari	30111,70,0,0,0
+moc_fild01,0,0,0,0	monster	Kankuro	30105,70,0,0,0
+
+moc_fild13,0,0,0,0	monster	Jounin Suna	30126,50,0,0,0
+
+moc_fild02,0,0,0,0	monster	Gaara Shippuuden	30042,50,0,0,0
+moc_fild02,0,0,0,0	monster	Kankuro Shippuuden	30106,50,0,0,0
+moc_fild02,0,0,0,0	monster	Temari Shippuuden	30112,50,0,0,0

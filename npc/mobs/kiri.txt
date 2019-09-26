@@ -1,0 +1,28 @@
+
+prt_fild03,0,0,0,0	monster	Lunatic	1063,50,0,0,0
+prt_fild03,0,0,0,0	monster	Savage Babe	1167,50,0,0,0
+prt_fild03,0,0,0,0	monster	Rocker	1052,50,0,0,0
+prt_fild03,0,0,0,0	monster	Ambernite	1094,50,0,0,0
+
+treasure01,0,0,0,0	monster	Zabuza	30118,20,0,0,0
+pay_fild11,0,0,0,0	monster	Jounin Nevoa	30127,50,0,0,0
+
+gef_fild12,0,0,0,0	monster	Creamy	1018,50,0,0,0
+gef_fild12,0,0,0,0	monster	Toad	1089,50,0,0,0
+gef_fild12,0,0,0,0	monster	Eclipse	1093,50,0,0,0
+
+mjolnir_07,0,0,0,0	monster	Tha_Maero	1706,50,0,0,0
+mjolnir_07,0,0,0,0	monster	Gld_Kobold_2	2285,50,0,0,0
+mjolnir_07,0,0,0,0	monster	Fire_Condor	3020,50,0,0,0
+
+mjolnir_07,0,0,0,0	monster	Megalodon	1064,50,0,0,0
+mjolnir_07,0,0,0,0	monster	Marin	1242,50,0,0,0
+mjolnir_07,0,0,0,0	monster	Hydra	1068,50,0,0,0
+
+mjolnir_06,0,0,0,0	monster	Kraben	1587,50,0,0,0
+mjolnir_06,0,0,0,0	monster	Deviace	1108,50,0,0,0
+mjolnir_06,0,0,0,0	monster	Obeaune	1044,50,0,0,0
+mjolnir_06,0,0,0,0	monster	See Otter	1323,50,0,0,0
+
+mjolnir_04,0,0,0,0	monster	Genin Nevoa	30121,75,0,0,0
+mjolnir_04,0,0,0,0	monster	Haku	30100,75,0,0,0

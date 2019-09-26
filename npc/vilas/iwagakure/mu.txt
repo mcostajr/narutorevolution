@@ -1,0 +1,6 @@
+
+iwagakure,269,75,5	script	Mu	116,{
+	mes "[Mu]";
+	mes "Yo...";
+	close;
+}

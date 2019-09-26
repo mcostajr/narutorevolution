@@ -1,0 +1,157 @@
+
+function	script	KG_KUGUTSU	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 244,1; skill 831,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 244,1; skill 831,1; skill 832,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 244,1; skill 831,1; skill 832,1; skill 833,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 845,1,3; skill 244,1; skill 831,1; skill 832,1; skill 833,1; skill 834,1; skill 503,4; }
+	end;
+}
+
+function	script	KG_BYAKUGAN_PRIMARIO	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 263,1; skill 272,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 263,2; skill 272,2; skill 273,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 263,3; skill 272,3; skill 273,3; skill 371,3; skill 842,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 263,4; skill 272,4; skill 273,4; skill 371,4; skill 842,4; skill 372,4; skill 805,1; }
+	end;
+}
+
+function	script	KG_PORTOES	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30310 ) { skill 806,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30320 ) { skill 806,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30330 ) { skill 806,3; skill 368,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30340 ) { skill 806,4; skill 368,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 806,5; skill 368,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30360 ) { skill 806,6; skill 368,4; skill 2256,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 806,7; skill 368,4; skill 2256,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 806,7; skill 368,4; skill 2256,4; skill 480,4; skill 2443,1; }
+	end;
+}
+
+function	script	KG_AKIMICHI	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 839,1; skill 810,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 839,2; skill 810,2; skill 811,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 839,3; skill 810,3; skill 811,3; skill 812,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 839,4; skill 810,4; skill 811,4; skill 812,4; skill 271,4; }
+	end;
+}
+
+
+function	script	KG_SELOAMALDICOADO	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 815,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 815,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 815,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 815,4; }
+	end;
+}
+
+function	script	KG_INUZUKA	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 253,1; skill 244,1;  skill 835,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 253,2; skill 244,1;  skill 835,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 253,3; skill 244,1;  skill 835,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 253,4; skill 244,1;  skill 835,1; skill 3004,4;}
+	end;
+}
+
+function	script	KG_HYOUTON	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 537,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 537,2; skill 2236,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 537,3; skill 2236,3; skill 2204,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 537,4; skill 2236,4; skill 2204,4; skill 87,4; }
+	end;
+}
+
+function	script	KG_NARA	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 1005,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 1005,2; skill 512,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 1005,3; skill 512,3; skill 2334,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 1005,4; skill 512,4; skill 2334,4; skill 2485,4; skill 813,1; }
+	end;
+}
+
+function	script	KG_KIBAKU	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 820,1; skill 816,1; skill 515,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 820,1; skill 816,2; skill 515,2; skill 2304,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 820,1; skill 816,3; skill 515,3; skill 2304,3; skill 817,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 820,1; skill 816,4; skill 515,4; skill 2304,4; skill 817,4; skill 818,4; skill 819,4; }
+	end;
+}
+
+function	script	KG_ABURAME	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 128,1; skill 364,1; skill 130,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 128,2; skill 364,2; skill 130,2; skill 129,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 128,3; skill 364,3; skill 130,3; skill 129,3; skill 381,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 128,4; skill 364,4; skill 130,4; skill 129,4; skill 381,4; }
+	end;
+}
+
+function	script	KG_JASHIN	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 248,1; skill 2560,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 248,2; skill 2560,2; skill 254,2; skill 25,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 248,3; skill 2560,3; skill 254,3; skill 25,3; skill 2287,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 248,4; skill 2560,4; skill 254,4; skill 25,4; skill 2287,4; }
+	end;
+}
+
+function	script	KG_TAYUYA	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 326,1; skill 2205,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 326,2; skill 2205,2; skill 821,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 326,3; skill 2205,3; skill 328,3; skill 821,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 326,4; skill 2205,4; skill 328,4; skill 821,3; skill 822,1; }
+	end;
+}
+
+function	script	KG_IBUSE	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 138,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 138,2; skill 379,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 138,3; skill 379,3; skill 406,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 138,4; skill 379,4; skill 406,4; skill 2021,4; skill 824,1; }
+	end;
+}
+
+function	script	KG_BYAKUGO	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 363,1;  }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 363,2; skill 2051,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 363,3; skill 2051,3; skill 2050,3; skill 266,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 363,4; skill 2051,4; skill 2050,4; skill 266,4; skill 5014,4; }
+	end;
+}
+
+function	script	KG_KAGUYA	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 59,1; skill 56,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 59,2; skill 56,2; skill 2020,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 59,3; skill 56,3; skill 2020,3; skill 2004,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 59,4; skill 56,4; skill 2020,4; skill 2004,4; skill 2483,4; }
+	end;
+}
+
+function	script	KG_SHAKUTON	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 3015,1; skill 3019,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 3015,2; skill 3019,2; skill 428,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 3015,3; skill 3019,3; skill 428,3; skill 535,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 3015,4; skill 3019,4; skill 428,4; skill 535,4; skill 2481,4; }
+	end;
+}
+
+function	script	KG_JINTON	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 519,1; skill 444,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 519,2; skill 444,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 519,3; skill 444,3; skill 2202,3; skill 840,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 519,4; skill 444,4; skill 2202,4; skill 840,4; skill 841,4; }
+	end;
+}
+
+function	script	KG_RESSONANTE	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 2414,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 2414,2; skill 2426,2;  }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 2414,3; skill 2426,3; skill 2419,3; skill 2413,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 2414,4; skill 2426,4; skill 2419,4; skill 2413,4; skill 2422,4; }
+	end;
+}
+
+function	script	KG_KIDOUMARU	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 44,1; skill 46,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 44,2; skill 46,2; skill 405,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 44,3; skill 46,3; skill 405,3; skill 2233,3; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 44,4; skill 46,4; skill 405,4; skill 2233,4; skill 382,4; }
+	end;
+}

@@ -1,0 +1,12 @@
+// Konohagakure
+
+kumogakure,107,66,0	warp	VilaNuvem#00	2,2,academia,105,12
+
+//kumogakure,119,148,0	warp	VilaNuvem#01	2,2,bibli_04,53,38
+//bibli_04,53,35,0	warp	VilaNuvem#02	2,2,kumogakure,122,148
+
+kumogakure,149,141,0	warp	VilaNuvem#03	2,2,salakage4,31,5
+salakage4,31,2,0	warp	VilaNuvem#04	2,2,kumogakure,149,138
+
+kumogakure,94,118,0	warp	VilaNuvem#05	2,2,ama_in01,175,173
+ama_in01,175,170,0	warp	VilaNuvem#06	2,2,kumogakure,97,118

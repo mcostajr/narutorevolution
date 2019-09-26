@@ -1,0 +1,35 @@
+kumogakure,155,16,0	warp	kumo_entrada#2	2,2,ein_fild02,256,342
+ein_fild02,256,347,0	warp	kumo_entrada#1	2,2,kumogakure,155,19
+
+ein_fild02,356,251,0	warp	fild kumo#1	2,2,yuno_fild05,44,347
+yuno_fild05,41,351,0	warp	fild kumo#2	2,2,ein_fild02,351,250
+yuno_fild05,182,366,0	warp	fild kumo#3	2,2,yuno_fild08,149,60
+yuno_fild08,149,55,0	warp	fild kumo#4	2,2,yuno_fild05,181,361
+ein_fild02,30,214,0	warp	fild kumo#5	2,2,yuno_fild02,378,336
+yuno_fild02,382,338,0	warp	fild kumo#6	2,2,ein_fild02,34,212
+yuno_fild02,116,375,0	warp	fild kumo#7	2,2,yuno_fild03,179,22
+yuno_fild03,179,17,0	warp	fild kumo#8	2,2,yuno_fild02,115,370
+yuno_fild02,19,338,0	warp	fild kumo#9	2,2,ein_fild01,344,366
+ein_fild01,348,368,0	warp	fild kumo#10	2,2,yuno_fild02,24,338
+ein_fild01,109,34,0	warp	fild kumo#11	2,2,yuno_fild11,91,366
+yuno_fild11,91,370,0	warp	fild kumo#12	2,2,ein_fild01,109,39
+yuno_fild11,29,266,0	warp	fild kumo#13	2,2,yuno_fild09,373,184
+yuno_fild09,377,184,0	warp	fild kumo#14	2,2,yuno_fild11,33,266
+yuno_fild09,20,194,0	warp	fild kumo#15	2,2,dic_fild01,248,250
+dic_fild01,252,253,0	warp	fild kumo#16	2,2,yuno_fild09,24,194
+// geada+fontes termais
+dic_fild01,69,23,0	warp	fild geada#1	2,2,pay_fild02,81,384
+pay_fild02,81,388,0	warp	fild geada#2	2,2,dic_fild01,69,28
+pay_fild02,133,17,0	warp	fild termal#1	2,2,prt_fild02,174,378
+prt_fild02,174,382,0	warp	fild termal#2	2,2,pay_fild02,135,21
+prt_fild02,16,243,0	warp	fild termal#3	2,2,mjolnir_11,323,327
+mjolnir_11,327,330,0	warp	fild termal#4	2,2,prt_fild02,21,243
+//
+yuno_fild11,299,118,0	warp	fild tutle#1	2,2,tur_dun01,160,35
+tur_dun01,163,32,0	warp	fild tutle#2	2,2,yuno_fild11,299,122
+tur_dun01,154,242,0	warp	fild tutle#3	2,2,tur_dun02,166,23
+tur_dun02,167,19,0	warp	fild tutle#4	2,2,tur_dun01,154,238
+tur_dun02,147,268,0	warp	fild tutle#5	2,2,tur_dun03,218,73
+tur_dun03,218,70,0	warp	fild tutle#6	2,2,tur_dun02,147,264
+tur_dun03,132,194,0	warp	fild tutle#7	2,2,tur_dun04,99,191
+tur_dun04,99,195,0	warp	fild tutle#8	2,2,tur_dun03,132,190

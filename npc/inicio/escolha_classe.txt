@@ -1,0 +1,344 @@
+academia,100,30,5	script	Upadora	410,{
+
+set BaseLevel,BaseLevel+10;
+set JobLevel,JobLevel+10;
+end;
+
+}
+
+academia,95,26,4	script	Instrutor Inicial	79,{
+	
+	if(Class != JOB_NOVICE) { 
+		if(pegoubandana < 1) {
+			mes "[Instrutor Inicial]";
+			mes "Olá "+strcharinfo(0)+", você esqueceu de pegar sua bandana.";
+			goto escolhabandana;
+			end;
+		}
+		mes "[Instrutor Inicial]"; 
+		mes "Estou aqui para ajudar apenas os iniciantes."; 
+		close; 
+	}
+	
+	if(checkquest(1000) == 1)
+	{
+		if (!callfunc("F_CanChangeJob")) {
+			mes "[Instrutor Inicial]";
+			mes "Você precisa pegar Level 10 de job e usar todos seus pontos.";
+			close;
+			
+		} else {
+			mes "[Instrutor Inicial]";
+			mes "Parabéns você está prestes a se tornar um Genin.";
+			next;
+			mes "[Instrutor Inicial]";
+			mes "Escolha qual estilo você quer ser.";
+				switch(select("- Taijutsu.:- Ninjutsu.:- Deixe-me pensar.")){
+					next;
+					case 1:	
+						mes "[Instrutor Inicial]";
+						mes "Você realmente escolheu ser Taijutsu.";
+						if(select("- Não:- Sim") == 1) close;
+							completequest 1000;
+							setquest 1001;
+							jobchange 1;
+							SkillPoint += 1;
+							callfunc("F_BasicSkills");
+							goto escolhabandana;
+							end;
+						
+					case 2:
+						mes "[Instrutor Inicial]";
+						mes "Você realmente escolheu ser Ninjutsu.";
+						if(select("- Não:- Sim") == 1) close;
+							completequest 1000;
+							setquest 1001;
+							jobchange 2;
+							SkillPoint += 1;
+							callfunc("F_BasicSkills");
+							goto escolhabandana;
+							end;
+						
+					case 3:
+						mes "[Instrutor Inicial]";
+						mes "Volte quando decidir o seu estilo de luta.";
+						close;
+				}
+				
+			escolhabandana:
+			next;
+			mes "[Instrutor Inicial]";
+			mes "Escolha o modelo da sua Bandana.";
+				switch(select("- Bandana Normal:- Bandana de Lado:- Bandana no Pescoço:- Bandana Yamato:- Bandana Kisame:- Bandana Kakashi")) {
+					case 1:
+						getitem 569,250;
+						pegoubandana = 1;
+						if(konoha)
+							getitem 30000,1;
+							equip 30000;
+						if(suna)
+							getitem 30010,1;
+							equip 30010;
+						if(nevoa)
+							getitem 30020,1;
+							equip 30020;
+						if(nuvem)
+							getitem 30030,1;
+							equip 30030;
+						if(pedra)
+							getitem 30040,1;
+							equip 30040;
+						percentheal 100,100;
+						end;
+					case 2:
+						getitem 569,250;
+						pegoubandana = 1;
+						if(konoha)
+							getitem 30001,1;
+							equip 30001;
+						if(suna)
+							getitem 30011,1;
+							equip 30011;
+						if(nevoa)
+							getitem 30021,1;
+							equip 30021;
+						if(nuvem)
+							getitem 30031,1;
+							equip 30031;
+						if(pedra)
+							getitem 30041,1;
+							equip 30041;
+						percentheal 100,100;
+						end;
+					case 3:
+						getitem 569,250;
+						pegoubandana = 1;
+						if(konoha)
+							getitem 30002,1;
+							equip 30002;
+						if(suna)
+							getitem 30012,1;
+							equip 30012;
+						if(nevoa)
+							getitem 30022,1;
+							equip 30022;
+						if(nuvem)
+							getitem 30032,1;
+							equip 30032;
+						if(pedra)
+							getitem 30042,1;
+							equip 30042;
+						percentheal 100,100;
+						end;
+					case 4:
+						getitem 569,250;
+						pegoubandana = 1;
+						if(konoha)
+							getitem 30003,1;
+							equip 30003;
+						if(suna)
+							getitem 30013,1;
+							equip 30013;
+						if(nevoa)
+							getitem 30023,1;
+							equip 30023;
+						if(nuvem)
+							getitem 30033,1;
+							equip 30033;
+						if(pedra)
+							getitem 30043,1;
+							equip 30043;
+						percentheal 100,100;
+						end;
+					case 5:
+						getitem 569,250;
+						pegoubandana = 1;
+						if(konoha)
+							getitem 30004,1;
+							equip 30004;
+						if(suna)
+							getitem 30014,1;
+							equip 30014;
+						if(nevoa)
+							getitem 30024,1;
+							equip 30024;
+						if(nuvem)
+							getitem 30034,1;
+							equip 30034;
+						if(pedra)
+							getitem 30044,1;
+							equip 30044;
+						percentheal 100,100;
+						end;
+					case 6:
+						getitem 569,250;
+						pegoubandana = 1;
+						if(konoha)
+							getitem 30005,1;
+							equip 30005;
+						if(suna)
+							getitem 30015,1;
+							equip 30015;
+						if(nevoa)
+							getitem 30025,1;
+							equip 30025;
+						if(nuvem)
+							getitem 30035,1;
+							equip 30035;
+						if(pedra)
+							getitem 30045,1;
+							equip 30045;
+						percentheal 100,100;
+						end;
+				}
+		}
+		mes "[Instrutor Inicial]";
+		mes "Você precisa pegar 10 de job.";
+		close;
+	}
+
+	if(inicio < 1)
+	{
+		mes "[Instrutor Inicial]";
+		mes "Bem Vindo ao mundo Shinobi";
+		next;
+		mes "[Instrutor Inicial]";
+		mes "O mundo shinobi está em guerra, onde os clãs ninja batalham";
+		mes "para se tornar o clã mais poderoso e dominar o mundo ninja.";
+		next;
+		mes "[Instrutor Inicial]";
+		mes "Irei ensina-lo um pouco sobre a mecânica do jogo.";
+		next;
+			cutin "tutorial01",4;
+			mes "[Instrutor Inicial]";
+			mes "-! Informação !-";
+			mes "Clique no chão para movimentar seu personagem.";
+			mes "Para atacar monstros e conversar com pessoas neste mundo pode ser feito simplismente ao clicar neles.";
+			next;
+			cutin "",255;
+				cutin "tutorial02",4;
+				mes "[Instrutor Inicial]";
+				mes "-! Informação !-";
+				setquest 1000;
+				mes "Você tem uma missão dada por Iruka";
+				mes "Você pode ver o conteúdo dela na Janela de Informação de Missões.";
+				next;
+				mes "[Instrutor Inicial]";
+				mes "-! Informação !-";
+				mes "Você pode abrir a Janela de Informação de Missões pressionando as teclas ^4A4AFFALT + U^000000.";
+				next;
+					cutin "",255;
+					cutin "tutorial03",4;
+					mes "[Instrutor Inicial]";
+					mes "!- Informação -!";
+					mes "Itens podem ser facilmente equipados ou usados ao clicar duas vezes com o botão direito neles.";
+					mes "O atalho para abrir a Janela do Inventário é ALT + E.";
+					next;
+					mes "[Instrutor Inicial]";
+					mes "!- Informação -!";
+					mes "Para checar os itens que estão equipados, use o atalho ALT + Q.";
+					mes "Ou, arraste o item para o slot que você quer que o item seja equipado.";
+					next;
+						cutin "",255;
+						cutin "tutorial04",4;
+						mes "[Instrutor Inicial]";
+						mes "!- Informação -!";
+						mes "Clique com o botão direito em um item para ver informações detalhadas sobre ele.";
+						next;
+						mes "[Instrutor Inicial]";
+						mes "!- Informação -!";
+						mes "Clique com o botão direito em outros jogadores para mostrar o Menu da Comunidade, você pode entrar em um grupo, solicitar negociação, etc.";
+						next;
+							cutin "",255;
+							cutin "tutorial05",4;
+							mes "[Instrutor Inicial]";
+							mes "!- Informação -!";
+							mes "Você pode registrar uma habilidade ou um item na Janela de Atalhos arrastando-os para os slots de atalhos.";
+							next;
+							mes "[Instrutor Inicial]";
+							mes "!- Informação -!";
+							mes "Habilidades ou itens registrados podem ser usados/equipados ao pressionar a tecla correspondente.";
+							next;
+							mes "[Instrutor Inicial]";
+							mes "!- Informação -!";
+							mes "Você pode customizar o Atalho para usar qualquer tecla que você quiser como Atalho mudando a Configuração de Atalho no Menu de Opções.";
+							next;
+							mes "[Instrutor Inicial]";
+							mes "!- Informação -!";
+							mes "Registre habilidades e itens que você usa com frequência para usá-los facilmente.";
+							next;
+								cutin "",255;
+								mes "[Instrutor Inicial]";
+								mes "Para seu primeito treinamento derrote os monstros e volte quando tiver com job level 10.";
+								inicio = 1;
+								close;
+	}
+
+	OnInit:
+		questinfo 1000, QTYPE_QUEST, 0, Job_Novice;
+		end;
+
+}
+
+academia,105,8,5	script	SAIDADA_ACADEMIA	WARPNPC,2,2,{
+
+	OnTouch:
+		if(checkquest(1002) == 1) { completequest 1002; }
+		if(Class == JOB_NOVICE) { mes "Termine o treinamento para genin."; close2; end; }
+		if(konoha)
+			warp "konoha3",240,248; 
+		if(suna)
+			warp "sunagakure",225,125; 
+		if(nevoa)
+			warp "kirigakure",186,177; 
+		if(nuvem)
+			warp "kumogakure",107,63; 
+		if(pedra)
+			warp "iwagakure",185,84; 
+		end;
+		
+}
+
+acad_fild00,26,29,0	warp	treino#00	2,2,academia,105,12
+
+academia,105,91,0	warp	treino#01	1,1,treinamento,181,85
+treinamento,183,82,0	warp	treino#02	1,1,academia,105,88
+
+academia,114,44,0	warp	treino#03	2,2,academia,148,36
+academia,145,36,0	warp	treino#04	2,2,academia,110,44
+
+academia,114,62,0	warp	treino#05	2,2,academia,148,76
+academia,145,76,0	warp	treino#06	2,2,academia,110,62
+
+academia,95,44,0	warp	treino#07	2,2,academia,67,36
+academia,70,36,0	warp	treino#08	2,2,academia,98,44
+
+academia,95,62,0	warp	treino#09	2,2,academia,69,76
+academia,72,76,0	warp	treino#10	2,2,academia,98,62
+
+
+academia,98,46,5	script	Chunin Shiken#2	837,{
+mes "[Chunin Shiken]";
+mes "Bem-vindo a academia, nessa sala você faz o teste para virar chunin!";
+close;
+}
+academia,111,46,5	script	Jounin Shiken#2	837,{
+mes "[Jounin Shiken]";
+mes "Bem-vindo a academia, nessa sala você faz o teste para virar jounin!";
+close;
+}
+academia,98,64,5	script	? Shiken#2	837,{
+mes "[? Shiken]";
+mes "Bem-vindo a academia, nessa sala você faz o teste para virar jounin de elite ou procurado!";
+close;
+}
+academia,111,64,5	script	? Shiken#3	837,{
+mes "[? Shiken]";
+mes "Bem-vindo a academia, nessa sala você faz o teste para virar sanin ou renegado!";
+close;
+}
+academia,101,89,5	script	Campo de Treinamento	837,{
+mes "[Campo de Treinamento]";
+mes "Bem-vindo a academia, nesse portal você ira para area de treinamento!";
+close;
+}

@@ -1,0 +1,33 @@
+//hu_fild03,256,198,4	script	Obito	425,{
+academia,120,9,4	script	Obito	425,{
+
+	mes "[Obito]";
+	mes "Hum...";
+	switch(select("- Obrigado pela conversa.:- Quero o seu olho.") ) {
+		case 1:
+			close;
+		
+		case 2:
+			next;
+			if(getequipid(EQI_HEAD_MID) == 30103 && getequipcardid(EQI_HEAD_MID,0) == 30400) { 
+				mes "[Obito]";
+				mes "Venha arrancar de mim se você é capaz.";
+				next;
+				mes "[Obito]";
+				mes "Você realmente é um uchiha.";
+				delitem 30103,1;
+				getitem 30131,1;
+				equip 30131;
+				close;
+			}
+			mes "[Obito]";
+			mes "Sai fora bastardo.";
+			close;
+	}
+}
+
+hu_fild03,259,198,4	script	Zetsu	436,{
+	mes "[Zetsu]";
+	mes "Uhhmm...";
+	close;
+}

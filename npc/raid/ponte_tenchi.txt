@@ -1,0 +1,402 @@
+moc_fild12,154,376,4	script	Tsunade#1	65,{
+
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+
+	mes .@npc$;
+	mes "Instância";
+	mes "Nome: Ponte Tenchi";
+	mes "Level: 200";
+	mes "Premiação: Experiência, Drops de Mob";
+	switch(select("- Criar uma Instância:- Entrar na Instância:- Cancelar")) {
+	case 1:
+		if(!getcharid(1)) {
+			next;
+			mes .@npc$;
+			mes "Você precisa estar em grupo para entrar na raid.";
+			close;
+		}
+		if(getpartyleader(getcharid(1),2) != getcharid(0)) {
+			next;
+			mes .@npc$;
+			mes "O grupo só poderá entrar na raid quando o líder falar comigo.";
+			close;
+		}
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			if($@partymembercount > 5) {
+				next;
+				mes .@npc$;
+				mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+				close;
+			}
+		}
+		if(!instance_check_party(getcharid(1),1,200,255)) {
+			next;
+			mes .@npc$;
+			mes "Todos os membros do grupo devem ser nível 200~255.";
+			close;
+		}
+		close2;
+		getpartymember getcharid(1),0;
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			attachrid($@partymemberaid[.@i]);
+			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @ponte_ten, @limite);
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+				dispbottom "Você já fez a raid nas últimas 24 horas.";
+				end;
+			}
+			if(delay_raid >= gettimetick(2)) {	
+				dispbottom "Você ainda deve aguardar "+((delay_raid-gettimetick(2))/60)+" minuto(s).";
+				end;
+			}
+			if(!@ponte_ten) {
+				//query_sql "INSERT INTO `ii_limit` (`char_id`, `index`, `value`) VALUES ("+$@partymembercid[.@i]+",1,1)";
+			} else { 
+				//query_sql "UPDATE `ii_limit` SET `value` = `value` + 1 WHERE `char_id`= '"+$@partymembercid[.@i]+"'";
+			}
+		}
+		
+		instance_create("Ponte Tenchi");
+		end;
+		
+	case 2:
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @ponte, @limite);
+	
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+				dispbottom "Você já fez a raid nas últimas 24 horas.";
+				close;
+			}
+			if($@partymembercount <= 5) {
+				switch(instance_enter("Ponte Tenchi")) {
+				case IE_OTHER:
+					mes .@npc$;
+					mes "Ocorreu um erro desconhecido.";
+					close;
+				case IE_NOINSTANCE:
+					mes .@npc$;
+					mes "A instância ainda não foi criada.";
+					close;
+				case IE_NOMEMBER:
+					mes .@npc$;
+					mes "Você precisa de um grupo.";
+					close;
+				case IE_OK:
+					//warp "1@ponte_ten",199,65;
+					close;
+				}
+			}
+		}	
+		mes .@npc$;
+		mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+		close;
+		
+	case 3:
+		close;
+	}
+}
+
+// Entrance
+1@ponte_ten,199,65,0	script	#ponte_tenchi01	HIDDEN_WARP_NPC,1,1,{ // Alterar Localizacao
+	end;
+OnTouch:
+	disablenpc instance_npcname("#ponte_tenchi01");
+	disablenpc ""+instance_npcname("Tsunade#2")+"";
+	disablenpc ""+instance_npcname("Shino Shippuuden#1")+"";
+	disablenpc ""+instance_npcname("Kiba Shippuuden#1")+"";
+	disablenpc ""+instance_npcname("Akamaru#1")+"";
+	disablenpc ""+instance_npcname("Hinata Shippuuden#1")+"";
+	disablenpc ""+instance_npcname("Shikamaru Shippuuden#1")+"";
+	disablenpc ""+instance_npcname("Choji Shippuuden#1")+"";
+	disablenpc ""+instance_npcname("Sai#1")+"";
+	disablenpc ""+instance_npcname("Yamato#1")+"";
+	disablenpc ""+instance_npcname("Sai#2")+"";
+	disablenpc ""+instance_npcname("Kabuto#1")+"";
+	disablenpc ""+instance_npcname("Orochimaru#1")+"";
+	instance_announce instance_id(),"Shizune: você realmente acha que podemos confiar nesse guia?",0;
+	sleep2 2000;
+	instance_announce instance_id(),"Shizune: O que faremos se for uma armadilha",0;
+	sleep2 2000;
+	instance_announce instance_id(),"Tsunade: Existe a possibilidade de ser uma armadilha de Orochimaru",0;
+	sleep2 2000;
+	instance_announce instance_id(),"Tsunade: Temos apenas  seis  dias, precisamos formar um novo time",0;
+	sleep2 2000;
+	instance_announce instance_id(),"Sakura: E obter respostas de onde está Sasuke...",0;
+	sleep2 2000;
+	enablenpc ""+instance_npcname("Tsunade#2")+"";
+	instance_announce instance_id(),"E vocês ai fora, imagino que não irão aceitar ficar fora dessa missão!",0;
+	end;
+}
+
+1@ponte_ten,100,100,4 script	Tsunade#2	99,{
+
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+
+	mes .@npc$;
+	mes "";
+	if(select("- Procurar por novos membros pro grupo.:- Sair") == 2) close;
+		close2;
+		enablenpc ""+instance_npcname("Shino Shippuuden#1")+"";
+		end;
+}
+
+1@ponte_ten,100,100,4 script	Shino Shippuuden#1	99,{
+
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+
+	if('shino_ajuda == 0) {
+		enablenpc ""+instance_npcname("Kiba Shippuuden#1")+"";
+		enablenpc ""+instance_npcname("Akamaru#1")+"";
+		enablenpc ""+instance_npcname("Hinata Shippuuden#1")+"";
+		
+		mes .@npc$;
+		mes "";
+		if(select("- Explicar a situação:- Sair") == 2) close;
+			close2;
+			instance_announce instance_id(),"Ei Shino, Kurenai Sensei mandou te buscar, temos uma missão e precisamos ir rápido.",0;
+			'shino_ajuda = 1;
+			end;
+	}
+	mes .@npc$;
+	mes "";
+	if(select("- vai poder me ajudar?:- Sair") == 2) close;
+		close2;
+		enablenpc ""+instance_npcname("Shikamaru Shippuuden#1")+"";
+		enablenpc ""+instance_npcname("Choji Shippuuden#1")+"";
+		instance_announce instance_id(),"Infelizmente não vou poder ir, procure por mais ninjas que podem te ajudar",0;
+		end;
+	
+	OnInstanceInit:
+	set 'shino_ajuda,0;
+	set 'ajudas,0;
+	end;
+}
+
+1@ponte_ten,100,100,4 script	Kiba Shippuuden#1	99,{
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "";
+	close;
+	
+}
+1@ponte_ten,100,100,4 script	Akamaru#1	99,{
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "";
+	close;
+}
+1@ponte_ten,100,100,4 script	Shino Shippuuden#1	99,{
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "";
+	close;
+}
+
+1@ponte_ten,100,100,4 script	Shikamaru Shippuuden#1	99,{
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "";
+	if(select("- Explicar a situação:- Sair") == 2) close;
+		mes "Não posso te ajudar, fui encarregado pela godaime para preparar o exame chunin.";
+		'ajudas = 'ajudas+1;
+		close2;
+		if('ajudas == 2) {
+			'ajudas = 'ajudas+1;
+			instance_announce instance_id(),"A expressão do Shikamaru e Choji mudaram rapidamente",0;
+			sleep2 2000;
+			instance_announce instance_id(),"Quem é aquele? Ele usa o protetor da folha, então por que está nos atacando?",0;
+			monster ""+instance_mapname("1@ponte_ten",instance_id())+"",24,88,"Neji",30142,1,"ponte_ten1instance::OnTinta1Die";
+		}
+		end;
+	
+}
+
+1@ponte_ten,100,100,4 script	Choji Shippuuden#1	99,{
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "";
+	if(select("- Explicar a situação:- Sair") == 2) close;
+		mes "Não posso te ajudar, vou sair em uma missão com a Ino e  Asuma Sensei";
+		'ajudas = 'ajudas+1;
+		close2;
+		if('ajudas == 2) {
+			'ajudas = 'ajudas+1;
+			instance_announce instance_id(),"A expressão do Shikamaru e Choji mudaram rapidamente",0;
+			sleep2 2000;
+			instance_announce instance_id(),"Quem é aquele? Ele usa o protetor da folha, então por que está nos atacando?",0;
+			monster ""+instance_mapname("1@ponte_ten",instance_id())+"",24,88,"Neji",30142,1,"ponte_ten1instance::OnTinta1Die";
+		}
+		end;
+	
+}
+
+1@ponte_ten,0,0,0	script	ponte_ten1instance	-1,{
+	
+	OnTinta1Die:
+		if(!mobcount(""+instance_mapname("1@ponte_ten",instance_id())+"","ponte_ten1instance::OnTinta1Die")) {
+			enablenpc ""+instance_npcname("Sai#1")+"";
+			instance_announce instance_id(),"Você é muito fraco, parece uma criança, vamos nos encontrar de novo.",0;
+			sleep2 1000;
+			disanablenpc ""+instance_npcname("Sai#1")+"";
+			enablenpc ""+instance_npcname("Yamato#1")+"";
+		}else
+		end;
+	
+}
+1@ponte_ten,100,100,4 script	Sai#1	99,{
+	end;
+}
+
+1@ponte_ten,100,100,4 script	Yamato#1	99,{
+	
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "";
+	if(select(- Quem é você ?:- Sair) == 2) close;
+		next;
+		mes "fui encarregado pela godaime para cuidar do time nessa missão, e temos mais um membro que deve estar para chegar.";
+		close2;
+		enablenpc ""+instance_npcname("Sai#2")+"";
+		instance_announce instance_id(),"Sai: Oi!",0;
+		sleep2 2000;
+		instance_announce instance_id(),"Yamato: Sem mais delongas, vamos para a ponte encontrar o espião.",0;
+		disablenpc ""+instance_npcname("Yamato#1")+"";
+		warpparty "2@ponte_ten",100,100,getcharid(1);
+		end;
+}
+
+1@ponte_ten,100,100,4 script	Sai#2	99,{
+	instance_warpall "2@ponte_ten",100,100;
+	end;
+}
+
+2@ponte_ten,100,100,4	script	Kabuto#1	99,{
+
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	if(getpartyleader(getcharid(1),2) != getcharid(0)) {
+		mes .@npc$;
+		mes "";
+		if(select("- Então o espião era você:- Sair") == 2) close;
+			next;
+			mes .@npc$;
+			mes "sim, já faz 5 anos desde nosso ultimo encontro";
+			if(select("- Onde está o Uchiha Sasuke:- Sair") == 2) close;
+				mes .@npc$;
+				mes "está num esconderijo em uma pequena ilha em um lago a noroeste";
+				close2;
+				enablenpc ""+instance_npcname("Orochimaru#1")+"";
+				end;
+	}
+	mes .@npc$;
+	mes "Falarei apenas com o lider.";
+	close;
+}
+
+2@ponte_ten,100,100,4	script	Orochimaru#1	99,{
+
+	close2;
+	instance_announce instance_id(),"Sua conversa parece bem divertida, não importa se eu me juntar não é?",0;
+	sleep2 2000;
+	instance_announce instance_id(),"Kabuto é meu subordinado por livre vontade...",0;
+	disablenpc ""+instance_npcname("Kabuto#1")+"";
+	disablenpc ""+instance_npcname("Orochimaru#1")+"";
+	monster ""+instance_mapname("2@ponte_ten",instance_id())+"",24,88,"Kabuto",30142,1,"ponte_ten2instance::OnKabutoDie";
+	monster ""+instance_mapname("2@ponte_ten",instance_id())+"",24,88,"Orochimaru",30142,1,"ponte_ten2instance::OnOrochimaruDie";
+	end;
+}
+
+2@ponte_ten,0,0,0	script	ponte_ten2instance	-1,{
+	
+	OnKabutoDie:
+		if(!mobcount(""+instance_mapname("1@ponte_ten",instance_id())+"","ponte_ten1instance::OnOrochimaruDie")) {
+			
+		}else
+		end;
+		
+	OnOrochimaruDie:
+		if(!mobcount(""+instance_mapname("1@ponte_ten",instance_id())+"","ponte_ten1instance::OnKabutoDie")) {
+			instance_announce instance_id(),"Precisamos parar o naruto agora, esse modo está diminuindo sua vida...",0;
+			monster ""+instance_mapname("2@ponte_ten",instance_id())+"",24,88,"Naruto 4 Caldas",30142,1,"ponte_ten2instance::OnNaruto4CaldasDie";
+			sleep2 2000;
+			instance_announce instance_id(),"Sai aproveitou essa batalha e fugiu junto com Orochimaru",0;
+			sleep2 2000;
+			instance_announce instance_id(),"Precisamos pará-los!",0;
+		}else
+		end;
+		
+	OnNaruto4CaldasDie:
+		enablenpc ""+instance_npcname("Fim#1")+"";
+		end;
+	
+}
+
+
+2@ponte_ten,180,216,0	script	Fim#1	99,{
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	if(getcharid(0) != getpartyleader(getcharid(1),2)) {
+		mes .@npc$;
+		mes "Apenas o líder pode finalizar a missão.";
+		close;
+	}
+	getpartymember getcharid(1),1;
+	getpartymember getcharid(1),2;
+	for(.@i = 0; .@i < $@partymembercount; .@i++) {
+		if($@partymembercount > 5) {
+			mes .@npc$;
+			mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+			instance_destroy;
+			close;
+		}
+	}
+	mes .@npc$;
+	mes "Obrigado !";
+	close2;
+	getpartymember getcharid(1),0;
+	getpartymember getcharid(1),1;
+	getpartymember getcharid(1),2;
+	for(.@i = 0; .@i < $@partymembercount; .@i++) {
+		attachrid($@partymemberaid[.@i]);
+		if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
+		
+			query_sql "SELECT `index`,`value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'",@ponte_ten,@limite;
+			
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) {
+				if(!@ponte_ten) {
+					query_sql "INSERT INTO `ii_limit` (`char_id`, `index`, `value`) VALUES ("+$@partymembercid[.@i]+",1,1)";
+				} else { 
+					query_sql "UPDATE `ii_limit` SET `value` = `value` + 1 WHERE `char_id`= '"+$@partymembercid[.@i]+"'";
+				}
+				announce "O Grupo ["+getpartyname(getcharid(1))+"] está tentando trapacear na Raid.",bc_all;				
+				.@count = $@partymembercount;				
+				copyarray .@name$[0], $@partymembername$[0], $@partymembercount;				
+				for (.@i = 0; .@i < .@count; .@i++)					
+				announce (.@i +1) + "." + .@name$[.@i] + "",bc_all;				
+				instance_destroy;
+				end;
+			}
+				// Delay
+				set delay_raid, gettimetick(2) + 300;
+				set #RaidPoint, #RaidPoint + 5;
+				BaseExp += 40000000;
+				Zeny += 200000;
+				getitem 9017,1;
+		}
+	}
+	announce "O Grupo ["+getpartyname(getcharid(1))+"] acaba de completar a Ponte Tenchi.",bc_all;
+	instance_destroy;
+	end;
+}
+

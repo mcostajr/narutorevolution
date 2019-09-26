@@ -1,0 +1,70 @@
+konoha3,181,177,5	script	Mabui#1::kafra	442,{
+	mes "[Mabui]";
+	mes "Ol?, bem vindo.";
+	mes "Ao Kafra Corporation";
+	mes "Sede. No que";
+	mes "precisa de ajuda?";
+	next;
+	switch(select("- Curar:- Salvar:- Usar Armazem:- Cancel")) {
+	case 1:
+		mes "[Mabui]";
+		mes "Voce ja está curado.";
+		percentheal 100,100;
+		close;
+	case 2:
+		mes "[Mabui]";
+		mes "Seu ponto de retorno";
+		mes "foi salvo aqui na";
+		mes "sede da Corpora?ao Kafra.";
+		mes "Muito obrigado!";
+		next;
+		getmapxy(.@map$, .@x, .@y, 0);
+		savepoint .@map$, .@x, .@y;
+		mes "[Mabui]";
+		mes "Muito obrigado por visitar";
+		mes "a sede da Corpora?ao Kafra.";
+		close2;
+		break;
+	case 3:
+		mes "[Mabui]";
+		mes "Embora esta facilidade seja";
+		mes "exclusivamente destinada";
+		mes "a forma?ao das funcion?rias Kafra";
+		mes "e tamb?m fun?oes administrativas,";
+		mes "Eu vou acessar seu armaz?m para voce.";
+		next;
+		mes "[Mabui]";
+		mes "Na pr?xima vez, favor";
+		mes "pergunte a qualquer funcion?rio";
+		mes "da Corpora?ao Kafra";
+		mes "sobre qualquer um de nossos servi?os.";
+		mes "Obrigado por usar nossos servi?os.";
+		close2;
+		openstorage;
+		break;
+		
+	case 4:
+		mes "[Mabui]";
+		mes "^666666*Ufa...*^000000";
+		mes "?timo, porque eu";
+		mes "atualmente, estou descansando.";
+		mes "Agora a escolha da op?ao";
+		mes "''Cancelar'' foi um bom";
+		mes "movimento vindo de sua parte.";
+		close2;
+		break;
+	}
+	end;
+	
+}
+
+sunagakure,218,157,4	duplicate(kafra)	Mabui#2	442
+kirigakure,215,198,4	duplicate(kafra)	Mabui#3	442
+kumogakure,164,121,4	duplicate(kafra)	Mabui#4	442
+iwagakure,207,146,2	duplicate(kafra)	Mabui#5	442
+//treinamento,79,136,4	duplicate(kafra)	Mabui#6	442
+otogakure,80,196,4	duplicate(kafra)	Mabui#7	442
+kusagakure,207,87,4	duplicate(kafra)	Mabui#8	442
+amegakure,215,186,4	duplicate(kafra)	Mabui#9	442
+takigakure,173,151,4	duplicate(kafra)	Mabui#10	442
+academia,119,24,4	duplicate(kafra)	Mabui#11	442

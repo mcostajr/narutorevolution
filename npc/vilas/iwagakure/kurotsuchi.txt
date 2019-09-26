@@ -1,0 +1,6 @@
+
+iwagakure,167,233,4	script	Kurotsuchi	103,{
+	mes "[Kurotsuchi]";
+	mes "Yo...";
+	close;
+}

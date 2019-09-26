@@ -1,0 +1,33 @@
+academia,66,81,4	script	Procurado Shiken	434,{
+
+if(Class > 4010 || Class < 4008) { 
+	mes "[Procurado Shiken]"; 
+	mes "Você não é um jounin."; 
+	close; 
+}
+
+if(BaseLevel < 99 || JobLevel < 35) { 
+	mes "[Procurado Shiken]";
+	mes "Você não tem level de Base ou Job suficiente."; 
+	close; 
+}
+	
+	mes "[Procurado Shiken]";
+	mes "Você tem certeza que quer virar Procurado ?";
+	if(select("- Não:- Sim") == 1) close;
+	
+	if(Class == 4008) { 
+		jobchange 4062;
+		SkillPoint += 1;
+		mes "[Procurado Shiken]";
+		mes "Parabéns você acaba de se tornar um Procurado, agora inicia sua jornada para se tornar um Renegado.";
+		close;
+	}
+	if(Class == 4010) {
+		jobchange 4063;
+		SkillPoint += 1;
+		mes "[Procurado Shiken]";
+		mes "Parabéns você acaba de se tornar um Procurado, agora inicia sua jornada para se tornar um Renegado.";
+		close;
+	}
+}

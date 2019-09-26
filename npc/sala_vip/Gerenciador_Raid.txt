@@ -1,0 +1,230 @@
+
+prtbar,23,25,6	script	Gerenciador Raid	99,{
+	if ( vip_status(1) ) {
+		mes "[Gerenciador Raid]";
+		mes "Escolha qual Raid você gostaria de ir ou voltar.";
+		switch(select("- Grande Ponte[50+]:- Resgaste Gaara[150+]:- Sair") ) {
+			case 1:
+				next;
+				callfunc "Grande_PonteVip";
+				end;
+				
+			case 2:
+				next;
+				callfunc "Resgate_GaaraVip";
+				end;
+				
+			case 3:
+				close;
+		}
+	} else {
+		mes "[Gerenciador Raid ]";
+		mes "Voce nao é um jogador premium.";
+		close;
+	}
+}
+
+function	script	Grande_PonteVip	{
+	.@npc$ = "[Gerenciador Raid]";
+	
+	mes .@npc$;
+	mes "Instância";
+	mes "Nome: Grande Ponte";
+	mes "Level: 50";
+	mes "Premiação: Experiência, Drops de Mob";
+	switch(select("- Criar uma Instância:- Entrar na Instância:- Cancelar")) {
+	case 1:
+		if(!getcharid(1)) {
+			next;
+			mes .@npc$;
+			mes "Você precisa estar em grupo para entrar na raid.";
+			close;
+		}
+		if(getpartyleader(getcharid(1),2) != getcharid(0)) {
+			next;
+			mes .@npc$;
+			mes "O grupo só poderá entrar na raid quando o líder falar comigo.";
+			close;
+		}
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			if($@partymembercount > 5) {
+				next;
+				mes .@npc$;
+				mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+				close;
+			}
+		}
+		if(!instance_check_party(getcharid(1),1,50,255)) {
+			next;
+			mes .@npc$;
+			mes "Todos os membros do grupo devem ser nível 50~255.";
+			close;
+		}
+		close2;
+		getpartymember getcharid(1),0;
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			attachrid($@partymemberaid[.@i]);
+			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @resgate, @limite);
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+				dispbottom "Você já fez a raid nas últimas 24 horas.";
+				end;
+			}
+			if(delay_raid >= gettimetick(2)) {	
+				dispbottom "Você ainda deve aguardar "+((delay_raid-gettimetick(2))/60)+" minuto(s).";
+				end;
+			}
+			if(!@ponte) {
+				//query_sql "INSERT INTO `ii_limit` (`char_id`, `index`, `value`) VALUES ("+$@partymembercid[.@i]+",1,1)";
+			} else { 
+				//query_sql "UPDATE `ii_limit` SET `value` = `value` + 1 WHERE `char_id`= '"+$@partymembercid[.@i]+"'";
+			}
+		}
+		
+		instance_create("Grande Ponte");
+		end;
+		
+	case 2:
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @ponte, @limite);
+	
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+				dispbottom "Você já fez a raid nas últimas 24 horas.";
+				close;
+			}
+			if($@partymembercount <= 5) {
+				switch(instance_enter("Grande Ponte")) {
+				case IE_OTHER:
+					mes .@npc$;
+					mes "Ocorreu um erro desconhecido.";
+					close;
+				case IE_NOINSTANCE:
+					mes .@npc$;
+					mes "A instância ainda não foi criada.";
+					close;
+				case IE_NOMEMBER:
+					mes .@npc$;
+					mes "Você precisa de um grupo.";
+					close;
+				case IE_OK:
+					//warp "1@ponte",40,63;
+					close;
+				}
+			}
+		}
+		mes .@npc$;
+		mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+		close;
+		
+	case 3:
+		close;
+	}
+}
+
+function	script	Resgate_GaaraVip	{
+
+	.@npc$ = "[Gerenciador Raid]";
+
+	mes .@npc$;
+	mes "Instância";
+	mes "Nome: Resgate Gaara";
+	mes "Level: 150";
+	mes "Premiação: Experiência, Drops de Mob";
+	switch(select("- Criar uma Instância:- Entrar na Instância:- Cancelar")) {
+	case 1:
+		if(!getcharid(1)) {
+			next;
+			mes .@npc$;
+			mes "Você precisa estar em grupo para entrar na raid.";
+			close;
+		}
+		if(getpartyleader(getcharid(1),2) != getcharid(0)) {
+			next;
+			mes .@npc$;
+			mes "O grupo só poderá entrar na raid quando o líder falar comigo.";
+			close;
+		}
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			if($@partymembercount > 5) {
+				next;
+				mes .@npc$;
+				mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+				close;
+			}
+		}
+		if(!instance_check_party(getcharid(1),1,150,255)) {
+			next;
+			mes .@npc$;
+			mes "Todos os membros do grupo devem ser nível 150~255.";
+			close;
+		}
+		close2;
+		getpartymember getcharid(1),0;
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			attachrid($@partymemberaid[.@i]);
+			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @resgate, @limite);
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+				dispbottom "Você já fez a raid nas últimas 24 horas.";
+				end;
+			}
+			if(delay_raid >= gettimetick(2)) {	
+				dispbottom "Você ainda deve aguardar "+((delay_raid-gettimetick(2))/60)+" minuto(s).";
+				end;
+			}
+			if(!@resgate) {
+				//query_sql "INSERT INTO `ii_limit` (`char_id`, `index`, `value`) VALUES ("+$@partymembercid[.@i]+",1,1)";
+			} else { 
+				//query_sql "UPDATE `ii_limit` SET `value` = `value` + 1 WHERE `char_id`= '"+$@partymembercid[.@i]+"'";
+			}
+		}
+		
+		instance_create("Resgate Gaara");
+		end;
+		
+	case 2:
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @ponte, @limite);
+	
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+				dispbottom "Você já fez a raid nas últimas 24 horas.";
+				close;
+			}
+			if($@partymembercount <= 5) {
+				switch(instance_enter("Resgate Gaara")) {
+				case IE_OTHER:
+					mes .@npc$;
+					mes "Ocorreu um erro desconhecido.";
+					close;
+				case IE_NOINSTANCE:
+					mes .@npc$;
+					mes "A instância ainda não foi criada.";
+					close;
+				case IE_NOMEMBER:
+					mes .@npc$;
+					mes "Você precisa de um grupo.";
+					close;
+				case IE_OK:
+					//warp "1@resgate",199,65;
+					close;
+				}
+			}
+		}	
+		mes .@npc$;
+		mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+		close;
+		
+	case 3:
+		close;
+	}
+}

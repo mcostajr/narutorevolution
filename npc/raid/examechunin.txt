@@ -1,0 +1,92 @@
+1@exame,0,0,0	script	exameinstance	-1,{
+	OnCapangaDie1:
+		if(!mobcount(""+instance_mapname("1@exame",instance_id())+"","exameinstance::OnCapangaDie1")) {
+			instance_announce instance_id(),"Líder do Grupo: Esses Ninjas não tinham nenhum Pergaminho, vamos procurar mais!",0;
+			sleep2 5000;
+			instance_announce instance_id(),"Líder do Grupo: São Ninjas da Vila da Grama. Fiquem Atentos!",0;
+			areamonster ""+instance_mapname("1@exame",instance_id())+"",43,263,263,30,"Ninja da Grama",30204,50,"exameinstance::OnCapangaDie2";
+			end;
+		}
+		else
+			instance_announce instance_id(),"Há "+(50 - mobcount(""+instance_mapname("1@exame",instance_id())+"",
+			"exameinstance::OnCapangaDie1"))+" capangas mortos",0;
+		end;
+	OnCapangaDie2:
+		if(!mobcount(""+instance_mapname("1@exame",instance_id())+"","exameinstance::OnCapangaDie2")) {	
+			instance_announce instance_id(),"Líder do Grupo: Cuidado é o Trio do Som. Fiquem Atentos eles são muito forte!",0;
+			monster ""+instance_mapname("1@exame",instance_id())+"",146,150,"Dosu",30205,1,"exameinstance::OnTrioDosu";
+			monster ""+instance_mapname("1@exame",instance_id())+"",146,150,"Kin",30206,1,"exameinstance::OnTrioKin";
+			monster ""+instance_mapname("1@exame",instance_id())+"",146,150,"Zuko",30207,1,"exameinstance::OnTrioZuko";
+			end;
+		}
+		else
+			instance_announce instance_id(),"Há "+(50 - mobcount(""+instance_mapname("1@exame",instance_id())+"","exameinstance::OnCapangaDie2"))+" capangas mortos",0;
+		end;
+	OnTrioDosu:
+		if(!mobcount(""+instance_mapname("1@exame",instance_id())+"","exameinstance::OnTrioKin") &&
+		   !mobcount(""+instance_mapname("1@exame",instance_id())+"","exameinstance::OnTrioZuko")
+		) {
+			instance_announce instance_id(),"Ninja Misterioso: Agora é a minha vez!",0;
+			sleep2 5000;
+			monster ""+instance_mapname("1@exame",instance_id())+"",146,150,"Ninja Misterioso",30208,1,"exameinstance::OnNinjaMisDie";
+			end;
+		}
+		else
+		end;
+	
+	OnTrioKin:
+		if(!mobcount(""+instance_mapname("1@exame",instance_id())+"","exameinstance::OnTrioDosu") &&
+		   !mobcount(""+instance_mapname("1@exame",instance_id())+"","exameinstance::OnTrioZuko")
+		) {
+			instance_announce instance_id(),"Ninja Misterioso: Agora é a minha vez!",0;
+			sleep2 5000;
+			monster ""+instance_mapname("1@exame",instance_id())+"",146,150,"Ninja Misterioso",30208,1,"exameinstance::OnNinjaMisDie";
+			end;
+			end;
+		}
+		else
+		end;
+	
+	OnTrioZuko:
+		if(!mobcount(""+instance_mapname("1@exame",instance_id())+"","exameinstance::OnTrioDosu") &&
+		   !mobcount(""+instance_mapname("1@exame",instance_id())+"","exameinstance::OnTrioKin")
+		) {
+			instance_announce instance_id(),"Ninja Misterioso: Agora é a minha vez!",0;
+			sleep2 5000;
+			monster ""+instance_mapname("1@exame",instance_id())+"",146,150,"Ninja Misterioso",30208,1,"exameinstance::OnNinjaMisDie";
+			end;
+			end;
+		}
+		else
+		end;
+		
+	OnNinjaMisDie:
+		instance_announce instance_id(),"Líder do Grupo: Vamos entregar os nossos pergaminhos.",0;
+		hideoffnpc ""+instance_npcname("Yamato#2")+"";
+		end;	
+}
+
+1@exame,146,150,4	script	Yamato#2	432,{	
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	mes .@npc$;
+	mes "Você conseguiu completar a missão. Parabéns vocês passaram para a proxima etapa!";
+	close2;	
+	getpartymember getcharid(1),0;
+	getpartymember getcharid(1),1;
+	getpartymember getcharid(1),2;
+	for(.@i = 0; .@i < $@partymembercount; .@i++) {
+		attachrid($@partymemberaid[.@i]);	
+		if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
+		
+				// Compl;etou
+					set raidchunin,2;
+		}
+	}	
+	announce "O Grupo ["+getpartyname(getcharid(1))+"] acaba de completar a Raid Exame Chunin.",bc_all;	
+	instance_destroy;
+	end;
+}
+
+1@exame	mapflag	partylock
+1@exame	mapflag	nomemo
+1@exame	mapflag	nosave	SavePoint

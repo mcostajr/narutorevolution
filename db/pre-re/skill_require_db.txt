@@ -1,0 +1,52 @@
+// Skill Requirements Database
+//
+// Structure of Database:
+// SkillID,HPCost,MaxHPTrigger,SPCost,HPRateCost,SPRateCost,ZenyCost,RequiredWeapons,RequiredAmmoTypes,RequiredAmmoAmount,RequiredState,RequiredStatuses,SpiritSphereCost,RequiredItemID1,RequiredItemAmount1,RequiredItemID2,RequiredItemAmount2,RequiredItemID3,RequiredItemAmount3,RequiredItemID4,RequiredItemAmount4,RequiredItemID5,RequiredItemAmount5,RequiredItemID6,RequiredItemAmount6,RequiredItemID7,RequiredItemAmount7,RequiredItemID8,RequiredItemAmount8,RequiredItemID9,RequiredItemAmount9,RequiredItemID10,RequiredItemAmount10,RequiredEquipment
+//
+// If HP/SPratecost is positive, it is a percent of your current life, otherwise it is a percent of your max life.
+//
+// Legend for 'RequiredState' field:
+//  none = Nothing special
+//  hidden = Requires on hidden status by using Hiding, Cloaking, or maybe Chasewalk
+//  riding = Requires to ride either a peco or a dragon
+//  falcon = Requires a Falcon
+//  cart = Requires a Pushcart
+//  shield = Requires a 0,shield equipped
+//  recover_weight_rate = Requires to be less than 50% weight
+//  move_enable = Requires to be able to move
+//  water = Requires to be standing on a water cell
+//  dragon = Requires to ride a Dragon
+//  warg = Requires a Warg
+//  ridingwarg = Requires to ride a Warg
+//  mado = Requires to have an active mado
+//  elementalspirit = Requires to have an Elemental Spirit summoned.
+//  elementalspirit2 = Requires to have an Elemental Spirit summoned, and will be removed.
+//  peco = Requires riding a peco
+//
+// 'RequiredStatuses'
+//	Fill the value only with SC_STATUS (see db/const.txt for more details)
+//	Usage for multiple status requirements: SC_STATUS1:SC_STATUS2:SC_STATUS3
+//	Max. multiple value is 3 (skill.hpp: MAX_SKILL_STATUS_REQUIRE)
+//	Use any number or SC_ALL will disable status requirements
+// 'RequiredEquipment'
+//	Specified equipment to be equipped. For multiple values, use : as delimiter.
+//	Max. multiple value is 10 (skill.hpp: MAX_SKILL_EQUIP_REQUIRE)
+
+845,0,0,0,0,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0								//SM_ENDURE
+524,0,0,10000,0,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0						//SM_ENDURE
+
+// Velocidade
+420,0,0,25:30:35:40:45:50:55:60:65:70,0,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0	//
+150,0,0,40:60:80:100:120:140:160:180:200:220,1:2:3:4:5:6:7:8:9:10,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0	//
+
+29,0,0,35:50:65:80:95:110:125:140:155:170,0,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0	//
+
+// Fuuinjutu
+43,0,0,50,0,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0						//AC_OWL
+543,0,1:2:3:4:5:6:7:8:9:10:12:14:16:18:20,50,0,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0						//NJ_NEN
+45,0,0,25:30:35:40:45:50:55:60:65:70,0,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0						//AC_CONCENTRATION
+
+// Raiton
+20,0,0,1000,0,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0						//MG_LIGHTNINGBOLT
+192,0,0,1000,0,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0						//NPC_MAGICALATTACK
+3005,0,0,1000,0,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0						//KO_SETSUDAN

@@ -1,0 +1,32 @@
+-	script	UFC_MvP	-1,{
+
+OnInit:
+unbindatcmd "ufcmvp";
+bindatcmd "ufcmvp",strnpcinfo(3)+"::OnUFCMvP",99,99;
+end;
+
+OnUFCMvP:
+
+$@command01 = strtolower(.@atcmd_parameters$[0]);
+$@command02 = strtolower(.@atcmd_parameters$[1]);
+
+	if(!$@command01) {
+		message strcharinfo(0),"para utilizar o comando use:";
+		message strcharinfo(0),"@ufcmvp <Monster ID 01> <Monster ID 02>";
+		end;
+	}
+
+	mobevent "prontera", 156, 170, getmonsterinfo($@command01,MOB_NAME), $@command01, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, strnpcinfo(3)+"::OnDeadUFCMvP01";
+	mobevent "prontera", 156, 165, getmonsterinfo($@command02,MOB_NAME), $@command02, 0, 1, 0, 0, 0, 3, 1, 1, 0, 0, 0, 0, 0, strnpcinfo(3)+"::OnDeadUFCMvP02";
+	end;
+
+OnDeadUFCMvP01:
+	announce "O Mvp "+getmonsterinfo($@command02,MOB_NAME)+" matou "+getmonsterinfo($@command01,MOB_NAME)+"",0;
+	end;
+
+OnDeadUFCMvP02:
+	announce "O Mvp "+getmonsterinfo($@command01,MOB_NAME)+" matou "+getmonsterinfo($@command02,MOB_NAME)+"",0;
+	end;
+
+}
+ 

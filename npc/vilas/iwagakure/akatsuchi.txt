@@ -1,0 +1,6 @@
+
+iwagakure,62,88,5	script	Akatsuchi	46,{
+	mes "[Akatsuchi]";
+	mes "Yo...";
+	close;
+}

@@ -1,0 +1,6 @@
+
+iwagakure,99,200,4	script	Onoki	124,{
+	mes "[Onoki]";
+	mes "Yo...";
+	close;
+}

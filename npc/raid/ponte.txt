@@ -1,0 +1,239 @@
+-	script	resetraid	-1,{
+
+OnClock0000:
+	query_sql("TRUNCATE TABLE  `ii_limit`");
+	end;
+}
+
+//-------------------------------------------------
+
+mjolnir_06,222,144,4	script	Tazuna#1	449,{
+
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "Instância";
+	mes "Nome: Grande Ponte";
+	mes "Level: 50";
+	mes "Premiação: Experiência, Drops de Mob";
+	switch(select("- Criar uma Instância:- Entrar na Instância:- Cancelar")) {
+	case 1:
+		if(!getcharid(1)) {
+			next;
+			mes .@npc$;
+			mes "Você precisa estar em grupo para entrar na raid.";
+			close;
+		}
+		if(getpartyleader(getcharid(1),2) != getcharid(0)) {
+			next;
+			mes .@npc$;
+			mes "O grupo só poderá entrar na raid quando o líder falar comigo.";
+			close;
+		}
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			if($@partymembercount > 5) {
+				next;
+				mes .@npc$;
+				mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+				close;
+			}
+		}
+		if(!instance_check_party(getcharid(1),1,50,255)) {
+			next;
+			mes .@npc$;
+			mes "Todos os membros do grupo devem ser nível 50~255.";
+			close;
+		}
+		close2;
+		getpartymember getcharid(1),0;
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			attachrid($@partymemberaid[.@i]);
+			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @resgate, @limite);
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+				dispbottom "Você já fez a raid nas últimas 24 horas.";
+				end;
+			}
+			if(delay_raid >= gettimetick(2)) {	
+				dispbottom "Você ainda deve aguardar "+((delay_raid-gettimetick(2))/60)+" minuto(s).";
+				end;
+			}
+			if(!@ponte) {
+				//query_sql "INSERT INTO `ii_limit` (`char_id`, `index`, `value`) VALUES ("+$@partymembercid[.@i]+",1,1)";
+			} else { 
+				//query_sql "UPDATE `ii_limit` SET `value` = `value` + 1 WHERE `char_id`= '"+$@partymembercid[.@i]+"'";
+			}
+		}
+		
+		instance_create("Grande Ponte");
+		end;
+		
+	case 2:
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @ponte, @limite);
+	
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+				dispbottom "Você já fez a raid nas últimas 24 horas.";
+				close;
+			}
+			if($@partymembercount <= 5) {
+				switch(instance_enter("Grande Ponte")) {
+				case IE_OTHER:
+					mes .@npc$;
+					mes "Ocorreu um erro desconhecido.";
+					close;
+				case IE_NOINSTANCE:
+					mes .@npc$;
+					mes "A instância ainda não foi criada.";
+					close;
+				case IE_NOMEMBER:
+					mes .@npc$;
+					mes "Você precisa de um grupo.";
+					close;
+				case IE_OK:
+					//warp "1@ponte",40,63;
+					close;
+				}
+			}
+		}	
+		mes .@npc$;
+		mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+		close;
+		
+	case 3:
+		close;
+	}
+}
+
+// Entrance
+1@ponte,40,63,0	script	#ponte01	HIDDEN_WARP_NPC,1,1,{
+	end;
+OnTouch:
+	disablenpc instance_npcname("#ponte01");
+	disablenpc ""+instance_npcname("Tazuna#2")+"";
+	disablenpc ""+instance_npcname("warpponte")+"";
+	sleep2 5000;
+	instance_announce instance_id(),"Fiquem Atentos, os Capangas estão vindo!",0;
+	areamonster ""+instance_mapname("1@ponte",instance_id())+"",88,44,130,83,"Capanga",30200,50,"ponteinstance::OnCapangaDie1";
+	end;
+}
+
+1@ponte,0,0,0	script	ponteinstance	-1,{
+	OnCapangaDie1:
+		if(!mobcount(""+instance_mapname("1@ponte",instance_id())+"","ponteinstance::OnCapangaDie1")) {
+			instance_announce instance_id(),"Eles não param de vir, fiquem atentos!",0;
+			areamonster ""+instance_mapname("1@ponte",instance_id())+"",180,44,230,83,"Capanga",30200,50,"ponteinstance::OnCapangaDie2";
+			end;
+		}
+		else
+			instance_announce instance_id(),"Há "+(50 - mobcount(""+instance_mapname("1@ponte",instance_id())+"",
+			"ponteinstance::OnCapangaDie1"))+" capangas mortos",0;
+		end;
+		
+	OnCapangaDie2:
+		if(!mobcount(""+instance_mapname("1@ponte",instance_id())+"","ponteinstance::OnCapangaDie2")) {
+			instance_announce instance_id(),"Uffa, parece que derrotamos todos!",0;
+			sleep2 5000;
+			instance_announce instance_id(),"Cuidado! Tem mais capangas vindo!",0;
+			areamonster ""+instance_mapname("1@ponte",instance_id())+"",270,44,326,83,"Capanga",30200,50,"ponteinstance::OnCapangaDie3";
+			end;
+		}
+		else
+			instance_announce instance_id(),"Há "+(50 - mobcount(""+instance_mapname("1@ponte",instance_id())+"",
+			"ponteinstance::OnCapangaDie2"))+" capangas mortos",0;
+		end;
+	OnCapangaDie3:
+		if(!mobcount(""+instance_mapname("1@ponte",instance_id())+"","ponteinstance::OnCapangaDie3")) {
+			hideoffnpc ""+instance_npcname("warpponte")+"";
+			enablenpc ""+instance_npcname("warpponte")+"";
+			instance_announce instance_id(),"Todos os capangas foram derrotados, podemos avançar !",0;
+			sleep2 5000;
+			instance_announce instance_id(),"Quem será esse Ninja Mascarado ?",0;
+			areamonster ""+instance_mapname("1@ponte",instance_id())+"",167,363,197,364,"Haku",30201,1,"ponteinstance::OnHakuDie";
+			sleep2 5000;
+			instance_announce instance_id(),"Cuidado é o Haku !",0;
+		}
+		else
+			instance_announce instance_id(),"Há "+(50 - mobcount(""+instance_mapname("1@ponte",instance_id())+"",
+			"ponteinstance::OnCapangaDie3"))+" capangas mortos",0;
+		end;
+	OnHakuDie:
+		sleep2 1000;
+		instance_announce instance_id(),"Zabuza Momochi: Não pode ser! Eu irei vingar a morte de Haku!",0;
+		monster ""+instance_mapname("1@ponte",instance_id())+"",283,363,"Zabuza Momochi",30202,1,"ponteinstance::OnZabuzaDie";
+		sleep2 3000;
+		instance_announce instance_id(),"Cuidado Pessoal é o Demonio da Névoa!",0;
+		end;
+	OnZabuzaDie:
+		instance_announce instance_id(),"Zabuza Momochi: Não pode ser! Perdi para esse bando de pirralhos!",0;
+		sleep2 3000;
+		instance_announce instance_id(),"Parabéns, sigam até o final da ponte para receber a sua recompensa!",0;
+		enablenpc ""+instance_npcname("Tazuna#2")+"";
+		end;
+}
+
+1@ponte,325,364,4	script	Tazuna#2	449,{
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	if(getcharid(0) != getpartyleader(getcharid(1),2)) {
+		mes .@npc$;
+		mes "Apenas o líder pode finalizar a missão.";
+		close;
+	}
+	getpartymember getcharid(1),1;
+	getpartymember getcharid(1),2;
+	for(.@i = 0; .@i < $@partymembercount; .@i++) {
+		if($@partymembercount > 5) {
+			mes .@npc$;
+			mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+			instance_destroy;
+			close;
+		}
+	}
+	mes .@npc$;
+	mes "Você conseguiu completar a missão. O engenheiro finalmente conseguiu ultrapassar a ponte, obrigado!";
+	close2;
+	getpartymember getcharid(1),0;
+	getpartymember getcharid(1),1;
+	getpartymember getcharid(1),2;
+	for(.@i = 0; .@i < $@partymembercount; .@i++) {
+		attachrid($@partymemberaid[.@i]);
+		if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
+		
+			query_sql "SELECT `index`,`value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'",@ponte,@limite;
+			
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) {
+				if(!@ponte) {
+					query_sql "INSERT INTO `ii_limit` (`char_id`, `index`, `value`) VALUES ("+$@partymembercid[.@i]+",1,1)";
+				} else { 
+					query_sql "UPDATE `ii_limit` SET `value` = `value` + 1 WHERE `char_id`= '"+$@partymembercid[.@i]+"'";
+				}
+				announce "O Grupo ["+getpartyname(getcharid(1))+"] está tentando trapacear na Raid Grande Ponte.",bc_all;				
+				.@count = $@partymembercount;				
+				copyarray .@name$[0], $@partymembername$[0], $@partymembercount;				
+				for (.@i = 0; .@i < .@count; .@i++)					
+				announce (.@i +1) + "." + .@name$[.@i] + "",bc_all;				
+				instance_destroy;
+				end;
+			}
+				// Delay
+				set delay_raid, gettimetick(2) + 300;
+				set #RaidPoint, #RaidPoint + 2;
+				BaseExp += 5000000;
+				Zeny += 100000;
+				getitem 9017,1;
+		}
+	}
+	announce "O Grupo ["+getpartyname(getcharid(1))+"] acaba de completar a Raid Grande Ponte.",bc_all;
+	instance_destroy;
+	end;
+}
+
+1@ponte,326,64,0	warp	warpponte	1,1,1@ponte,40,363
+1@ponte	mapflag	partylock
+1@ponte	mapflag	nomemo
+1@ponte	mapflag	nosave	SavePoint

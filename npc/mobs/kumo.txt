@@ -1,0 +1,33 @@
+
+ein_fild02,0,0,0,0	monster	Worm Tail	1024,50,0,0,0
+ein_fild02,0,0,0,0	monster	Condor	1009,50,0,0,0
+ein_fild02,0,0,0,0	monster	Chonchon	1011,50,0,0,0
+ein_fild02,0,0,0,0	monster	Hornet	1004,50,0,0,0
+
+yuno_fild02,0,0,0,0	monster	Vitata	1176,50,0,0,0
+yuno_fild02,0,0,0,0	monster	Coco	1104,50,0,0,0
+yuno_fild02,0,0,0,0	monster	Thara Frog	1034,50,0,0,0
+
+yuno_fild03,0,0,0,0	monster	Brilight	1211,50,0,0,0
+yuno_fild03,0,0,0,0	monster	Hunter Fly	1035,50,0,0,0
+yuno_fild03,0,0,0,0	monster	Goblin	1126,50,0,0,0
+yuno_fild03,0,0,0,0	monster	Dragon Fly	1091,50,0,0,0
+
+yuno_fild05,0,0,0,0	monster	Poporing	1031,50,0,0,0
+yuno_fild05,0,0,0,0	monster	Pecopeco	1019,50,0,0,0
+yuno_fild05,0,0,0,0	monster	Tarou	1175,50,0,0,0
+
+yuno_fild08,0,0,0,0	monster	Genin Nuvem	30122,50,0,0,0
+
+ein_fild01,0,0,0,0	monster	Gryphon	1259,50,0,0,0
+ein_fild01,0,0,0,0	monster	Majoruros	1310,50,0,0,0
+ein_fild01,0,0,0,0	monster	Deathword	1698,50,0,0,0
+
+yuno_fild11,0,0,0,0	monster	Acidus	1713,50,0,0,0
+yuno_fild11,0,0,0,0	monster	Shelter	1701,50,0,0,0
+yuno_fild11,0,0,0,0	monster	Beholder	1633,50,0,0,0
+yuno_fild11,0,0,0,0	monster	Owl Baron	1295,50,0,0,0
+yuno_fild11,0,0,0,0	monster	Jounin Nuvem	30128,80,0,0,0
+
+yuno_fild09,0,0,0,0	monster	Darui	30038,50,0,0,0
+yuno_fild09,0,0,0,0	monster	Raikage	30076,50,0,0,0

@@ -1,0 +1,4 @@
+prtbar,32,30,5	script	sadaea	99,{
+skill 1,9,3;
+end;
+}

@@ -1,0 +1,12 @@
+// Iwagakure
+
+iwagakure,187,87,0	warp	VilaPedra#00	2,2,academia,105,12
+
+//iwagakure,207,209,0	warp	VilaPedra#01	2,2,bibli_05,53,38
+//bibli_05,53,35,0	warp	VilaPedra#02	2,2,iwagakure,204,206
+
+iwagakure,162,234,0	warp	VilaPedra#03	2,2,salakage5,31,5
+salakage5,31,2,0	warp	VilaPedra#04	2,2,iwagakure,162,230
+
+iwagakure,249,166,0	warp	VilaPedra#05	2,2,ama_in01,80,177
+ama_in01,77,177,0	warp	VilaPedra#06	2,2,iwagakure,246,163

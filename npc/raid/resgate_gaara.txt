@@ -1,0 +1,600 @@
+moc_fild12,154,376,4	script	Gaara Shippuden#1	65,{
+
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+
+	mes .@npc$;
+	mes "Instância";
+	mes "Nome: Resgate Gaara";
+	mes "Level: 150";
+	mes "Premiação: Experiência, Drops de Mob";
+	switch(select("- Criar uma Instância:- Entrar na Instância:- Cancelar")) {
+	case 1:
+		if(!getcharid(1)) {
+			next;
+			mes .@npc$;
+			mes "Você precisa estar em grupo para entrar na raid.";
+			close;
+		}
+		if(getpartyleader(getcharid(1),2) != getcharid(0)) {
+			next;
+			mes .@npc$;
+			mes "O grupo só poderá entrar na raid quando o líder falar comigo.";
+			close;
+		}
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			if($@partymembercount > 5) {
+				next;
+				mes .@npc$;
+				mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+				close;
+			}
+		}
+		if(!instance_check_party(getcharid(1),1,150,255)) {
+			next;
+			mes .@npc$;
+			mes "Todos os membros do grupo devem ser nível 150~255.";
+			close;
+		}
+		close2;
+		getpartymember getcharid(1),0;
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			attachrid($@partymemberaid[.@i]);
+			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @resgate, @limite);
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+				dispbottom "Você já fez a raid nas últimas 24 horas.";
+				end;
+			}
+			if(delay_raid >= gettimetick(2)) {	
+				dispbottom "Você ainda deve aguardar "+((delay_raid-gettimetick(2))/60)+" minuto(s).";
+				end;
+			}
+			if(!@resgate) {
+				//query_sql "INSERT INTO `ii_limit` (`char_id`, `index`, `value`) VALUES ("+$@partymembercid[.@i]+",1,1)";
+			} else { 
+				//query_sql "UPDATE `ii_limit` SET `value` = `value` + 1 WHERE `char_id`= '"+$@partymembercid[.@i]+"'";
+			}
+		}
+		
+		instance_create("Resgate Gaara");
+		end;
+		
+	case 2:
+		getpartymember getcharid(1),1;
+		getpartymember getcharid(1),2;
+		for(.@i = 0; .@i < $@partymembercount; .@i++) {
+			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @ponte, @limite);
+	
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+				dispbottom "Você já fez a raid nas últimas 24 horas.";
+				close;
+			}
+			if($@partymembercount <= 5) {
+				switch(instance_enter("Resgate Gaara")) {
+				case IE_OTHER:
+					mes .@npc$;
+					mes "Ocorreu um erro desconhecido.";
+					close;
+				case IE_NOINSTANCE:
+					mes .@npc$;
+					mes "A instância ainda não foi criada.";
+					close;
+				case IE_NOMEMBER:
+					mes .@npc$;
+					mes "Você precisa de um grupo.";
+					close;
+				case IE_OK:
+					//warp "1@resgate",199,65;
+					close;
+				}
+			}
+		}	
+		mes .@npc$;
+		mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+		close;
+		
+	case 3:
+		close;
+	}
+}
+
+// Entrance
+1@resgate,199,65,0	script	#event01	HIDDEN_WARP_NPC,1,1,{
+	end;
+OnTouch:
+	disablenpc instance_npcname("#event01");
+	instance_announce instance_id(),"A Chiyo está esperando vocês em frente a sala do kage!",0;	
+	disablenpc ""+instance_npcname("warpsuna")+"";
+	disablenpc ""+instance_npcname("Sasori#1")+"";
+	disablenpc ""+instance_npcname("Deidara#1")+"";
+	disablenpc ""+instance_npcname("Gaara Caido")+"";
+	disablenpc ""+instance_npcname("warpsuna2")+"";
+	disablenpc ""+instance_npcname("Selo Kin#1")+"";
+	disablenpc ""+instance_npcname("Selo Kin#2")+"";
+	disablenpc ""+instance_npcname("Selo Kin#3")+"";
+	disablenpc ""+instance_npcname("Selo Kin#4")+"";
+	disablenpc ""+instance_npcname("Selo Kin#5")+"";
+	disablenpc ""+instance_npcname("warpsuna3")+"";
+	disablenpc ""+instance_npcname("warpsuna4")+"";
+	disablenpc ""+instance_npcname("sasoriglobal")+"";
+	disablenpc ""+instance_npcname("warpsuna5")+"";
+	disablenpc ""+instance_npcname("sasoriglobal2")+"";
+	disablenpc ""+instance_npcname("Gaara Renascido")+"";
+	end;
+}
+1@resgate,200,186,4	script	Chiyo#2	52,{
+	
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+
+	mes .@npc$;
+	mes "Vocês precisam saber.";
+	close2;
+	disablenpc ""+instance_npcname("Chiyo#2")+"";
+	instance_announce instance_id(),"O kazekage foi pego por aquela organização, vieram a noite e garantindo a proteção da vila, ele se sacrificou.",0;
+	sleep 3000;
+	instance_announce instance_id(),"Estão atrás da bijuu que vive em seu corpo, e se não nos apressarmos, quando a bijuu for retirada, ele morrerá.",0;
+	sleep 3000;
+	instance_announce instance_id(),"[Lider] Vamos o portal ja foi liberado ao norte do mapa.",0;
+	enablenpc ""+instance_npcname("warpsuna")+"";
+	enablenpc ""+instance_npcname("Sasori#1")+"";
+	enablenpc ""+instance_npcname("Deidara#1")+"";
+	enablenpc ""+instance_npcname("Gaara Caido")+"";
+	getpartymember getcharid(1),0;
+	getpartymember getcharid(1),1;
+	getpartymember getcharid(1),2;
+	for(.@i = 0; .@i < $@partymembercount; .@i++) {
+		attachrid($@partymemberaid[.@i]);
+		viewpoint 1,200,322,1,0xFF0000;
+	}
+	end;
+
+}
+
+1@resgate,200,322,0	warp	warpsuna	2,2,2@resgate,197,35
+
+2@resgate,229,206,4	script	Sasori#1	412,{
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+		
+	mes .@npc$;
+	mes "Oque vocês querem ?";
+	if(select("- Devolva o Gaara para mim!:- Deixa pra la.") == 2) close;
+		close2;
+		instance_announce instance_id(),"Deidara Vá agora...",0;
+		sleep2 2000;
+		instance_announce instance_id(),"Como não gosto de esperar e nem de fazer outros esperarem.",0;
+		sleep2 2000;
+		instance_announce instance_id(),"Vou acabar rapidamente com isso.",0;
+		disablenpc instance_npcname("Sasori#1");
+		disablenpc instance_npcname("Deidara#1");
+		disablenpc instance_npcname("Gaara Caido");
+		monster ""+instance_mapname("2@resgate",instance_id())+"",226,206,"Puppets",30136,1,"resgate2instance::OnPuppet1Die";
+		monster ""+instance_mapname("2@resgate",instance_id())+"",232,206,"Puppets",30137,1,"resgate2instance::OnPuppet2Die";
+		monster ""+instance_mapname("2@resgate",instance_id())+"",229,206,"Hiruko",30138,1,"resgate2instance::OnHirukoDie";
+		end;
+}
+
+2@resgate,232,206,4	script	Deidara#1	60,{
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "Hahaha...";
+	close;
+}
+
+2@resgate,232,208,4	script	Gaara Caido	451,{
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "";
+	close;
+}
+
+2@resgate,0,0,0	script	resgate2instance	-1,{
+
+	OnHirukoDie:
+		if(!mobcount(""+instance_mapname("2@resgate",instance_id())+"","resgate2instance::OnPuppet1Die") &&
+		!mobcount(""+instance_mapname("2@resgate",instance_id())+"","resgate2instance::OnPuppet2Die")
+		) {
+			instance_announce instance_id(),"[Lider] Essa não eles conseguiram fugir. Vamos atrás deles!",0;
+			enablenpc ""+instance_npcname("warpsuna2")+"";
+			enablenpc ""+instance_npcname("Selo Kin#1")+"";
+			getpartymember getcharid(1),0;
+			getpartymember getcharid(1),1;
+			getpartymember getcharid(1),2;
+			for(.@i = 0; .@i < $@partymembercount; .@i++) {
+				attachrid($@partymemberaid[.@i]);
+				viewpoint 1,380,201,1,0xFF0000;
+			}
+			end;
+		}else
+		end;
+		
+	OnPuppet1Die:
+		if(!mobcount(""+instance_mapname("2@resgate",instance_id())+"","resgate2instance::OnHirukoDie") &&
+		!mobcount(""+instance_mapname("2@resgate",instance_id())+"","resgate2instance::OnPuppet2Die")
+		) {
+			instance_announce instance_id(),"[Lider] Essa não eles conseguiram fugir. Vamos atrás deles!",0;
+			enablenpc ""+instance_npcname("warpsuna2")+"";
+			enablenpc ""+instance_npcname("Selo Kin#1")+"";
+			getpartymember getcharid(1),0;
+			getpartymember getcharid(1),1;
+			getpartymember getcharid(1),2;
+			for(.@i = 0; .@i < $@partymembercount; .@i++) {
+				attachrid($@partymemberaid[.@i]);
+				viewpoint 1,380,201,1,0xFF0000;
+			}
+			end;
+		}else
+		end;
+	OnPuppet2Die:
+		if(!mobcount(""+instance_mapname("2@resgate",instance_id())+"","resgate2instance::OnHirukoDie") &&
+		!mobcount(""+instance_mapname("2@resgate",instance_id())+"","resgate2instance::OnPuppet1Die")
+		) {
+			instance_announce instance_id(),"[Lider] Essa não eles conseguiram fugir. Vamos atrás deles!",0;
+			enablenpc ""+instance_npcname("warpsuna2")+"";
+			enablenpc ""+instance_npcname("Selo Kin#1")+"";
+			getpartymember getcharid(1),0;
+			getpartymember getcharid(1),1;
+			getpartymember getcharid(1),2;
+			for(.@i = 0; .@i < $@partymembercount; .@i++) {
+				attachrid($@partymemberaid[.@i]);
+				viewpoint 1,380,201,1,0xFF0000;
+			}
+			end;
+		}else
+		end;
+
+}
+
+2@resgate,380,201,0	warp	warpsuna2	2,2,3@resgate,16,53
+
+3@resgate,99,85,4	script	Selo Kin#1	450,{
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	if('selo_kin == 0) {
+		mes .@npc$;
+		mes "Uma forte barreira impede de entrarmos nesse lugar.";
+		if(select("- Entrar:- Deixa pra la.") == 2) close;
+			close2;
+			instance_announce instance_id(),"[Lider] Para acabarmos com essa barreira precisamos remover o selo kin a nossa frente!",0;
+			sleep2 3000;
+			instance_announce instance_id(),"[Lider] Assim como os outros selos nos 4 lugares",0;
+			sleep2 3000;
+			instance_announce instance_id(),"[Lider] Estejam preparados para o que pode acontecer!",0;
+			enablenpc ""+instance_npcname("Selo Kin#2")+"";
+			enablenpc ""+instance_npcname("Selo Kin#3")+"";
+			enablenpc ""+instance_npcname("Selo Kin#4")+"";
+			enablenpc ""+instance_npcname("Selo Kin#5")+"";
+			'selo_kin = 1;
+			end;
+	}
+	mes .@npc$;
+	mes "Selo Kin está Ativo."+'selo_kin+"";
+	close;
+	
+OnInstanceInit: // Temporary fix for @reloadscript.
+	set 'selo_kin,0;
+	end;
+
+}
+
+3@resgate,61,18,4	script	Selo Kin#2	450,{
+
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "Selo Kin.";
+	if(select("- Remover Selo:- Fazer Nada.") == 2) close;
+		close2;
+		disablenpc ""+instance_npcname("Selo Kin#2")+"";
+		monster ""+instance_mapname("3@resgate",instance_id())+"",61,18,"Gai",30139,1,"resgate3instance::OnSeloKin1Die";
+		end;
+}
+
+3@resgate,154,28,4	script	Selo Kin#3	450,{
+
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "Selo Kin.";
+	if(select("- Remover Selo:- Fazer Nada.") == 2) close;
+		close2;
+		disablenpc ""+instance_npcname("Selo Kin#3")+"";
+		monster ""+instance_mapname("3@resgate",instance_id())+"",154,28,"Lee",30140,1,"resgate3instance::OnSeloKin2Die";
+		end;
+}
+
+3@resgate,174,88,4	script	Selo Kin#4	450,{
+
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "Selo Kin.";
+	if(select("- Remover Selo:- Fazer Nada.") == 2) close;
+		close2;
+		disablenpc ""+instance_npcname("Selo Kin#4")+"";
+		monster ""+instance_mapname("3@resgate",instance_id())+"",174,88,"Tenten",30141,1,"resgate3instance::OnSeloKin3Die";
+		end;
+}
+
+3@resgate,24,88,4	script	Selo Kin#5	450,{
+
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	mes .@npc$;
+	mes "Selo Kin.";
+	if(select("- Remover Selo:- Fazer Nada.") == 2) close;
+		close2;
+		disablenpc ""+instance_npcname("Selo Kin#5")+"";
+		monster ""+instance_mapname("3@resgate",instance_id())+"",24,88,"Neji",30142,1,"resgate3instance::OnSeloKin4Die";
+		end;
+}
+
+3@resgate,0,0,0	script	resgate3instance	-1,{
+
+	OnSeloKin1Die:
+		'selo_kin = 'selo_kin+1;
+		instance_announce instance_id(),"[Lider] "+('selo_kin - 1)+" Selo(s) foi(ram) desfeito(s)!",0;
+		if ('selo_kin == 5) {
+			instance_announce instance_id(),"[Lider] O Selo Kin foi desfeito!",0;
+			enablenpc ""+instance_npcname("warpsuna3")+"";
+			enablenpc ""+instance_npcname("warpsuna4")+"";
+			enablenpc ""+instance_npcname("sasoriglobal")+"";
+			disablenpc ""+instance_npcname("Selo Kin#1")+"";
+			getpartymember getcharid(1),0;
+			getpartymember getcharid(1),1;
+			getpartymember getcharid(1),2;
+			for(.@i = 0; .@i < $@partymembercount; .@i++) {
+				attachrid($@partymemberaid[.@i]);
+				viewpoint 1,99,85,1,0xFF0000;
+			}
+			end;
+		}
+		end;
+	OnSeloKin2Die:
+		'selo_kin = 'selo_kin+1;
+		instance_announce instance_id(),"[Lider] "+('selo_kin - 1)+" Selo(s) foi(ram) desfeito(s)!",0;
+		if ('selo_kin == 5) {
+			instance_announce instance_id(),"[Lider] O Selo Kin foi desfeito!",0;
+			enablenpc ""+instance_npcname("warpsuna3")+"";
+			enablenpc ""+instance_npcname("warpsuna4")+"";
+			enablenpc ""+instance_npcname("sasoriglobal")+"";
+			disablenpc ""+instance_npcname("Selo Kin#1")+"";
+			getpartymember getcharid(1),0;
+			getpartymember getcharid(1),1;
+			getpartymember getcharid(1),2;
+			for(.@i = 0; .@i < $@partymembercount; .@i++) {
+				attachrid($@partymemberaid[.@i]);
+				viewpoint 1,99,85,1,0xFF0000;
+			}
+			end;
+		}
+		end;
+	OnSeloKin3Die:
+		'selo_kin = 'selo_kin+1;
+		instance_announce instance_id(),"[Lider] "+('selo_kin - 1)+" Selo(s) foi(ram) desfeito(s)!",0;
+		if ('selo_kin == 5) {
+			instance_announce instance_id(),"[Lider] O Selo Kin foi desfeito!",0;
+			enablenpc ""+instance_npcname("warpsuna3")+"";
+			enablenpc ""+instance_npcname("warpsuna4")+"";
+			enablenpc ""+instance_npcname("sasoriglobal")+"";
+			disablenpc ""+instance_npcname("Selo Kin#1")+"";
+			getpartymember getcharid(1),0;
+			getpartymember getcharid(1),1;
+			getpartymember getcharid(1),2;
+			for(.@i = 0; .@i < $@partymembercount; .@i++) {
+				attachrid($@partymemberaid[.@i]);
+				viewpoint 1,99,85,1,0xFF0000;
+			}
+			end;
+		}
+		end;
+	OnSeloKin4Die:
+		'selo_kin = 'selo_kin+1;
+		instance_announce instance_id(),"[Lider] "+('selo_kin - 1)+" Selo(s) foi(ram) desfeito(s)!",0;
+		if ('selo_kin == 5) {
+			instance_announce instance_id(),"[Lider] O Selo Kin foi desfeito!",0;
+			enablenpc ""+instance_npcname("warpsuna3")+"";
+			enablenpc ""+instance_npcname("warpsuna4")+"";
+			enablenpc ""+instance_npcname("sasoriglobal")+"";
+			disablenpc ""+instance_npcname("Selo Kin#1")+"";
+			getpartymember getcharid(1),0;
+			getpartymember getcharid(1),1;
+			getpartymember getcharid(1),2;
+			for(.@i = 0; .@i < $@partymembercount; .@i++) {
+				attachrid($@partymemberaid[.@i]);
+				viewpoint 1,99,85,1,0xFF0000;
+			}
+			end;
+		}
+		end;
+}
+
+3@resgate,99,85,0	warp	warpsuna3	2,2,4@resgate,239,72
+4@resgate,242,72,0	warp	warpsuna4	2,2,3@resgate,99,82
+
+4@resgate,239,72,0	script	sasoriglobal	HIDDEN_WARP_NPC,5,5,{
+	OnTouch:
+		if(getpartyleader(getcharid(1),2) != getcharid(0)) {
+			disablenpc ""+instance_npcname("sasoriglobal")+"";
+			instance_announce instance_id(),"[Deidara] Você já deve ter percebido, mas esse cara está realmente morto, hmm?",0;
+			sleep2 3000;
+			instance_announce instance_id(),"[Sasori] Deidara pege o corpo do Gaara e se retira da caverna.",0;
+			sleep2 3000;
+			instance_announce instance_id(),"[Lider] Não deixem ele fugir.",0;
+			sleep2 3000;
+			instance_announce instance_id(),"[Sasori] Não deixarei vocês atrapalhar.",0;
+			monster ""+instance_mapname("4@resgate",instance_id())+"",153,180,"Sasori",30144,1,"resgate4instance::OnSasoriPuppetDie";
+			end;
+		}
+}
+
+4@resgate,0,0,0	script	resgate4instance	-1,{
+
+	OnSasoriPuppetDie:
+		if(!mobcount(""+instance_mapname("4@resgate",instance_id())+"","resgate4instance::OnSasoriPuppetDie")) {
+			instance_announce instance_id(),"[Sasori] Terei que levar a serio essa luta.",0;
+			monster ""+instance_mapname("4@resgate",instance_id())+"",153,180,"Sasori Puppet",30143,1,"resgate4instance::OnSasoriDie";
+			monster ""+instance_mapname("4@resgate",instance_id())+"",0,0,"Puppet",30145,50,"resgate4instance::OnMarioneteDie";
+			monster ""+instance_mapname("4@resgate",instance_id())+"",0,0,"Puppet",30146,50,"resgate4instance::OnMarioneteDie";
+			end;
+		}else
+		end;
+		
+	OnSasoriDie:
+		if(!mobcount(""+instance_mapname("4@resgate",instance_id())+"","resgate4instance::OnSasoriDie") &&
+		!mobcount(""+instance_mapname("4@resgate",instance_id())+"","resgate4instance::OnMarioneteDie")
+		) {
+			instance_announce instance_id(),"[Lider] Vão Atrás do Deidara deixem esse com a gente.",0;
+			enablenpc ""+instance_npcname("warpsuna5")+"";
+			monster ""+instance_mapname("5@resgate",instance_id())+"",0,0,"Argila",30148,50,"resgate5instance::OnArgilaDie";
+			monster ""+instance_mapname("5@resgate",instance_id())+"",0,0,"Argila",30149,50,"resgate5instance::OnArgilaDie";
+			monster ""+instance_mapname("5@resgate",instance_id())+"",0,0,"Argila",30150,50,"resgate5instance::OnArgilaDie";
+			getpartymember getcharid(1),0;
+			getpartymember getcharid(1),1;
+			getpartymember getcharid(1),2;
+			for(.@i = 0; .@i < $@partymembercount; .@i++) {
+				attachrid($@partymemberaid[.@i]);
+				viewpoint 1,242,72,1,0xFF0000;
+			}
+			enablenpc ""+instance_npcname("sasoriglobal2")+"";
+			end;
+		}else
+		instance_announce instance_id(),"Há "+(100 - mobcount(""+instance_mapname("4@resgate",instance_id())+"",
+		"resgate4instance::OnMarioneteDie"))+" Marionte 1 mortos",0;
+		end;
+
+	OnMarioneteDie:
+		if(!mobcount(""+instance_mapname("4@resgate",instance_id())+"","resgate4instance::OnSasoriDie") &&
+		!mobcount(""+instance_mapname("4@resgate",instance_id())+"","resgate4instance::OnMarioneteDie")
+		) {
+			instance_announce instance_id(),"[Lider] Vão Atrás do Deidara deixem esse com a gente.",0;
+			enablenpc ""+instance_npcname("warpsuna5")+"";
+			monster ""+instance_mapname("5@resgate",instance_id())+"",0,0,"Argila",30148,50,"resgate5instance::OnArgilaDie";
+			monster ""+instance_mapname("5@resgate",instance_id())+"",0,0,"Argila",30149,50,"resgate5instance::OnArgilaDie";
+			monster ""+instance_mapname("5@resgate",instance_id())+"",0,0,"Argila",30150,50,"resgate5instance::OnArgilaDie";
+			getpartymember getcharid(1),0;
+			getpartymember getcharid(1),1;
+			getpartymember getcharid(1),2;
+			for(.@i = 0; .@i < $@partymembercount; .@i++) {
+				attachrid($@partymemberaid[.@i]);
+				viewpoint 1,242,72,1,0xFF0000;
+			}
+			enablenpc ""+instance_npcname("sasoriglobal2")+"";
+			end;
+		}else
+		instance_announce instance_id(),"Há "+(1 - mobcount(""+instance_mapname("4@resgate",instance_id())+"",
+		"resgate4instance::OnSasoriDie"))+" Sasori mortos e Há "+(100 - mobcount(""+instance_mapname("4@resgate",instance_id())+"",
+		"resgate4instance::OnMarioneteDie"))+" Marionte mortos",0;
+		end;
+}
+
+3@resgate,99,82,0	script	sasoriglobal2	-1,5,5,{
+	OnTouch:
+		if(getpartyleader(getcharid(1),2) != getcharid(0)) {
+			disablenpc ""+instance_npcname("sasoriglobal2")+"";
+			getpartymember getcharid(1),0;
+			getpartymember getcharid(1),1;
+			getpartymember getcharid(1),2;
+			for(.@i = 0; .@i < $@partymembercount; .@i++) {
+				attachrid($@partymemberaid[.@i]);
+				viewpoint 1,242,72,1,0xFF0000;
+			}
+		}
+}
+
+3@resgate,188,53,0	warp	warpsuna5	2,2,5@resgate,31,95
+
+5@resgate,0,0,0	script	resgate5instance	-1,{
+
+	OnArgilaDie:
+		if(!mobcount(""+instance_mapname("5@resgate",instance_id())+"","resgate5instance::OnArgilaDie")
+		) {
+			instance_announce instance_id(),"Uffa, parece que derrotamos todos!",0;
+			sleep2 2000;
+			instance_announce instance_id(),"[Lider] O Deidara vai fugir, é agora ou nunca!",0;
+			monster ""+instance_mapname("5@resgate",instance_id())+"",180,216,"Deidara",30147,1,"resgate5instance::OnDeidaraDie";
+			end;
+		}
+		else
+			instance_announce instance_id(),"Há "+(150 - mobcount(""+instance_mapname("5@resgate",instance_id())+"",
+			"resgate5instance::OnArgilaDie"))+" Argilas mortos",0;
+		end;
+	
+	OnDeidaraDie:
+		if(!mobcount(""+instance_mapname("5@resgate",instance_id())+"","resgate5instance::OnDeidaraDie")) {
+			instance_announce instance_id(),"[Deidara] Não acredito que perdi para esse bando de muleques.",0;
+			sleep2 2000;
+			instance_announce instance_id(),"Chyio se ajoelha perante o corpo de gaara rapidamente você percebe que aquele não é um jutsu de cura comum.",0;
+			sleep2 2000;
+			instance_announce instance_id(),"[Chiyo] Faça seu futuro ser diferente do passado que vivi...",0;
+			sleep2 2000;
+			instance_announce instance_id(),"Gaara lentamente abre os olhos na medida que chyio se deita no chão...",0;
+			sleep2 2000;
+			enablenpc ""+instance_npcname("Gaara Renascido")+"";
+			end;
+		}else
+		end;
+		
+	
+}
+
+5@resgate,180,216,0	script	Gaara Renascido	99,{
+	.@npc$ = "[" + strnpcinfo(1) + "]";
+	
+	if(getcharid(0) != getpartyleader(getcharid(1),2)) {
+		mes .@npc$;
+		mes "Apenas o líder pode finalizar a missão.";
+		close;
+	}
+	getpartymember getcharid(1),1;
+	getpartymember getcharid(1),2;
+	for(.@i = 0; .@i < $@partymembercount; .@i++) {
+		if($@partymembercount > 5) {
+			mes .@npc$;
+			mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 5 pessoas.";
+			instance_destroy;
+			close;
+		}
+	}
+	mes .@npc$;
+	mes "Obrigado !";
+	close2;
+	getpartymember getcharid(1),0;
+	getpartymember getcharid(1),1;
+	getpartymember getcharid(1),2;
+	for(.@i = 0; .@i < $@partymembercount; .@i++) {
+		attachrid($@partymemberaid[.@i]);
+		if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
+		
+			query_sql "SELECT `index`,`value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'",@resgate,@limite;
+			
+			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) {
+				if(!@resgate) {
+					query_sql "INSERT INTO `ii_limit` (`char_id`, `index`, `value`) VALUES ("+$@partymembercid[.@i]+",1,1)";
+				} else { 
+					query_sql "UPDATE `ii_limit` SET `value` = `value` + 1 WHERE `char_id`= '"+$@partymembercid[.@i]+"'";
+				}
+				announce "O Grupo ["+getpartyname(getcharid(1))+"] está tentando trapacear na Raid.",bc_all;				
+				.@count = $@partymembercount;				
+				copyarray .@name$[0], $@partymembername$[0], $@partymembercount;				
+				for (.@i = 0; .@i < .@count; .@i++)					
+				announce (.@i +1) + "." + .@name$[.@i] + "",bc_all;				
+				instance_destroy;
+				end;
+			}
+				// Delay
+				set delay_raid, gettimetick(2) + 300;
+				set #RaidPoint, #RaidPoint + 5;
+				BaseExp += 40000000;
+				Zeny += 200000;
+				getitem 9017,1;
+		}
+	}
+	announce "O Grupo ["+getpartyname(getcharid(1))+"] acaba de completar a Resgate Gaara.",bc_all;
+	instance_destroy;
+	end;
+}

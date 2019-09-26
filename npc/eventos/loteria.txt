@@ -1,0 +1,280 @@
+prontera,163,192,4	script	Loteria::loteriaaa	563,{
+
+	query_sql "SELECT `account_id`,`num_01`,`num_02`,`num_03` FROM `loteria` WHERE `concurso`='"+$Num_Concurso+"' AND `account_id`='"+getcharid(3)+"'",.@account,.@num_01,.@num_02,.@num_03;
+	query_sql "SELECT `account_id` FROM `loteria` WHERE `concurso`="+$Num_Concurso+"-1 AND `account_id`='"+getcharid(3)+"' AND `status`='1'",.@account_premiacao;
+	mes "[^0190ffLoteria^000000]";
+	if(.@account_premiacao == getcharid(3)){
+	mes "^ffa800Parabéns, Você ganhou: "+$Premio_Loteria+"z^000000";
+	}
+	set .@premio$,(($Zeny_Loteria/100)*$taxa);
+	set .@premio,(($Zeny_Loteria/100)*$taxa);
+	if(.@premio >= 100000000){
+		set .@premio$, insertchar(.@premio$,".",3);
+		set .@premio$, insertchar(.@premio$,".",7);
+	} else if(.@premio >= 10000000){
+		set .@premio$, insertchar(.@premio$,".",2);
+		set .@premio$, insertchar(.@premio$,".",6);
+	} else if(.@premio >= 1000000){
+		set .@premio$, insertchar(.@premio$,".",1);
+		set .@premio$, insertchar(.@premio$,".",5);
+	} else if(.@premio >= 100000){
+		set .@premio$, insertchar(.@premio$,".",3);
+	} else {
+		set .@premio$,"0";
+	}
+
+	mes "Sorteio:";
+	mes "^0000FF"+$dia$+" às "+$hora$+":00 horas^000000";
+	mes "Valor para Apostar: ^0000FF"+$valor$+"z^000000";
+	mes "Valor do Prêmio: ^0000FF"+.@premio$+"z^000000";
+	mes "Números Emitidos: ^0000FF"+$Num_Emitidos+"^000000";
+	if(.@num_03 && .@num_02 && .@num_01){
+	mes "Seus Números: [^ffa800"+.@num_01+"^000000] [^ffa800"+.@num_02+"^000000] [^ffa800"+.@num_03+"^000000]";
+	}
+	else if(.@num_02 && .@num_01){
+	mes "Seus números: [^ffa800"+.@num_01+"^000000] [^ffa800"+.@num_02+"^000000]";
+	}
+	else if(.@num_01){
+	mes "Seu número: [^ffa800"+.@num_01+"^000000]";
+	}
+	next;
+	mes "[^0190ffLoteria^000000]";
+	mes "Bem-Vindo a Loteria!";
+	mes "Os sorteios serão realizado todos os "+$dia$+" às "+$hora$+":00 hora"+((($hora) == 1)?"":"s")+".";
+	mes "É permitido comprar 3 números por conta, em um valor unitário de "+$valor$+"z.";
+	mes "O valor do prêmio será "+$taxa$+" do valor arrecadado com a venda dos números na semana.";
+	mes "^FF0000É de responsabilidade do Player retirar o Prêmio, caso não retire o prêmio na semana seguinte do sorteio, o valor do prêmio anterio será somado ao prêmio da próxima semana.^000000";
+	mes "O que deseja fazer?";
+	next;
+	switch(select(((.@account_premiacao == getcharid(3))?"^ffa800Resgatar Prêmio da Loteria^000000":""),(!(.@num_01 && .@num_02 && .@num_03)?"^0000FFComprar Número^000000":""),"^8B0000Consultar Resultado Anterior^000000","Cancelar")) {
+Case 1:
+	mes "[^0190ffLoteria^000000]";
+	set Zeny,Zeny + $Premio_Loteria;
+	query_sql "UPDATE `loteria` SET `status`=2 WHERE `concurso`="+$Num_Concurso+"-1 AND `account_id`='"+getcharid(3)+"' AND `status`='1'";
+	mes "Parabéns, Você recebeu: ^ffa800"+$Premio_Loteria+"z^000000";
+	set $Premio_Loteria,0;
+	close;
+Case 2:
+	mes "[^0190ffLoteria^000000]";
+	if(Zeny < $valor){
+		mes "Desculpe-me, mas você não possui zenys suficientes";
+		close;
+	}
+	if(!.@account){
+	query_sql "INSERT INTO `loteria` (`concurso`,`account_id`,`char_id`) VALUES ("+$Num_Concurso+","+getcharid(3)+","+getcharid(0)+")";
+	}
+	if(!.@num_01){
+		set $Num_Loteria,$Num_Loteria + 1;
+		set $Num_Emitidos,$Num_Emitidos + 1;
+		query_sql "UPDATE `loteria` SET `num_01`="+$Num_Loteria+" WHERE `account_id`='"+getcharid(3)+"' AND `concurso`='"+$Num_Concurso+"'";
+		mes "Seu 1º número na loteria é: ^ffa800"+$Num_Loteria+"^000000.";
+	}
+	else if(!.@num_02){
+		set $Num_Loteria,$Num_Loteria + 1;
+		set $Num_Emitidos,$Num_Emitidos + 1;
+		query_sql "UPDATE `loteria` SET `num_02`="+$Num_Loteria+" WHERE `account_id`='"+getcharid(3)+"' AND `concurso`='"+$Num_Concurso+"'";
+		mes "Seu 2º número na loteria é: ^ffa800"+$Num_Loteria+"^000000.";
+	}
+	else if(!.@num_03){
+		set $Num_Loteria,$Num_Loteria + 1;
+		set $Num_Emitidos,$Num_Emitidos + 1;
+		query_sql "UPDATE `loteria` SET `num_03`="+$Num_Loteria+" WHERE `account_id`='"+getcharid(3)+"' AND `concurso`='"+$Num_Concurso+"'";
+		mes "Seu 3º número na loteria é: ^ffa800"+$Num_Loteria+"^000000.";
+	}
+	else {
+	mes "Você não pode mais apostar.";
+	close;
+	}
+	set Zeny,Zeny - $valor;
+	set $Zeny_Loteria,$Zeny_Loteria + $valor;
+	close;
+Case 3:
+	query_sql "SELECT `concurso`,`numero`,`valor` FROM `loteria` WHERE `concurso`="+$Num_Concurso+"-1 AND `status`!='0'",.@concurso,.@numero,.@valor;
+	set .@premio$,.@valor;
+	set .@premio,.@valor;
+	if(.@premio >= 100000000){
+		set .@premio$, insertchar(.@premio$,".",3);
+		set .@premio$, insertchar(.@premio$,".",7);
+	} else if(.@premio >= 10000000){
+		set .@premio$, insertchar(.@premio$,".",2);
+		set .@premio$, insertchar(.@premio$,".",6);
+	} else if(.@premio >= 1000000){
+		set .@premio$, insertchar(.@premio$,".",1);
+		set .@premio$, insertchar(.@premio$,".",5);
+	} else if(.@premio >= 100000){
+		set .@premio$, insertchar(.@premio$,".",3);
+	} else {
+		set .@premio$,"0";
+	}
+	mes "[^0190ffLoteria^000000]";
+	if(.@concurso){
+	mes "Concurso de número: ^0000FF"+.@concurso+"^000000";
+	mes "Número Sorteado: ^0000FF"+.@numero+"^000000";
+	mes "Valor do Prêmio: ^0000FF"+.@premio$+"z^000000";
+	} else {
+	mes "^FF0000O Primeiro Concurso ainda não foi realizado!^000000";
+	}
+	close;
+Case 4:
+	close;
+}
+
+OnInit:
+if(!$Num_Loteria){ set $Num_Loteria,1000; }
+if(!$Num_Concurso){ set $Num_Concurso,1; }
+if(!$valor && $valor$ ==""){ set $valor$, "1.000.000"; set $valor, 1000000; }
+if(!$taxa && $taxa$ ==""){ set $taxa$, "100%"; set $taxa, 100; }
+if(!$dia && $dia$ ==""){ set $dia$, "Domingo"; set $dia, 0; }
+if(!$hora && $hora$ ==""){ set $hora$, "00"; set $hora, 0; }
+end;
+}
+
+
+// Loteria
+//RagnarokBR,72,43,4	duplicate(loteriaaa)	Loteria#VIP	563
+
+-	script	LOTERIA_SORTEIO	-1,{
+OnMinute00:
+if((gettime(4)==$dia) && (gettime(3)==$hora)) {
+OnSortear:
+if($Num_Loteria >= 1001){
+set $Sorteio_Loteria,rand( 1001,$Num_Loteria );
+set $Premio_Loteria,$Premio_Loteria + (($Zeny_Loteria/100)*$taxa);
+query_sql "SELECT `account_id`,`char_id`,`num_01`,`num_02`,`num_03` FROM `loteria` WHERE `concurso`="+$Num_Concurso+" AND (`num_01`="+$Sorteio_Loteria+" or `num_02`="+$Sorteio_Loteria+" or `num_03`="+$Sorteio_Loteria+")",.@account,.@char,.@num01,.@num02,.@num03;
+query_sql "INSERT INTO `loteria` (`concurso`,`account_id`,`char_id`,`num_01`,`num_02`,`num_03`,`numero`,`valor`,`status`) VALUES ("+$Num_Concurso+","+.@account+","+.@char+","+.@num01+","+.@num02+","+.@num03+","+$Sorteio_Loteria+","+$Premio_Loteria+",1)";
+set $Zeny_Loteria,0;
+set $Num_Emitidos,0;
+set $Num_Loteria,1000;
+announce "[Loteria] O "+$Num_Concurso+"º concurso, sorteou o número: [ "+$Sorteio_Loteria+" ]",bc_all,0x31f8f1;
+set $Num_Concurso,$Num_Concurso+1;
+sleep 5000;
+set .@premio$,$Premio_Loteria;
+set .@premio,$Premio_Loteria;
+if(.@premio >= 100000000){
+	set .@premio$, insertchar(.@premio$,".",3);
+	set .@premio$, insertchar(.@premio$,".",7);
+} else if(.@premio >= 10000000){
+	set .@premio$, insertchar(.@premio$,".",2);
+	set .@premio$, insertchar(.@premio$,".",6);
+} else if(.@premio >= 1000000){
+	set .@premio$, insertchar(.@premio$,".",1);
+	set .@premio$, insertchar(.@premio$,".",5);
+} else if(.@premio >= 100000){
+	set .@premio$, insertchar(.@premio$,".",3);
+} else {
+	set .@premio$,"0";
+}
+announce "O ganhador faturou o Prêmio de "+.@premio$+"z.",bc_all,0x31f8f1;
+end;
+}
+}
+end;
+}
+
+-	script	comando_loteria	-1,{
+OnInit:
+unbindatcmd "loteria";
+bindatcmd "loteria",strnpcinfo(3)+"::Onloteria",99,100;
+unbindatcmd "loteria";
+bindatcmd "loteria",strnpcinfo(3)+"::Onloteria",99,100;
+end;
+Onloteria:
+	mes "[Loteria]";
+	mes "Olá, O que deseja Fazer?";
+	next;
+	switch(select("Configurar Loteria:Sortear Loteria:Nada")) {
+		case 1:
+			mes "[Loteria]";
+			mes "Escolha o Valor que deseja cobrar no NPC de loteria:";
+			next;
+			setarray .@valor$[1], "100.000", "250.000", "500.000", "1.000.000", "2.500.000", "5.000.000", "10.000.000";
+			setarray .@valor[1], 100000, 250000, 500000, 1000000, 2500000, 5000000, 10000000;
+			set .@menu$,"";
+			for( set .@i,1; .@i < getarraysize(.@valor$); set .@i,.@i+1 )
+			{
+				set .@menu$, .@menu$ + .@valor$[.@i];
+				set .@menu$, .@menu$ +  "z";
+				set .@menu$, .@menu$ + ":";
+			}
+			set .@part,select(.@menu$);
+			if(.@part) {
+				set .@valor$, .@valor$[.@part];
+				set .@valor, .@valor[.@part];
+			}
+			next;
+			mes "[Loteria]";
+			mes "Escolha a taxa de premiação na arrecadação:";
+			setarray .@taxa$[1], "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%";
+			setarray .@taxa[1], 10, 20, 30, 40, 50, 60, 70, 80, 90, 100;
+			set .@menu$,"";
+			for( set .@i,1; .@i < getarraysize(.@taxa$); set .@i,.@i+1 )
+			{
+				set .@menu$, .@menu$ + .@taxa$[.@i];
+				set .@menu$, .@menu$ + ":";
+			}
+			set .@part,select(.@menu$);
+			if(.@part) {
+				set .@taxa$, .@taxa$[.@part];
+				set .@taxa, .@taxa[.@part];
+			}
+			next;
+			mes "[Loteria]";
+			mes "Escolha o dia da Semana que será realizado o sorteio:";
+			setarray .@dia$[1], "Domingo","Segunda-Feira","Terça-Feira","Quarta-Feira","Quinta-Feira","Sexta-Feira","Sábado";
+			setarray .@dia[1], 0, 1, 2, 3, 4, 5, 6;
+			set .@menu$,"";
+			for( set .@i,1; .@i < getarraysize(.@dia$); set .@i,.@i+1 )
+			{
+				set .@menu$, .@menu$ + .@dia$[.@i];
+				set .@menu$, .@menu$ + ":";
+			}
+			set .@part,select(.@menu$);
+			if(.@part) {
+				set .@dia$,.@dia$[.@part];
+				set .@dia, .@dia[.@part];
+			}
+			next;
+			mes "[Loteria]";
+			mes "Escolha o horário para ser realizado o sorteio:";
+			setarray .@hora$[1],  "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11";
+			setarray .@hora$[13], "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23";
+			setarray .@hora[1], 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23;
+			set .@menu$,"";
+			for( set .@i,1; .@i < getarraysize(.@hora$); set .@i,.@i+1 )
+			{
+				set .@menu$, .@menu$ +  .@hora$[.@i];
+				set .@menu$, .@menu$ +  " Horas";
+				set .@menu$, .@menu$ + ":";
+			}
+			set .@part,select(.@menu$);
+			if(.@part) {
+				set .@hora$,.@hora$[.@part];
+				set .@hora, .@hora[.@part];
+			}
+			next;
+			mes "[Loteria]";
+			mes "Valor: ^0190ff"+.@valor$+"^000000";
+			mes "Taxa: ^0190ff"+.@taxa$+"^000000";
+			mes "Horário: ^0190ff"+.@dia$+" às "+.@hora$+":00^000000";
+			mes "deseja confirmar a modificação?";
+			next;
+			if(select("Tudo bem, prossiga.:Nem pensar.") == 2) {
+				mes "[Loteria]";
+				mes "Tudo bem. Volte quando precisar.";
+				close;
+			}
+			set $valor$, .@valor$; set $valor, .@valor;
+			set $taxa$, .@taxa$; set $taxa, .@taxa;
+			set $dia$, .@dia$; set $dia, .@dia;
+			set $hora$, .@hora$; set $hora, .@hora;
+			mes "[loteria]";
+              		mes "Modificação feita com sucesso.";
+              		close;
+		case 2:
+			donpcevent "LOTERIA_SORTEIO::OnSortear";
+			close;
+		case 3:
+			close;
+	}
+end;
+}

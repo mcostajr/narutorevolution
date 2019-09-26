@@ -1,0 +1,15 @@
+// Konohagakure
+
+konoha3,240,251,0	warp	VilaKonoha#00	2,2,academia,105,12
+
+//konoha3,280,164,0	warp	VilaKonoha#01	2,2,bibli_01,53,38
+//bibli_01,53,35,0	warp	VilaKonoha#02	2,2,konoha3,280,161
+
+konoha3,117,172,0	warp	VilaKonoha#03	2,2,konoha3,109,179
+konoha3,112,176,0	warp	VilaKonoha#04	2,2,konoha3,120,169
+
+konoha3,194,235,0	warp	VilaKonoha#05	2,2,salakage,31,5
+salakage,31,2,0	warp	VilaKonoha#06	2,2,konoha3,194,232
+
+konoha3,188,92,0	warp	VilaKonoha#07	2,2,ama_in01,23,19
+ama_in01,23,16,0	warp	VilaKonoha#08	2,2,konoha3,188,89

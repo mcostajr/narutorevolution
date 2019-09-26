@@ -1,0 +1,75 @@
+-	script	exphiden	-1,{
+
+OnNPCKillEvent:
+	if(hidenlvl < 100) {
+		if(hidenexp <= $@HidenExp[hidenlvl]) {
+			if(hiden == 1) {
+				set hidenexp,hidenexp+strmobinfo(8,killedrid);
+				if(showhiden == 1) { 
+					dispbottom "EXP Adiquirido a Habilidade Hiden: "+strmobinfo(8,killedrid)+"";
+					dispbottom "EXP Habilidade Hiden ["+hidenexp+"/"+$@HidenExp[hidenlvl]+"]";
+				}
+				end;
+			}
+			end;
+		}
+		end;
+	}
+	end;
+}
+
+-	script	uphiden	-1,{
+
+	OnNPCKillEvent:
+		if(hidenlvl < 100) {
+			if(getequipid(EQI_HEAD_MID) && hiden) {
+				if(hidenexp >= $@HidenExp[hidenlvl]) {
+					set hidenlvl,hidenlvl+1;
+					specialeffect2 98;
+					dispbottom "Hiden Level Up ["+hidenlvl+"]";
+					
+					if(countitem(30101)) { if(getequipcardid(EQI_HEAD_MID,0) == 30324 ) { set hidenexp,0; delitem 30101,1; getitem2 30102,1,1,0,0,30325,0,0,0; equip 30102; end; } }
+					if(countitem(30101)) { set hidenexp,0; delitem 30101,1; getitem2 30101,1,1,0,0,30300+hidenlvl,0,0,0; equip 30101; end; }
+					
+					if(countitem(30102)) { if(getequipcardid(EQI_HEAD_MID,0) == 30349 ) { set hidenexp,0; delitem 30102,1; getitem2 30103,1,1,0,0,30350,0,0,0; equip 30103; end; } }
+					if(countitem(30102)) { set hidenexp,0; delitem 30102,1; getitem2 30102,1,1,0,0,30300+hidenlvl,0,0,0; equip 30102; end; }
+					
+					if(countitem(30103)) { set hidenexp,0; delitem 30103,1; getitem2 30103,1,1,0,0,30300+hidenlvl,0,0,0; equip 30103; end; }
+				
+					if(countitem(30105)) { set hidenexp,0; delitem 30105,1; getitem2 30105,1,1,0,0,30300+hidenlvl,0,0,0; equip 30105; end; }
+					if(countitem(30106)) { set hidenexp,0; delitem 30106,1; getitem2 30106,1,1,0,0,30300+hidenlvl,0,0,0; equip 30106; end; }
+					if(countitem(30107)) { set hidenexp,0; delitem 30107,1; getitem2 30107,1,1,0,0,30300+hidenlvl,0,0,0; equip 30107; end; }
+					if(countitem(30108)) { set hidenexp,0; delitem 30108,1; getitem2 30108,1,1,0,0,30300+hidenlvl,0,0,0; equip 30108; end; }
+					if(countitem(30109)) { set hidenexp,0; delitem 30109,1; getitem2 30109,1,1,0,0,30300+hidenlvl,0,0,0; equip 30109; end; }
+					if(countitem(30110)) { set hidenexp,0; delitem 30110,1; getitem2 30110,1,1,0,0,30300+hidenlvl,0,0,0; equip 30110; end; }
+					if(countitem(30111)) { set hidenexp,0; delitem 30111,1; getitem2 30111,1,1,0,0,30300+hidenlvl,0,0,0; equip 30111; end; }
+					if(countitem(30112)) { set hidenexp,0; delitem 30112,1; getitem2 30112,1,1,0,0,30300+hidenlvl,0,0,0; equip 30112; end; }
+					if(countitem(30113)) { set hidenexp,0; delitem 30113,1; getitem2 30113,1,1,0,0,30300+hidenlvl,0,0,0; equip 30113; end; }
+					if(countitem(30114)) { set hidenexp,0; delitem 30114,1; getitem2 30114,1,1,0,0,30300+hidenlvl,0,0,0; equip 30114; end; }
+					if(countitem(30115)) { set hidenexp,0; delitem 30115,1; getitem2 30115,1,1,0,0,30300+hidenlvl,0,0,0; equip 30115; end; }
+					if(countitem(30116)) { set hidenexp,0; delitem 30116,1; getitem2 30116,1,1,0,0,30300+hidenlvl,0,0,0; equip 30116; end; }
+					if(countitem(30117)) { set hidenexp,0; delitem 30117,1; getitem2 30117,1,1,0,0,30300+hidenlvl,0,0,0; equip 30117; end; }
+					if(countitem(30118)) { set hidenexp,0; delitem 30118,1; getitem2 30118,1,1,0,0,30300+hidenlvl,0,0,0; equip 30118; end; }
+					if(countitem(30119)) { set hidenexp,0; delitem 30119,1; getitem2 30119,1,1,0,0,30300+hidenlvl,0,0,0; equip 30119; end; }
+					if(countitem(30120)) { set hidenexp,0; delitem 30120,1; getitem2 30120,1,1,0,0,30300+hidenlvl,0,0,0; equip 30120; end; }
+					if(countitem(30121)) { set hidenexp,0; delitem 30121,1; getitem2 30121,1,1,0,0,30300+hidenlvl,0,0,0; equip 30121; end; }
+					if(countitem(30122)) { set hidenexp,0; delitem 30122,1; getitem2 30122,1,1,0,0,30300+hidenlvl,0,0,0; equip 30122; end; }
+					if(countitem(30123)) { set hidenexp,0; delitem 30123,1; getitem2 30123,1,1,0,0,30300+hidenlvl,0,0,0; equip 30123; end; }
+					if(countitem(30124)) { set hidenexp,0; delitem 30124,1; getitem2 30124,1,1,0,0,30300+hidenlvl,0,0,0; equip 30124; end; }
+					if(countitem(30125)) { set hidenexp,0; delitem 30125,1; getitem2 30125,1,1,0,0,30300+hidenlvl,0,0,0; equip 30125; end; }
+					if(countitem(30126)) { set hidenexp,0; delitem 30126,1; getitem2 30126,1,1,0,0,30300+hidenlvl,0,0,0; equip 30126; end; }
+					if(countitem(30127)) { set hidenexp,0; delitem 30127,1; getitem2 30127,1,1,0,0,30300+hidenlvl,0,0,0; equip 30127; end; }
+					if(countitem(30128)) { set hidenexp,0; delitem 30128,1; getitem2 30128,1,1,0,0,30300+hidenlvl,0,0,0; equip 30128; end; }
+					if(countitem(30129)) { set hidenexp,0; delitem 30129,1; getitem2 30129,1,1,0,0,30300+hidenlvl,0,0,0; equip 30129; end; }
+					if(countitem(30130)) { set hidenexp,0; delitem 30130,1; getitem2 30130,1,1,0,0,30300+hidenlvl,0,0,0; equip 30130; end; }
+				}
+				end;
+			}
+			end;
+		}
+		end;
+		
+	OnInit:
+		setarray $@HidenExp[1], 550,900,1500,2200,3200,3800,4200,4550,5000,5500,6000,6100,6350,6700,7350,8000,8400,8800,9200,9700,10300,11000,11800,13000,14000,15000,16000,17000,18000,19000,20000,21000,22000,23200,24000,26000,27500,29000,30000,31500,33000,34000,36000,37500,38000,40000,42000,44500,47000,49000,51000,53000,55000,57000,59000,61500,63000,65000,67500,75600,83700,91800,99900,108000,116100,124200,132300,140400,165000,192000,210000,232500,244500,255000,270000,282000,292500,300000,345000,416000,480000,560000,640000,768000,880000,960000,1088000,1200000,1440000,1700000,2040000,2550000,3060000,3570000,4080000,4760000,5610000,6800000,7070000;
+
+}

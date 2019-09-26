@@ -1,0 +1,330 @@
+konoha3,207,202,5	script	Magatama#1::magatama	443,{
+	
+	mes "[Magatama]";
+	mes "Sou especialista em magatamas, oque gostaria de saber ?";
+	switch(select(((getgroupid() >= 1)?"- Remover Magatama:":"")+":- Informaçao Magatama:- Evoluir Magatama:- Nada nao...") ) {
+		next;
+		case 1:
+			callfunc "Removedor_Magatama";
+			close;
+		
+		case 2:
+			close;
+			
+		case 3:
+			mes "[Magatama]";
+			mes "Em breve...";
+			close;
+		case 4:
+			mes "[Evoluir Magatama]";
+			mes "Escolha o Nivel da Magatama que gostaria de evoluir.";
+			menu "Rank C",RANKC,"Rank B",RANKB,"Rank A",RANKA,"Rank S",RANKS,"Rank SS",RANKSS;
+				
+				RANKC:
+					next;
+					mes "[Evoluir Magatama]";
+					mes "Voce precisa:";
+					mes "- 3 Magatama Rank D";
+					mes "- 200,000 Zeny";
+					next;
+					for(.@i = 4000; .@i < 4010; .@i++) {
+						if(countitem(.@i) >= 3 && Zeny >= 200000) {
+							mes "[Evoluir Magatama]";
+							mes "Parabens, sua magatama foi evoluida.";
+							delitem .@i,3;
+							Zeny -= 200000;
+							getitem .@i+10,1;
+							close;
+						}
+					}
+					mes "[Evoluir Magatama]";
+					mes "Voce nao tem todos os itens necessários.";
+					close;
+
+				RANKB:
+					next;
+					mes "[Evoluir Magatama]";
+					mes "Voce precisa:";
+					mes "- 3 Magatama Rank C";
+					mes "- 500,000 Zeny";
+					next;
+					for(.@i = 4010; .@i < 4020; .@i++) {
+						if(countitem(.@i) >= 3 && Zeny >= 500000) {
+							mes "[Evoluir Magatama]";
+							mes "Parabens, sua magatama foi evoluida.";
+							delitem .@i,3;
+							Zeny -= 500000;
+							getitem .@i+10,1;
+							close;
+						}
+					}
+					mes "[Evoluir Magatama]";
+					mes "Voce nao tem todos os itens necessários.";
+					close;
+					
+				RANKA:
+					next;
+					mes "[Evoluir Magatama]";
+					mes "Voce precisa:";
+					mes "- 3 Magatama Rank B";
+					mes "- 1 Fragmento de Magatama A";
+					mes "- 1,000,000 Zeny";
+					next;
+					for(.@i = 4020; .@i < 4030; .@i++) {
+						if(countitem(.@i) >= 3 && countitem(9011) >= 1 && Zeny >= 1000000) {
+							switch(select("- Força:- Agilidade:- Vitalidade:- Inteligencia:- Destreza:- Sorte:- Defesa Magica:- Defesa:- HP:- SP:- Maximo HP:- Resistencia:- %Ataque:- %Ataque Magico:- Ataque:- Ataque Magico:- %Distancia Ataque:- %Critico:- ASPD:- Caster:- Critical:- Precisao:- Esquiva:- Bonus Cura")){
+							case 1:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4030,1;
+								close;
+							case 2:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4031,1;
+								close;
+							case 3:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4032,1;
+								close;
+							case 4:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4033,1;
+								close;
+							case 5:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4034,1;
+								close;
+							case 6:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4035,1;
+								close;
+							case 7:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4036,1;
+								close;
+							case 8:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4037,1;
+								close;
+							case 9:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4038,1;
+								close;
+							case 10:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4039,1;
+								close;
+							case 11:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4040,1;
+								close;
+							case 12:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4041,1;
+								close;
+							case 13:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4042,1;
+								close;
+							case 14:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4043,1;
+								close;
+							case 15:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4044,1;
+								close;
+							case 16:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4045,1;
+								close;
+							case 17:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4046,1;
+								close;
+							case 18:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4047,1;
+								close;
+							case 19:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4048,1;
+								close;
+							case 20:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4049,1;
+								close;
+							case 21:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4050,1;
+								close;
+							case 22:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4051,1;
+								close;
+							case 23:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4052,1;
+								close;
+							case 24:
+								mes "[Evoluir Magatama]";
+								mes "Parabens, sua magatama foi evoluida.";
+								delitem .@i,3;
+								delitem 9011,1;
+								Zeny -= 1000000;
+								getitem 4053,1;
+								close;
+							}
+						}
+					}
+					mes "[Evoluir Magatama]";
+					mes "Voce nao tem todos os itens necessários.";
+					close;
+					
+				RANKS:
+					next;
+					mes "[Evoluir Magatama]";
+					mes "Voce precisa:";
+					mes "- 3 Magatama Rank A";
+					mes "- 1 Fragmento de Magatama S";
+					mes "- 3,000,000 Zeny";
+					next;
+					for(.@i = 4030; .@i < 4054; .@i++) {
+						if(countitem(.@i) >= 3 && countitem(9012) >= 1 && Zeny >= 3000000) {
+							mes "[Evoluir Magatama]";
+							mes "Parabens, sua magatama foi evoluida.";
+							delitem .@i,3;
+							delitem 9012,1;
+							Zeny -= 3000000;
+							getitem .@i+30,1;
+							close;
+						}
+					}
+					mes "[Evoluir Magatama]";
+					mes "Voce nao tem todos os itens necessários.";
+					close;
+					
+				RANKSS:
+					next;
+					mes "[Evoluir Magatama]";
+					mes "Voce precisa:";
+					mes "- 3 Magatama Rank A";
+					mes "- 1 Fragmento de Magatama SS";
+					mes "- 5,000,000 Zeny";
+					next;
+					for(.@i = 4060; .@i < 4084; .@i++) {
+						if(countitem(.@i) >= 3 && countitem(9013) >= 1 && Zeny >= 5000000) {
+							mes "[Evoluir Magatama]";
+							mes "Parabens, sua magatama foi evoluida.";
+							delitem .@i,3;
+							delitem 9013,1;
+							Zeny -= 5000000;
+							getitem .@i+30,1;
+							close;
+						}
+					}
+					mes "[Evoluir Magatama]";
+					mes "Voce nao tem todos os itens necessários.";
+					close;
+		case 5:
+			close;
+	}
+}
+
+
+sunagakure,178,153,5	duplicate(magatama)	Magatama#2	443
+kirigakure,153,201,5	duplicate(magatama)	Magatama#3	443
+kumogakure,141,187,5	duplicate(magatama)	Magatama#4	443
+iwagakure,200,125,5	duplicate(magatama)	Magatama#5	443
+prtbar,23,34,5	duplicate(magatama)	Magatama#6	443

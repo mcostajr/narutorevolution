@@ -1,0 +1,51 @@
+
+//konoha3,268,259,0	warp	esgoto kono#1	2,2,gl_sew04,67,274
+gl_sew04,67,280,0	warp	esgoto kono#2	2,2,konoha3,266,256
+
+gl_sew04,105,79,0	warp	esgoto kono#3	2,2,alde_dun01,173,158
+alde_dun01,167,158,0	warp	esgoto kono#4	2,2,gl_sew04,99,79
+
+alde_dun01,302,26,0	warp	esgoto kono#5	2,2,alde_dun04,85,37
+alde_dun04,79,34,0	warp	esgoto kono#6	2,2,alde_dun01,297,26
+
+alde_dun04,209,58,0	warp	esgoto kono#7	2,2,mjolnir_10,304,25
+mjolnir_10,302,19,0	warp	esgoto kono#8	2,2,alde_dun04,204,61
+
+
+//sunagakure,102,247,0	warp	esgoto suna#1	2,2,prt_sewb3,19,177
+prt_sewb3,19,182,0	warp	esgoto suna#2	2,2,sunagakure,105,244
+
+prt_sewb3,180,173,0	warp	esgoto suna#3	2,2,gl_dun01,224,23
+gl_dun01,224,18,0	warp	esgoto suna#4	2,2,prt_sewb3,180,168
+
+gl_dun01,133,276,0	warp	esgoto suna#5	2,2,beach_dun,31,110
+beach_dun,29,104,0	warp	esgoto suna#6	2,2,gl_dun01,133,270
+
+beach_dun,277,68,0	warp	esgoto suna#7	2,2,moc_fild01,353,46
+moc_fild01,356,41,0	warp	esgoto suna#8	2,2,beach_dun,271,68
+
+//kirigakure,266,264,0	warp	esgoto kiri#1	2,2,prt_sewb1,127,248
+prt_sewb1,132,248,0	warp	esgoto kiri#2	2,2,kirigakure,263,261
+
+prt_sewb1,189,247,0	warp	esgoto kiri#3	2,2,alde_dun03,192,37
+alde_dun03,192,31,0	warp	esgoto kiri#4	2,2,prt_sewb1,194,247
+
+alde_dun03,14,268,0	warp	esgoto kiri#5	2,2,alde_dun02,262,41
+alde_dun02,268,41,0	warp	esgoto kiri#6	2,2,alde_dun03,19,268
+
+alde_dun02,187,233,0	warp	esgoto kiri#7	2,2,mjolnir_07,202,185
+mjolnir_07,207,179,0	warp	esgoto kiri#8	2,2,alde_dun02,187,239
+
+
+//kumogakure,216,187,0	warp	esgoto kumo#1	2,2,gl_sew03,172,281
+gl_sew03,172,286,0	warp	esgoto kumo#2	2,2,kumogakure,213,187
+
+gl_sew03,64,10,0	warp	esgoto kumo#3	2,2,gl_dun02,224,272
+gl_dun02,224,277,0	warp	esgoto kumo#4	2,2,gl_sew03,64,16
+
+gl_dun02,20,27,0	warp	esgoto kumo#5	2,2,gld_dun02,182,112
+gld_dun02,188,112,0	warp	esgoto kumo#6	2,2,gl_dun02,25,31
+
+gld_dun02,12,160,0	warp	esgoto kumo#7	2,2,ein_fild01,28,255
+ein_fild01,27,262,0	warp	esgoto kumo#8	2,2,gld_dun02,18,160
+

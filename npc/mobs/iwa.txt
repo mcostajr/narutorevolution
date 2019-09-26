@@ -1,0 +1,28 @@
+
+ra_fild03,0,0,0,0	monster	Drops	1113,50,0,0,0
+ra_fild03,0,0,0,0	monster	Meta Picky	1240,50,0,0,0
+ra_fild03,0,0,0,0	monster	Condor	1901,50,0,0,0
+ra_fild03,0,0,0,0	monster	Spore	1014,50,0,0,0
+
+ra_fild07,0,0,0,0	monster	Bigfoot	1060,50,0,0,0
+ra_fild07,0,0,0,0	monster	Cookie	1265,50,0,0,0
+ra_fild07,0,0,0,0	monster	Mystcase	1249,50,0,0,0
+ra_fild07,0,0,0,0	monster	Ork Warrior	1023,50,0,0,0
+
+ra_fild02,0,0,0,0	monster	Mummy	1041,50,0,0,0
+ra_fild02,0,0,0,0	monster	Sohee	1170,50,0,0,0
+ra_fild02,0,0,0,0	monster	Chimera	1283,50,0,0,0
+
+ra_fild04,0,0,0,0	monster	Genin Pedra	30123,50,0,0,0
+ra_fild04,0,0,0,0	monster	Samurai Army	30133,50,0,0,0
+ra_fild04,0,0,0,0	monster	Capitao Samurai Army	30134,50,0,0,0
+
+ra_fild05,0,0,0,0	monster	Jounin Pedra	30129,80,0,0,0
+//ra_fild05,0,0,0,0	monster	Bandido	30005,50,0,0,0
+
+ra_fild08,0,0,0,0	monster	Onoki	30110,40,0,0,0
+ra_fild08,0,0,0,0	monster	Mifune	30063,40,0,0,0
+
+ra_fild06,0,0,0,0	monster	Civil Servant	1513,50,0,0,0
+ra_fild06,0,0,0,0	monster	Injustice	1257,50,0,0,0
+ra_fild06,0,0,0,0	monster	Giant Spider	1304,50,0,0,0

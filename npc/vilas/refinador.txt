@@ -1,0 +1,19 @@
+ama_in01,30,21,4	script	Refinador#1::refin	444,{
+	
+	mes "[Refinador]";
+	mes "Olá "+strcharinfo(0)+", gostaria de refinar seus equipamentos ?";
+	if(select("- Sim:- Não") == 2) close;
+		close2;
+		//refineui;
+		
+	OnInit:
+	waitingroom "[Refinador]",0;
+	end;
+}
+
+
+ama_in01,183,131,5	duplicate(refin)	Refinador#2	444
+ama_in01,100,18,5	duplicate(refin)	Refinador#3	444
+ama_in01,180,174,5	duplicate(refin)	Refinador#4	444
+ama_in01,90,177,5	duplicate(refin)	Refinador#5	444
+academia,92,19,5	duplicate(refin)	Refinador#6	444

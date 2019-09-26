@@ -1,0 +1,122 @@
+konoha3,190,176,5	script	Teletransporte#1::teleport	448,{
+		mes "[Teletransporte]";
+		mes "Olá "+strcharinfo(0)+", seja bem-vindo ao Serviço de Teletransporte!";
+		mes "Para onde voce gostaria de ir?";
+		next;
+		//if( Zeny < 100) { 
+		//	mes "[Teletransporte]"; mes "Você nao tem dinheiro suficiente."; 
+		//	close2;  
+		//}
+		function Go; function Disp; function Pick;
+		// --------------------------------------------------
+		// Main Menu:
+		// --------------------------------------------------
+		//Zeny -= 100;
+		menu "- Último Destino ^777777["+lastwarp$+"]^000000",-,"- Cidades.",Towns,"- Campos.",Fields,"- Guerra.",Woe;
+		if (lastwarp$ == "") dispbottom "Voce ainda nao se teletransportou para nenhum lugar.";
+		else warp lastwarp$,lastwarpx,lastwarpy;
+		close;
+	
+		// ------------------- Functions -------------------
+		// * Go("<map>",<x>,<y>);
+		// ~ Warps directly to a map.
+		// * Disp("<Menu Option>",<first option>,<last option>);
+		// * Pick("<map_prefix>"{,<index offset>});
+		// ~ Dynamic menu and map selection.
+		// * Disp("","<Option 1>:<Option 2>:<etc.>");
+		// * Pick("","<map1>","<map2>","<etc.>");
+		// ~ Manual menu and map selection.
+		//
+		// Other notes:
+		//   ~ Array @c[] holds all (x,y) coordinates.
+		//   ~ Use @c[2] EXCEPT when maps begin dynamically
+		//   at 0: use @c[0] and Pick() offset 1.
+		// --------------------------------------------------
+		function Go {
+			warp getarg(0),getarg(1,0),getarg(2,0);
+			getmapxy(lastwarp$,lastwarpx,lastwarpy,0);
+			close;
+		}
+		function Disp {
+			set @menu$,"";
+			if(getarg(0)=="") {
+				set @menu$,getarg(1);
+				return;
+			}
+			for(set .@i,getarg(1); .@i<=getarg(2); set .@i,.@i+1)
+			set @menu$, @menu$+getarg(0)+" "+.@i+":";
+			return;
+		}
+		function Pick {
+			if(getarg(0)=="") {
+				set .@i, select(@menu$);
+				warp getarg(.@i),@c[.@i*2],@c[.@i*2+1];
+			} else {
+				set .@i, select(@menu$)-getarg(1,0);
+				warp getarg(0)+((.@i<10)?"0":"")+.@i,@c[.@i*2],@c[.@i*2+1];
+			}
+			getmapxy(lastwarp$,lastwarpx,lastwarpy,0);
+			close;
+		}
+	 
+		// --------------------------------------------------
+		Towns: {
+		// --------------------------------------------------
+		menu "Konohagakure",T1,"Sunagakure",T2,"Kirigakure",T3,"Kumogakure",T4,"Iwagakure",T5,"Otogakure",T6,"Kusagakure",T7,"Amegakure",T8,"Takigakure",T9;
+
+			T1: Go("konoha3",190,176);
+			T2: Go("sunagakure",222,155);
+			T3: Go("kirigakure",219, 212);
+			T4: Go("kumogakure",130, 131);
+			T5: Go("iwagakure",197, 155);
+			T6: Go("otogakure",84, 200);
+			T7: Go("kusagakure",199,89);
+			T8: Go("amegakure",226, 214);
+			T9: Go("takigakure",148, 166);
+		}
+		// --------------------------------------------------
+		Fields: {
+		// --------------------------------------------------
+		menu "Campos do Fogo.",F1,"Campos do Vento.",F2,"Campos do Agua.",F3,"Campos do Relâmpago.",F4,"Campos do Terra.",F5;
+
+			F1: setarray @c[2],0,0,0,0,0,0,0,0;
+				Disp("","Fild 1 - [pay_fild07]:Fild 2 - [mjolnir_10]:Fild 3 - [mjolnir_11]:Fild 4 - [prt_fild07]");
+				Pick("","pay_fild07","mjolnir_10","mjolnir_11","prt_fild07");
+			F2: setarray @c[2],0,0,0,0;
+				Disp("","Fild 1 - [moc_fild12]:Fild 2 - [moc_fild13]");
+				Pick("","moc_fild12","moc_fild13");
+			F3: setarray @c[2],0,0,0,0;
+				Disp("","Fild 1 - [prt_fild03]:Fild 2 - [mjolnir_06]");
+				Pick("","prt_fild03","mjolnir_06");
+			F4: setarray @c[2],0,0,0,0;
+				Disp("","Fild 1 - [ein_fild02]:Fild 2 - [ein_fild01]");
+				Pick("","ein_fild02","ein_fild01");
+			F5: setarray @c[2],0,0,0,0;
+				Disp("","Fild 1 - [ra_fild03]:Fild 2 - [ra_fild05]");
+				Pick("","ra_fild03","ra_fild05");
+		
+		}
+		end;
+		
+		Woe: {
+		
+			menu "Castelo de Konoha",W1,"Castelo da Suna",W2;
+			
+			W1: Go("prt_gld",153,134);
+			W2: Go("prt_gld",142,64);
+		
+		}
+}
+
+
+sunagakure,222,155,4	duplicate(teleport)	Teletransporte#2	448
+kirigakure,219,212,4	duplicate(teleport)	Teletransporte#3	448
+kumogakure,130,131,6	duplicate(teleport)	Teletransporte#4	448
+iwagakure,197,155,2	duplicate(teleport)	Teletransporte#5	448
+//treinamento,79,136,4	duplicate(teleport)	Teletransporte#6	448
+otogakure,84,200,4	duplicate(teleport)	Teletransporte#7	448
+kusagakure,199,89,4	duplicate(teleport)	Teletransporte#8	448
+amegakure,226,214,4	duplicate(teleport)	Teletransporte#9	448
+takigakure,148,166,4	duplicate(teleport)	Teletransporte#10	448
+
+prtbar,42,31,4	duplicate(teleport)	Teletransporte#11	448

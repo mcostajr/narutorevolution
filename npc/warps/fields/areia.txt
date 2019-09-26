@@ -1,0 +1,39 @@
+sunagakure,199,61,0	warp	suna_entrada#1	2,2,moc_fild12,159,375
+moc_fild12,159,379,0	warp	suna_entrada#2	2,2,sunagakure,199,65
+
+moc_fild02,331,18,0	warp	fild suna#1	2,2,moc_fild13,298,367
+moc_fild13,302,370,0	warp	fild suna#2	2,2,moc_fild02,331,23
+
+moc_fild02,70,18,0	warp	fild suna#3	2,2,moc_fild13,143,364
+moc_fild13,145,368,0	warp	fild suna#4	2,2,moc_fild02,70,22
+
+moc_fild01,379,162,0	warp	fild suna#5	2,2,moc_fild13,33,172
+moc_fild13,29,172,0	warp	fild suna#6	2,2,moc_fild01,375,162
+
+moc_fild01,312,16,0	warp	fild suna#7	2,2,moc_fild04,312,376
+moc_fild04,312,381,0	warp	fild suna#8	2,2,moc_fild01,312,22
+
+moc_fild01,84,17,0	warp	fild suna#9	2,2,moc_fild04,95,377
+moc_fild04,91,381,0	warp	fild suna#10	2,2,moc_fild01,84,23
+
+moc_fild04,19,207,0	warp	fild suna#11	2,2,moc_fild12,283,171
+moc_fild12,288,168,0	warp	fild suna#12	2,2,moc_fild04,24,207
+
+moc_fild12,21,303,0	warp	fild suna#13	3,3,moc_fild09,369,196
+moc_fild09,374,197,0	warp	fild suna#14	2,2,moc_fild12,25,303
+
+moc_fild09,267,371,0	warp	fild suna#15	2,2,moc_fild05,267,24
+moc_fild05,267,18,0	warp	fild suna#16	2,2,moc_fild09,267,365
+
+moc_fild09,81,369,0	warp	fild suna#17	2,2,moc_fild05,82,21
+moc_fild05,82,16,0	warp	fild suna#18	2,2,moc_fild09,79,364
+
+
+moc_fild01,56,383,0	warp	fild suna#19	2,2,moc_fild15,55,380
+moc_fild15,93,19,0	warp	fild suna#20	2,2,moc_fild01,79,364
+
+moc_fild01,235,382,0	warp	fild suna#21	2,2,moc_fild15,350,21
+moc_fild15,348,18,0	warp	fild suna#22	2,2,moc_fild01,235,379
+
+moc_fild02,31,174,0	warp	fild suna#23	2,2,moc_fild15,364,275
+moc_fild15,367,275,0	warp	fild suna#24	2,2,moc_fild02,34,174

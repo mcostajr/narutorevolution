@@ -1,0 +1,39 @@
+//==================================================================================================================================================================
+// Entrada Battleground
+//==================================================================================================================================================================
+
+konoha3,202,225,4	script	Sala de Batalha#1::entradabg	408,{
+
+.@npc$ = "[" + strnpcinfo(1) + "]";
+
+mes .@npc$;
+mes "Bem-vindo as sala de batalha, você pode vivenciar diversos tipos de combate.";
+next;
+mes .@npc$;
+mes "Gostaria de entrar na sala?";
+menu "- Sim",L_sim,"- Não",L_nao;
+
+L_nao:
+	close;
+
+L_sim:
+	next;
+	mes .@npc$;
+	mes "Boa sorte!";
+	close2;
+	warp "pvp_room",51,22;
+	end;
+}
+
+pvp_room,51,18,0	script	Retorno_PvP#1	WARPNPC,2,2,{
+
+OnTouch:
+	warp "SavePoint",0,0;
+	end;
+
+}
+
+sunagakure,241,179,4	duplicate(entradabg)	Batalhas Campais#2	408
+kirigakure,252,227,4	duplicate(entradabg)	Batalhas Campais#3	408
+kumogakure,100,111,4	duplicate(entradabg)	Batalhas Campais#4	408
+iwagakure,122,69,4	duplicate(entradabg)	Batalhas Campais#5	408

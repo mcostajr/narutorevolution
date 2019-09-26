@@ -1,0 +1,12 @@
+// Kirigakure
+
+kirigakure,183,177,0	warp	VilaNevoa#00	2,2,academia,105,12
+
+//kirigakure,157,158,0	warp	VilaNevoa#01	2,2,bibli_03,53,38
+//bibli_03,53,35,0	warp	VilaNevoa#02	2,2,kirigakure,157,155
+
+kirigakure,202,224,0	warp	VilaNevoa#03	2,2,salakage3,31,5
+salakage3,31,2,0	warp	VilaNevoa#04	2,2,kirigakure,202,220
+
+kirigakure,159,279,0	warp	VilaNevoa#05	2,2,ama_in01,89,22
+ama_in01,86,22,0	warp	VilaNevoa#06	2,2,kirigakure,162,275

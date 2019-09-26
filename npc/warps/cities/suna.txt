@@ -1,0 +1,12 @@
+// Sunagakure
+
+sunagakure,227,128,0	warp	VilaSuna#00	2,2,academia,105,12
+
+//sunagakure,168,125,0	warp	VilaSuna#01	2,2,bibli_02,52,37
+//bibli_02,52,34,0	warp	VilaSuna#02	2,2,sunagakure,168,122
+
+sunagakure,200,191,0	warp	VilaSuna#03	2,2,salakage2,31,5
+salakage2,31,2,0	warp	VilaSuna#04	2,2,sunagakure,200,188
+
+sunagakure,300,212,0	warp	VilaSuna#05	2,2,ama_in01,174,123
+ama_in01,174,120,0	warp	VilaSuna#06	2,2,sunagakure,297,212

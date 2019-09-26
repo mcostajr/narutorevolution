@@ -1,0 +1,37 @@
+konoha3,179,167,6	script	Temari#1::salavip	438,{
+
+	if ( vip_status(1) ) {
+		mes "[Temari]";
+		mes "Você gostaria de ir para Sala Vip ?";
+		if(select("- Sim:- Não") == 2 ) close;
+		next;
+		mes "[Temari]";
+		mes "Irei Levar você.";
+		next;
+		close2;
+		warp "prtbar",43,23;
+		end;
+	} else {
+		mes "[Temari]";
+		mes "Você não é um jogador premium.";
+		close;
+	}
+
+OnInit:
+	waitingroom "[Sala VIP]",0;
+	end;
+
+}
+
+sunagakure,189,165,4	duplicate(salavip)	Temari#2	438
+kirigakure,198,213,4	duplicate(salavip)	Temari#3	438
+kumogakure,98,128,4	duplicate(salavip)	Temari#4	438
+iwagakure,193,164,4	duplicate(salavip)	Temari#5	438
+
+prtbar,46,23,5	script	Saida_Vip	WARPNPC,2,2,{
+
+	OnTouch:
+		warp "SavePoint",0,0;
+		end;
+		
+}

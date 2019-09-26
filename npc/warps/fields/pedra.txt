@@ -1,0 +1,31 @@
+// Pedra
+
+iwagakure,163,8,0	warp	fild_pedra#1	2,2,ra_fild03,186,352
+ra_fild03,186,355,0	warp	fild_pedra#2	2,2,iwagakure,163,11
+
+iwagakure,15,181,0	warp	fild_pedra#3	2,2,ra_fild02,363,263
+ra_fild02,366,266,0	warp	fild_pedra#4	2,2,iwagakure,18,181
+
+taki_fild01,16,312,0	warp	fild_pedra#17	2,2,ra_fild06,373,223
+ra_fild06,376,223,0	warp	fild_pedra#18	2,2,taki_fild01,19,312
+
+ra_fild06,18,279,0	warp	fild_pedra#19	2,2,ra_fild08,366,234
+ra_fild08,369,234,0	warp	fild_pedra#20	2,2,ra_fild06,22,279
+
+ra_fild06,245,379,0	warp	fild_pedra#21	2,2,ra_fild05,28,13
+ra_fild05,25,13,0	warp	fild_pedra#22	2,2,ra_fild06,245,376
+
+ra_fild06,32,353,0	warp	fild_pedra#23	2,2,ra_fild05,360,353
+ra_fild04,363,353,0	warp	fild_pedra#24	2,2,ra_fild06,35,353
+
+ra_fild04,262,53,0	warp	fild_pedra#25	2,2,ra_fild08,287,368
+ra_fild08,287,371,0	warp	fild_pedra#26	2,2,ra_fild04,262,56
+
+ra_fild03,375,172,0	warp	fild_pedra#27	2,2,ra_fild04,25,176
+ra_fild04,22,176,0	warp	fild_pedra#28	2,2,ra_fild03,372,172
+
+ra_fild03,22,289,0	warp	fild_pedra#29	2,2,ra_fild07,362,139
+ra_fild07,365,139,0	warp	fild_pedra#30	2,2,ra_fild03,25,289
+
+ra_fild02,168,37,0	warp	fild_pedra#31	2,2,ra_fild07,189,362
+ra_fild07,188,365,0	warp	fild_pedra#32	2,2,ra_fild02,168,40

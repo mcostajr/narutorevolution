@@ -1,0 +1,218 @@
+-	script	evento_comando	-1,{
+OnInit:
+
+// Comando
+unbindatcmd "evento";
+bindatcmd "evento",strnpcinfo(3)+"::OnEvento",0,99;
+
+// Mapas dos Eventos.
+setarray $@map_evento$[0],"quiz_01","turbo_n_1","poring_c01","quiz_02";
+
+//Desativar NPC
+disablenpc "Eventos#rBR";
+
+// Nivel de GM para usar menu de Admin
+$@EventGM = 60;
+
+end;
+
+OnEvento:
+
+@command$ = strtolower(.@atcmd_parameters$[0]);
+
+if(@command$ == "sair") {
+	for( set .@i, 0; .@i <= getarraysize($@map_evento$); set .@i, .@i+1 ){
+	if(strcharinfo(3) == $@map_evento$[.@i]){
+		warp "SavePoint",0,0;
+ 		end;
+	}
+	}
+ end;
+}
+else if($@bomb_poring){
+	if(strcharinfo(3) == "quiz_01") { message strcharinfo(0),"Voce j? est? partipando do Evento Bomba Rel?gio."; 	end;}
+	message strcharinfo(0),"Voce cadastrou-se no Evento Bomba Rel?gio.";
+	sc_end	SC_ANGELUS;
+	sc_end	SC_BLESSING;
+	sc_end	SC_INCREASEAGI;
+	sc_end	SC_GLORIA;
+	sc_end	SC_KYRIE;
+	sc_end	SC_ASSUMPTIO;
+	sc_end	SC_ADRENALINE;
+	sc_end	SC_ASPDPOTION0;
+	sc_end	SC_ASPDPOTION1;
+	sc_end	SC_ASPDPOTION2;
+	sc_end	SC_ASPDPOTION3;
+	sc_end	SC_SPEEDUP0;
+	sc_end	SC_SPEEDUP1;
+	sc_end	SC_ADRENALINE;
+	sc_start SC_DECREASEAGI,1200000,10;
+	percentheal 100,100;
+	@BombRewarded = 0;
+	warp "quiz_01",42,369;
+	end;
+}
+else if($@corrida_maluca){
+	if(strcharinfo(3) == "turbo_n_1") { message strcharinfo(0),"Voce j? est? partipando do Evento Corrida Maluca."; 	end;}
+	if(checkriding()){	message strcharinfo(0),"Por favor, retire seu PecoPeco";	end;	}
+
+	message strcharinfo(0),"Voce cadastrou-se no Evento Corrida Maluca.";
+	sc_end	SC_ANGELUS;
+	sc_end	SC_BLESSING;
+	sc_end	SC_INCREASEAGI;
+	sc_end	SC_GLORIA;
+	sc_end	SC_KYRIE;
+	sc_end	SC_ASSUMPTIO;
+	sc_end	SC_ADRENALINE;
+	sc_end	SC_ASPDPOTION0;
+	sc_end	SC_ASPDPOTION1;
+	sc_end	SC_ASPDPOTION2;
+	sc_end	SC_ASPDPOTION3;
+	sc_end	SC_SPEEDUP0;
+	sc_end	SC_SPEEDUP1;
+	sc_end	SC_ADRENALINE;
+
+	warp "turbo_n_1",54,364;
+	end;
+}
+else if($@poring_premiado){
+	if(strcharinfo(3) == "poring_c01") { message strcharinfo(0),"Voce j? est? partipando do Evento Poring Premiado."; 	end;}
+	if (countitem (4147) >= 1 || isequippedcnt (4147) >= 1) {	message strcharinfo(0),"Proibido o uso do item Carta Bafom?.";	end;	}
+	message strcharinfo(0),"Voce cadastrou-se no Evento Poring Premiado.";
+	warp "poring_c01", 104, 102;
+	end;
+}
+else if($@sortudo){
+	if(strcharinfo(3) == "quiz_02") { message strcharinfo(0),"Voce j? est? partipando do Evento Sortudo."; 	end;}
+		set @evento, rand(1,8);
+		if(@evento == 1){ warp "quiz_02",318,34; }
+		if(@evento == 2){ warp "quiz_02",37,52; }
+//		if(@evento == 3){ warp "quiz_02",73,52; }
+//		if(@evento == 4){ warp "quiz_02",330,34; }
+//		if(@evento == 5){ warp "quiz_02",49,52; }
+//		if(@evento == 6){ warp "quiz_02",342,34; }
+//		if(@evento == 7){ warp "quiz_02",354,34; }
+//		if(@evento == 8){ warp "quiz_02",61,52; }
+		message strcharinfo(0),"Voce cadastrou-se no Evento Sortudo.";
+		end;
+}
+else if(@command$ == "" && getgroupid() >= $@EventGM) {
+message strcharinfo(0),"para utilizar o comando administrativo use:";
+message strcharinfo(0),"@evento admin - menu para ativar eventos manualmente.";
+}
+else if(@command$ == "admin" && getgroupid() >= $@EventGM) {
+	mes "[^0190ff Eventos ^000000]";
+	mes "Deseja Ativar algum evento?";
+	next;
+        switch(select("Poring Bomba","Corrida Maluca","Poring Premiado","Sortudo","Sair")){
+	Case 1:
+		donpcevent "Bomb_Poring::OnAtivar";
+		close;
+	Case 2:
+		donpcevent "Corrida_Maluca::OnAtivar";
+		close;
+	Case 3:
+		donpcevent "Poring_Premiado::OnAtivar";
+		close;
+	Case 4:
+		donpcevent "Sortudo::OnAtivar";
+		close;
+	Case 5:
+		close;
+	}
+}
+else
+{
+message strcharinfo(0),"Eventos Inativos.";
+}
+end;
+}
+
+
+prontera,156,171,5	script	Eventos#rBR	715,{
+
+	.@npc$ = "[^0190ff Eventos ^000000]";
+
+	mes .@npc$;
+	mes "Evento: ^30cc12"+(($@bomb_poring)?"Bomba Rel?gio":($@corrida_maluca)?"Corrida Maluca":($@poring_premiado)?"Poring Premiado":($@sortudo)?"Sortudo":"")+"^000000";
+	mes "Ol? "+strcharinfo(0)+", o que deseja?";
+	next;
+	switch ( select("Participar do evento","Cancelar") )
+	{
+	case 1:
+
+	if($@bomb_poring){
+		message strcharinfo(0),"Voce cadastrou-se no Evento Bomba Rel?gio.";
+		sc_end	SC_ANGELUS;
+		sc_end	SC_BLESSING;
+		sc_end	SC_INCREASEAGI;
+		sc_end	SC_GLORIA;
+		sc_end	SC_KYRIE;
+		sc_end	SC_ASSUMPTIO;
+		sc_end	SC_ADRENALINE;
+		sc_end	SC_ASPDPOTION0;
+		sc_end	SC_ASPDPOTION1;
+		sc_end	SC_ASPDPOTION2;
+		sc_end	SC_ASPDPOTION3;
+		sc_end	SC_SPEEDUP0;
+		sc_end	SC_SPEEDUP1;
+		sc_end	SC_ADRENALINE;
+		sc_start SC_DECREASEAGI,1200000,10;
+		percentheal 100,100;
+		@BombRewarded = 0;
+		warp "quiz_01",42,369;
+		end;
+	}
+	else if($@corrida_maluca){
+		if(checkriding()){	mes .@npc$;	mes "Por favor, retire seu PecoPeco";	close;	}
+
+		message strcharinfo(0),"Voce cadastrou-se no Evento Corrida Maluca.";
+		sc_end	SC_ANGELUS;
+		sc_end	SC_BLESSING;
+		sc_end	SC_INCREASEAGI;
+		sc_end	SC_GLORIA;
+		sc_end	SC_KYRIE;
+		sc_end	SC_ASSUMPTIO;
+		sc_end	SC_ADRENALINE;
+		sc_end	SC_ASPDPOTION0;
+		sc_end	SC_ASPDPOTION1;
+		sc_end	SC_ASPDPOTION2;
+		sc_end	SC_ASPDPOTION3;
+		sc_end	SC_SPEEDUP0;
+		sc_end	SC_SPEEDUP1;
+		sc_end	SC_ADRENALINE;
+
+		warp "turbo_n_1",54,364;
+		end;
+	}
+	else if($@poring_premiado){
+		if (countitem (4147) >= 1 || isequippedcnt (4147) >= 1) {	mes .@npc$;	mes "Proibido o uso do item Carta Bafom?.";	close;	}
+		message strcharinfo(0),"Voce cadastrou-se no Evento Poring Premiado.";
+		warp "poring_c01", 104, 102;
+		end;
+	}
+	else if($@sortudo){
+		set @evento, rand(1,8);
+		if(@evento == 1){ warp "quiz_02",318,34; }
+		if(@evento == 2){ warp "quiz_02",37,52; }
+//		if(@evento == 3){ warp "quiz_02",73,52; }
+//		if(@evento == 4){ warp "quiz_02",330,34; }
+//		if(@evento == 5){ warp "quiz_02",49,52; }
+//		if(@evento == 6){ warp "quiz_02",342,34; }
+//		if(@evento == 7){ warp "quiz_02",354,34; }
+//		if(@evento == 8){ warp "quiz_02",61,52; }
+		end;
+	}else{
+		mes .@npc$;
+		mes "Eventos Inativos.";
+		close;
+	}
+	end;
+	case 2:
+		mes .@npc$;
+		mes "Tudo bem. Volte quando precisar.";
+		close;
+
+	}
+end;
+}

@@ -1,0 +1,94 @@
+-	script	poring_premiado	-1,{
+
+OnInit:
+	setcell "poring_c01",100,111,101,110,cell_walkable,0;
+	setcell "poring_c01",106,111,107,110,cell_walkable,0;
+end;
+
+OnSun1230:
+OnWed1900:
+
+OnAtivar:
+
+	$@poring_premiado = 1;
+
+	announce "O Evento Poring Premiado começará em 3 minutos. Digite @evento para participar.",0;
+	sleep 30000;
+	announce "O Evento Poring Premiado começará em 2 minutos e 30 segundos.",0;
+	sleep 30000;
+	announce "O Evento Poring Premiado começará em 2 minutos.",0;
+	sleep 20000;
+	announce "Para participar, digite @evento.",0;
+	sleep 20000;
+	announce "Digite @evento para participar.",0;
+	sleep 20000;
+	announce "Evento Poring Premiado começará em 1 minuto!",0;
+	sleep 15000;
+	announce "Para participar do evento, digite @evento.",0;
+	sleep 15000;
+	announce "O Evento Poring Premiado começará em 30 segundos.",0;
+	sleep 15000;
+	announce "Acerte o poring verdadeiro, caso contrário você perderá o evento.",0;
+	sleep 10000;
+	mapannounce "poring_c01","Evento Poring Premiado começará em ~5~",0;
+	sleep 1000;
+	mapannounce "poring_c01","Evento Poring Premiado começará em ~4~",0;
+	sleep 1000;
+	mapannounce "poring_c01","Evento Poring Premiado começará em ~3~",0;
+	sleep 1000;
+	mapannounce "poring_c01","Evento Poring Premiado começará em ~2~",0;
+	sleep 1000;
+	mapannounce "poring_c01","Evento Poring Premiado começará em ~1~",0;
+	sleep 1000;
+	announce "Poring Premiado Começou!",0;
+
+			initnpctimer;
+			monster "poring_c01",0,0,"Poring",1002,1,strnpcinfo(0)+"::OnMobKilled";
+			monster "poring_c01",0,0,"Pouring",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"Proing",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"Poirng",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"Poing",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"Porimg",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"Porinq",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"P0r1ng",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"PoRiNg",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"Por|ng",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"Por1ng",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"Porong",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"P0ring",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"P@ring",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			monster "poring_c01",0,0,"Porng",1002,25,strnpcinfo(0)+"::OnWrongKilled";
+			end;
+			return;
+
+		OnTimer300000:
+			$@poring_premiado = 0;
+			stopnpctimer;
+			announce "[Evento Poring Premiado]: O tempo acabou, tente na próxima vez.",0;
+			killmonsterall "poring_c01";
+			end;
+
+		OnMobKilled:
+			$@poring_premiado = 0;
+			stopnpctimer;
+			announce "[Poring Premiado] "+strcharinfo(0)+" encontrou o Poring.",0;
+			dispbottom "Parabéns, você me achou.";
+			getitem 9103,1;
+			killmonsterall "poring_c01";
+			warp "SavePoint",0,0;
+			mapannounce "poring_c01","Digite @evento sair - para sair do mapa do evento",0;
+			end;
+
+		OnWrongKilled:
+			dispbottom "Whaa, você errou feio.";
+			if($hpe) percentheal -50,0;
+			warp "SavePoint",0,0;
+			end;
+}
+poring_c01	mapflag	nosave	SavePoint
+poring_c01	mapflag	nomemo
+poring_c01	mapflag	nobranch
+poring_c01	mapflag	nowarpto
+poring_c01	mapflag	nowarp
+poring_c01	mapflag	noteleport 
+poring_c01	mapflag	noskill

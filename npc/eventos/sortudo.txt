@@ -1,0 +1,109 @@
+-	script	Sortudo	-1,{
+OnClock0800:
+OnClock2200:
+
+
+OnAtivar:
+
+	$@sortudo = 1;
+	enablenpc "Eventos#rBR";
+	killmonsterall "quiz_02";
+	announce "O Evento Sortudo começará em 3 minutos. Digite @evento para participar.",0;
+	sleep 30000;
+	announce "O Evento Sortudo começará em 2 minutos e 30 segundos.",0;
+	sleep 30000;
+	announce "O Evento Sortudo começará em 2 minutos.",0;
+	sleep 15000;
+	announce "Para participar, digite @evento.",0;
+	sleep 25000;
+	announce "Digite @evento para participar.",0;
+	sleep 20000;
+	announce "O Evento Sortudo começará em 1 minuto!",0;
+	sleep 1000;
+	announce "Para participar do evento, digite @evento.",0;
+	sleep 15000;
+	mapannounce "quiz_01","O Evento Sortudo começará em 30 segundos",0;
+	sleep 30000;
+	announce "O Evento Sortudo começou! Os registros foram encerrados~",0;
+
+	$@sortudo = 0;
+	disablenpc "Eventos#rBR";
+	if(getmapusers("quiz_02") < 1)
+	{
+		announce "O Evento Sortudo foi cancelado por falta de jogadores.",0;
+		end;
+	}
+	mapannounce "quiz_02","O Evento Sortudo começou!",bc_blue|bc_all;
+	pvpon "quiz_02";
+	removemapflag "quiz_02",mf_noskill;
+	sleep 3000;
+	mapannounce "quiz_02","Evento Sortudo: Em 5 minutos os baús irão aparecer.",bc_blue|bc_all;
+	sleep 300000;
+	pvpoff "quiz_02";
+	setmapflag "quiz_02",mf_noskill;
+	mapannounce "quiz_02","Evento Sortudo Os baús apareceram!",bc_blue|bc_all;
+	mobevent "quiz_02",34,69, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",39,60, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",51,69, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",46,60, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",58,69, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",63,60, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",75,69, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",70,60, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+
+	mobevent "quiz_02",316,51, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",321,42, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",333,51, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",328,42, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",340,51, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",345,42, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",357,51, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	mobevent "quiz_02",352,42, "Baú da Sorte", 1324, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, ""+strnpcinfo(0)+"::OnPrize";
+	end;
+
+OnPrize:
+	set @rand_prize, rand(1,5);
+	if(@rand_prize == 1)
+	{
+		getitem 14533,2;
+		announce "[ "+strcharinfo(0)+" ] abriu um Baú da Sorte e recebeu: 2x "+getitemname(14533)+"",8;
+	}
+	if(@rand_prize == 2)
+	{
+		getitem 14533,3;
+		announce "[ "+strcharinfo(0)+" ] abriu um Baú da Sorte e recebeu: 3x "+getitemname(14533)+"",8;
+	}
+	if(@rand_prize == 3)
+	{
+		getitem 14533,1;
+		announce "[ "+strcharinfo(0)+" ] abriu um Baú da Sorte e recebeu: 1x "+getitemname(14533)+"",8;
+	}
+	if(@rand_prize == 4)
+	{
+		set Zeny,Zeny + 50000;
+		announce "[ "+strcharinfo(0)+" ] abriu um Baú da Sorte e recebeu: 50.000z",8;
+	}
+	if(@rand_prize == 5)
+	{
+		atcommand "@kill "+strcharinfo(0);
+		announce "[ "+strcharinfo(0)+" ] abriu um Baú da Sorte e recebeu: A Morte! (muhaha)",8;
+	}
+	warp "prontera",156,191;
+	end;
+
+OnPCDieEvent:
+	if(strcharinfo(3) == "quiz_02")
+	{
+		dispbottom "Você perdeu.";
+		warp "SavePoint",0,0;
+		end;
+	}
+end;
+}
+
+quiz_02	mapflag	nomemo
+quiz_02	mapflag	nowarp
+quiz_02	mapflag	nowarpto
+quiz_02	mapflag	noicewall
+quiz_02	mapflag	nomemo
+quiz_02	mapflag	noreturn

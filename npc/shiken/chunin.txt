@@ -1,0 +1,143 @@
+academia,60,36,8	script	Chunin Shiken	79,{
+
+.@npc$ = "[" + strnpcinfo(1) + "]";
+
+pegarrapido:
+if(Class > 2 || Class < 1) { mes "[Chunin Shiken]"; mes "Você não é um genin."; close; }
+if(JobLevel < 50) { mes "[Chunin Shiken]"; mes "Você não tem level de job suficiente."; close; }
+if(raidchunin == 2) {
+	if(Class == 1) { 
+		jobchange 7;
+		SkillPoint += 1;
+		mes "[Chunin Shiken]";
+		mes "Parabéns você acaba de se tornar um Chunnin, agora inicia sua jornada para se tornar um Jounin.";
+		next;
+		mes "[Chunin Shiken]";
+		mes "Para isso você precisa atingir o nível máximo do servidor e conseguir 100% de mérito Jounin.";
+		mes "Você consegue aumentar o mérito através de caça de monstros ou nukenins e finalizar raids ou missões shinobi.";
+		mes "(Para visualizar seu mérito digite @merito)";
+		close;
+	}
+	if(Class == 2) {
+		jobchange 9;
+		SkillPoint += 1;
+		mes "[Chunin Shiken]";
+		mes "Parabéns você acaba de se tornar um Chunnin, agora inicia sua jornada para se tornar um Jounin.";
+		next;
+		mes "[Chunin Shiken]";
+		mes "Para isso você precisa atingir o nível máximo do servidor e conseguir 100% de mérito Jounin.";
+		mes "Você consegue aumentar o mérito através de caça de monstros ou nukenins e finalizar raids ou missões shinobi.";
+		mes "(Para visualizar seu mérito digite @merito)";
+		close;
+	}
+}
+
+	mes "[Chunin Shiken]";
+	mes "Bem vindo ao Chunnin Shiken, pequeno Genin, deseja iniciar o teste para graduação?";
+	raidchunin = 2;
+	goto pegarrapido;
+	close;
+	
+	inscrito:
+	switch(select( ( (!raidchunin)?"- Inscrever-se::":":- Começar")+":- Sair") ) {
+	
+		case 1:
+			next;
+			if(raidchunin < 1) {
+				mes .@npc$;
+				mes "Você Esta inscrito na raid.";
+				raidchunin = 1;
+				goto inscrito;
+				close;
+			}
+			mes .@npc$;
+			mes "Você ja foi inscrito.";
+			close;
+		case 2:
+			next;
+			if(!getcharid(1)) {
+				mes .@npc$;
+				mes "Você precisa estar em grupo para entrar na raid.";
+				close;
+			}
+			if(!instance_id()) {
+				if(getpartyleader(getcharid(1),2) != getcharid(0)) {
+					mes .@npc$;
+					mes "O grupo só poderá entrar na raid quando o líder falar comigo.";
+					close;
+				}
+				getpartymember getcharid(1),1;
+				getpartymember getcharid(1),2;
+				for(.@i = 0; .@i < $@partymembercount; .@i++) {
+					if($@partymembercount > 3) {
+						mes .@npc$;
+						mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 3 pessoas.";
+						close;
+					}
+				}
+				
+				if(!instance_check_party(getcharid(1),1,1,99)) {
+					mes .@npc$;
+					mes "Todos os membros do grupo devem ser nível 1~99.";
+					close;
+				}
+				mes .@npc$;
+				mes "Você deseja iniciar a raid com seu grupo?";
+				if(select("Sim","Não") == 2) close;		
+				close2;
+				getpartymember getcharid(1),0;
+				getpartymember getcharid(1),1;
+				getpartymember getcharid(1),2;
+				for(.@i = 0; .@i < $@partymembercount; .@i++) {
+					attachrid($@partymemberaid[.@i]);
+					if(!raidchunin) {
+						dispbottom "Nem todos estão aptos a fazer esse exame.";
+						end;
+					}
+				}
+				instance_create("Exame Chunin");
+				getpartymember getcharid(1),2;
+				for(.@i = 0; .@i < $@partymembercount; .@i++) {
+					attachrid($@partymemberaid[.@i]);
+					instance_enter("Exame Chunin");
+				}
+				attachrid(getpartyleader(getcharid(1),1));
+				// Começo da Raid
+				hideonnpc ""+instance_npcname("Yamato#2")+"";
+				sleep2 5000;
+				instance_announce instance_id(),"Bem Vindo a Floresta da Morte.",0;
+				sleep2 5000;
+				instance_announce instance_id(),"Vamos ver se vocês são capazes de passar da 2° Parte do Exame Chunin.",0;
+				sleep2 5000;
+				instance_announce instance_id(),"Regra N°1 - Seu Grupo deve Obter um Pergaminho do Céu e da Terra.",0;
+				sleep2 5000;
+				instance_announce instance_id(),"Regra N°2 - Nunca em hipótese alguma abra os pergaminhos.",0;
+				sleep2 5000;
+				instance_announce instance_id(),"Por Ultimo um conselho, Não Morra!!",0;
+				sleep2 5000;
+				instance_announce instance_id(),"Então vamos começar.",0;
+				sleep2 5000;
+				instance_announce instance_id(),"Líder do Grupo: Os inimigos estão vindo. Fiquem Atentos!",0;
+				areamonster ""+instance_mapname("1@exame",instance_id())+"",43,263,263,30,"Ninjas",30203,50,"exameinstance::OnCapangaDie1";
+				end;
+			}
+			getpartymember getcharid(1),1;
+			getpartymember getcharid(1),2;
+			for(.@i = 0; .@i < $@partymembercount; .@i++) {	
+				if($@partymembercount <= 3) {
+					mes .@npc$;
+					mes "Você deseja entrar na raid?";
+					if(select("Sim","Não") == 2) close;
+					instance_enter("Exame Chunin");
+					end;
+				}
+			}
+			mes .@npc$;
+			mes "Seu Grupo é muito grande. Reduz a quantidade de membros. Só é permitido 3 pessoas.";
+			close;
+			
+		case 3:
+			next;
+			close;
+	}
+}

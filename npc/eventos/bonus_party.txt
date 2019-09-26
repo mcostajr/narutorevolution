@@ -1,0 +1,50 @@
+-	script	Bonus_Party	-1,{
+
+OnInit:
+	$@Bonus_Party = 1;
+end;
+
+OnMon0001:
+if(!$@Bonus_Party) end;
+	$@Exp_Bonus_Party = 10;
+	//Bonus de Exp
+	setbattleflag("party_even_share_bonus",$@Exp_Bonus_Party);
+	atcommand "@reloadmobdb";
+	announce "[Evento] Bônus de experiência para os grupos: +"+$@Exp_Bonus_Party+"% por membro.",bc_all;
+	end;
+
+OnFri0001:
+if(!$@Bonus_Party) end;
+	$@Exp_Bonus_Party = 20;
+	//Bonus de Exp
+	setbattleflag("party_even_share_bonus",$@Exp_Bonus_Party);
+	atcommand "@reloadmobdb";
+	announce "[Evento] Bônus de experiência para os grupos: +"+$@Exp_Bonus_Party+"% por membro.",bc_all;
+	end;
+}
+
+-	script	Comand_Bonus_Party	-1,{
+
+OnInit:
+unbindatcmd "bonusparty";
+bindatcmd "bonusparty",strnpcinfo(3)+"::OnBonusParty",99,99;
+end;
+
+OnBonusParty:
+
+	@command = .@atcmd_parameters$[0];
+
+	if(!@command || @command < 10) {
+		message strcharinfo(0),"para utilizar o comando use:";
+		message strcharinfo(0),"@bonusparty <10-100>";
+		end;
+	}
+
+	$@Exp_Bonus_Party = @command;
+	//Bonus de Exp
+	setbattleflag("party_even_share_bonus",$@Exp_Bonus_Party);
+	atcommand "@reloadmobdb";
+	announce "[Evento] Bônus de experiência para os grupos: +"+$@Exp_Bonus_Party+"% por membro.",bc_all;
+	end;
+
+}

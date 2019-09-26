@@ -1,0 +1,304 @@
+quiz_01	mapflag	nowarpto
+quiz_01	mapflag	noskill
+quiz_01	mapflag	nowarp
+quiz_01	mapflag	noteleport
+quiz_01	mapflag	nomemo
+quiz_01	mapflag	nosave	SavePoint
+quiz_01	mapflag	nobranch
+quiz_01	mapflag	noicewall
+quiz_01	mapflag	nopenalty
+quiz_01	mapflag	nobranch
+quiz_01	mapflag	noexp
+quiz_01	mapflag	noreturn
+quiz_01	mapflag	pvp_noparty
+quiz_01	mapflag	restricted	1
+quiz_01	mapflag	restricted	9
+
+
+-	script	Bomber#disable	-1,{
+
+OnInit:
+	disablenpc "Premiador#BombPoring";
+}
+
+-	script	Bomb_Poring	-1,{
+
+OnTue1230:
+OnThu1900:
+
+OnAtivar:
+
+	$@bomb_poring = 1;
+	enablenpc "Eventos#rBR";
+	killmonsterall "quiz_01";
+	disablenpc "Premiador#BombPoring";
+	announce "O Evento Bomba Relógio começará em 3 minutos. Digite @evento para participar.",0;
+	sleep 30000;
+	announce "O Evento Bomba Relógio começará em 2 minutos e 30 segundos.",0;
+	sleep 30000;
+	announce "O Evento Bomba Relógio começará em 2 minutos.",0;
+	sleep 15000;
+	announce "Para participar, digite @evento.",0;
+	sleep 25000;
+	announce "Digite @evento para participar.",0;
+	sleep 20000;
+	announce "O Evento Bomba Relógio começará em 1 minuto!",0;
+	sleep 1000;
+	announce "Para participar do evento, digite @evento.",0;
+	sleep 15000;
+	mapannounce "quiz_01","O Evento Bomba Relógio começará em 30 segundos",0;
+	sleep 30000;
+	announce "O Evento Bomba Relógio começou! Os registros foram encerrados~",0;
+	$@bomb_poring = 0;
+	disablenpc "Eventos#rBR";
+	sleep 3000;
+	mapannounce "quiz_01","Evento Bomba Relógio começará em ~5~",0;
+	sleep 1000;
+	mapannounce "quiz_01","Evento Bomba Relógio começará em ~4~",0;
+	sleep 1000;
+	mapannounce "quiz_01","Evento Bomba Relógio começará em ~3~",0;
+	sleep 1000;
+	mapannounce "quiz_01","Evento Bomba Relógio começará em ~2~",0;
+	sleep 1000;
+	mapannounce "quiz_01","Evento Bomba Relógio começará em ~1~",0;
+	sleep 1000;
+
+
+//----------------------ROUND ONE ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	mapannounce "quiz_01","Round 1 !! O cronômetro já está funcionando !!",0;
+	sleep 2000;
+	mapannounce "quiz_01",getmapusers("quiz_01") +" jogadores estão participando do evento.",0,0x00FF00;
+	sleep 3000;
+	mapannounce "quiz_01","Bem, Vamos lá!!",0,0x00FF00;
+	sleep 3000;
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,5;
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,5;
+	sleep 13000;
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,5;
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,5;
+	sleep 10000;
+	mapannounce "quiz_01","5 segundos restantes para a próxima rodada !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","4 segundos restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","3 segundos restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","2 segundos restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","1 segundo restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","Round 1 Finalizado !! Aguarde o início do próximo ^^ !!",0;
+	killmonsterall "quiz_01";
+	sleep 1000;
+
+//----------------------ROUND TWO----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	if(getmapusers("quiz_01") < 1) goto L_Lose;
+	mapannounce "quiz_01","Round 2 !! O que  ?? O número de Bombas relógio parece ter aumentado!!",0;
+	sleep 2000;
+	mapannounce "quiz_01",getmapusers("quiz_01") +" sobreviveram essa rodada.",0;
+	sleep 3000;
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,1,"bomb_explode::OnMobDied01";
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,1,"bomb_explode::OnMobDied02";
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,5;
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,5;
+	sleep 13000;
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,3;
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,3;
+	sleep 10000;
+	mapannounce "quiz_01","5 segundos restantes para a próxima rodada !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","4 segundos restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","3 segundos restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","2 segundos restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","1 segundo restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","Round 2 finalizado !! Aguarde o início do próximo ^^ !!",0;
+	killmonsterall "quiz_01";
+	sleep 1000;
+
+//----------------------ROUND THREE ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	if(getmapusers("quiz_01") < 1) goto L_Lose;
+	mapannounce "quiz_01","Round 3 !! Oh ?? A quantidade de Bombas relógio aumentaram novamente!!",0;
+	sleep 2000;
+	mapannounce "quiz_01",getmapusers("quiz_01") +" players has survived to this round.",0,0x00FF00;
+	sleep 3000;
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,7;
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,7;
+	sleep 5000;
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,5;
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,5;
+	sleep 10000;
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,2,"bomb_explode::OnMobDied01";
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,2,"bomb_explode::OnMobDied02";
+	sleep 7000;
+	mapannounce "quiz_01","5 segundos restantes para a próxima rodada !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","4 segundos restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","3 segundos restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","2 segundos restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","1 segundo restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","Round 3 finalizado !! Aguarde o início do próximo !! ^^ !!",0;
+	killmonsterall "quiz_01";
+	sleep 1000;
+
+
+//----------------------ROUND FOUR ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	if(getmapusers("quiz_01") < 1) goto L_Lose;
+	mapannounce "quiz_01","Round 4 !! OMG !! Bombas relógio em todo o lugar. Salve-se quem puder  !!",0;
+	sleep 2000;
+	mapannounce "quiz_01",getmapusers("quiz_01") +" sobreviveram essa rodada.",0;
+	sleep 3000;
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,1,"bomb_explode::OnMobDied01";
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,1,"bomb_explode::OnMobDied02";
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,5;
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,5;
+	sleep 15000;
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,2,"bomb_explode::OnMobDied01";
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,2,"bomb_explode::OnMobDied02";
+	sleep 10000;
+	mapannounce "quiz_01","5 segundos restantes para a próxima rodada !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","4 segundos restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","3 segundos restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","2 segundos restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","1 segundo restantes para a próxima rodada  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","Round 4 finalizado !! Aguarde o início do próximo !! ^^ !!",0;
+	killmonsterall "quiz_01";
+	sleep 1000; 
+
+
+//----------------------ROUND FIVE  ( FINAL )-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	if(getmapusers("quiz_01") < 1) goto L_Lose;
+	mapannounce "quiz_01","Final Round !! Nunca vi tantos deles na minha vida  !! Boa sorte !!~ ",0;
+	sleep 2000;
+	mapannounce "quiz_01",getmapusers("quiz_01") +" sobreviveram essa rodada.",0;
+	sleep 3000;
+	announce "Bomba Relógio: OMG !!! Conseguiram chegar ao último ROUND, será que eles vão conseguir?",0;
+	sleep 3000;
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,1,"bomb_explode::OnMobDied01";
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,1,"bomb_explode::OnMobDied02";
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,15;
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,15;
+	sleep 18000;
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,2,"bomb_explode::OnMobDied01";
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,2,"bomb_explode::OnMobDied02";
+	sleep 2000;
+	mapannounce "quiz_01","Sobreviva este Round para conseguir o prêmio ^^ !!",0;
+	sleep 10000;
+	mapannounce "quiz_01","30 segundos para o final !! ^^ !!",0;
+	sleep 15000;
+	mapannounce "quiz_01","15 segundos para o final  !! ^^ !!",0;
+	sleep 5000;
+	mapannounce "quiz_01","10 segundos para o final  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","9 segundos para o final   !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","8 segundos para o final   !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","7 segundos para o final  !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","6 segundos para o final    !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","5 segundos para o final    !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","4 segundos para o final    !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","3 segundos para o final    !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","2 segundos para o final    !! ^^ !!",0;
+	sleep 1000;
+	mapannounce "quiz_01","1 segundo para o final    !! ^^ !!",0;
+	sleep 1000;
+	if(getmapusers("quiz_01") < 1) goto L_Lose;
+	mapannounce "quiz_01","Parabéns a todos sobreviventes  !! ^^ !!",0;
+	killmonsterall "quiz_01";
+	goto L_Win;
+	sleep2 1000;
+	end;	
+
+L_Lose: 
+	if ( getmapusers("quiz_01") == 0 ){
+	killmonsterall "quiz_01";
+	announce "Bomba Relógio: Ninguém sobreviveu ao evento, humanos fracos.",0;
+	end;
+	}
+L_Win:
+ 	if ( getmapusers("quiz_01") > 0 ){
+	mapannounce "quiz_01","Parabéns a todos os sobreviventes  !! ^^ !!",0;
+	killmonsterall "quiz_01";
+	sleep 3000;
+	mapannounce "quiz_01",getmapusers("quiz_01") +" sobreviveram ao evento.",0,0x00FF00;
+	enablenpc "Premiador#BombPoring";
+	sleep 3000;
+	mapannounce "quiz_01","Você sobreviveu e ganhou! Parabéns! Fale com o NPC Premiador para conseguir o seu brinde!",0;
+	end;
+	}
+	end;
+
+OnPCDieEvent:
+	if ( strcharinfo(3) == "quiz_01") {
+	warp "SavePoint",0,0;
+	mapannounce "quiz_01","Que desastre! Quando alguém morre o número de bombas é duplicado !! .",0;
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,1,"bomb_explode::OnMobDied01";
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,1,"bomb_explode::OnMobDied02";
+	dispbottom "Que má sorte, espere pelo próximo evento para tentar a sorte  ^^. ";
+ 	end;
+	}
+	
+}
+
+//----------------------REWARD NPC---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+quiz_01,42,369,3	script	Premiador#BombPoring	72,{
+	if(@BombRewarded)
+	{
+	mes "[Premiador]";
+	mes "Você já pegou seu prêmio ";
+	mes " ou ";
+	mes " Você participou do jogo sem ter se registrado.";
+	mes "então não me culpe por não dar seu brinde.";
+	close;
+	end;
+	}
+	mes "[Premiador]";
+	mes "Parabéns "+strcharinfo(0)+", você venceu";
+	close2;
+	announce "[Bomba Relógio] "+strcharinfo(0)+" venceu o Evento Bomba Relógio!",0;
+	getitem 9103,1;
+	@BombRewarded = 1;
+	warp "SavePoint",0,0;
+	sleep 3000;
+	if ( getmapusers("quiz_01") < 1 ){
+	disablenpc "Premiador#BombPoring";
+	}
+	end;
+}
+
+-	script	bomb_explode	-1,{
+
+OnMobDied01:
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,1,"bomb_explode::OnMobDied01";
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,1,"bomb_explode::OnMobDied02";
+    	end;
+
+OnMobDied02:
+	areamonster "quiz_01", 23, 361, 38, 376, "Bomba Relógio",1904,1,"bomb_explode::OnMobDied01";
+	areamonster "quiz_01", 45, 362, 60, 376, "Bomba Relógio",1904,1,"bomb_explode::OnMobDied02";
+   	end;
+}
