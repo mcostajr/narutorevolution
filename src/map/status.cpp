@@ -5700,14 +5700,10 @@ static unsigned short status_calc_str(struct block_list *bl, struct status_chang
 	// Fuuinjutsu
 	if (sc->data[SC_NEN])
 		str += str * sc->data[SC_NEN]->val2/100;
-	if (sc->data[SC_EXPLOSIONSPIRITS])
-		str += str * sc->data[SC_EXPLOSIONSPIRITS]->val2;
-	if (sc->data[SC_BLESSING]) {
-		if (sc->data[SC_BLESSING]->val2)
-			str += sc->data[SC_BLESSING]->val2;
-		else
-			str >>= 1;
-	}
+	if (sc->data[SC_CONCENTRATE])
+		str += str * sc->data[SC_CONCENTRATE]->val2 / 100;
+	if (sc->data[SC_BLESSING]) 
+		str += sc->data[SC_BLESSING]->val2;
 
 	// Portões
 	if (sc->data[SC_PORTAO1])
@@ -5794,9 +5790,6 @@ static unsigned short status_calc_agi(struct block_list *bl, struct status_chang
 	// Velocidaede
 	if(sc->data[SC_DODGE])
 		agi += sc->data[SC_DODGE]->val2;
-	// Fuuinjutsu
-	if(sc->data[SC_CONCENTRATE])
-		agi += agi * sc->data[SC_CONCENTRATE]->val2 / 100;
 	// Selo Amaldiçoado
 	if (sc->data[SC_AMALDICOADO])
 		agi += agi * sc->data[SC_AMALDICOADO]->val2 / 100;
@@ -5951,12 +5944,10 @@ static unsigned short status_calc_int(struct block_list *bl, struct status_chang
 	// Fuuinjutsu
 	if (sc->data[SC_NEN])
 		int_ += int_ * sc->data[SC_NEN]->val2 / 100;
-	if (sc->data[SC_BLESSING]) {
-		if (sc->data[SC_BLESSING]->val2)
-			int_ += sc->data[SC_BLESSING]->val2;
-		else
-			int_ >>= 1;
-	}
+	if (sc->data[SC_CONCENTRATE])
+		int_ += int_ * sc->data[SC_CONCENTRATE]->val2 / 100;
+	if (sc->data[SC_BLESSING])
+		int_ += sc->data[SC_BLESSING]->val2;
 	// Selo Amaldiçoado
 	if (sc->data[SC_AMALDICOADO])
 		int_ += int_ * sc->data[SC_AMALDICOADO]->val2 / 100;
@@ -6037,6 +6028,8 @@ static unsigned short status_calc_dex(struct block_list *bl, struct status_chang
 		dex += dex * sc->data[SC_OWL]->val2/100;
 	if(sc->data[SC_CONCENTRATE])
 		dex += dex * sc->data[SC_CONCENTRATE]->val2 / 100;
+	if (sc->data[SC_BLESSING])
+			dex += sc->data[SC_BLESSING]->val2;
 	// Selo Amaldiçoado
 	if (sc->data[SC_AMALDICOADO])
 		dex += dex * sc->data[SC_AMALDICOADO]->val2 / 100;
@@ -6063,12 +6056,6 @@ static unsigned short status_calc_dex(struct block_list *bl, struct status_chang
 		dex += 5;
 	if(sc->data[SC_QUAGMIRE])
 		dex -= sc->data[SC_QUAGMIRE]->val2;
-	if(sc->data[SC_BLESSING]) {
-		if (sc->data[SC_BLESSING]->val2)
-			dex += sc->data[SC_BLESSING]->val2;
-		else
-			dex >>= 1;
-	}
 	if(sc->data[SC_INCREASING])
 		dex += 4; // Added based on skill updates [Reddozen]
 	if(sc->data[SC_MARIONETTE])
@@ -6125,6 +6112,9 @@ static unsigned short status_calc_luk(struct block_list *bl, struct status_chang
 	// Basico
 	if (sc->data[SC_EREMITA])
 		luk += luk * 6 / 100;
+	// Fuuinjutsu
+	if (sc->data[SC_CONCENTRATE])
+		luk += luk * sc->data[SC_CONCENTRATE]->val2 / 100;
 	// Selo Amaldiçoado
 	if (sc->data[SC_AMALDICOADO])
 		luk += luk * sc->data[SC_AMALDICOADO]->val2 / 100;
@@ -6188,6 +6178,8 @@ static unsigned short status_calc_batk(struct block_list *bl, struct status_chan
 		return cap_value(batk,0,USHRT_MAX);
 
 	// Fuuinjutsu
+	if (sc->data[SC_EXPLOSIONSPIRITS])
+		batk += sc->data[SC_EXPLOSIONSPIRITS]->val2;
 	if (sc->data[SC_STRIKING])
 		batk += sc->data[SC_STRIKING]->val2;
 	if (sc->data[SC_OVERTHRUST])
@@ -6274,8 +6266,6 @@ static unsigned short status_calc_watk(struct block_list *bl, struct status_chan
 		return cap_value(watk,0,USHRT_MAX);
 
 	// Fuuinjutsu
-	if (sc->data[SC_STRIKING])
-		watk += sc->data[SC_STRIKING]->val2;
 	if (sc->data[SC_OVERTHRUST])
 		watk += sc->data[SC_OVERTHRUST]->val2;
 
@@ -6513,8 +6503,6 @@ static signed short status_calc_critical(struct block_list *bl, struct status_ch
 		critical += sc->data[SC_INCCRI]->val2;
 	if (sc->data[SC_CRIFOOD])
 		critical += sc->data[SC_CRIFOOD]->val1;
-	if (sc->data[SC_EXPLOSIONSPIRITS])
-		critical += sc->data[SC_EXPLOSIONSPIRITS]->val2;
 	if (sc->data[SC_FORTUNE])
 		critical += sc->data[SC_FORTUNE]->val2;
 	if (sc->data[SC_TRUESIGHT])
@@ -9806,11 +9794,11 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		tick = INFINITE_TICK / t_tickime;
 		break;
 	case SC_EXPLOSIONSPIRITS:
-		val2 = pc_checkskill(sd, MO_EXPLOSIONSPIRITS) > 10 ? 4 : 1;
+		val2 = pc_checkskill(sd, MO_EXPLOSIONSPIRITS) > 10 ? 5 * val1 : 4 * val1;
 		break;
 	case SC_BLESSING:
 		if (bl->type == BL_PC)
-			val2 = 2;
+			val2 = 2 * val1;
 		else
 			val2 = 0; // 0 -> Half stat.
 		break;
@@ -12830,7 +12818,6 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 			if( sd && sce->val2 && !pc_isdead(sd) ) {
 				int i = min(sd->spiritball,5);
 				pc_delspiritball(sd, sd->spiritball, 0);
-				status_change_end(bl, SC_EXPLOSIONSPIRITS, INVALID_TIMER);
 				while( i > 0 ) {
 					pc_addspiritball(sd, skill_get_time(MO_CALLSPIRITS, pc_checkskill(sd,MO_CALLSPIRITS)), 5);
 					--i;

@@ -532,6 +532,8 @@ struct map_session_data {
 	int spiritcharm_type; //Spirit type
 	int spiritcharm_timer[MAX_SPIRITCHARM];
 
+	short lexquant;
+
 	unsigned char potion_success_counter; //Potion successes in row counter
 	unsigned char mission_count; //Stores the bounty kill count for TK_MISSION
 	short mission_mobid; //Stores the target mob_id for TK_MISSION

@@ -1175,13 +1175,15 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			return 0;
 		}
 
-		/*if (sc->data[SC_DODGE]->val1 > 10  && (flag &(BF_MAGIC|BF_WEAPON|BF_LONG)) && rnd() % 100 < (sc->data[SC_DODGE]->val1-10)*4) {
-			if (sd && pc_issit(sd))
-				pc_setstand(sd, true); //Stand it to dodge.
-			clif_skill_nodamage(bl, bl, TK_DODGE, 1, 1);
-			return 0;
+		if (sce = sc->data[SC_DODGE]) {
+			if (sc->data[SC_DODGE]->val1 > 10 && (flag &(BF_MAGIC | BF_WEAPON | BF_LONG)) && rnd() % 100 < (sc->data[SC_DODGE]->val1 - 10) * 4) {
+				if (sd && pc_issit(sd))
+					pc_setstand(sd, true); //Stand it to dodge.
+				clif_skill_nodamage(bl, bl, TK_DODGE, 1, 1);
+				return 0;
+			}
 		}
-		*/
+		
 
 		if(sc->data[SC_HERMODE] && flag&BF_MAGIC)
 			return 0;
@@ -1244,12 +1246,9 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 		//Now damage increasing effects
 		if (sc->data[SC_AETERNA] && skill_id != PF_SOULBURN) {
 			if (src->type != BL_MER || !skill_id)
-				damage <<= sc->data[SC_AETERNA]->val1 >= 5 ? 2 : 1; // Lex Aeterna only doubles damage of regular attacks from mercenaries
+				damage <<= 1; // Lex Aeterna only doubles damage of regular attacks from mercenaries
 
-#ifndef RENEWAL
-			if( !(flag&BF_WEAPON) )
-#endif
-				status_change_end(bl, SC_AETERNA, INVALID_TIMER); //Shouldn't end until Breaker's non-weapon part connects.
+			status_change_end(bl, SC_AETERNA, INVALID_TIMER); //Shouldn't end until Breaker's non-weapon part connects.
 		}
 
 #ifdef RENEWAL
