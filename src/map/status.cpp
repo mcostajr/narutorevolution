@@ -268,7 +268,6 @@ void initChangeTables(void)
 	/* Velocidade */
 	set_sc(TK_DODGE, SC_DODGE, EFST_DODGE_ON, SCB_NONE);
 	set_sc(SN_WINDWALK, SC_WINDWALK, EFST_WINDWALK, SCB_SPEED);
-	set_sc(KN_ONEHAND, SC_ONEHAND, EFST_ONEHANDQUICKEN, SCB_ASPD);
 
 	set_sc(AL_INCAGI, SC_INCREASEAGI, EFST_INC_AGI, SCB_AGI | SCB_SPEED);
 
@@ -3205,12 +3204,6 @@ static int status_get_hpbonus(struct block_list *bl, enum e_status_bonus type) {
 					pc_checkskill(sd, SU_GROOMING) + pc_checkskill(sd, SU_PURRING) + pc_checkskill(sd, SU_SHRIMPARTY)) > 19)
 						bonus += 2000;
 			}
-#ifndef HP_SP_TABLES
-			if ((sd->class_&MAPID_UPPERMASK) == MAPID_SUPER_NOVICE && sd->status.base_level >= 99)
-				bonus += 2000; // Supernovice lvl99 hp bonus.
-			if ((sd->class_&MAPID_UPPERMASK) == MAPID_SUPER_NOVICE && sd->status.base_level >= 150)
-				bonus += 2000; // Supernovice lvl150 hp bonus.
-#endif
 		}
 
 		//Bonus by SC
@@ -4211,9 +4204,17 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 
 // ----- FLEE CALCULATION -----
 
-	// Absolute modifiers from passive skills
+	/*
+	* ------------------------
+	*	Naruto
+	* ------------------------
+	*/
+	// Velocidade
 	if((skill=pc_checkskill(sd,TF_MISS))>0)
-		base_status->flee += skill * 4 + sc->data[SC_CONCENTRATE]?20:0;
+		base_status->flee += skill * 5;
+
+	// ----------------------------------------------
+
 	if((skill=pc_checkskill(sd,MO_DODGE))>0)
 		base_status->flee += (skill*3)>>1;
 	if (pc_checkskill(sd, SU_POWEROFLIFE) > 0)
@@ -7029,6 +7030,11 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = sc->data[SC_CHASEWALK]->val3;
 		else {
 			val = 0;
+			/*
+			* ---------------------------------
+			*	Naruto
+			* ---------------------------------
+			*/
 			// Fuuinjutsu
 			if (sc->data[SC_CONCENTRATE])
 				val = max(val, 10);
@@ -7036,6 +7042,7 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			if (sc->data[SC_DECREASEAGI])
 				val = max(val, 25);
 
+			// ---------------------------------
 
 			// Longing for Freedom cancels song/dance penalty
 			if( sc->data[SC_LONGING] )
@@ -7104,21 +7111,27 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			speed_rate = 150;
 
 		// GetMoveHasteValue1()
+		/*
+		* ------------------------
+		*	Naruto
+		* ------------------------
+		*/
 		// Basico
 		if (sc->data[SC_EREMITA])
 			val = max(val, 5);
 		//Velocidade
+		if (sd && pc_checkskill(sd, TF_MISS) > 0)
+			val += max(val, 5/10 * pc_checkskill(sd, TF_MISS));
 		if (sc->data[SC_WINDWALK])
-			val = max(val, 4 * sc->data[SC_WINDWALK]->val1);
+			val += max(val, sc->data[SC_WINDWALK]->val2);
 		if (sc->data[SC_INCREASEAGI])
-			val = max(val, 40);
+			val += max(val, 40);
 
+		// -------------------------------------------------------------
 		if( sc->data[SC_SPEEDUP1] ) // !FIXME: used both by NPC_AGIUP and Speed Potion script
 			val = max( val, sc->data[SC_SPEEDUP1]->val1 );
 		if( sc->data[SC_CARTBOOST] )
 			val = max( val, 20 );
-		if( sd && (sd->class_&MAPID_UPPERMASK) == MAPID_ASSASSIN && pc_checkskill(sd,TF_MISS) > 0 )
-			val = max( val, 1 * pc_checkskill(sd,TF_MISS) );
 		if( sc->data[SC_CLOAKING] && (sc->data[SC_CLOAKING]->val4&1) == 1 )
 			val = max( val, sc->data[SC_CLOAKING]->val1 >= 10 ? 25 : 3 * sc->data[SC_CLOAKING]->val1 - 3 );
 		if( sc->data[SC_BERSERK] )
@@ -7196,7 +7209,7 @@ static short status_calc_aspd(struct block_list *bl, struct status_change *sc, b
 		enum sc_type sc_val;
 
 		if (!sc->data[SC_QUAGMIRE]) {
-			if (bonus < 7 && (sc->data[SC_TWOHANDQUICKEN] || sc->data[SC_ONEHAND] || sc->data[SC_MERC_QUICKEN] || sc->data[SC_ADRENALINE] || sc->data[SC_SPEARQUICKEN]))
+			if (bonus < 7 && (sc->data[SC_TWOHANDQUICKEN] || sc->data[SC_MERC_QUICKEN] || sc->data[SC_ADRENALINE] || sc->data[SC_SPEARQUICKEN]))
 				bonus = 7;
 			else if (bonus < 6 && sc->data[SC_ADRENALINE2])
 				bonus = 6;
@@ -7346,14 +7359,22 @@ static short status_calc_aspd_rate(struct block_list *bl, struct status_change *
 	int i;
 
 	if(!sc || !sc->count)
+		//Only for BL_PC
+		if (bl->type == BL_PC) {
+			struct map_session_data *sd = map_id2sd(bl->id);
+			int max = 0;
+			uint8 i;
+
+			if ((i = pc_checkskill(sd, KN_ONEHAND)) > 0)
+				max += i * 30;
+
+			aspd_rate -= max;
+		}
+
 		return cap_value(aspd_rate,0,SHRT_MAX);
 
 	if( !sc->data[SC_QUAGMIRE] ) {
 		int max = 0;
-
-		/* Velocidade */
-		if (sc->data[SC_ONEHAND] && max < sc->data[SC_ONEHAND]->val2)
-			max = sc->data[SC_ONEHAND]->val2;
 
 		if(sc->data[SC_STAR_COMFORT])
 			max = sc->data[SC_STAR_COMFORT]->val2;
@@ -8988,7 +9009,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		if( sc->option&OPTION_MADOGEAR ) // Mado is immune to magnificat
 			return 0;
 		break;
-	case SC_ONEHAND:
 	case SC_MERC_QUICKEN:
 	case SC_TWOHANDQUICKEN:
 		if(sc->data[SC_DECREASEAGI])
@@ -9777,6 +9797,12 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	case SC_DODGE:
 		val2 = 1 * val1;
 		break;
+	case SC_WINDWALK:
+		val2 = (26/10) * val1;
+		val3 = 20 + val1 * 5;
+		t_tickime = 1000;
+		tick = INFINITE_TICK / t_tickime;
+		break;
 	case SC_INCREASEAGI:
 		val2 = 2 + val1; // Agi change
 		break;
@@ -10065,9 +10091,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			//Suiton is a special case, stop effect is forced and only happens when target enters it
 			if (!unit_blown_immune(bl, 0x1))
 				unit_stop_walking(bl, 9);
-			break;
-		case SC_ONEHAND:
-			val2 = 30;
 			break;
 		case SC_TWOHANDQUICKEN:
 			val2 = 300;
@@ -11840,7 +11863,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_DPOISON:      sc->opt2 |= OPT2_DPOISON;		break;
 		// OPT3
 		case SC_TWOHANDQUICKEN:
-		case SC_ONEHAND:
 		case SC_SPEARQUICKEN:
 		case SC_CONCENTRATION:
 		case SC_MERC_QUICKEN:
@@ -13016,7 +13038,6 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 	//	break;
 	// opt3
 	case SC_TWOHANDQUICKEN:
-	case SC_ONEHAND:
 	case SC_SPEARQUICKEN:
 	case SC_CONCENTRATION:
 	case SC_MERC_QUICKEN:
@@ -13214,6 +13235,14 @@ TIMER_FUNC(status_change_timer){
 			if (unit_is_walking(bl) ||!status_heal(bl, 0, status_chakra(bl), 2))
 				break;
 			status_heal(bl, 0, status_chakra(bl), 2 );
+			sc_timer_next(1000 + tick);
+			return 0;
+		break;
+
+		/* Velocidade */
+		case SC_WINDWALK:
+			if (!status_charge(bl, 0, sce->val3))
+				break;
 			sc_timer_next(1000 + tick);
 			return 0;
 		break;

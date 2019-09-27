@@ -48,6 +48,7 @@
 1,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 1,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+1,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 1,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 1,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 1,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -100,6 +101,7 @@
 2,2002,10,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 2,540,10,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+2,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 2,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 2,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 2,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -148,6 +150,7 @@
 3,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 3,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+3,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 3,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 3,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 3,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -200,6 +203,7 @@
 4,2002,10,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 4,540,10,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+4,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -248,6 +252,7 @@
 5,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 5,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+5,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 5,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 5,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 5,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -300,6 +305,7 @@
 6,2002,10,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 6,540,10,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+6,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 6,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 6,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 6,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -348,8 +354,9 @@
 7,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 7,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+7,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 7,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
-7,29,10,0,0,0,0,0,0,0,0,0,0   //AL_INCAGI#Increase AGI#
+7,383,10,0,0,0,0,0,0,0,0,0,0   //SN_WINDWALK#Kaze Shunshin#
 7,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 7,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
@@ -434,8 +441,9 @@
 8,2002,15,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 8,540,15,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+8,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 8,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
-8,29,10,0,0,0,0,0,0,0,0,0,0   //AL_INCAGI#Increase AGI#
+8,383,10,0,0,0,0,0,0,0,0,0,0   //SN_WINDWALK#Kaze Shunshin#
 8,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 8,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
@@ -531,8 +539,9 @@
 9,2002,15,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 9,540,15,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+9,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 9,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
-9,29,10,0,0,0,0,0,0,0,0,0,0   //AL_INCAGI#Increase AGI#
+9,383,10,0,0,0,0,0,0,0,0,0,0   //SN_WINDWALK#Kaze Shunshin#
 9,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 9,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
@@ -626,8 +635,9 @@
 10,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 10,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+10,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 10,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
-10,29,10,0,0,0,0,0,0,0,0,0,0   //AL_INCAGI#Increase AGI#
+10,383,10,0,0,0,0,0,0,0,0,0,0   //SN_WINDWALK#Kaze Shunshin#
 10,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 10,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
@@ -709,8 +719,9 @@
 11,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 11,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+11,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 11,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
-11,29,10,0,0,0,0,0,0,0,0,0,0   //AL_INCAGI#Increase AGI#
+11,383,10,0,0,0,0,0,0,0,0,0,0   //SN_WINDWALK#Kaze Shunshin#
 11,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 11,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
@@ -795,8 +806,9 @@
 12,2002,15,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 12,540,15,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+12,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 12,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
-12,29,10,0,0,0,0,0,0,0,0,0,0   //AL_INCAGI#Increase AGI#
+12,383,10,0,0,0,0,0,0,0,0,0,0   //SN_WINDWALK#Kaze Shunshin#
 12,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 12,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
@@ -890,8 +902,9 @@
 14,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 14,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+14,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 14,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
-14,29,10,0,0,0,0,0,0,0,0,0,0   //AL_INCAGI#Increase AGI#
+14,383,10,0,0,0,0,0,0,0,0,0,0   //SN_WINDWALK#Kaze Shunshin#
 14,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 14,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
@@ -976,8 +989,9 @@
 16,2002,15,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 16,540,15,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+16,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 16,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
-16,29,10,0,0,0,0,0,0,0,0,0,0   //AL_INCAGI#Increase AGI#
+16,383,10,0,0,0,0,0,0,0,0,0,0   //SN_WINDWALK#Kaze Shunshin#
 16,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 16,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
@@ -1073,6 +1087,7 @@
 4002,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 4002,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+4002,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4002,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4002,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4002,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -1125,6 +1140,7 @@
 4003,2002,10,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 4003,540,10,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+4003,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4003,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4003,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4003,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -1173,6 +1189,7 @@
 4004,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 4004,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+4004,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4004,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4004,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4004,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -1225,6 +1242,7 @@
 4005,2002,10,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 4005,540,10,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+4005,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4005,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4005,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4005,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -1273,6 +1291,7 @@
 4006,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 4006,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+4006,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4006,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4006,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4006,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -1325,6 +1344,7 @@
 4007,2002,10,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 4007,540,10,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+4007,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4007,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4007,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4007,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -1375,6 +1395,7 @@
 4008,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 4008,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+4008,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4008,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4008,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4008,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -1461,6 +1482,7 @@
 4009,2002,15,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 4009,540,15,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+4009,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4009,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4009,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4009,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -1564,11 +1586,11 @@
 4010,2002,15,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 4010,540,15,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+4010,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4010,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4010,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4010,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4010,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
-4010
 
 4010,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4010,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
@@ -1665,6 +1687,7 @@
 4012,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 4012,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+4012,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4012,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4012,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4012,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -1748,6 +1771,7 @@
 4011,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 4011,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+4011,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4011,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4011,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4011,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -1834,6 +1858,7 @@
 4013,2002,15,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 4013,540,15,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+4013,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4013,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4013,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4013,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -1934,6 +1959,7 @@
 4015,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 4015,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+4015,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4015,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4015,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4015,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -2020,6 +2046,7 @@
 4017,2002,15,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 4017,540,15,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+4017,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4017,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4017,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4017,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -2122,6 +2149,7 @@
 4060,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 4060,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+4060,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4060,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4060,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4060,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -2237,6 +2265,7 @@
 4061,2002,15,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 4061,540,15,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+4061,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4061,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4061,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4061,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -2372,6 +2401,7 @@
 4062,522,10,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 4062,3010,10,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+4062,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4062,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4062,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4062,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -2487,6 +2517,7 @@
 4063,2002,15,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 4063,540,15,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+4063,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4063,420,10,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4063,383,10,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4063,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -2623,6 +2654,7 @@
 4064,522,15,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 4064,3010,15,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+4064,49,10,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4064,420,15,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4064,383,15,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4064,495,15,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -2738,6 +2770,7 @@
 4065,2002,15,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 4065,540,15,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+4065,49,15,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4065,420,15,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4065,383,15,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4065,495,15,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -2872,6 +2905,7 @@
 4073,522,15,0,0,0,0,0,0,0,0,0,0	//NJ_TOBIDOUGU#Shurikenjutsu#
 4073,3010,15,522,5,0,0,0,0,0,0,0,0	//KO_MAKIBISHI#Makibishi#
 
+4073,49,15,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4073,420,15,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4073,383,15,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4073,495,15,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
@@ -2987,6 +3021,7 @@
 4074,2002,15,0,0,0,0,0,0,0,0,0,0 //RK_SONICWAVE#Fuuton Shinkuu Renpa#
 4074,540,15,0,0,0,0,0,0,0,0,0,0 //NJ_HUUJIN#Fuuton Kazekiri#
 
+4074,49,15,0,0,0,0,0,0,0,0,0,0   //TF_MISS#Denko Sekka#
 4074,420,15,0,0,0,0,0,0,0,0,0,0   //TK_DODGE#Akurobatto#
 4074,383,15,0,0,0,0,0,0,0,0,0,0  //SN_WINDWALK#Kaze Shunshin#
 4074,495,15,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#

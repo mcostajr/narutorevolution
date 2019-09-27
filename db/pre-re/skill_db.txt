@@ -206,10 +206,11 @@
 
 //-------------------------------------------------------------------------------------------
 // Velocidade
+49,0,0,0,0,0,0,15,0,no,0,0,0,weapon,0,0x0,		TF_MISS,Denko Sekka
 420,0,6,4,0,0x1,0,15,1,no,0,0,0,weapon,0,0x0,	TK_DODGE,Akurobatto
 383,0,6,4,0,0x3,-1,15,1,no,0,0,0,weapon,0,0x0,	SN_WINDWALK,Kaze Shunshin
-495,0,6,4,0,0x1,0,15,1,no,0,0,0,weapon,0,0x0,	KN_ONEHAND,Katate Sokudo
-150,0,6,4,0,0x1,0,15,1,no,0,0,0,weapon,2:2:3:3:4:4:5:5:6:6,0x40,	TF_BACKSLIDING,Nawanuke no Jutsu
+495,0,0,0,0,0,0,15,0,no,0,0,0,weapon,0,0x0,		KN_ONEHAND,Katate Sokudo
+150,0,6,4,0,0x1,0,15,1,no,0,0,0,weapon,2:2:3:3:4:4:5:5:6:6:6:6:6:6:6,0x40,	TF_BACKSLIDING,Nawanuke no Jutsu
 //
 29,9,6,4,0,0x1,9,10,1,no,0,0,0,magic,0,0x1000,		AL_INCAGI,Shunshin no Jutsu
 26,0,6,4,0,0x1,0,2,1,yes,0,0,0,magic,0,0x40,		AL_TELEPORT,Mueisho Shunshin
@@ -635,7 +636,6 @@
 
 //****
 // Thief
-49,0,0,0,0,0,0,15,0,no,0,0,0,weapon,0,0x0,		TF_MISS,Perícia em Esquiva
 50,1,6,1,0,1,0,10,1,no,0,0,0,weapon,0,0x0,		TF_STEAL,Steal
 51,1,6,4,0,1,0,1,1,no,0,0,0,none,0,0x0,		TF_HIDING,Hiding
 53,9,6,16,5,0x1,0,1,1,no,0,0,0,weapon,0,0x0,		TF_DETOXIFY,Detoxify

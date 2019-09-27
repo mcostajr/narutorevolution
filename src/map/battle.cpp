@@ -1176,7 +1176,7 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 		}
 
 		if (sce = sc->data[SC_DODGE]) {
-			if (sc->data[SC_DODGE]->val1 > 10 && (flag &(BF_MAGIC | BF_WEAPON | BF_LONG)) && rnd() % 100 < (sc->data[SC_DODGE]->val1 - 10) * 4) {
+			if (sc->data[SC_DODGE]->val1 > 10 && (flag &(BF_MAGIC | BF_WEAPON | BF_LONG)) && rnd() % 100 < (sc->data[SC_DODGE]->val1 - 10) * 4 + (sc->data[SC_CONCENTRATE]->val1/2) ) {
 				if (sd && pc_issit(sd))
 					pc_setstand(sd, true); //Stand it to dodge.
 				clif_skill_nodamage(bl, bl, TK_DODGE, 1, 1);

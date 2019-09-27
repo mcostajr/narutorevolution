@@ -6125,7 +6125,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case KO_ZANZOU:
 	/* Velocidade */
 	case TK_DODGE:
-	case SN_WINDWALK:
 	/* Fuuinjutsu */
 	case AC_OWL:
 	case NJ_NEN:
@@ -6168,6 +6167,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	/* Basico */
 	case NJ_CHAKRA:
 	case SN_EREMITA:
+	/* Velocidade */
+	case SN_WINDWALK:
 	/* Fuuinjutsu */
 	case AC_CONCENTRATION:
 		if (tsce) {
@@ -6792,7 +6793,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case LK_BERSERK:
 	case MS_BERSERK:
 	case KN_TWOHANDQUICKEN:
-	case KN_ONEHAND:
 	case MER_QUICKEN:
 	case CR_SPEARQUICKEN:
 	case CR_REFLECTSHIELD:
