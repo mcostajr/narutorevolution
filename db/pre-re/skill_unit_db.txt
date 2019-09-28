@@ -85,7 +85,7 @@
 // -----------------------------
 // Doton
 // -----------------------------
-  91, 0xcb,    ,  0, 0,1000,enemy, 0x010	//WZ_HEAVENDRIVE
+  91, 0x86,    ,  2, 0,1000,enemy, 0x010	//WZ_HEAVENDRIVE
 2446, 0x86,    ,  1, 4,1000,enemy, 0x018	//SO_EARTHGRAVE
  527, 0xbc,    , -1, 0,2000,enemy, 0x018	//NJ_TATAMIGAESHI
 

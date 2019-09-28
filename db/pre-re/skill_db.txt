@@ -126,6 +126,9 @@
 
 //-------------------------------------------------------------------------------------------------------------
 // Ninjutsu
+// Avançado
+403,0,0,4,0,0x1,0,10,1,yes,0,0,0,magic,0,0x0,		PF_MEMORIZE,Kioku
+2206,0,6,4,0,0x1,0,10,1,yes,0,0,0,magic,0,0x0,		WL_RECOGNIZEDSPELL,Zofuku In
 
 // Katon
 19,9,6,1,3,0,0,15,1,no,0,0,0,magic,0,0x0,								MG_FIREBOLT,Katon Gougakyuu
@@ -279,28 +282,27 @@
 
 //-------------------------------------------------------------------------------------------
 // Resistência
-
+// Básico
 22,0,0,0,0,0,0,15,0,no,0,0,0,weapon,0,0x0,		AL_DP,Aumentar Defesa
 61,0,6,4,-1,0x20,0,15,1,no,0,0,0,weapon,0,0x0,	KN_AUTOCOUNTER,Contra Ataque
-6,9,6,1,4,0,0,15,-2,no,0,0,0,magic,0,0x0,			SM_PROVOKE,Provocar
-33,0,6,4,0,0x3,-1,15,1,no,0,0,0,magic,0,0x0,		AL_ANGELUS,Angelus
+6,9,6,1,4,0,0,15,-2,no,0,0,0,magic,0,0x0,		SM_PROVOKE,Provocar
+33,0,6,4,0,0x3,-1,15,1,no,0,0,0,magic,0,0x0,	AL_ANGELUS,Angelus
 144,0,0,0,0,0,0,15,0,no,0,0,0,none,0,0x0,		SM_MOVINGRECOVERY,Recuperar Hp em movimento
-//
-390,0,0,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,		ST_REJECTSWORD,Instinto de Defesa
-2015,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,		RK_STONEHARDSKIN,Escamas Rochosas
+// Intermediario
+390,0,0,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	ST_REJECTSWORD,Instinto de Defesa
+2015,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,	RK_STONEHARDSKIN,Escamas Rochosas
 249,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_AUTOGUARD,Bloqueio
-257,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,		CR_DEFENDER,Apanhar Flechas
-
-2006,0,6,4,-1,0x2,5,5,1,no,0,0,0,weapon,0,0x0,	RK_IGNITIONBREAK,Soryuu
-
-
-//
+257,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_DEFENDER,Apanhar Flechas
+// Avançado
 268,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	MO_STEELBODY,Domu
-252,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,		CR_REFLECTSHIELD,Refletir
+252,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_REFLECTSHIELD,Refletir
 2011,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,	RK_MILLENNIUMSHIELD,Shirudo
 2325,0,6,4,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,	LG_INSPIRATION,Sincronizacao
 
+
 // antigas
+2006,0,6,4,-1,0x2,5,5,1,no,0,0,0,weapon,0,0x0,	RK_IGNITIONBREAK,Soryuu
+//
 255,12,6,16,0,0x1,0,1,1,no,0,0x600,0,none,0,0x0,	CR_DEVOTION,Shokan
 2318,0,6,4,0,0x1,0,1,1,no,0,0,0,none,0,0x0,			LG_PRESTIGE,Ishin Mamoru
 2333,0,6,4,0,0x1,0,1,1,no,0,0,0,none,0,0x0,		SR_CRESCENTELBOW,Shojun no Hiji
@@ -995,7 +997,6 @@
 //****
 // Professor
 402,9,6,1,0,0x1,0,5,1,no,0,0,0,none,0,0x0,		PF_MINDBREAKER,Mind Breaker
-403,0,0,4,0,0x1,0,1,1,yes,0,0,0,magic,0,0x0,		PF_MEMORIZE,Foresight
 404,9,6,2,2,0x1,0,10,1,no,0,0x100,1,none,0,0x10000,	PF_FOGWALL,Blinding Mist
 
 //****
@@ -1282,7 +1283,6 @@
 2201,9,6,16,9,0,0,4,1,no,0,0,0,magic,0,0x400,			WL_WHITEIMPRISON,WHITEIM PRISON
 2217,11,6,1,9,0,0,4,1,no,0,0,0,magic,0,0x400,			WL_TETRAVORTEX,Tetra Vortex
 2221,11,6,1,9,0,0,4,1,no,0,0,0,magic,0,0x0,				WL_TETRAVORTEX_GROUND,Tetra Vortex Earth
-2206,0,6,4,0,0x1,0,5,1,yes,0,0,0,magic,0,0x0,	WL_RECOGNIZEDSPELL,Recognized Spell
 2207,7,6,1,2,0x3,1:2:2:3:3,5,1,yes,0,0,0,magic,0,0x400,	WL_SIENNAEXECRATE,Sienna Execrate
 2208,0,0,0,0,0,0,3,0,no,0,0,0,none,0,0x0,		WL_RADIUS,Radius
 2209,0,6,4,0,0x3,9:10:11:12:13,5,1,yes,0,0,0,magic,0,0x0,	WL_STASIS,Stasis

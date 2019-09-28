@@ -261,6 +261,9 @@ void initChangeTables(void)
 	set_sc(KO_ZANZOU, SC_UTSUSEMI, EFST_NJ_UTSUSEMI, SCB_NONE);
 	set_sc(SN_EREMITA, SC_EREMITA, EFST_EREMITA, SCB_NONE);
 
+	set_sc(PF_MEMORIZE, SC_MEMORIZE, EFST_MEMORIZE, SCB_NONE);
+	set_sc(WL_RECOGNIZEDSPELL, SC_RECOGNIZEDSPELL, EFST_RECOGNIZEDSPELL, SCB_MATK);
+
 	/* Suiton */
 	set_sc(NC_STEALTHFIELD, SC_STEALTHFIELD, EFST_STEALTHFIELD, SCB_SPEED);
 	set_sc(MG_FIREWALL, SC_SUIJINHEKI, EFST_OWL, SCB_NONE);
@@ -506,7 +509,6 @@ void initChangeTables(void)
 	set_sc( LK_JOINTBEAT		, SC_JOINTBEAT		, EFST_JOINTBEAT		, SCB_BATK|SCB_DEF2|SCB_SPEED|SCB_ASPD );
 	add_sc( HW_NAPALMVULCAN		, SC_CURSE		);
 	set_sc( PF_MINDBREAKER		, SC_MINDBREAKER	, EFST_MINDBREAKER	, SCB_MATK|SCB_MDEF2 );
-	set_sc( PF_MEMORIZE		, SC_MEMORIZE	, EFST_MEMORIZE	, SCB_NONE );
 	set_sc( PF_FOGWALL		, SC_FOGWALL	, EFST_FOGWALL	, SCB_NONE );
 	set_sc( PF_SPIDERWEB		, SC_SPIDERWEB		, EFST_SPIDERWEB		, SCB_FLEE );
 	set_sc( WE_BABY			, SC_BABY		, EFST_PROTECTEXP, SCB_NONE );
@@ -730,7 +732,6 @@ void initChangeTables(void)
 	add_sc( JIN_GENKAIHAKURI	, SC_WHITEIMPRISON	);
 	set_sc_with_vfx( WL_FROSTMISTY	, SC_FREEZING		, EFST_FROSTMISTY		, SCB_ASPD|SCB_SPEED|SCB_DEF );
 	set_sc( WL_MARSHOFABYSS		, SC_MARSHOFABYSS	, EFST_MARSHOFABYSS	, SCB_AGI|SCB_DEX|SCB_SPEED );
-	set_sc( WL_RECOGNIZEDSPELL	, SC_RECOGNIZEDSPELL	, EFST_RECOGNIZEDSPELL	, SCB_MATK);
 	add_sc( WL_SIENNAEXECRATE   , SC_STONE		  );
 	set_sc( WL_STASIS			, SC_STASIS		, EFST_STASIS		, SCB_NONE );
 	add_sc( WL_CRIMSONROCK      , SC_STUN         );
@@ -6183,8 +6184,8 @@ static unsigned short status_calc_batk(struct block_list *bl, struct status_chan
 		batk += sc->data[SC_EXPLOSIONSPIRITS]->val2;
 	if (sc->data[SC_STRIKING])
 		batk += sc->data[SC_STRIKING]->val2;
-	if (sc->data[SC_OVERTHRUST])
-		batk += sc->data[SC_OVERTHRUST]->val2;
+	//if (sc->data[SC_OVERTHRUST])
+	//	batk += sc->data[SC_OVERTHRUST]->val2;
 	// Portões
 	if (sc->data[SC_PORTAO1] && sc->data[SC_PORTAO1]->val1 >= 4)
 		batk += sc->data[SC_PORTAO1]->val1 >= 5 ? 100 : 50;
@@ -6265,20 +6266,6 @@ static unsigned short status_calc_watk(struct block_list *bl, struct status_chan
 {
 	if(!sc || !sc->count)
 		return cap_value(watk,0,USHRT_MAX);
-
-	// Fuuinjutsu
-	if (sc->data[SC_OVERTHRUST])
-		watk += sc->data[SC_OVERTHRUST]->val2;
-
-	// Portões
-	if (sc->data[SC_PORTAO1] && sc->data[SC_PORTAO1]->val1 >= 4)
-		watk += sc->data[SC_PORTAO1]->val1 >= 5 ? 100 : 50;
-	if (sc->data[SC_PROPERTYWALK])
-		watk += watk * 10 / 100;
-	// Akimichi
-	if (sc->data[SC_PILULA3])
-		watk += sc->data[SC_PILULA3]->val2;
-
 
 #ifndef RENEWAL
 	if(sc->data[SC_IMPOSITIO])
@@ -9772,10 +9759,20 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	if(!(flag&SCSTART_LOADED)) // &4 - Do not parse val settings when loading SCs
 	switch(type)
 	{
-	/* Chakra */
+	/*
+	* --------------------------------------------------------------------
+	*	Naruto
+	* --------------------------------------------------------------------
+	*/
+	// Basico
 	case SC_RECOVERCHAKRA:
 		t_tickime = 1000;
 		tick = INFINITE_TICK / t_tickime;
+		break;
+	// Ninjutsu
+	case SC_MEMORIZE:
+		val2 = 3; // Memorized casts.
+		tick = INFINITE_TICK;
 		break;
 	// Suiton
 	case SC_STEALTHFIELD:
@@ -9793,7 +9790,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		else
 			val4 = 0;
 		break;
-	/* Velocidade */
+	// Velocidade
 	case SC_DODGE:
 		val2 = 1 * val1;
 		break;
@@ -9806,7 +9803,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	case SC_INCREASEAGI:
 		val2 = 2 + val1; // Agi change
 		break;
-	/* Fuuinjutsu */
+	// Fuuinjutsu
 	case SC_OWL:
 		val2 = pc_checkskill(sd, AC_OWL) > 10 ? 3 * val1 : 2 * val1;
 		break;
@@ -9829,10 +9826,16 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val2 = 0; // 0 -> Half stat.
 		break;
 
-	/* Genjutsu */
+	case SC_AETERNA:
+		val2 = pc_checkskill(sd, PR_LEXAETERNA) > 5 ? 2: 1;
+		tick = INFINITE_TICK;
+		break;
+
+	// Genjutsu
 	case SC_DECREASEAGI:
 		val2 = 2 + val1; // Agi change
 		break;
+
 	/* Habilidade Hiden */
 	// Uchiha
 	case SC_SUSANOO1:
@@ -9890,8 +9893,9 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		tick = INFINITE_TICK;
 		break;
 
+	// --------------------------------------------------------------------
+
 		/* Permanent effects */
-		case SC_AETERNA:
 		case SC_MODECHANGE:
 		case SC_WEIGHT50:
 		case SC_WEIGHT90:
@@ -10379,11 +10383,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_REJECTSWORD:
 			val2 = 15*val1; // Reflect chance
 			val3 = 3; // Reflections
-			tick = INFINITE_TICK;
-			break;
-
-		case SC_MEMORIZE:
-			val2 = 5; // Memorized casts.
 			tick = INFINITE_TICK;
 			break;
 

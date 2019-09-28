@@ -1248,8 +1248,11 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			if (src->type != BL_MER || !skill_id)
 				damage <<= 1; // Lex Aeterna only doubles damage of regular attacks from mercenaries
 
-			status_change_end(bl, SC_AETERNA, INVALID_TIMER); //Shouldn't end until Breaker's non-weapon part connects.
+			if (--(sc->data[SC_AETERNA]->val2) <= 0)
+				status_change_end(bl, SC_AETERNA, INVALID_TIMER); //Shouldn't end until Breaker's non-weapon part connects.
 		}
+
+		
 
 #ifdef RENEWAL
 		if( sc->data[SC_RAID] ) {
@@ -3291,6 +3294,8 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 
 	//Skill damage modifiers that stack linearly
 	if(sc) {
+		if (sc->data[SC_OVERTHRUST])
+			skillratio += sc->data[SC_OVERTHRUST]->val2;
 		if(sc->data[SC_MAXOVERTHRUST])
 			skillratio += sc->data[SC_MAXOVERTHRUST]->val2;
 		if(sc->data[SC_BERSERK])
@@ -3326,9 +3331,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 	}
 
 	switch(skill_id) {
-		// ------------------------------------------------------------------
-		// Taijutsu
-		// ------------------------------------------------------------------
+	// ------------------------------------------------------------------
+	// Taijutsu
+	// ------------------------------------------------------------------
 	case SM_BASH:
 	case MS_BASH:
 			if (skill_lv < 11) {
@@ -5989,6 +5994,8 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						(sc->data[SC_WIND_INSIGNIA] && sc->data[SC_WIND_INSIGNIA]->val1 == 3 && s_ele == ELE_WIND) ||
 						(sc->data[SC_EARTH_INSIGNIA] && sc->data[SC_EARTH_INSIGNIA]->val1 == 3 && s_ele == ELE_EARTH))
 						skillratio += 25;
+					if (sc->data[SC_OVERTHRUST])
+						skillratio += sc->data[SC_OVERTHRUST]->val2;
 				}
 
 				MATK_RATE(skillratio);

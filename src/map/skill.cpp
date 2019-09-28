@@ -6123,6 +6123,9 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	*/
 	/* Basico */
 	case KO_ZANZOU:
+	/* Ninjutsu */
+	case PF_MEMORIZE:
+	case WL_RECOGNIZEDSPELL:
 	/* Velocidade */
 	case TK_DODGE:
 	/* Fuuinjutsu */
@@ -6812,7 +6815,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case WS_OVERTHRUSTMAX:
 	case ST_REJECTSWORD:
 	case HW_MAGICPOWER:
-	case PF_MEMORIZE:
 	case ASC_EDP:
 	case PF_DOUBLECASTING:
 	case SG_SUN_COMFORT:
@@ -6841,7 +6843,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case NC_HOVERING:
 	case NC_SHAPESHIFT:
 	case WL_MARSHOFABYSS:
-	case WL_RECOGNIZEDSPELL:
 	case GC_VENOMIMPRESS:
 	case SC_DEADLYINFECT:
 	case LG_EXEEDBREAK:
@@ -16480,12 +16481,20 @@ struct skill_condition skill_get_requirement(struct map_session_data* sd, uint16
 	req.sp = cap_value(req.sp * sp_skill_rate_bonus / 100, 0, SHRT_MAX);
 
 	if( sc ) {
+		/*
+		* --------------------------------------
+		* Naruto
+		* --------------------------------------
+		*/
+		if (sc->data[SC_RECOGNIZEDSPELL])
+			req.sp += req.sp - ((req.sp * sc->data[SC_RECOGNIZEDSPELL]->val1 * 5) / 100);
+
+		// --------------------------------------
+
 		if( sc->data[SC__LAZINESS] )
 			req.sp += req.sp + sc->data[SC__LAZINESS]->val1 * 10;
 		if (sc->data[SC_UNLIMITEDHUMMINGVOICE])
 			req.sp += req.sp * sc->data[SC_UNLIMITEDHUMMINGVOICE]->val3 / 100;
-		if( sc->data[SC_RECOGNIZEDSPELL] )
-			req.sp += req.sp / 4;
 		if( sc->data[SC_OFFERTORIUM])
 			req.sp += req.sp * sc->data[SC_OFFERTORIUM]->val3 / 100;
 		if( sc->data[SC_TELEKINESIS_INTENSE] && skill_get_ele(skill_id, skill_lv) == ELE_GHOST)
@@ -16726,7 +16735,7 @@ int skill_castfix(struct block_list *bl, uint16 skill_id, uint16 skill_lv) {
 			// Foresight halves the cast time, it does not stack additively
 			if (sc->data[SC_MEMORIZE]) {
 				if(!(flag&2))
-					time -= time * 50 / 100;
+					time -= time * (5 * sc->data[SC_MEMORIZE]->val1) / 100;
 				// Foresight counter gets reduced even if the skill is not affected by it
 				if ((--sc->data[SC_MEMORIZE]->val2) <= 0)
 					status_change_end(bl, SC_MEMORIZE, INVALID_TIMER);
