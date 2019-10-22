@@ -287,6 +287,8 @@ void initChangeTables(void)
 	set_sc(PR_LEXAETERNA, SC_AETERNA, EFST_LEXAETERNA, SCB_NONE);
 	set_sc(BS_OVERTHRUST, SC_OVERTHRUST, EFST_OVERTHRUST, SCB_NONE);
 
+	/* Medicina */
+
 	/* Genjutsu */
 	add_sc(NPC_SLEEPATTACK, SC_SLEEP);
 	add_sc(NPC_CURSEATTACK, SC_CURSE);
@@ -9825,13 +9827,14 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		else
 			val2 = 0; // 0 -> Half stat.
 		break;
-
 	case SC_AETERNA:
 		val2 = pc_checkskill(sd, PR_LEXAETERNA) > 5 ? 2: 1;
 		tick = INFINITE_TICK;
 		break;
 
-	// Genjutsu
+	/* Medicina */
+
+	/* Genjutsu */
 	case SC_DECREASEAGI:
 		val2 = 2 + val1; // Agi change
 		break;
@@ -9893,6 +9896,11 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		tick = INFINITE_TICK;
 		break;
 
+	// Byakugo
+	case SC_RENOVATIO:
+		val4 = tick / 5000;
+		t_tickime = 5000;
+		break;
 	// --------------------------------------------------------------------
 
 		/* Permanent effects */
@@ -10548,9 +10556,9 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_STAR_COMFORT:
 			val2 = (status_get_lv(bl) + status->dex + status->luk); // Aspd increase
 			break;
-		case SC_QUAGMIRE:
-			val2 = (sd?5:10)*val1; // Agi/Dex decrease.
-			break;
+		//case SC_QUAGMIRE:
+			//val2 = (sd?5:10)*val1; // Agi/Dex decrease.
+			//break;
 
 		// gs_something1 [Vicious]
 		case SC_GATLINGFEVER:
@@ -10768,10 +10776,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			break;
 
 		/* Arch Bishop */
-		case SC_RENOVATIO:
-			val4 = tick / 5000;
-			t_tickime = 5000;
-			break;
 		case SC_SECRAMENT:
 			val2 = 10 * val1;
 			break;
@@ -13315,6 +13319,16 @@ TIMER_FUNC(status_change_timer){
 			}
 			break;
 		/* Byakugo */
+		case SC_RENOVATIO:
+			if (--(sce->val4) >= 0) {
+				int heal = status->max_hp * 5 / 100;
+				if (sc && sc->data[SC_AKAITSUKI] && heal)
+					heal = ~heal + 1;
+				status_heal(bl, heal, 0, 3);
+				sc_timer_next(5000 + tick);
+				return 0;
+			}
+			break;
 		case SC_FULL_THROTTLE:
 			if (--(sce->val4) >= 0) {
 				status_heal(bl, status->max_hp * 15 / 100, 0, 0);
@@ -13322,6 +13336,8 @@ TIMER_FUNC(status_change_timer){
 				return 0;
 			}
 			break;
+
+	// --------------------------------------------------------------------------
 
 	case SC_MAXIMIZEPOWER:
 	case SC_CLOAKING:
@@ -13709,17 +13725,6 @@ TIMER_FUNC(status_change_timer){
 			break;
 		sc_timer_next(1000 + tick);
 		return 0;
-
-	case SC_RENOVATIO:
-		if( --(sce->val4) >= 0 ) {
-			int heal = status->max_hp * 5 / 100;
-			if( sc && sc->data[SC_AKAITSUKI] && heal )
-				heal = ~heal + 1;
-			status_heal(bl, heal, 0, 3);
-			sc_timer_next(5000 + tick);
-			return 0;
-		}
-		break;
 
 	case SC_SPHERE_1:
 	case SC_SPHERE_2:

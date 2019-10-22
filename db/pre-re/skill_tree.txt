@@ -2,7 +2,6 @@
 
 // Estudante
 0,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-0,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 0,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 
 0,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
@@ -12,7 +11,6 @@
 
 // Estudante
 4001,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4001,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4001,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4001,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4001,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -24,7 +22,6 @@
 
 // Genin Taijutsu
 1,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-1,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 1,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 1,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 1,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -74,7 +71,6 @@
 
 // Genin Ninjutsu
 2,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-2,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 2,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 2,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 2,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -107,10 +103,9 @@
 2,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 2,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-2,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+2,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 2,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 2,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-2,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 2,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 2,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -126,7 +121,6 @@
 
 // Genin Taijutsu
 3,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-3,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 3,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 3,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 3,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -176,7 +170,6 @@
 
 // Genin Ninjutsu
 4,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -209,10 +202,9 @@
 4,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+4,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 4,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-4,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 4,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -228,7 +220,6 @@
 
 // Genin Taijutsu
 5,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-5,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 5,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 5,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 5,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -278,7 +269,6 @@
 
 // Genin Ninjutsu
 6,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-6,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 6,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 6,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 6,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -311,10 +301,9 @@
 6,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 6,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-6,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+6,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 6,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 6,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-6,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 6,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 6,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -330,7 +319,6 @@
 
 // Chunin Taijutsu
 7,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-7,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 7,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 7,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 7,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -414,7 +402,6 @@
 
 // Chunin Ninjutsu
 8,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-8,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 8,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 8,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 8,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -447,10 +434,9 @@
 8,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 8,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-8,28,10,0,0,0,0,0,0,0,0,0,0 //AL_HEAL#Chiyute no Jutsu#
+8,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 8,75,5,0,0,0,0,0,0,0,0,0,0 //PR_GLORIA#Gloria#
 8,72,1,0,0,0,0,0,0,0,0,0,0 //PR_STRECOVERY#Souzou Saiseis#
-8,358,1,0,0,0,0,0,0,0,0,0,0 //LK_TENSIONRELAX#Relaxar#
 
 8,43,10,0,0,0,0,0,0,0,0,0,0 //AC_OWL#Precisão#
 8,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -494,10 +480,10 @@
 8,219,10,0,0,0,0,0,0,0,0,0,0  	//RG_INTIMIDATE#Rapto#
 8,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
-8,74,10,0,0,0,0,0,0,0,0,0,0   //PR_MAGNIFICAT#Chikatsu no Jutsu#
+8,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 8,2047,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDAAGNUS#Lauda Agnus#
 8,2048,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDARAMUS#Lauda Ramus#
-8,54,10,74,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
+8,54,10,2043,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
 
 8,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 8,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -512,7 +498,6 @@
 
 // Chunin Ninjutsu
 9,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-9,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 9,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 9,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 9,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -545,10 +530,9 @@
 9,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 9,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-9,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+9,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 9,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 9,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-9,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 9,43,10,0,0,0,0,0,0,0,0,0,0 //AC_OWL#Precisão#
 9,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -593,10 +577,10 @@
 9,219,10,0,0,0,0,0,0,0,0,0,0  	//RG_INTIMIDATE#Rapto#
 9,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
-9,74,10,0,0,0,0,0,0,0,0,0,0   //PR_MAGNIFICAT#Chikatsu no Jutsu#
+9,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 9,2047,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDAAGNUS#Lauda Agnus#
 9,2048,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDARAMUS#Lauda Ramus#
-9,54,10,74,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
+9,54,10,2043,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
 
 9,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 9,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -611,7 +595,6 @@
 
 // Chunin Taijutsu
 10,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-10,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 10,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 10,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 10,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -695,7 +678,6 @@
 
 // Chunin Taijutsu
 11,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-11,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 11,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 11,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 11,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -779,7 +761,6 @@
 
 // Chunin Ninjutsu
 12,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-12,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 12,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 12,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 12,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -812,10 +793,9 @@
 12,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 12,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-12,28,10,0,0,0,0,0,0,0,0,0,0 //AL_HEAL#Chiyute no Jutsu#
+12,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 12,75,5,0,0,0,0,0,0,0,0,0,0 //PR_GLORIA#Gloria#
 12,72,1,0,0,0,0,0,0,0,0,0,0 //PR_STRECOVERY#Souzou Saiseis#
-12,358,1,0,0,0,0,0,0,0,0,0,0 //LK_TENSIONRELAX#Relaxar#
 
 12,43,10,0,0,0,0,0,0,0,0,0,0 //AC_OWL#Precisão#
 12,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -860,10 +840,10 @@
 12,219,10,0,0,0,0,0,0,0,0,0,0  	//RG_INTIMIDATE#Rapto#
 12,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
-12,74,10,0,0,0,0,0,0,0,0,0,0   //PR_MAGNIFICAT#Chikatsu no Jutsu#
+12,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 12,2047,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDAAGNUS#Lauda Agnus#
 12,2048,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDARAMUS#Lauda Ramus#
-12,54,10,74,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
+12,54,10,2043,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
 
 12,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 12,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -878,7 +858,6 @@
 
 // Chunin Taijutsu
 14,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-14,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 14,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 14,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 14,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -962,7 +941,6 @@
 
 // Chunin Ninjutsu
 16,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-16,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 16,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 16,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 16,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -995,10 +973,9 @@
 16,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 16,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-16,28,10,0,0,0,0,0,0,0,0,0,0 //AL_HEAL#Chiyute no Jutsu#
+16,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 16,75,5,0,0,0,0,0,0,0,0,0,0 //PR_GLORIA#Gloria#
 16,72,1,0,0,0,0,0,0,0,0,0,0 //PR_STRECOVERY#Souzou Saiseis#
-16,358,1,0,0,0,0,0,0,0,0,0,0 //LK_TENSIONRELAX#Relaxar#
 
 16,43,10,0,0,0,0,0,0,0,0,0,0 //AC_OWL#Precisão#
 16,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -1043,10 +1020,10 @@
 16,219,10,0,0,0,0,0,0,0,0,0,0  	//RG_INTIMIDATE#Rapto#
 16,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
-16,74,10,0,0,0,0,0,0,0,0,0,0   //PR_MAGNIFICAT#Chikatsu no Jutsu#
+16,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 16,2047,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDAAGNUS#Lauda Agnus#
 16,2048,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDARAMUS#Lauda Ramus#
-16,54,10,74,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
+16,54,10,2043,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
 
 16,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 16,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -1063,7 +1040,6 @@
 
 // Genin2 Taijutsu
 4002,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4002,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4002,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4002,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4002,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -1113,7 +1089,6 @@
 
 // Genin2 Ninjutsu
 4003,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4003,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4003,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4003,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4003,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -1146,10 +1121,9 @@
 4003,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4003,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4003,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+4003,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4003,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 4003,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-4003,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 4003,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4003,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -1165,7 +1139,6 @@
 
 // Genin2 Taijutsu
 4004,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4004,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4004,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4004,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4004,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -1215,7 +1188,6 @@
 
 // Genin2 Ninjutsu
 4005,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4005,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4005,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4005,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4005,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -1248,10 +1220,9 @@
 4005,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4005,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4005,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+4005,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4005,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 4005,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-4005,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 4005,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4005,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -1267,7 +1238,6 @@
 
 // Genin2 Taijutsu
 4006,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4006,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4006,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4006,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4006,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -1317,7 +1287,6 @@
 
 // Genin2 Ninjutsu
 4007,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4007,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4007,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4007,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4007,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -1350,10 +1319,9 @@
 4007,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4007,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4007,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+4007,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4007,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 4007,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-4007,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 4007,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4007,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -1371,7 +1339,6 @@
 
 // Jounin Taijutsu
 4008,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4008,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4008,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4008,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4008,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -1455,7 +1422,6 @@
 
 // Jounin Ninjutsu
 4009,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4009,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4009,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4009,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4009,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -1488,10 +1454,9 @@
 4009,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4009,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4009,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+4009,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4009,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 4009,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-4009,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 4009,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4009,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -1536,10 +1501,10 @@
 4009,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
 4009,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
-4009,74,10,0,0,0,0,0,0,0,0,0,0   //PR_MAGNIFICAT#Chikatsu no Jutsu#
+4009,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 4009,2047,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDAAGNUS#Lauda Agnus#
 4009,2048,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDARAMUS#Lauda Ramus#
-4009,54,10,74,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
+4009,54,10,2043,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
 
 4009,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 4009,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -1554,7 +1519,6 @@
 
 // Jounin Ninjutsu
 4010,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4010,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4010,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4010,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4010,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -1587,10 +1551,9 @@
 4010,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4010,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4010,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+4010,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4010,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 4010,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-4010,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 4010,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4010,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -1635,10 +1598,10 @@
 4010,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
 4010,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
-4010,74,10,0,0,0,0,0,0,0,0,0,0   //PR_MAGNIFICAT#Chikatsu no Jutsu#
+4010,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 4010,2047,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDAAGNUS#Lauda Agnus#
 4010,2048,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDARAMUS#Lauda Ramus#
-4010,54,10,74,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
+4010,54,10,2043,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
 
 4010,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 4010,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -1653,7 +1616,6 @@
 
 // Jounin2 Taijutsu
 4012,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4012,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4012,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4012,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4012,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -1737,7 +1699,6 @@
 
 // Jounin2 Taijutsu
 4011,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4011,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4011,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4011,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4011,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -1821,7 +1782,6 @@
 
 // Jounin2 Ninjutsu
 4013,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4013,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4013,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4013,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4013,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -1854,10 +1814,9 @@
 4013,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4013,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4013,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+4013,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4013,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 4013,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-4013,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 4013,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4013,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -1902,10 +1861,10 @@
 4013,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
 4013,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
-4013,74,10,0,0,0,0,0,0,0,0,0,0   //PR_MAGNIFICAT#Chikatsu no Jutsu#
+4013,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 4013,2047,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDAAGNUS#Lauda Agnus#
 4013,2048,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDARAMUS#Lauda Ramus#
-4013,54,10,74,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
+4013,54,10,2043,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
 
 4013,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 4013,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -1920,7 +1879,6 @@
 
 // Jounin2 Taijutsu
 4015,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4015,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4015,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4015,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4015,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -2004,7 +1962,6 @@
 
 // Jounin2 Ninjutsu
 4017,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4017,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4017,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4017,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4017,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -2037,10 +1994,9 @@
 4017,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4017,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4017,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+4017,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4017,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 4017,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-4017,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 4017,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4017,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -2085,10 +2041,10 @@
 4017,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
 4017,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
-4017,74,10,0,0,0,0,0,0,0,0,0,0   //PR_MAGNIFICAT#Chikatsu no Jutsu#
+4017,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 4017,2047,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDAAGNUS#Lauda Agnus#
 4017,2048,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDARAMUS#Lauda Ramus#
-4017,54,10,74,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
+4017,54,10,2043,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
 
 4017,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 4017,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -2105,7 +2061,6 @@
 
 // Jounin Elite Taijutsu
 4060,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4060,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4060,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4060,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4060,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -2218,7 +2173,6 @@
 
 // Jounin Elite Ninjutsu
 4061,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4061,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4061,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4061,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4061,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -2251,10 +2205,9 @@
 4061,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4061,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4061,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+4061,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4061,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 4061,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-4061,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 4061,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4061,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -2299,10 +2252,10 @@
 4061,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
 4061,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
-4061,74,10,0,0,0,0,0,0,0,0,0,0   //PR_MAGNIFICAT#Chikatsu no Jutsu#
+4061,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 4061,2047,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDAAGNUS#Lauda Agnus#
 4061,2048,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDARAMUS#Lauda Ramus#
-4061,54,10,74,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
+4061,54,10,2043,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
 
 4061,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 4061,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -2343,7 +2296,6 @@
 4061,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
 
 4061,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
-4061,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 4061,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#
 4061,5011,10,28,10,0,0,0,0,0,0,0,0 //AB_OFFERTORIUM#Offertorium#
 
@@ -2360,7 +2312,6 @@
 
 // Procurado Taijutsu
 4062,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4062,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4062,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4062,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4062,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -2473,7 +2424,6 @@
 
 // Procurado Ninjutsu
 4063,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4063,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4063,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4063,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4063,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -2506,10 +2456,9 @@
 4063,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4063,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4063,28,10,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+4063,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4063,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 4063,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-4063,358,10,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 4063,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4063,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -2553,10 +2502,10 @@
 4063,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
 4063,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
-4063,74,10,0,0,0,0,0,0,0,0,0,0   //PR_MAGNIFICAT#Chikatsu no Jutsu#
+4063,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 4063,2047,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDAAGNUS#Lauda Agnus#
 4063,2048,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDARAMUS#Lauda Ramus#
-4063,54,10,74,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
+4063,54,10,2043,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
 
 4063,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 4063,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -2597,7 +2546,6 @@
 4063,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
 
 4063,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
-4063,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 4063,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#
 4063,5011,10,28,10,0,0,0,0,0,0,0,0 //AB_OFFERTORIUM#Offertorium#
 
@@ -2616,7 +2564,6 @@
 
 // Sanin Taijutsu
 4064,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4064,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4064,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4064,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4064,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -2729,7 +2676,6 @@
 
 // Sanin Ninjutsu
 4065,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4065,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4065,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4065,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4065,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -2762,10 +2708,9 @@
 4065,495,15,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4065,150,15,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4065,28,15,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+4065,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4065,75,15,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 4065,72,15,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-4065,358,15,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 4065,43,15,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4065,543,15,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -2809,10 +2754,10 @@
 4065,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
 4065,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
-4065,74,10,0,0,0,0,0,0,0,0,0,0   //PR_MAGNIFICAT#Chikatsu no Jutsu#
+4065,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 4065,2047,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDAAGNUS#Lauda Agnus#
 4065,2048,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDARAMUS#Lauda Ramus#
-4065,54,10,74,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
+4065,54,10,2043,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
 
 4065,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 4065,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -2853,7 +2798,6 @@
 4065,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
 
 4065,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
-4065,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 4065,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#
 4065,5011,10,28,10,0,0,0,0,0,0,0,0 //AB_OFFERTORIUM#Offertorium#
 
@@ -2870,7 +2814,6 @@
 
 // Renegado Taijutsu
 4073,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4073,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4073,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4073,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4073,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -2983,7 +2926,6 @@
 
 // Renegado Ninjutsu
 4074,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4074,4,1,0,0,0,0,0,0,0,0,0,0 //SM_RECOVERY#Increase HP Recovery#
 4074,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4074,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4074,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
@@ -3016,10 +2958,9 @@
 4074,495,15,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4074,150,15,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4074,28,15,75,5,72,1,358,1,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
+4074,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
 4074,75,15,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
 4074,72,15,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
-4074,358,15,0,0,0,0,0,0,0,0,0,0  //LK_TENSIONRELAX#Relaxar#
 
 4074,43,15,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4074,543,15,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -3063,10 +3004,10 @@
 4074,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
 4074,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
-4074,74,10,0,0,0,0,0,0,0,0,0,0   //PR_MAGNIFICAT#Chikatsu no Jutsu#
+4074,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 4074,2047,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDAAGNUS#Lauda Agnus#
 4074,2048,10,0,0,0,0,0,0,0,0,0,0 //AB_LAUDARAMUS#Lauda Ramus#
-4074,54,10,74,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
+4074,54,10,2043,5,2047,5,2048,5,0,0,0,0   //ALL_RESURRECTION#Shikon no Jutsu#
 
 4074,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 4074,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -3107,7 +3048,6 @@
 4074,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
 
 4074,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
-4074,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
 4074,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#
 4074,5011,10,28,10,0,0,0,0,0,0,0,0 //AB_OFFERTORIUM#Offertorium#
 

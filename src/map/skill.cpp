@@ -503,6 +503,21 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 	tsc = status_get_sc(target);
 
 	switch( skill_id ) {
+
+		// Medicina
+		case PR_SANCTUARY:
+			hp = skill_lv*1000;
+			break;
+
+		// Byakugo
+		case AB_HIGHNESSHEAL:
+			hp = ((status_get_lv(src) + status_get_int(src)) / 8) * (4 + ((sd ? pc_checkskill(sd, AL_HEAL) : 1) * 8));
+			hp = (hp * (17 + 3 * skill_lv)) / 10;
+			break;
+
+		// -----------------------------------------------------------
+
+
 		case BA_APPLEIDUN:
 #ifdef RENEWAL
 			hp = 100 + 5 * skill_lv + (status_get_vit(src) / 2); // HP recovery
@@ -512,22 +527,8 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 			if (sd)
 				hp += 5 * pc_checkskill(sd, BA_MUSICALLESSON);
 			break;
-		case PR_SANCTUARY:
-			hp = (skill_lv > 6) ? 777 : skill_lv * 100;
-			break;
 		case NPC_EVILLAND:
 			hp = (skill_lv > 6) ? 666 : skill_lv * 100;
-			break;
-		case AB_HIGHNESSHEAL:
-#ifdef RENEWAL
-			hp = ((status_get_int(src) + status_get_lv(src)) / 5) * 30;
-
-			if (sd && ((skill = pc_checkskill(sd, HP_MEDITATIO)) > 0))
-				hp_bonus += skill * 2;
-#else
-			hp = ((status_get_lv(src) + status_get_int(src)) / 8) * (4 + ((sd ? pc_checkskill(sd, AL_HEAL) : 1) * 8));
-			hp = (hp * (17 + 3 * skill_lv)) / 10;
-#endif
 			break;
 		case SU_FRESHSHRIMP:
 			hp = (status_get_lv(src) + status_get_int(src)) / 5 * 6;
@@ -535,6 +536,8 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 		case SU_BUNCHOFSHRIMP:
 			hp = (status_get_lv(src) + status_get_int(src)) / 5 * 15;
 			break;
+
+		// -----------------------------------------------------------
 		default:
 			if (skill_lv >= battle_config.max_heal_lv)
 				return battle_config.max_heal;
@@ -545,6 +548,7 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 			 */
 			hp = (status_get_lv(src) + status_get_int(src)) / 5 * 30 * skill_lv / 10;
 #else
+			/* Formula Heal */
 			hp = (status_get_lv(src) + status_get_int(src)) / 8 * (4 + (skill_lv * 8));
 #endif
 
@@ -5181,7 +5185,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		status_change_end(bl, SC_P_ALTER, INVALID_TIMER);
 	case MG_SOULSTRIKE:
 	case NPC_DARKSTRIKE:
-	case AL_HEAL:
 	case NPC_DARKTHUNDER:
 	case PR_ASPERSIO:
 	case WZ_SIGHTBLASTER:
@@ -5208,6 +5211,8 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case MH_SILENT_BREEZE:
 	case GS_FULLBUSTER:
 	case WL_SOULEXPANSION:
+	// Medicina
+	case AL_HEAL:
 		skill_attack(BF_MAGIC,src,src,bl,skill_id,skill_lv,tick,flag);
 		break;
 
@@ -6060,7 +6065,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				if (sd) clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0) ;
 				break ;
 			}
- 		case AL_HEAL:
 		case ALL_RESURRECTION:
 		case PR_ASPERSIO:
 		case AB_HIGHNESSHEAL:
@@ -6107,6 +6111,11 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	map_freeblock_lock();
 	switch(skill_id)
 	{
+	/*
+	* --------------------------------------
+	* Naruto
+	* --------------------------------------
+	*/
 	/*
 	*	Jutsus em Grupo
 	*	São ativaveis apenas
@@ -6365,8 +6374,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				else if (tsc->data[SC_BERSERK] || tsc->data[SC_SATURDAYNIGHTFEVER])
 					heal = 0; //Needed so that it actually displays 0 when healing.
 			}
-			if (skill_id == AL_HEAL)
-				status_change_end(bl, SC_BITESCAR, INVALID_TIMER);
 			clif_skill_nodamage (src, bl, skill_id, heal, 1);
 			if( tsc && tsc->data[SC_AKAITSUKI] && heal && skill_id != HLIF_HEAL )
 				heal = ~heal + 1;
@@ -20657,21 +20664,23 @@ void skill_init_unit_layout (void) {
 					memcpy(skill_unit_layout[pos].dx, dx, sizeof(dx));
 					memcpy(skill_unit_layout[pos].dy, dy, sizeof(dy));
 				}
-									  break;
+				break;
 
 				case PR_SANCTUARY:
 				case NPC_EVILLAND: {
-						static const int dx[] = {
-							-1, 0, 1,-2,-1, 0, 1, 2,-2,-1,
-							 0, 1, 2,-2,-1, 0, 1, 2,-1, 0, 1};
-						static const int dy[]={
-							-2,-2,-2,-1,-1,-1,-1,-1, 0, 0,
-							 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2};
-						skill_unit_layout[pos].count = 21;
-						memcpy(skill_unit_layout[pos].dx,dx,sizeof(dx));
-						memcpy(skill_unit_layout[pos].dy,dy,sizeof(dy));
-					}
-					break;
+					static const int dx[] = {
+						0,-1, 0, 1,-2,-1, 0, 1, 2,-3,-2,-1, 0, 1, 2, 3,-4,-3,-2,-1, 0, 1, 2, 3, 4,-5,-4,-3,-2,-1, 0, 1, 2, 3, 4, 5,
+						0,-1, 0, 1,-2,-1, 0, 1, 2,-3,-2,-1, 0, 1, 2, 3,-4,-3,-2,-1, 0, 1, 2, 3, 4
+
+					};
+					static const int dy[] = {
+						5, 4, 4, 4, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						-5,-4,-4,-4,-3,-3,-3,-3,-3,-2,-2,-2,-2,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1
+					};
+					skill_unit_layout[pos].count = 61;
+					memcpy(skill_unit_layout[pos].dx, dx, sizeof(dx));
+					memcpy(skill_unit_layout[pos].dy, dy, sizeof(dy));
+				}
 				case PR_MAGNUS: {
 						static const int dx[] = {
 							-1, 0, 1,-1, 0, 1,-3,-2,-1, 0,
