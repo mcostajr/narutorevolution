@@ -5,33 +5,39 @@ konoha3,186,179,4	script	Baki#1::reset	50,{
 	mes "Resetar Atributos: 5,000z";
 	mes "Resetar Ambos: 9,000z";
 	next;
+	mes "[Baki]";
 	mes "Por favor escolha o serviço que deseja:";
 	menu "^FF3355Resetar Habilidades",L0,"Resetar Atributos",L1,"Resetar Ambos^000000",L2,"Nenhum, obrigado.",LEnd;
 	
 	L0:
+		next;
 		mes "[Baki]";
-		if (Zeny < 0) goto NeedZenys;
+		if (Zeny < 5000) goto NeedZenys;
 		mes "Tudo bem, vou resetar agora.. Lembrando, ajeite seus pontos e fale comigo mais vezes se precisar!";
-		set Zeny,zeny-0;
+		set Zeny,zeny-5000;
 		ResetSkill;
 		close;
 	L1:
+		next;
 		mes "[Baki]";
-		if (Zeny < 0) goto NeedZenys;
+		if (Zeny < 5000) goto NeedZenys;
 		mes "Tudo bem, vou resetar agora.. Lembrando, ajeite seus pontos e fale comigo mais vezes se precisar!";
-		set Zeny,zeny-0;
+		set Zeny,zeny-5000;
 		ResetStatus;
 		close;
 	L2:
+		next;
 		mes "[Baki]";
-		if (Zeny < 0) goto NeedZenys;
+		if (Zeny < 9000) goto NeedZenys;
 		mes "Tudo bem, vou resetar agora.. Lembrando, ajeite seus pontos e fale comigo mais vezes se precisar!";
-		set Zeny,zeny-0;
+		set Zeny,zeny-9000;
 		ResetSkill;
 		ResetStatus;
 		close;
 
 		NeedZenys:
+			next;
+			mes "[Baki]";
 			mes "Desculpe, voce nao tem todo o Zeny necessário.";
 			close;
 	LEnd:

@@ -232,7 +232,7 @@ OnTouch:
 	case 1:
 	case 9:
 		sc_start SC_CONFUSION,8000,0;
-		emotion e_swt2,1;
+		emotion ET_SORRY,1;
 		end;
 	case 2:
 		sc_start SC_STONE,4000,0;
@@ -242,7 +242,7 @@ OnTouch:
 		end;
 	case 6:
 		sc_start SC_FREEZE,4000,0;
-		emotion e_swt2,1;
+		emotion ET_SORRY,1;
 		end;
 	case 8:
 		sc_start SC_STUN,4000,0;
@@ -341,20 +341,20 @@ turbo_n_1,236,3,0	duplicate(TurboWaterMaze)	flasher#n_1-48b	-1,3,0
 // Turbo Track: 16 Pessoas e Modo Solo (Water Maze)
 -	script	#Intersection::TurboHint_1	-1,{
 OnTouch:
-	emotion e_what,1;
+	emotion ET_QUESTION,1;
 	end;
 }
 
 -	script	#CorrectPath::TurboHint_2	-1,{
 OnTouch:
-	emotion e_gasp,1;
+	emotion ET_SURPRISE,1;
 }
 
 -	script	#NoWayOut::TurboHint_3	-1,{
 OnTouch:
-	emotion e_swt2,1;
+	emotion ET_PROFUSELY_SWEAT,1;
 	if (rand(1,4) == 3)
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 	end;
 }
 

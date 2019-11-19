@@ -1,1134 +1,464 @@
-academia,114,26,3	script	Orochiimaru#2	125,{
-
-	if(hiden > 0) {
-		mes "[Orochiimaru]";
-		mes "Hum. Vejo que você já possui uma Habilidade Hiden.";
-		next;
-		mes "[Orochiimaru]";
-		mes "Você está gostando dessa Hiden?";
-		if(select("- Sim:- Não") == 1) close;
-			//if(delay_hiden >= gettimetick(2)) {	
-			//	mes "[Orochiimaru]";
-			//	mes "Voce está no delay "+((delay_hiden-gettimetick(2))/60)+" minuto(s).";
-			//	close;
-			//}
-			//if(countitem(9110) < 1) {	
-			//	mes "[Orochiimaru]";
-			//	mes "Você Precisa do Troca de Hiden, para finalizarmos a operação.";
-			//	close;
-			//}
-			next;
-			mes "[Orochiimaru]";
-			mes "Estou fazendo novos esperimentos, você gostaria de trocar sua hiden ?";
-			mes "OBS. AO TROCAR A HIDEN VOCÊ FICARA EM UM PERIODO DE DELAY PARA PODER TROCA-LÁ NOVAMENTE?";
-			if(select("- Não,Muito Obrigado:- Sim, Porfavor") == 1) close;
-				.@seulvlhiden$ = 30300+hidenlvl;
-				next;
-				mes "[Orochiimaru]";
-				mes "Sua Hiden está nivel: "+hidenlvl+".";
-				mes "Escolhar para qual você gostaria de mudar.";
-				switch(select("- Clã Uchiha:- Clã Hyuuga:- Portões de Chakra:- Clã Akimichi:- Clã Nara:- Selo Amaldiçoado:- Clã Inuzuka:- Hyouton:- Kibaku Nendo:- Clã Aburame:- Jashin:- Fláuta Demoniaca:- Ibuse:- Byakugo no In:- Clã Kaguya:- Shakuton:- Jinton:- Ressonante:- Kidoumaru") ) {
-				case 1:
-					next;
-					if(hidenlvl < 25) .@sharinganlvl = 1;
-					if(hidenlvl >= 25 && hidenlv < 75) .@sharinganlvl = 2;
-					if(hidenlvl >= 75 && hidenlvl <= 100) .@sharinganlvl = 3;
-					.@nivelsharingan = 30100+.@sharinganlvl;
-					mes "[Orochiimaru]";
-					if(countitem(30101) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; } 
-					if(countitem(30102) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; } 
-					if(countitem(30103) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30104) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30130) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30131) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 .@nivelsharingan,1,1,0,0,.@seulvlhiden$,0,0,0; equip .@nivelsharingan; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-					
-				case 2:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30106) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30105; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30106,1,1,0,0,0,0,0,0;				equip 30106; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30106,1,1,0,0,0,0,0,0;				equip 30106; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30106,1,1,0,0,0,0,0,0;				equip 30105; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30106,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30106; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 3:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30107) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30107,1,1,0,0,0,0,0,0;				equip 30107; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30107,1,1,0,0,0,0,0,0;				equip 30107; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30107,1,1,0,0,0,0,0,0;				equip 30107; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30107,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30107; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 4:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30108) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30108,1,1,0,0,0,0,0,0;				equip 30108; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30108,1,1,0,0,0,0,0,0;				equip 30108; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30108,1,1,0,0,0,0,0,0;				equip 30108; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30108,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30108; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 5:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30109) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30109,1,1,0,0,0,0,0,0;				equip 30109; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30109,1,1,0,0,0,0,0,0;				equip 30109; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30109,1,1,0,0,0,0,0,0;				equip 30109; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30109,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30109; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 6:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30110) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30110,1,1,0,0,0,0,0,0;				equip 30110; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30110,1,1,0,0,0,0,0,0;				equip 30110; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30110,1,1,0,0,0,0,0,0;				equip 30110; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30110,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30110; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 7:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30111) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30111,1,1,0,0,0,0,0,0;				equip 30111; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30111,1,1,0,0,0,0,0,0;				equip 30111; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30111,1,1,0,0,0,0,0,0;				equip 30111; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30111,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30111; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 8:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30112) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30112,1,1,0,0,0,0,0,0;				equip 30112; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30112,1,1,0,0,0,0,0,0;				equip 30112; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30112,1,1,0,0,0,0,0,0;				equip 30112; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30112,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30112; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 9:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30114) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30114,1,1,0,0,0,0,0,0;				equip 30114; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30114,1,1,0,0,0,0,0,0;				equip 30114; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30114,1,1,0,0,0,0,0,0;				equip 30114; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30114,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30114; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 10:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30115) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30115,1,1,0,0,0,0,0,0;				equip 30115; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30115,1,1,0,0,0,0,0,0;				equip 30115; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30115,1,1,0,0,0,0,0,0;				equip 30115; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30115,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30115; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 11:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30116) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30116,1,1,0,0,0,0,0,0;				equip 30116; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30116,1,1,0,0,0,0,0,0;				equip 30116; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30116,1,1,0,0,0,0,0,0;				equip 30116; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30116,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30116; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 12:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30117) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30117,1,1,0,0,0,0,0,0;				equip 30117; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30117,1,1,0,0,0,0,0,0;				equip 30117; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30117,1,1,0,0,0,0,0,0;				equip 30117; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30117,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30117; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 13:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30118) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30118,1,1,0,0,0,0,0,0;				equip 30118; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30118,1,1,0,0,0,0,0,0;				equip 30118; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30118,1,1,0,0,0,0,0,0;				equip 30118; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30118,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30118; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 14:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30119) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30119,1,1,0,0,0,0,0,0;				equip 30119; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30119,1,1,0,0,0,0,0,0;				equip 30119; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30119,1,1,0,0,0,0,0,0;				equip 30119; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30119,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30119; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 15:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30121) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30121,1,1,0,0,0,0,0,0;				equip 30121; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30121,1,1,0,0,0,0,0,0;				equip 30121; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30121,1,1,0,0,0,0,0,0;				equip 30121; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30121,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30121; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 16:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30122) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30122,1,1,0,0,0,0,0,0;				equip 30122; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30122,1,1,0,0,0,0,0,0;				equip 30122; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30122,1,1,0,0,0,0,0,0;				equip 30122; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30122,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30122; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 17:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30123) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30123,1,1,0,0,0,0,0,0;				equip 30123; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30123,1,1,0,0,0,0,0,0;				equip 30123; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30123,1,1,0,0,0,0,0,0;				equip 30123; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30123,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30123; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 18:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30124) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30124,1,1,0,0,0,0,0,0;				equip 30124; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30124,1,1,0,0,0,0,0,0;				equip 30124; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30124,1,1,0,0,0,0,0,0;				equip 30124; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30125) >= 1) { delitem 30125,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30124,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30124; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-				case 19:
-					next;
-					mes "[Orochiimaru]";
-					if(countitem(30125) >= 1) { mes "Você não pode trocar para sua mesma Habilidade Hiden."; close; }
-					if(countitem(30101) >= 1) { delitem 30101,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; } 
-					if(countitem(30102) >= 1) { delitem 30102,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; } 
-					if(countitem(30103) >= 1) { delitem 30103,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; } 
-					if(countitem(30104) >= 1) { delitem 30104,1; getitem2 30125,1,1,0,0,0,0,0,0;				equip 30125; }
-					if(countitem(30130) >= 1) { delitem 30130,1; getitem2 30125,1,1,0,0,0,0,0,0;				equip 30125; }
-					if(countitem(30131) >= 1) { delitem 30131,1; getitem2 30125,1,1,0,0,0,0,0,0;				equip 30125; }
-					if(countitem(30105) >= 1) { delitem 30105,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30106) >= 1) { delitem 30106,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30107) >= 1) { delitem 30107,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30108) >= 1) { delitem 30108,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30109) >= 1) { delitem 30109,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30110) >= 1) { delitem 30110,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30111) >= 1) { delitem 30111,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30112) >= 1) { delitem 30112,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30113) >= 1) { delitem 30113,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30114) >= 1) { delitem 30114,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30115) >= 1) { delitem 30115,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30116) >= 1) { delitem 30116,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30117) >= 1) { delitem 30117,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30118) >= 1) { delitem 30118,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30119) >= 1) { delitem 30119,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30120) >= 1) { delitem 30120,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30121) >= 1) { delitem 30121,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30122) >= 1) { delitem 30122,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30123) >= 1) { delitem 30123,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30124) >= 1) { delitem 30124,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30126) >= 1) { delitem 30126,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30127) >= 1) { delitem 30127,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30128) >= 1) { delitem 30128,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					if(countitem(30129) >= 1) { delitem 30129,1; getitem2 30125,1,1,0,0,.@seulvlhiden$,0,0,0;	equip 30125; }
-					mes "Troca bem sucedida.";
-					//delitem 9110,1;
-					set delay_hiden, gettimetick(2) + 172800;
-					close;
-					close;
-				}
-
-		close;
-	}
+academia,114,26,3	script	Orochimaru#2	125,{
+	
 	if(Class == JOB_NOVICE) {
-		mes "[Orochiimaru]";
+		mes "[Orochimaru]";
 		mes "Você precisa ser um Genin antes.";
 		close;
 	}
 	
-	if(checkquest(1001) == 1)
-	{
-		mes "[Orochiimaru]";
+	if(hiden > 0) {
+		mes "[Orochimaru]";
+		mes "Hum. Vejo que você já possui uma Habilidade Hiden.";
+		next;
+		mes "[Orochimaru]";
+		mes "Você está gostando dessa Hiden?";
+		if(select("- Sim:- Não") == 1) {
+			close;
+		} else {
+			if(delay_hiden >= gettimetick(2)) {	
+				next;
+				mes "[Orochimaru]";
+				mes "Voce está no delay ";
+				mes ""+
+				((delay_hiden-gettimetick(2))/60/60/24) +" Dia(s) "+
+				(((delay_hiden-gettimetick(2))/60/60) - (((delay_hiden-gettimetick(2))/60/60/24)*24))+" Hora(s) "+
+				(((delay_hiden-gettimetick(2))/60) - (((delay_hiden-gettimetick(2))/60/60)*60))+" Minuto(s) "+
+				(((delay_hiden-gettimetick(2))) - (((delay_hiden-gettimetick(2))/60)*60))+" Segundo(s) ";
+				close;
+			}
+			if(countitem(9110) < 1) {
+				next;
+				mes "[Orochimaru]";
+				mes "Você Precisa do Troca de Hiden, para finalizarmos a operação.";
+				close;
+			}
+			next;
+			mes "[Orochimaru]";
+			mes "Estou fazendo novos esperimentos, você gostaria de trocar sua hiden ?";
+			mes "OBS. AO TROCAR A HIDEN VOCÊ FICARA EM UM PERIODO DE DELAY PARA PODER TROCA-LÁ NOVAMENTE?";
+			if(select("- Não,Muito Obrigado:- Sim, Porfavor") == 1) {
+				close;
+			} else {
+				.seulvlhiden = 30300+hidenlvl;
+				.@i = 30100;
+				while (countitem(.@i) != 1) {
+					.@i += 1;
+					.hidenAtual = .@i;
+				}
+				next;
+				mes "[Orochimaru]";
+				mes "Hiden Atual: "+getitemname(.hidenAtual)+".";
+				mes "Sua Hiden está nivel: "+hidenlvl+".";
+				mes "Escolhar para qual você gostaria de mudar.";
+				switch(select("- Clã Uchiha:- Clã Hyuuga:- Portões de Chakra:- Clã Akimichi:- Clã Nara:- Selo Amaldiçoado:- Clã Inuzuka:- Hyouton:- Kibaku Nendo:- Clã Aburame:- Jashin:- Fláuta Demoniaca:- Ibuse:- Byakugo no In:- Clã Kaguya:- Shakuton:- Jinton:- Ressonante:- Kidoumaru")) {
+					case 1:
+						next;
+						if(hidenlvl < 25) .@sharinganlvl = 1;
+						if(hidenlvl >= 25 && hidenlv < 75) .@sharinganlvl = 2;
+						if(hidenlvl >= 75 && hidenlvl <= 100) .@sharinganlvl = 3;
+						@nivelsharingan = 30100+.@sharinganlvl;
+						mes "[Orochimaru]";
+						if( (countitem(30101) || countitem(30102) || countitem(30103) || countitem(30104) || countitem(30130) || countitem(30131)) != 1 ) { 
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 @nivelsharingan,1,1,0,0,.seulvlhiden,0,0,0; equip @nivelsharingan;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden.";
+							close;
+						}
+						break;
+						
+					case 2:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30106) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30106,1,1,0,0,.seulvlhiden,0,0,0; equip 30106;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden.";
+							close;
+						}
+						break;
+						
+					case 3:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30107) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30107,1,1,0,0,.seulvlhiden,0,0,0; equip 30107;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 4:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30108) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30108,1,1,0,0,.seulvlhiden,0,0,0; equip 30108;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 5:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30109) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30109,1,1,0,0,.seulvlhiden,0,0,0; equip 30109;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 6:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30110) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30110,1,1,0,0,.seulvlhiden,0,0,0; equip 30110;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 7:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30111) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30111,1,1,0,0,.seulvlhiden,0,0,0; equip 30111;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 8:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30112) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30112,1,1,0,0,.seulvlhiden,0,0,0; equip 30112;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 9:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30114) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30114,1,1,0,0,.seulvlhiden,0,0,0; equip 30114;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 10:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30115) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30115,1,1,0,0,.seulvlhiden,0,0,0; equip 30115;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 11:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30116) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30116,1,1,0,0,.seulvlhiden,0,0,0; equip 30116;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 12:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30117) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30117,1,1,0,0,.seulvlhiden,0,0,0; equip 30117;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 13:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30118) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30118,1,1,0,0,.seulvlhiden,0,0,0; equip 30118;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 14:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30119) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30119,1,1,0,0,.seulvlhiden,0,0,0; equip 30119;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 15:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30121) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30121,1,1,0,0,.seulvlhiden,0,0,0; equip 30121;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 16:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30122) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30122,1,1,0,0,.seulvlhiden,0,0,0; equip 30122;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 17:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30123) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30123,1,1,0,0,.seulvlhiden,0,0,0; equip 30123;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 18:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30124) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30124,1,1,0,0,.seulvlhiden,0,0,0; equip 30124;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+						
+					case 19:
+						next;
+						mes "[Orochimaru]";
+						if(countitem(30125) != 1) {
+							mes "Troca bem sucedida.";
+							delitem .hidenAtual,1; getitem2 30125,1,1,0,0,.seulvlhiden,0,0,0; equip 30125;
+							delitem 9110,1;
+							set delay_hiden, gettimetick(2) + 172800;
+							close;
+						} else {
+							mes "Você não pode trocar para sua mesma Habilidade Hiden."; 
+							close;
+						}
+						break;
+				}
+			}
+		}
+	}
+	
+	if(checkquest(1001) == 1) {
+		mes "[Orochimaru]";
 		mes "Há vários anos que eu estou estudando sobre formas de aperfeiçoamento";
 		mes "Em outras palavras,";
 		mes "Estudando sobre Habilidaes Hidens, e outras formas de ganhar mais poder.";
 		next;
-		mes "[Orochiimaru]";
-		mes "Conte-me.";
-		mes "O que você é?";
-		next;
-		mes "[Orochiimaru]";
+		mes "[Orochimaru]";
 		mes "-^3366FF Você pode selecionar uma das próximas opções ^000000";
 		mes "^3366FF apenas para saber mais sobre ela ou ^000000";
 		mes "^3366FF para definir qual é o seu. ^000000-";
-		menu "- Clã Uchiha",uchiha,"- Clã Hyuuga Primário",hyuuga,"- Portões de Chakra",portoes,"- Clã Akimichi",akimichi,"- Clã Nara",nara,"- Selo Amaldiçoado",selo,"- Clã Inuzuka",inuzuka,"- Hyouton",hyouton,"- Mais Opções",maisopcao;
-			uchiha:
+		
+		switch(select("- Fisico Ofensivo:- Magico Ofensivo:- Hibrido:- Suporte")) {
+			case 1:
 				next;
-				mes "[Orochiimaru]";
-				mes "O Clã Uchiha tem compatibilidade com o treino ^00ade6Ninjutsu^000000";
-				mes "Possui alto dano mágico e chance de refletir jutsus.";
-				next;
-				mes "[Orochiimaru]";
-				mes "Os que possuem o '^FF3366Sharingan^000000'.";
-				mes "Quando este é ativo, o usuário tem a chance de repetir alguns jutsus";
-				mes "usados no mesmo.";
-				next;
-				mes "[Orochiimaru]";
-				mes "O sharingan possui 3 tipos de '^FF3366Mangekyou Sharingan^000000'.";
-				mes "Porém... você só descubrirá qual é o seu, quando obter o Mangekyou.";
-				next;
-				mes "[Orochiimaru]";
-				mes "Tem certeza que é um Uchiha?";
-				mes "- ^3366FF Isto irá decidir a sua Habilidaes Hiden ^000000 -";
-				if(select("- Sim. Eu sou um Uchiha:- Desculpa.. eu menti.") == 2) close; 
-					next;
-					mes "[Orochiimaru]";
-					mes "Você acabou de adiquirir uma Habilidade Hiden!";
-					getitem2 30103,1,1,0,0,30400,0,0,0;
-					equip 30101;
-					hidenlvl = 100;
-					hiden = 1;
-					getitem 569,250;
-					completequest 1001;
-					setquest 1002;
-					close;
-			hyuuga:
-				next;
-				mes "[Orochiimaru]";
-				mes "Hyuugas tem compatilidade com os treinamentos ^e63900Taijutsu^000000.";
-				mes "Possui alto ataque, ótima velocidade de movimento e jyuukens.";
-				mes "Ótimos em combates corpo-a-corpo.";
-				next;
-				mes "[Orochiimaru]";
-				mes "Membros do Clã Hyuuga são extremamente ágeis com os punhos";
-				mes "E estes tem um estilo próprio de luta o '^5c5c5cJyuuken^000000' que é usado";
-				mes "Em conjunto com o '^5c5c5cByakugan^000000'.";
-				next;
-				mes "[Orochiimaru]";
-				mes "Membros do Clã Hyuuga também são ótimos ninjas detectores.";
-				mes "Conseguem ver pessoas ou animais invisíveis.";
-				next;
-				mes "[Orochiimaru]";
-				mes "Tem certeza que é um Hyuuga?";
-				mes "- ^3366FF Isto irá decidir a sua Habilidaes Hiden ^000000 -";
-				if(select("- Sim. Eu sou um Hyuuga:- Desculpa.. eu menti.") == 2) close; 
-					next;
-					mes "[Orochiimaru]";
-					mes "Você acabou de adiquirir uma Habilidade Hiden!";
-					getitem2 30106,1,1,0,0,30400,0,0,0;
-					equip 30106;
-					hidenlvl = 100;
-					hiden = 1;
-					getitem 569,250;
-					completequest 1001;
-					setquest 1002;
-					close;
-			
-			portoes:
-				next;
-				mes "[Orochiimaru]";
-				mes "Usuários de '^0ea30fPortões de Chakra^000000' tem compatibilidade com o treino ^e63900Taijutsu^000000.";
-				mes "São excelentes em combata corpo-a-corpo";
-				mes "Têm a capacidade de abrir portões de chakra assim aumentando seu ataque e velocidade de movimento.";
-				next;
-				mes "[Orochiimaru]";
-				mes "Além disto, possuem a habilidade '^0ea30fOmote Renge^000000',";
-				mes "Que realiza ataques de alto desgate físico, porém";
-				mes "há dano devastador!";
-				next;
-				mes "[Orochiimaru]";
-				mes "Você tem certeza que é um Usuário de Portões de Chakra?";
-				mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-				if(select("- Sim. Eu sou um Portões de Chakra:- Desculpa.. eu menti.") == 2) close; 
-					next;
-					mes "[Orochiimaru]";
-					mes "Você acabou de adiquirir uma Habilidade Hiden!";
-					getitem2 30107,1,1,0,0,30400,0,0,0;
-					equip 30107;
-					hidenlvl = 100;
-					hiden = 1;
-					getitem 569,250;
-					completequest 1001;
-					setquest 1002;
-					close;
-					
-			akimichi:
-				next;
-				mes "[Orochiimaru]";
-				mes "Akimichis tem compatibilidade com o treino ^e63900Taijutsu^000000.";
-				mes "Tem alta recuperação de vitalidade, dano excelente e velocidade de movimento boa.";
-				mes "Pode expandir seus limites usando Pilulas.";
-				next;
-				mes "[Orochiimaru]";
-				mes "O Clã Akimichi passa um 'Hiden' por gerações entre seu clã...";
-				mes "Hidens são técnicas secretas de especifico clã ou pessoa.";
-				next;
-				mes "[Orochiimaru]";
-				mes "No caso do Clã Akimichi, eles utilizam o 'Baika no Jutsu' que permite";
-				mes "Que eles expandam seu corpo como quiserem,";
-				mes "Assim possuindo um maior alcance de ataque.";
-				next;
-				mes "[Orochiimaru]";
-				mes "E também utilizam pilulas de chakra para aumentar seu ataque e sua velocidade";
-				mes "A ^00e639Verde^000000 para Aumentar Velocidade.";
-				mes "A ^ffcc33Amarela^000000 para Aumentar o Ataque";
-				mes "A ^FF3366Vermelha^000000 para Aumentar Velocidade e Ataque";
-				next;
-				mes "[Orochiimaru]";
-				mes "Tem certeza que você é um Akimichi?";
-				mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-				if(select("- Sim. Eu sou um Akimichi:- Desculpa.. eu menti.") == 2) close; 
-					next;
-					mes "[Orochiimaru]";
-					mes "Você acabou de adiquirir uma Habilidade Hiden!";
-					getitem2 30108,1,1,0,0,30400,0,0,0;
-					equip 30108;
-					hidenlvl = 100;
-					hiden = 1;
-					getitem 569,250;
-					completequest 1001;
-					setquest 1002;
-					close;
-					
-			nara:
-				next;
-				mes "[Orochiimaru]";
-				mes "Naras tem compatibilidade com o treino ^00ade6Ninjutsu^000000";
-				mes "Ótimo em ataque mágico, habilidades de imobilização do inimigo e de rápida conjuração.";
-				next;
-				mes "[Orochiimaru]";
-				mes "O Clã Nara passa um 'Hiden' por gerações entre seu clã...";
-				mes "Hidens são técnicas secretas de especifico clã ou pessoa.";
-				next;
-				mes "[Orochiimaru]";
-				mes "O Hiden do Clã Nara é o '^5c5c5cControle das Sombras^000000' como o nome diz";
-				mes "Eles controlam as sombras, estas por sua vez, podem ser usadas";
-				mes "tanto de modo ofensivo, como defensivo.";
-				next;
-				mes "[Orochiimaru]";
-				mes "Uma tática especial desenvolvida por um certo membro do clã";
-				mes "Também é repassada dentre seus membros, é a habilidade '^5c5c5cMeditar^000000'.";
-				mes "Assim, aumentando a velocidade em que os jutsus são realizados.";
-				next;
-				mes "[Orochiimaru]";
-				mes "Tem certeza que você é um Nara?";
-				mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-				if(select("- Sim. Eu sou um Nara:- Desculpa.. eu menti.") == 2) close; 
-					next;
-					mes "[Orochiimaru]";
-					mes "Você acabou de adiquirir uma Habilidade Hiden!";
-					getitem2 30109,1,1,0,0,30400,0,0,0;
-					equip 30109;
-					hidenlvl = 100;
-					hiden = 1;
-					getitem 569,250;
-					completequest 1001;
-					setquest 1002;
-					close;
-				
-			selo:
-				next;
-				mes "[Orochiimaru]";
-				mes "Usuários de '^1271d2Selo Amaldiçoado^000000' tem compatibilidade com oS treinoS ^00ade6Ninjutsu^000000 e ^e63900Taijutsu^000000";
-				mes "Quando ativado o selo, aumenta todos os status do usuário.";
-				next;
-				mes "[Orochiimaru]";
-				mes "Dizem que o próprio Orochimaru que implanta estes Selo Amaldiçoados em suas cobaias...";
-				next;
-				mes "[Orochiimaru]";
-				mes "O Selo do Amaldiçoados expande o poder de ^1271d2Ninjutsus^000000, ^e63900Taijutsu^000000 e aumentam a velocidade de movimento do usuário.";
-				next;
-				mes "[Orochiimaru]";
-				mes "Você realmente possui o '^1271d2Selo Amaldiçoado^000000'?";
-				next;
-				mes "[Orochiimaru]";
-				mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-				if(select("- Sim. Eu sou um Selo Amaldiçoado:- Desculpa.. eu menti.") == 2) close; 
-					next;
-					mes "[Orochiimaru]";
-					mes "Você acabou de adiquirir uma Habilidade Hiden!";
-					getitem2 30110,1,1,0,0,30400,0,0,0;
-					equip 30110;
-					hidenlvl = 100;
-					hiden = 1;
-					getitem 569,250;
-					completequest 1001;
-					setquest 1002;
-					close;
-				
-			inuzuka:
-				next;
-				mes "[Orochiimaru]";
-				mes "Inuzukas tem compatibilidade com o treino ^e63900Taijutsu^000000";
-				mes "Ótimo em ataque físico, habilidades de corte e de rápida conjuração.";
-				next;
-				mes "[Orochiimaru]";
-				mes "O Clã Inuzuka passa um 'Hiden' por gerações entre seu clã...";
-				mes "Hidens são técnicas secretas de especifico clã ou pessoa.";
-				next;
-				mes "[Orochiimaru]";
-				mes "O Hiden do Clã Inuzuka é o '^5c5c5cAdestrar Ninken^000000' como o nome diz";
-				mes "Eles controlam um ninken, esta por sua vez, usadas para combate.";
-				next;
-				mes "[Orochiimaru]";
-				mes "Tem certeza que você é um Inuzuka?";
-				mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-				if(select("- Sim. Eu sou um Inuzuka:- Desculpa.. eu menti.") == 2) close; 
-					next;
-					mes "[Orochiimaru]";
-					mes "Você acabou de adiquirir uma Habilidade Hiden!";
-					getitem2 30111,1,1,0,0,30400,0,0,0;
-					equip 30111;
-					hidenlvl = 100;
-					hiden = 1;
-					getitem 569,250;
-					completequest 1001;
-					setquest 1002;
-					close;
-				
-			hyouton:
-				next;
-				mes "[Orochiimaru]";
-				mes "Liberação do Hyouton tem compatibilidade com o treino ^00ade6Ninjutsu^000000";
-				mes "Aprende Habilidades do Elemento Hyouton(Gelo).";
-				next;
-				mes "[Orochiimaru]";
-				mes "Você tem certeza que você possui habilidades com Hyouton?";
-				mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-				if(select("- Sim. Eu sou um Hyouton:- Desculpa.. eu menti.") == 2) close; 
-					next;
-					mes "[Orochiimaru]";
-					mes "Você acabou de adiquirir uma Habilidade Hiden!";
-					getitem2 30112,1,1,0,0,30400,0,0,0;
-					equip 30112;
-					hidenlvl = 100;
-					hiden = 1;
-					getitem 569,250;
-					completequest 1001;
-					setquest 1002;
-					close;
-			
-			maisopcao:
-				next;
-				mes "[Orochiimaru]";
-				mes "-^3366FF Você pode selecionar uma das próximas opções ^000000";
-				mes "^3366FF apenas para saber mais sobre ela ou ^000000";
-				mes "^3366FF para definir qual é o seu. ^000000-";
-				menu "- Kibaku Nendo",kibaku,"- Clã Aburame",aburame,"- Jashin",jashin,"- Fláuta Demoniaca",tayuya,"- Ibuse",ibuse,"- Byakugo no In",byakugo,"- Mais Opções",maisopcao2;
-					
-					kibaku:
+				mes "[Orochimaru]";
+				mes "Seus calculos usam Ataque(STR)";
+				switch(select("- Hyuuga:- Portões de Chakra:- Akimichi:- Inuzuka:- Ibuse:- Kaguya:- Kidoumaru"))  {
+					case 1:
 						next;
-						mes "[Orochiimaru]";
-						mes "Kibaku Nendo tem compatibilidade com o treino ^e63900Taijutsu^000000";
-						next;
-						mes "[Orochiimaru]";
-						mes "Você tem certeza que você é um Kibaku Nendo?";
-						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-						if(select("- Sim. Eu sou um Kibaku Nendo:- Desculpa.. eu menti.") == 2) close;
+						mes "[Orochimaru]";
+						mes "Você escolheu Hyuuga ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidaes Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
 							next;
-							mes "[Orochiimaru]";
+							mes "[Orochimaru]";
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30114,1,1,0,0,30400,0,0,0;
-							equip 30114;
+							getitem2 30106,1,1,0,0,30301,0,0,0;
+							equip 30106;
 							hidenlvl = 100;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
 							setquest 1002;
 							close;
-					aburame:
+						} else {
+							close; 
+						}
+						break;
+						
+					case 2:
 						next;
-						mes "[Orochiimaru]";
-						mes "Aburame tem compatibilidade com o treino ^e63900Taijutsu^000000";
-						next;
-						mes "[Orochiimaru]";
-						mes "Você tem certeza que você é um Aburame?";
-						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-						if(select("- Sim. Eu sou um Aburame:- Desculpa.. eu menti.") == 2) close;
+						mes "[Orochimaru]";
+						mes "Você escolheu Portões de Chakra ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidaes Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
 							next;
-							mes "[Orochiimaru]";
+							mes "[Orochimaru]";
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30115,1,1,0,0,30400,0,0,0;
-							equip 30115;
+							getitem2 30107,1,1,0,0,30301,0,0,0;
+							equip 30107;
 							hidenlvl = 100;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
 							setquest 1002;
 							close;
-					jashin:
+						} else {
+							close; 
+						}
+						break;
+						
+					case 3:
 						next;
-						mes "[Orochiimaru]";
-						mes "Jashin tem compatibilidade com o treino ^e63900Taijutsu^000000";
-						next;
-						mes "[Orochiimaru]";
-						mes "Você tem certeza que você é um Jashin?";
+						mes "[Orochimaru]";
+						mes "Você escolheu Akimichi ?";
 						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-						if(select("- Sim. Eu sou um Jashin:- Desculpa.. eu menti.") == 2) close;
+						if(select("- Sim.:- Não.")) {
 							next;
-							mes "[Orochiimaru]";
+							mes "[Orochimaru]";
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30116,1,1,0,0,30400,0,0,0;
-							equip 30116;
+							getitem2 30108,1,1,0,0,30301,0,0,0;
+							equip 30108;
 							hidenlvl = 100;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
 							setquest 1002;
 							close;
-					tayuya:
+						} else {
+							close; 
+						}
+						break;
+						
+					case 4:
 						next;
-						mes "[Orochiimaru]";
-						mes "Fláuta Demoniaca tem compatibilidade com os treinos ^e63900Taijutsu^000000 e ^00ade6Ninjutsu^000000";
-						next;
-						mes "[Orochiimaru]";
-						mes "Você tem certeza que você é um Fláuta Demoniaca?";
+						mes "[Orochimaru]";
+						mes "Você escolheu Inuzuka ?";
 						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-						if(select("- Sim. Eu sou um Fláuta Demoniaca:- Desculpa.. eu menti.") == 2) close;
+						if(select("- Sim.:- Não.")) {
 							next;
-							mes "[Orochiimaru]";
+							mes "[Orochimaru]";
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30117,1,1,0,0,30400,0,0,0;
-							equip 30117;
+							getitem2 30111,1,1,0,0,30301,0,0,0;
+							equip 30111;
 							hidenlvl = 100;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
 							setquest 1002;
 							close;
-					ibuse:
+						} else {
+							close; 
+						}
+						break;
+						
+					case 5:
 						next;
-						mes "[Orochiimaru]";
-						mes "Ibuse tem compatibilidade com o treino ^e63900Taijutsu^000000";
-						next;
-						mes "[Orochiimaru]";
-						mes "Você tem certeza que você é um Ibuse?";
+						mes "[Orochimaru]";
+						mes "Você escolheu Ibuse ?";
 						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-						if(select("- Sim. Eu sou um Ibuse:- Desculpa.. eu menti.") == 2) close;
+						if(select("- Sim.:- Não.")) {
 							next;
-							mes "[Orochiimaru]";
+							mes "[Orochimaru]";
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30118,1,1,0,0,30400,0,0,0;
+							getitem2 30118,1,1,0,0,30301,0,0,0;
 							equip 30118;
 							hidenlvl = 100;
 							hiden = 1;
@@ -1136,19 +466,321 @@ academia,114,26,3	script	Orochiimaru#2	125,{
 							completequest 1001;
 							setquest 1002;
 							close;
-					byakugo:
+						} else {
+							close;
+						}
+						break;
+						
+					case 6:
 						next;
-						mes "[Orochiimaru]";
-						mes "Byakugo tem compatibilidade com o treino ^00ade6Ninjutsu^000000";
-						next;
-						mes "[Orochiimaru]";
-						mes "Você tem certeza que você é um Byakugo?";
+						mes "[Orochimaru]";
+						mes "Você escolheu Kaguya ?";
 						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-						if(select("- Sim. Eu sou um Byakugo:- Desculpa.. eu menti.") == 2) close;
+						if(select("- Sim.:- Não.")) {
 							next;
-							mes "[Orochiimaru]";
+							mes "[Orochimaru]";
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30119,1,1,0,0,30400,0,0,0;
+							getitem2 30121,1,1,0,0,30301,0,0,0;
+							equip 30121;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close;
+						}
+						break;
+						
+					case 7:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Kidoumaru ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30125,1,1,0,0,30301,0,0,0;
+							equip 30125;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close;
+						}
+						break;
+				}
+			case 2:
+				next;
+				mes "[Orochimaru]";
+				mes "Seus calculos usam Ataque Magico(INT)";
+				switch(select("- Uchiha:- Nara:- Hyouton:- Shakuton:- Jinton:- Ressonante"))  {
+					case 1:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Uchiha ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30101,1,1,0,0,30301,0,0,0;
+							equip 30101;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close; 
+						}
+						break;
+						
+					case 2:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Nara ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30109,1,1,0,0,30301,0,0,0;
+							equip 30109;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close; 
+						}
+						break;
+						
+					case 3:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Hyouton ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30112,1,1,0,0,30301,0,0,0;
+							equip 30112;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close; 
+						}
+						break;
+						
+					case 4:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Shakuton ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30122,1,1,0,0,30301,0,0,0;
+							equip 30122;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close; 
+						}
+						break;
+						
+					case 5:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Jinton ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30123,1,1,0,0,30301,0,0,0;
+							equip 30123;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close; 
+						}
+						break;
+						
+					case 6:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Ressonante ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30124,1,1,0,0,30301,0,0,0;
+							equip 30124;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close; 
+						}
+						break;
+				}
+			case 3:
+				next;
+				mes "[Orochimaru]";
+				mes "Seus calculos usam mais de um status";
+				switch(select("- Kugutsu:- Selo Amaldiçoado:- Kibaku Nendo:- Aburame:- Jashin"))  {
+					case 1:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Kugutsu ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30105,1,1,0,0,30301,0,0,0;
+							equip 30105;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close;
+						}
+						break;
+					case 2:
+						next;
+						mes "[Orochimaru]";
+						mes "Quando ativado o selo, aumenta todos os status do usuário.";
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Selo Amaldiçoado ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30110,1,1,0,0,30301,0,0,0;
+							equip 30110;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close;
+						}
+						break;
+					case 3:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Kibaku Nendo ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30114,1,1,0,0,30301,0,0,0;
+							equip 30114;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close;
+						}
+						break;
+					case 4:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Aburame ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30115,1,1,0,0,30301,0,0,0;
+							equip 30115;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close;
+						}
+						break;
+					case 5:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Jashin ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30116,1,1,0,0,30301,0,0,0;
+							equip 30116;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close;
+						}
+						break;
+				}
+			case 4:
+				next;
+				mes "[Orochimaru]";
+				mes "Suportes";
+				switch(select("- Byakugo no In:- Fláuta Demoniaca"))  {
+					case 1:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Byakugo no In?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30119,1,1,0,0,30301,0,0,0;
 							equip 30119;
 							hidenlvl = 100;
 							hiden = 1;
@@ -1156,122 +788,39 @@ academia,114,26,3	script	Orochiimaru#2	125,{
 							completequest 1001;
 							setquest 1002;
 							close;
-					
-					maisopcao2:
+						} else {
+							close;
+						}
+						break;
+					case 2:
 						next;
-						mes "[Orochiimaru]";
-						mes "-^3366FF Você pode selecionar uma das próximas opções ^000000";
-						mes "^3366FF apenas para saber mais sobre ela ou ^000000";
-						mes "^3366FF para definir qual é o seu. ^000000-";
-						menu "- Clã Kaguya",kaguya,"- Shakuton",shakuton,"- Jinton",jinton,"- Ressonante",ressonante,"- Kidoumaru",kidoumaru;
-							kaguya:
-								next;
-								mes "[Orochiimaru]";
-								mes "Kaguya tem compatibilidade com o treino ^e63900Taijutsu^000000";
-								next;
-								mes "[Orochiimaru]";
-								mes "Você tem certeza que você é um Kaguya?";
-								mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-								if(select("- Sim. Eu sou um Kaguya:- Desculpa.. eu menti.") == 2) close;
-									next;
-									mes "[Orochiimaru]";
-									mes "Você acabou de adiquirir uma Habilidade Hiden!";
-									getitem2 30121,1,1,0,0,30400,0,0,0;
-									equip 30121;
-									hidenlvl = 100;
-									hiden = 1;
-									getitem 569,250;
-									completequest 1001;
-									setquest 1002;
-									close;
-							shakuton:
-								next;
-								mes "[Orochiimaru]";
-								mes "Liberação do Shakuton tem compatibilidade com o treino ^00ade6Ninjutsu^000000";
-								mes "Aprende Habilidades do Elemento Shakuton(Liberação de Calor).";
-								next;
-								mes "[Orochiimaru]";
-								mes "Você tem certeza que você possui habilidades com Shakuton?";
-								mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-								if(select("- Sim. Eu sou um Shakuton:- Desculpa.. eu menti.") == 2) close;
-									next;
-									mes "[Orochiimaru]";
-									mes "Você acabou de adiquirir uma Habilidade Hiden!";
-									getitem2 30122,1,1,0,0,30400,0,0,0;
-									equip 30122;
-									hidenlvl = 100;
-									hiden = 1;
-									getitem 569,250;
-									completequest 1001;
-									setquest 1002;
-									close;
-							jinton:
-								next;
-								mes "[Orochiimaru]";
-								mes "Liberação do Jinton tem compatibilidade com o treino ^00ade6Ninjutsu^000000";
-								mes "Aprende Habilidades do Elemento Jinton(Liberação de Poeira).";
-								next;
-								mes "[Orochiimaru]";
-								mes "Você tem certeza que você possui habilidades com Jinton?";
-								if(select("- Sim. Eu sou um Jinton:- Desculpa.. eu menti.") == 2) close;
-									next;
-									mes "[Orochiimaru]";
-									mes "Você acabou de adiquirir uma Habilidade Hiden!";
-									getitem2 30123,1,1,0,0,30400,0,0,0;
-									equip 30123;
-									hidenlvl = 100;
-									hiden = 1;
-									getitem 569,250;
-									completequest 1001;
-									setquest 1002;
-									close;
-							ressonante:
-								next;
-								mes "[Orochiimaru]";
-								mes "Ressonante tem compatibilidade com o treino ^00ade6Ninjutsu^000000";
-								next;
-								mes "[Orochiimaru]";
-								mes "Você tem certeza que você é um Ressonante?";
-								mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-								if(select("- Sim. Eu sou um Ressonante:- Desculpa.. eu menti.") == 2) close;
-									next;
-									mes "[Orochiimaru]";
-									mes "Você acabou de adiquirir uma Habilidade Hiden!";
-									getitem2 30124,1,1,0,0,30400,0,0,0;
-									equip 30124;
-									hidenlvl = 100;
-									hiden = 1;
-									getitem 569,250;
-									completequest 1001;
-									setquest 1002;
-									close;
-							kidoumaru:
-								next;
-								mes "[Orochiimaru]";
-								mes "Kidoumaru tem compatibilidade com o treino ^e63900Taijutsu^000000";
-								next;
-								mes "[Orochiimaru]";
-								mes "Você tem certeza que você é um Kidoumaru?";
-								mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-								if(select("- Sim. Eu sou um Kidoumaru:- Desculpa.. eu menti.") == 2) close;
-									next;
-									mes "[Orochiimaru]";
-									mes "Você acabou de adiquirir uma Habilidade Hiden!";
-									getitem2 30125,1,1,0,0,30400,0,0,0;
-									equip 30125;
-									hidenlvl = 100;
-									hiden = 1;
-									getitem 569,250;
-									completequest 1001;
-									setquest 1002;
-									close;
+						mes "[Orochimaru]";
+						mes "Você escolheu Fláuta Demoniaca?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30117,1,1,0,0,30301,0,0,0;
+							equip 30117;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close;
+						}
+						break;
+				}
+		}
 	}
-		mes "[Orochiimaru]";
-		mes "Você já possui uma Habilidade Hiden.";
-		close;
+	mes "[Orochimaru]";
+	mes "Você já possui uma Habilidade Hiden.";
+	close;
 	
 	OnInit:
-		
 		questinfo 1002, QTYPE_QUEST;
 		end;
 }

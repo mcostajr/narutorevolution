@@ -1,9 +1,7 @@
 konoha3,181,177,5	script	Mabui#1::kafra	442,{
 	mes "[Mabui]";
-	mes "Ol?, bem vindo.";
-	mes "Ao Kafra Corporation";
-	mes "Sede. No que";
-	mes "precisa de ajuda?";
+	mes "Olá, bem vindo.";
+	mes "No que precisa de ajuda?";
 	next;
 	switch(select("- Curar:- Salvar:- Usar Armazem:- Cancel")) {
 	case 1:
@@ -14,9 +12,7 @@ konoha3,181,177,5	script	Mabui#1::kafra	442,{
 	case 2:
 		mes "[Mabui]";
 		mes "Seu ponto de retorno";
-		mes "foi salvo aqui na";
-		mes "sede da Corpora?ao Kafra.";
-		mes "Muito obrigado!";
+		mes "foi salvo aqui.";
 		next;
 		getmapxy(.@map$, .@x, .@y, 0);
 		savepoint .@map$, .@x, .@y;
@@ -27,18 +23,7 @@ konoha3,181,177,5	script	Mabui#1::kafra	442,{
 		break;
 	case 3:
 		mes "[Mabui]";
-		mes "Embora esta facilidade seja";
-		mes "exclusivamente destinada";
-		mes "a forma?ao das funcion?rias Kafra";
-		mes "e tamb?m fun?oes administrativas,";
-		mes "Eu vou acessar seu armaz?m para voce.";
-		next;
-		mes "[Mabui]";
-		mes "Na pr?xima vez, favor";
-		mes "pergunte a qualquer funcion?rio";
-		mes "da Corpora?ao Kafra";
-		mes "sobre qualquer um de nossos servi?os.";
-		mes "Obrigado por usar nossos servi?os.";
+		mes "Obrigado por usar nossos serviços.";
 		close2;
 		openstorage;
 		break;
@@ -46,9 +31,9 @@ konoha3,181,177,5	script	Mabui#1::kafra	442,{
 	case 4:
 		mes "[Mabui]";
 		mes "^666666*Ufa...*^000000";
-		mes "?timo, porque eu";
+		mes "Ótimo, porque eu";
 		mes "atualmente, estou descansando.";
-		mes "Agora a escolha da op?ao";
+		mes "Agora a escolha da opção";
 		mes "''Cancelar'' foi um bom";
 		mes "movimento vindo de sua parte.";
 		close2;

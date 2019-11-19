@@ -451,49 +451,56 @@ permanent - They still exist when the server resets.
 temporary - They cease to exist when the server resets.
 
 Prefix: scope and extent
-nothing  - A permanent variable attached to the character, the default variable
-           type. They are stored by char-server in the `char_reg_num` and
-           `char_reg_str`.
-"@"      - A temporary variable attached to the character.
-           SVN versions before 2094 revision and RC5 version will also treat
-           'l' as a temporary variable prefix, so beware of having variable
-           names starting with 'l' if you want full backward compatibility.
-"$"      - A global permanent variable.
-           They are stored by map-server in database table `mapreg`.
-"$@"     - A global temporary variable.
-           This is important for scripts which are called with no RID
-           attached, that is, not triggered by a specific character object.
-"."      - A NPC variable.
-           They exist in the NPC and disappear when the server restarts or the
-           NPC is reloaded. Can be accessed from inside the NPC or by calling
-           'getvariableofnpc'. Function objects can also have .variables which
-           are accessible from inside the function, however 'getvariableofnpc'
-           does NOT work on function objects.
-".@"     - A scope variable.
-           They are unique to the instance and scope. Each instance has its
-           own scope that ends when the script ends. Calling a function with
-           callsub/callfunc starts a new scope, returning from the function
-           ends it. When a scope ends, its variables are converted to values
-           ('return .@var;' returns a value, not a reference).
-"'"      - An instance variable.
-           These are used with the instancing system and are unique to each
-           instance type. Can be accessed from inside the instance or by calling
-           'getvariableofinstance'.
-"#"      - A permanent local account variable.
-           They are stored by char-server in the `acc_reg_num` table and
-           `acc_reg_str`.
-"##"     - A permanent global account variable stored by the login server.
-           They are stored in the `global_acc_reg_num` table and
-		   `global_acc_reg_str`.
-           The only difference you will note from normal # variables is when
-           you have multiple char-servers connected to the same login server.
-           The # variables are unique to each char-server, while the ## variables
-           are shared by all these char-servers.
+nothing - Uma variável permanente anexada ao caractere, a variável padrão
+           tipo. Eles são armazenados pelo servidor de char no `char_reg_num` e
+           `char_reg_str`.
 
-Postfix: integer or string
-nothing - integer variable, can store positive and negative numbers, but only
-          whole numbers (so don't expect to do any fractional math)
-'$'     - string variable, can store text
+"@" - Uma variável temporária anexada ao caractere.
+           As versões SVN anteriores à revisão 2094 e a versão RC5 também tratam
+           'l' como um prefixo temporário de variável, portanto, cuidado com a variável
+           nomes começando com 'l' se você quiser compatibilidade total com versões anteriores.
+
+"$" - Uma variável permanente global.
+           Eles são armazenados pelo servidor de mapas na tabela de banco de dados `mapreg`.
+
+"$ @" - uma variável temporária global.
+           Isso é importante para scripts chamados sem RID
+           anexado, ou seja, não é acionado por um objeto de caractere específico.
+
+"." - Uma variável NPC.
+           Eles existem no NPC e desaparecem quando o servidor é reiniciado ou o
+           O NPC é recarregado. Pode ser acessado de dentro do NPC ou chamando
+           'getvariableofnpc'. Os objetos de função também podem ter variáveis.
+           são acessíveis de dentro da função, no entanto 'getvariableofnpc'
+           NÃO funciona em objetos de função.
+
+". @" - Uma variável de escopo.
+           Eles são exclusivos para a instância e escopo. Cada instância tem seu
+           próprio escopo que termina quando o script termina. Chamando uma função com
+           callsub / callfunc inicia um novo escopo, retornando da função
+           termina. Quando um escopo termina, suas variáveis ​​são convertidas em valores
+           ('return. @ var;' retorna um valor, não uma referência).
+
+"'" - Uma variável de instância.
+           São usados ​​com o sistema de instanciação e são exclusivos para cada
+           tipo de instância. Pode ser acessado de dentro da instância ou chamando
+           'getvariableofinstance'.
+
+"#" - Uma variável permanente da conta local.
+           Eles são armazenados pelo char-server na tabela `acc_reg_num` e
+           `acc_reg_str`.
+
+"##" - uma variável permanente da conta global armazenada pelo servidor de login.
+           Eles são armazenados na tabela `global_acc_reg_num` e `global_acc_reg_str`.
+           A única diferença que você notará das # variáveis ​​normais é quando
+           você tem vários servidores char conectados ao mesmo servidor de login.
+           As variáveis ​​# são exclusivas para cada servidor de char, enquanto as variáveis ​​##
+           são compartilhados por todos esses servidores de char.
+
+Postfix: número inteiro ou string
+nada - variável inteira, pode armazenar números positivos e negativos, mas apenas
+          números inteiros (portanto, não espere fazer cálculos fracionários)
+'$' - variável string, pode armazenar texto
 
 Examples:
   name  - permanent character integer variable
@@ -2851,9 +2858,19 @@ Valid information types are:
 
 REFINE_ZENY_COST       - Zeny
 REFINE_MATERIAL_ID     - Material Item ID
+REFINE_BREAKABLE       - If the equipment will be broken by using this material
+                         on a failed atempt
 
 This function will return -1 on failure. The function fails if the cost type
-is invalid or if there is no item in the equipment slot. 
+is invalid or if there is no item in the equipment slot.
+
+---------------------------------------
+
+*refineui({<char id>})
+
+Opens the refine UI for the attached player or the given character id.
+
+This feature requires 2016-10-12aRagexeRE or newer.
 
 ---------------------------------------
 

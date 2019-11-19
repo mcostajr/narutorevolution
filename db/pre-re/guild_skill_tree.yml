@@ -55,7 +55,7 @@ Body:
     MaxLevel: 3
 
   - Id: GD_EXTENSION
-    MaxLevel: 10
+    MaxLevel: 5
 
   - Id: GD_GLORYGUILD
     MaxLevel: 0

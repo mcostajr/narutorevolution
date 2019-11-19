@@ -4,8 +4,7 @@ es_fild01,84,76,4	script	Kisame	99,{
 	close;
 }
 
-//es_fild01,80,76,4	script	Itachi	80,{
-academia,126,9,4	script	Itachi	80,{
+es_fild01,80,76,4	script	Itachi	80,{
 function Add; function Chk; function Slot; function A_An;
 	
 

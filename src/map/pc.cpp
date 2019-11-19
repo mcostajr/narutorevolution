@@ -873,7 +873,7 @@ int pc_equippoint_sub(struct map_session_data *sd,struct item_data* id){
 
 	ep = id->equip;
 	if(id->look == W_DAGGER	|| id->look == W_1HSWORD || id->look == W_1HAXE) {
-		if(pc_checkskill(sd,AS_LEFT) > 0 || (sd->class_&MAPID_UPPERMASK) == MAPID_ASSASSIN || (sd->class_&MAPID_UPPERMASK) == MAPID_KAGEROUOBORO) { //Kagerou and Oboro can dual wield daggers. [Rytech]
+		if(pc_checkskill(sd,AS_LEFT) > 0) {
 			if (ep == EQP_WEAPON)
 				return EQP_ARMS;
 			if (ep == EQP_SHADOW_WEAPON)

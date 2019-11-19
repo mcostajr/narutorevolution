@@ -1,4 +1,4 @@
-salakage,26,20,4	script	Missões::missao	4_board3,{
+konoha3,188,167,4	script	Missões::missao	4_board3,{
 
 	mes "[Missões]";
 	if(#EventoMissao > 0) {
@@ -33,7 +33,7 @@ salakage,26,20,4	script	Missões::missao	4_board3,{
 			}else if(Baselevel <= 255){
 				set #EventoMissao, rand( 153, 174);
 				set #MissaoQuant, rand( 1, 4);
-			}if (getgroupid() >= 1) {
+			}if ( vip_status(1) ) {
 				set missao_time, gettimetick(2) + 1800;
 			} else {
 				set missao_time, gettimetick(2) + 3600;
@@ -64,7 +64,7 @@ salakage,26,20,4	script	Missões::missao	4_board3,{
 						if(sacolazeny <= 10000) { Zeny += 100000; dispbottom "100,000 Zeny Adiquirido"; }
 						
 						set #MissaoPoint, #MissaoPoint + 1;
-						//dispbottom "1 Ponto de Missao Adiquirido";
+						dispbottom "1 Ponto de Missao Adiquirido";
 						
 						// Caixa Ramen
 						set caixaramen,rand( 1 , 100 );
@@ -107,7 +107,7 @@ salakage,26,20,4	script	Missões::missao	4_board3,{
 			mes "[Missões]";
 			mes "Voce deletou a missão";
 			set #EventoMissao,0;
-			if (getgroupid() >= 1) {
+			if (vip_status(1)) {
 				set missao_time, gettimetick(2) + 1800;
 			} else {
 				set missao_time, gettimetick(2) + 3600;
@@ -142,23 +142,24 @@ salakage,26,20,4	script	Missões::missao	4_board3,{
 }
 
 -	script	matarmissao	-1,{
+
 	OnNPCKillEvent:
-		if(killedrid == $@MissaoID[#EventoMissao])
-		{
-			if($@MissaoType[#EventoMissao])
-			if(MissaoKill <= $@MissaoAmount[#MissaoQuant])
-			{
-				set MissaoKill, MissaoKill + 1;
-				dispbottom "Voce já matou "+MissaoKill+"x "+getmonsterinfo($@MissaoID[#EventoMissao],0)+".";
+		if($@MissaoType[#EventoMissao]) {
+			if(killedrid == $@MissaoID[#EventoMissao]) {
+				if(MissaoKill < $@MissaoAmount[#MissaoQuant]) {
+					set MissaoKill, MissaoKill + 1;
+					dispbottom "Voce já matou "+MissaoKill+"x "+getmonsterinfo($@MissaoID[#EventoMissao],0)+".";
+					end;
+				}
 				end;
 			}
 			end;
 		}
-	end;
+		end;
 }
 
-salakage2,26,20,4	duplicate(missao)	Missões#2	4_board3
-salakage3,26,20,4	duplicate(missao)	Missões#3	4_board3
-salakage4,26,20,4	duplicate(missao)	Missões#4	4_board3
-salakage5,26,20,4	duplicate(missao)	Missões#5	4_board3
+sunagakure,235,150,4	duplicate(missao)	Missões#2	4_board3
+kirigakure,204,206,4	duplicate(missao)	Missões#3	4_board3
+kumogakure,121,139,4	duplicate(missao)	Missões#4	4_board3
+iwagakure,181,149,4	duplicate(missao)	Missões#5	4_board3
 prtbar,29,29,4	duplicate(missao)	Missões#6	4_board3

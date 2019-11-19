@@ -1,5 +1,4 @@
-//otogakure,70,221,4	script	Sasuke Shippuuden	414,{
-academia,123,9,4	script	Sasuke Shippuuden	414,{
+otogakure,70,221,4	script	Sasuke Shippuuden	414,{
 
 function Add; function Chk; function Slot; function A_An;
 	

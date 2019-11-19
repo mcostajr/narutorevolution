@@ -1,5 +1,4 @@
-//hu_fild03,256,198,4	script	Obito	425,{
-academia,120,9,4	script	Obito	425,{
+hu_fild03,256,198,4	script	Obito	425,{
 
 	mes "[Obito]";
 	mes "Hum...";

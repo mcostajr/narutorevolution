@@ -1,12 +1,3 @@
-academia,100,30,5	script	Upadora	410,{
-
-set BaseLevel,BaseLevel+10;
-set JobLevel,JobLevel+10;
-callfunc("F_BasicSkills");
-end;
-
-}
-
 academia,95,26,4	script	Instrutor Inicial	79,{
 	
 	if(Class != JOB_NOVICE) { 

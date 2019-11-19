@@ -48,7 +48,8 @@ const char* mapindex_getmapname_ext(const char* string, char* output) {
 
 	size_t len;
 
-	strcpy(buf,string);
+
+	strcpy(buf, string);
 	sscanf(string,"%*[^#]%*[#]%15s",buf);
 
 	len = safestrnlen(buf, MAP_NAME_LENGTH);

@@ -44,7 +44,7 @@ moc_fild12,154,376,4	script	Gaara Shippuden#1	65,{
 		for(.@i = 0; .@i < $@partymembercount; .@i++) {
 			attachrid($@partymemberaid[.@i]);
 			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @resgate, @limite);
-			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+			if( (vip_status(1) && @limite >= 2) || (!vip_status(1) && @limite >= 1) ) { 
 				dispbottom "Você já fez a raid nas últimas 24 horas.";
 				end;
 			}
@@ -68,7 +68,7 @@ moc_fild12,154,376,4	script	Gaara Shippuden#1	65,{
 		for(.@i = 0; .@i < $@partymembercount; .@i++) {
 			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @ponte, @limite);
 	
-			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+			if( (vip_status(1) && @limite >= 2) || (!vip_status(1) && @limite >= 1) ) { 
 				dispbottom "Você já fez a raid nas últimas 24 horas.";
 				close;
 			}
@@ -572,7 +572,7 @@ OnInstanceInit: // Temporary fix for @reloadscript.
 		
 			query_sql "SELECT `index`,`value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'",@resgate,@limite;
 			
-			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) {
+			if( (vip_status(1) && @limite >= 2) || (!vip_status(1) && @limite >= 1) ) {
 				if(!@resgate) {
 					query_sql "INSERT INTO `ii_limit` (`char_id`, `index`, `value`) VALUES ("+$@partymembercid[.@i]+",1,1)";
 				} else { 

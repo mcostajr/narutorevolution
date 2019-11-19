@@ -43,8 +43,8 @@ moc_fild12,154,376,4	script	Tsunade#1	65,{
 		getpartymember getcharid(1),2;
 		for(.@i = 0; .@i < $@partymembercount; .@i++) {
 			attachrid($@partymemberaid[.@i]);
-			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @ponte_ten, @limite);
-			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @ponte_t, @limite);
+			if( (vip_status(1) && @limite >= 2) || (!vip_status(1) && @limite >= 1) ) { 
 				dispbottom "Você já fez a raid nas últimas 24 horas.";
 				end;
 			}
@@ -52,7 +52,7 @@ moc_fild12,154,376,4	script	Tsunade#1	65,{
 				dispbottom "Você ainda deve aguardar "+((delay_raid-gettimetick(2))/60)+" minuto(s).";
 				end;
 			}
-			if(!@ponte_ten) {
+			if(!@ponte_t) {
 				//query_sql "INSERT INTO `ii_limit` (`char_id`, `index`, `value`) VALUES ("+$@partymembercid[.@i]+",1,1)";
 			} else { 
 				//query_sql "UPDATE `ii_limit` SET `value` = `value` + 1 WHERE `char_id`= '"+$@partymembercid[.@i]+"'";
@@ -68,7 +68,7 @@ moc_fild12,154,376,4	script	Tsunade#1	65,{
 		for(.@i = 0; .@i < $@partymembercount; .@i++) {
 			query_sql("SELECT `index`, `value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'", @ponte, @limite);
 	
-			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) { 
+			if( (vip_status(1) && @limite >= 2) || (!vip_status(1) && @limite >= 1) ) { 
 				dispbottom "Você já fez a raid nas últimas 24 horas.";
 				close;
 			}
@@ -87,7 +87,7 @@ moc_fild12,154,376,4	script	Tsunade#1	65,{
 					mes "Você precisa de um grupo.";
 					close;
 				case IE_OK:
-					//warp "1@ponte_ten",199,65;
+					//warp "1@ponte_t",199,65;
 					close;
 				}
 			}
@@ -102,10 +102,10 @@ moc_fild12,154,376,4	script	Tsunade#1	65,{
 }
 
 // Entrance
-1@ponte_ten,199,65,0	script	#ponte_tenchi01	HIDDEN_WARP_NPC,1,1,{ // Alterar Localizacao
+1@ponte_t,199,65,0	script	#ponte_tchi01	HIDDEN_WARP_NPC,1,1,{ // Alterar Localizacao
 	end;
 OnTouch:
-	disablenpc instance_npcname("#ponte_tenchi01");
+	disablenpc instance_npcname("#ponte_tchi01");
 	disablenpc ""+instance_npcname("Tsunade#2")+"";
 	disablenpc ""+instance_npcname("Shino Shippuuden#1")+"";
 	disablenpc ""+instance_npcname("Kiba Shippuuden#1")+"";
@@ -133,7 +133,7 @@ OnTouch:
 	end;
 }
 
-1@ponte_ten,100,100,4 script	Tsunade#2	99,{
+1@ponte_t,100,100,4 script	Tsunade#2	99,{
 
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 
@@ -145,7 +145,7 @@ OnTouch:
 		end;
 }
 
-1@ponte_ten,100,100,4 script	Shino Shippuuden#1	99,{
+1@ponte_t,100,100,4 script	Shino Shippuuden#1	99,{
 
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 
@@ -177,7 +177,7 @@ OnTouch:
 	end;
 }
 
-1@ponte_ten,100,100,4 script	Kiba Shippuuden#1	99,{
+1@ponte_t,100,100,4 script	Kiba Shippuuden#1	99,{
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
 	mes .@npc$;
@@ -185,14 +185,14 @@ OnTouch:
 	close;
 	
 }
-1@ponte_ten,100,100,4 script	Akamaru#1	99,{
+1@ponte_t,100,100,4 script	Akamaru#1	99,{
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
 	mes .@npc$;
 	mes "";
 	close;
 }
-1@ponte_ten,100,100,4 script	Shino Shippuuden#1	99,{
+1@ponte_t,100,100,4 script	Shino Shippuuden#1	99,{
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
 	mes .@npc$;
@@ -200,7 +200,7 @@ OnTouch:
 	close;
 }
 
-1@ponte_ten,100,100,4 script	Shikamaru Shippuuden#1	99,{
+1@ponte_t,100,100,4 script	Shikamaru Shippuuden#1	99,{
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
 	mes .@npc$;
@@ -214,13 +214,13 @@ OnTouch:
 			instance_announce instance_id(),"A expressão do Shikamaru e Choji mudaram rapidamente",0;
 			sleep2 2000;
 			instance_announce instance_id(),"Quem é aquele? Ele usa o protetor da folha, então por que está nos atacando?",0;
-			monster ""+instance_mapname("1@ponte_ten",instance_id())+"",24,88,"Neji",30142,1,"ponte_ten1instance::OnTinta1Die";
+			monster ""+instance_mapname("1@ponte_t",instance_id())+"",24,88,"Neji",30142,1,"ponte_t1instance::OnTinta1Die";
 		}
 		end;
 	
 }
 
-1@ponte_ten,100,100,4 script	Choji Shippuuden#1	99,{
+1@ponte_t,100,100,4 script	Choji Shippuuden#1	99,{
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
 	mes .@npc$;
@@ -234,16 +234,16 @@ OnTouch:
 			instance_announce instance_id(),"A expressão do Shikamaru e Choji mudaram rapidamente",0;
 			sleep2 2000;
 			instance_announce instance_id(),"Quem é aquele? Ele usa o protetor da folha, então por que está nos atacando?",0;
-			monster ""+instance_mapname("1@ponte_ten",instance_id())+"",24,88,"Neji",30142,1,"ponte_ten1instance::OnTinta1Die";
+			monster ""+instance_mapname("1@ponte_t",instance_id())+"",24,88,"Neji",30142,1,"ponte_t1instance::OnTinta1Die";
 		}
 		end;
 	
 }
 
-1@ponte_ten,0,0,0	script	ponte_ten1instance	-1,{
+1@ponte_t,0,0,0	script	ponte_t1instance	-1,{
 	
 	OnTinta1Die:
-		if(!mobcount(""+instance_mapname("1@ponte_ten",instance_id())+"","ponte_ten1instance::OnTinta1Die")) {
+		if(!mobcount(""+instance_mapname("1@ponte_t",instance_id())+"","ponte_t1instance::OnTinta1Die")) {
 			enablenpc ""+instance_npcname("Sai#1")+"";
 			instance_announce instance_id(),"Você é muito fraco, parece uma criança, vamos nos encontrar de novo.",0;
 			sleep2 1000;
@@ -253,11 +253,11 @@ OnTouch:
 		end;
 	
 }
-1@ponte_ten,100,100,4 script	Sai#1	99,{
+1@ponte_t,100,100,4 script	Sai#1	99,{
 	end;
 }
 
-1@ponte_ten,100,100,4 script	Yamato#1	99,{
+1@ponte_t,100,100,4 script	Yamato#1	99,{
 	
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
@@ -272,16 +272,16 @@ OnTouch:
 		sleep2 2000;
 		instance_announce instance_id(),"Yamato: Sem mais delongas, vamos para a ponte encontrar o espião.",0;
 		disablenpc ""+instance_npcname("Yamato#1")+"";
-		warpparty "2@ponte_ten",100,100,getcharid(1);
+		warpparty "2@ponte_t",100,100,getcharid(1);
 		end;
 }
 
-1@ponte_ten,100,100,4 script	Sai#2	99,{
-	instance_warpall "2@ponte_ten",100,100;
+1@ponte_t,100,100,4 script	Sai#2	99,{
+	instance_warpall "2@ponte_t",100,100;
 	end;
 }
 
-2@ponte_ten,100,100,4	script	Kabuto#1	99,{
+2@ponte_t,100,100,4	script	Kabuto#1	99,{
 
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
@@ -304,7 +304,7 @@ OnTouch:
 	close;
 }
 
-2@ponte_ten,100,100,4	script	Orochimaru#1	99,{
+2@ponte_t,100,100,4	script	Orochimaru#1	99,{
 
 	close2;
 	instance_announce instance_id(),"Sua conversa parece bem divertida, não importa se eu me juntar não é?",0;
@@ -312,23 +312,23 @@ OnTouch:
 	instance_announce instance_id(),"Kabuto é meu subordinado por livre vontade...",0;
 	disablenpc ""+instance_npcname("Kabuto#1")+"";
 	disablenpc ""+instance_npcname("Orochimaru#1")+"";
-	monster ""+instance_mapname("2@ponte_ten",instance_id())+"",24,88,"Kabuto",30142,1,"ponte_ten2instance::OnKabutoDie";
-	monster ""+instance_mapname("2@ponte_ten",instance_id())+"",24,88,"Orochimaru",30142,1,"ponte_ten2instance::OnOrochimaruDie";
+	monster ""+instance_mapname("2@ponte_t",instance_id())+"",24,88,"Kabuto",30142,1,"ponte_t2instance::OnKabutoDie";
+	monster ""+instance_mapname("2@ponte_t",instance_id())+"",24,88,"Orochimaru",30142,1,"ponte_t2instance::OnOrochimaruDie";
 	end;
 }
 
-2@ponte_ten,0,0,0	script	ponte_ten2instance	-1,{
+2@ponte_t,0,0,0	script	ponte_t2instance	-1,{
 	
 	OnKabutoDie:
-		if(!mobcount(""+instance_mapname("1@ponte_ten",instance_id())+"","ponte_ten1instance::OnOrochimaruDie")) {
+		if(!mobcount(""+instance_mapname("1@ponte_t",instance_id())+"","ponte_t1instance::OnOrochimaruDie")) {
 			
 		}else
 		end;
 		
 	OnOrochimaruDie:
-		if(!mobcount(""+instance_mapname("1@ponte_ten",instance_id())+"","ponte_ten1instance::OnKabutoDie")) {
+		if(!mobcount(""+instance_mapname("1@ponte_t",instance_id())+"","ponte_t1instance::OnKabutoDie")) {
 			instance_announce instance_id(),"Precisamos parar o naruto agora, esse modo está diminuindo sua vida...",0;
-			monster ""+instance_mapname("2@ponte_ten",instance_id())+"",24,88,"Naruto 4 Caldas",30142,1,"ponte_ten2instance::OnNaruto4CaldasDie";
+			monster ""+instance_mapname("2@ponte_t",instance_id())+"",24,88,"Naruto 4 Caldas",30142,1,"ponte_t2instance::OnNaruto4CaldasDie";
 			sleep2 2000;
 			instance_announce instance_id(),"Sai aproveitou essa batalha e fugiu junto com Orochimaru",0;
 			sleep2 2000;
@@ -343,7 +343,7 @@ OnTouch:
 }
 
 
-2@ponte_ten,180,216,0	script	Fim#1	99,{
+2@ponte_t,180,216,0	script	Fim#1	99,{
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
 	if(getcharid(0) != getpartyleader(getcharid(1),2)) {
@@ -371,10 +371,10 @@ OnTouch:
 		attachrid($@partymemberaid[.@i]);
 		if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
 		
-			query_sql "SELECT `index`,`value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'",@ponte_ten,@limite;
+			query_sql "SELECT `index`,`value`  FROM `ii_limit` WHERE `char_id` = '"+$@partymembercid[.@i]+"'",@ponte_t,@limite;
 			
-			if( (getgroupid() >= 1 && @limite >= 2) || (getgroupid() == 0 && @limite >= 1) ) {
-				if(!@ponte_ten) {
+			if( (vip_status(1) && @limite >= 2) || (!vip_status(1) && @limite >= 1) ) {
+				if(!@ponte_t) {
 					query_sql "INSERT INTO `ii_limit` (`char_id`, `index`, `value`) VALUES ("+$@partymembercid[.@i]+",1,1)";
 				} else { 
 					query_sql "UPDATE `ii_limit` SET `value` = `value` + 1 WHERE `char_id`= '"+$@partymembercid[.@i]+"'";

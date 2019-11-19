@@ -255,6 +255,11 @@ void initChangeTables(void)
 
 	set_sc(SL_AMALDICOADO, SC_AMALDICOADO, EFST_AMALDICOADO, SCB_STR | SCB_AGI | SCB_VIT | SCB_INT | SCB_DEX | SCB_LUK);
 
+	set_sc(SG_FUSION, SC_FUSION, EFST_BLANK, SCB_SPEED);
+	add_sc(JIN_GENKAIHAKURI, SC_WHITEIMPRISON);
+
+	set_sc(SC_SHADOWFORM, SC__SHADOWFORM, EFST_SHADOWFORM, SCB_NONE);
+
 	/* ----------------------------------------------------------------------------------------------------------------------------------- */
 	/* Basica */
 	set_sc(NJ_CHAKRA, SC_RECOVERCHAKRA, EFST_RECOVERCHAKRA, SCB_NONE);
@@ -533,7 +538,6 @@ void initChangeTables(void)
 	set_sc( SG_STAR_COMFORT		, SC_STAR_COMFORT	, EFST_STAR_COMFORT	, SCB_ASPD );
 	add_sc( SG_FRIEND		, SC_SKILLRATE_UP	);
 	set_sc( SG_KNOWLEDGE		, SC_KNOWLEDGE		, EFST_BLANK		, SCB_ALL );
-	set_sc( SG_FUSION		, SC_FUSION		, EFST_BLANK		, SCB_SPEED );
 	set_sc( BS_ADRENALINE2		, SC_ADRENALINE2	, EFST_ADRENALINE2	, SCB_ASPD );
 	set_sc( SL_KAIZEL		, SC_KAIZEL		, EFST_KAIZEL		, SCB_NONE );
 	set_sc( SL_KAAHI		, SC_KAAHI		, EFST_KAAHI		, SCB_NONE );
@@ -731,7 +735,6 @@ void initChangeTables(void)
 	add_sc( AB_VITUPERATUM		, SC_AETERNA );
 
 	/* Warlock */
-	add_sc( JIN_GENKAIHAKURI	, SC_WHITEIMPRISON	);
 	set_sc_with_vfx( WL_FROSTMISTY	, SC_FREEZING		, EFST_FROSTMISTY		, SCB_ASPD|SCB_SPEED|SCB_DEF );
 	set_sc( WL_MARSHOFABYSS		, SC_MARSHOFABYSS	, EFST_MARSHOFABYSS	, SCB_AGI|SCB_DEX|SCB_SPEED );
 	add_sc( WL_SIENNAEXECRATE   , SC_STONE		  );
@@ -776,7 +779,6 @@ void initChangeTables(void)
 	/* Shadow Chaser */
 	set_sc( SC_REPRODUCE		, SC__REPRODUCE		, EFST_REPRODUCE		, SCB_NONE );
 	set_sc( SC_AUTOSHADOWSPELL	, SC__AUTOSHADOWSPELL	, EFST_AUTOSHADOWSPELL	, SCB_NONE );
-	set_sc( SC_SHADOWFORM		, SC__SHADOWFORM	, EFST_SHADOWFORM		, SCB_NONE );
 	set_sc( SC_BODYPAINT		, SC__BODYPAINT		, EFST_BODYPAINT		, SCB_ASPD );
 	set_sc( SC_DEADLYINFECT		, SC__DEADLYINFECT	, EFST_DEADLYINFECT	, SCB_NONE );
 	set_sc( SC_ENERVATION		, SC__ENERVATION	, EFST_ENERVATION		, SCB_BATK|SCB_WATK );
@@ -3423,14 +3425,16 @@ static unsigned int status_calc_maxhpsp_pc(struct map_session_data* sd, unsigned
 	level = umax(sd->status.base_level,1);
 
 	if (isHP) { //Calculates MaxHP
-		dmax = job_info[idx].base_hp[level-1] * (1 + (umax(stat,1) * 0.01)) * ((sd->class_&JOBL_UPPER)?1.25:(pc_is_taekwon_ranker(sd))?3:1);
-		dmax += status_get_hpbonus(&sd->bl,STATUS_BONUS_FIX);
-		dmax += (int64)(dmax * status_get_hpbonus(&sd->bl,STATUS_BONUS_RATE) / 100); //Aegis accuracy
+		//dmax = job_info[idx].base_hp[level-1] * (1 + (umax(stat,1) * 0.01)) * ((sd->class_&JOBL_UPPER)?1.25:(pc_is_taekwon_ranker(sd))?3:1);
+		dmax = job_info[idx].base_hp[level - 1] * (1 + (umax(stat, 1) * 0.01));
+		dmax += status_get_hpbonus(&sd->bl, STATUS_BONUS_FIX);
+		dmax += (int64)(dmax * status_get_hpbonus(&sd->bl, STATUS_BONUS_RATE) / 100); //Aegis accuracy
 	}
 	else { //Calculates MaxSP
-		dmax = job_info[idx].base_sp[level-1] * (1 + (umax(stat,1) * 0.01)) * ((sd->class_&JOBL_UPPER)?1.25:(pc_is_taekwon_ranker(sd))?3:1);
-		dmax += status_get_spbonus(&sd->bl,STATUS_BONUS_FIX);
-		dmax += (int64)(dmax * status_get_spbonus(&sd->bl,STATUS_BONUS_RATE) / 100); //Aegis accuracy
+		//dmax = job_info[idx].base_sp[level-1] * (1 + (umax(stat,1) * 0.01)) * ((sd->class_&JOBL_UPPER)?1.25:(pc_is_taekwon_ranker(sd))?3:1);
+		dmax = job_info[idx].base_sp[level - 1] * (1 + (umax(stat, 1) * 0.01));
+		dmax += status_get_spbonus(&sd->bl, STATUS_BONUS_FIX);
+		dmax += (int64)(dmax * status_get_spbonus(&sd->bl, STATUS_BONUS_RATE) / 100); //Aegis accuracy
 	}
 
 	//Make sure it's not negative before casting to unsigned int
@@ -8368,20 +8372,39 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 		sc = NULL;
 
 	switch (type) {
-	// Genjutsu
-	case SC_STUN:
-	case SC_SILENCE:
-	case SC_SLEEP:
-	case SC_DEEPSLEEP:
-	case SC_CURSE:
-		sc_def2 = status->luk * 10;
-		tick_def = 0; // No duration reduction
+	// Sangramento
+	case SC_BLEEDING:
+		sc_def = status->agi * 50;
+		sc_def2 = status->luk * 10 + status_get_lv(bl) * 10 - status_get_lv(src) * 10;
+		tick_def2 = status->luk * 10;
 		break;
-	case SC_DECREASEAGI:
-		if (sd)
-			tick >>= 1; // Half duration for players.
-		sc_def2 = status->mdef * 100;
+	// Cegueira
+	case SC_BLIND:
+		sc_def = (status->vit + status->int_) * 25;
+		sc_def2 = status->luk * 10 + status_get_lv(bl) * 10 - status_get_lv(src) * 10;
+		tick_def2 = status->luk * 10;
 		break;
+	// Confusão
+	case SC_CONFUSION:
+		sc_def = (status->str + status->int_) * 50;
+		sc_def2 = status_get_lv(src) * 10 - status_get_lv(bl) * 10 - status->luk * 10; // Reversed sc_def2
+		tick_def2 = status->luk * 10;
+		break;
+	// Envenenamento
+	case SC_POISON:
+	case SC_DPOISON:
+		sc_def = status->vit * 50;
+		break;
+	// Cristalizar
+	case SC_CRYSTALIZE:
+		tick_def2 = (sd ? sd->status.vit : status_get_base_status(bl)->vit) * 50;
+		break;
+	// Hipotermia
+	case SC_FREEZING:
+		tick_def2 = (status->vit + status->dex) * 25;
+		break;
+
+	//--------------------------------------------------------------------
 	// Katon
 	case SC_BURNING:
 		tick_def2 = 75 * status->luk + 125 * status->agi;
@@ -8398,8 +8421,31 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 		sc_def2 = status->luk * 10 + status_get_lv(bl) * 10 - status_get_lv(src) * 10;
 		tick_def = 0; // No duration reduction
 		break;
-
+	// Fuuton
+	case SC_VACUUM_EXTREME:
+		tick_def2 = (sd ? sd->status.str : status_get_base_status(bl)->str) * 50;
+		break;
+	// Genjutsu
+	case SC_STUN:
+	case SC_SILENCE:
+	case SC_SLEEP:
+	case SC_DEEPSLEEP:
+	case SC_CURSE:
+		sc_def = status->luk * 10;
+		tick_def = 0; // No duration reduction
+		break;
+	case SC_DECREASEAGI:
+		if (sd)
+			tick >>= 1; // Half duration for players.
+		sc_def2 = status->mdef * 100;
+		break;
 	//--------------------------------------------------------------------
+	// Uchiha
+	case SC_KYOUGAKU:
+		sc_def = 0;
+		//tick_def2 = 30*status->int_;
+		break;
+
 	// Jinton
 	case SC_WHITEIMPRISON:
 		if (tick == 5000) // 100% on caster
@@ -8410,45 +8456,8 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 			tick_def2 = (status->vit + status->luk) * 50;
 		break;
 
-
 	//--------------------------------------------------------------------
 
-		case SC_POISON:
-		case SC_DPOISON:
-			sc_def = status->vit*100;
-#ifndef RENEWAL
-			sc_def2 = status->luk*10 + status_get_lv(bl)*10 - status_get_lv(src)*10;
-			if (sd) {
-				// For players: 60000 - 450*vit - 100*luk
-				tick_def = status->vit*75;
-				tick_def2 = status->luk*100;
-			} else {
-				// For monsters: 30000 - 200*vit
-				tick>>=1;
-				tick_def = (status->vit*200)/3;
-			}
-#endif
-			break;
-		case SC_BLEEDING:
-#ifndef RENEWAL
-			sc_def = status->vit*100;
-			sc_def2 = status->luk*10 + status_get_lv(bl)*10 - status_get_lv(src)*10;
-#else
-			sc_def = status->agi*100;
-			sc_def2 = status->luk*10 + status_get_lv(bl)*10 - status_get_lv(src)*10;
-#endif
-			tick_def2 = status->luk*10;
-			break;
-		case SC_BLIND:
-			sc_def = (status->vit + status->int_)*50;
-			sc_def2 = status->luk*10 + status_get_lv(bl)*10 - status_get_lv(src)*10;
-			tick_def2 = status->luk*10;
-			break;
-		case SC_CONFUSION:
-			sc_def = (status->str + status->int_)*50;
-			sc_def2 = status_get_lv(src)*10 - status_get_lv(bl)*10 - status->luk*10; // Reversed sc_def2
-			tick_def2 = status->luk*10;
-			break;
 		case SC_ANKLE:
 			if(status_has_mode(status,MD_STATUS_IMMUNE)) // Lasts 5 times less on bosses
 				tick /= 5;
@@ -8470,9 +8479,6 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 			// 10 second (fixed) + { Stasis Skill level * 10 - (Target's VIT + DEX) / 20 }
 			tick_def2 = (status->vit + status->dex) * 50;
 			break;
-		case SC_FREEZING:
-			tick_def2 = (status->vit + status->dex)*50;
-			break;
 		case SC_OBLIVIONCURSE: // 100% - (100 - 0.8 x INT)
 			sc_def = status->int_*80;
 			sc_def = max(sc_def, 500); // minimum of 5% resist
@@ -8492,16 +8498,6 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 			break;
 		case SC_ELECTRICSHOCKER:
 			tick_def2 = (status->vit + status->agi) * 70;
-			break;
-		case SC_CRYSTALIZE:
-			tick_def2 = (sd ? sd->status.vit : status_get_base_status(bl)->vit) * 100;
-			break;
-		case SC_VACUUM_EXTREME:
-			tick_def2 = (sd ? sd->status.str : status_get_base_status(bl)->str) * 50;
-			break;
-		case SC_KYOUGAKU:
-			sc_def = 0;
-			//tick_def2 = 30*status->int_;
 			break;
 		case SC_PARALYSIS:
 			tick_def2 = (status->vit + status->luk)*50;
@@ -9987,7 +9983,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick = INFINITE_TICK;
 			break;
 		case SC_ENCPOISON:
-			val2= 250+50*val1; // Poisoning Chance (2.5+0.5%) in 1/10000 rate
+			val2= 2500+1250*val1; // Poisoning Chance (2.5+0.5%) in 1/10000 rate
 		case SC_ASPERSIO:
 		case SC_FIREWEAPON:
 		case SC_WATERWEAPON:
@@ -14850,12 +14846,24 @@ static TIMER_FUNC(status_natural_heal_timer){
  */
 int status_get_refine_chance(enum refine_type wlv, int refine, bool enriched)
 {
+	enum e_refine_chance_type type;
+
 	if ( refine < 0 || refine >= MAX_REFINE)
 		return 0;
 	
-	int type = enriched ? 1 : 0;
-	if (battle_config.event_refine_chance)
-		type |= 2;
+	if (battle_config.event_refine_chance) {
+		if (enriched) {
+			type = REFINE_CHANCE_EVENT_ENRICHED;
+		} else {
+			type = REFINE_CHANCE_EVENT_NORMAL;
+		}
+	} else {
+		if (enriched) {
+			type = REFINE_CHANCE_ENRICHED;
+		} else {
+			type = REFINE_CHANCE_NORMAL;
+		}
+	}
 
 	return refine_info[wlv].chance[type][refine];
 }
@@ -15004,6 +15012,10 @@ static bool status_yaml_readdb_refine_sub(const YAML::Node &node, int refine_inf
 
 		refine_info[refine_info_index].cost[idx].nameid = material;
 		refine_info[refine_info_index].cost[idx].zeny = price;
+		if (type["Breakable"].IsDefined())
+			refine_info[refine_info_index].cost[idx].breakable = type["Breakable"].as<bool>();
+		else
+			refine_info[refine_info_index].cost[idx].breakable = true;
 	}
 
 	const YAML::Node &rates = node["Rates"];
@@ -15070,8 +15082,17 @@ static void status_yaml_readdb_refine(const std::string &directory, const std::s
  * @param what true = returns zeny, false = returns item id
  * @return Refine cost for a weapon level
  */
-int status_get_refine_cost(int weapon_lv, int type, bool what) {
-	return what ? refine_info[weapon_lv].cost[type].zeny : refine_info[weapon_lv].cost[type].nameid;
+int status_get_refine_cost(int weapon_lv, int type, enum refine_info_type what) {
+	switch (what) {
+	case REFINE_MATERIAL_ID:
+		return refine_info[weapon_lv].cost[type].nameid;
+	case REFINE_ZENY_COST:
+		return refine_info[weapon_lv].cost[type].zeny;
+	case REFINE_BREAKABLE:
+		return refine_info[weapon_lv].cost[type].breakable;
+	}
+
+	return 0;
 }
 
 /**

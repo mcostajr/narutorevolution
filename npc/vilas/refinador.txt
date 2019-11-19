@@ -4,7 +4,7 @@ ama_in01,30,21,4	script	Refinador#1::refin	444,{
 	mes "Olá "+strcharinfo(0)+", gostaria de refinar seus equipamentos ?";
 	if(select("- Sim:- Não") == 2) close;
 		close2;
-		//refineui;
+		refineui;
 		
 	OnInit:
 	waitingroom "[Refinador]",0;

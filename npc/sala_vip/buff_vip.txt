@@ -1,0 +1,31 @@
+prtbar,23,40,6	script	VIP BUFFER	908,{
+
+	if(vip_status(1) ) {
+		if(delay_buffvip <= gettimetick(2) ) {
+			sc_start SC_FOOD_STR_CASH,3600000,6;
+			sc_start SC_FOOD_AGI_CASH,3600000,6;
+			sc_start SC_FOOD_INT_CASH,3600000,6;
+			sc_start SC_FOOD_VIT_CASH,3600000,6;
+			sc_start SC_FOOD_DEX_CASH,3600000,6;
+			sc_start SC_FOOD_LUK_CASH,3600000,6;
+			sc_start SC_ATKPOTION,3600000,40;
+			sc_start SC_MATKFOOD,3600000,40;
+			sc_start SC_EXPBOOST,3600000,100;
+			sc_start SC_JEXPBOOST,3600000,100;
+			sc_end SC_ITEMBOOST;
+			sc_start SC_ITEMBOOST,3600000,30;
+			set delay_buffvip, gettimetick(2) + 86400;
+			end;
+		} else {
+			dispbottom "Faltam "+
+				 ((delay_buffvip-gettimetick(2))/60/60/24) +" Dia(s) "+
+				(((delay_buffvip-gettimetick(2))/60/60) - (((delay_buffvip-gettimetick(2))/60/60/24)*24))+" Hora(s) "+
+				(((delay_buffvip-gettimetick(2))/60) - (((delay_buffvip-gettimetick(2))/60/60)*60))+" Minuto(s) "+
+				(((delay_buffvip-gettimetick(2))) - (((delay_buffvip-gettimetick(2))/60)*60))+" Segundo(s) ";
+			end;
+		}
+	} else {
+		dispbottom "Você não é premium.";
+		end;
+	}
+}

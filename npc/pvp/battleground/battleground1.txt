@@ -15,27 +15,25 @@
 
 // Waiting Room NPCs
 //============================================================
-pvp_room,30,86,4	script	Shin'nyu - Time A::KvM01R_Guillaume	418,{
+pvp_room,30,86,4	script	Time Azul::KvM01R_Azul	418,{
 	end;
 OnInit:
-	waitingroom "Time A 5 Players",6,"KvM01_BG_Out::OnGuillaumeJoin",1;
+	waitingroom "Time Azul 5 Players",6,"KvM01_BG_Out::OnAzulJoin",1;
 	end;
 OnEnterBG:
-	set $@KvM01BG_id1, waitingroom2bg("bat_c01",52,129,"KvM01_BG::OnGuillaumeQuit","KvM01_BG::OnGuillaumeDie");
+	set $@KvM01BG_id1, waitingroom2bg("bat_c01",52,129,"KvM01_BG::OnAzulQuit","KvM01_BG::OnAzulDie");
 	end;
 }
 
-
-
-pvp_room,37,86,4	script	Shin'nyu - Time B::KvM01R_Croix	414,{
+pvp_room,37,86,4	script	Time Vermelho::KvM01R_Verm	414,{
 	end;
 
 OnInit:
-	waitingroom "Time B 5 Players",6,"KvM01_BG_Out::OnCroixJoin",1;
+	waitingroom "Time Vermelho 5 Players",6,"KvM01_BG_Out::OnVermJoin",1;
 	end;
 
 OnEnterBG:
-	set $@KvM01BG_id2, waitingroom2bg("bat_c01",147,55,"KvM01_BG::OnCroixQuit","KvM01_BG::OnCroixDie");
+	set $@KvM01BG_id2, waitingroom2bg("bat_c01",147,55,"KvM01_BG::OnVermQuit","KvM01_BG::OnVermDie");
 	end;
 }
 
@@ -114,32 +112,32 @@ OnInit:
 	disablenpc "KVM Officer#KVM01B";
 	end;
 
-OnGuillaumeQuit:
+OnAzulQuit:
 	//set BG_Delay_Tick, gettimetick(2) + 1200;
-OnGuillaumeDie:
+OnAzulDie:
 	if( $@KvM01BG == 2 )
 	{
-		set .Guillaume_Count, .Guillaume_Count - 1;
-		bg_updatescore "bat_c01",.Guillaume_Count,.Croix_Count;
-		if( .Guillaume_Count < 1 ) donpcevent "KvM01_BG::OnCroixWin";
+		set .Azul_Count, .Azul_Count - 1;
+		bg_updatescore "bat_c01",.Azul_Count,.Verm_Count;
+		if( .Azul_Count < 1 ) donpcevent "KvM01_BG::OnVermWin";
 		else {
-			mapannounce "bat_c01", "O número de Guillaumes é "+.Guillaume_Count+".",bc_map,"0x00ff00";
-			mapannounce "bat_c01", "O número de Croixes é "+.Croix_Count+".",bc_map,"0x00ff00";
+			mapannounce "bat_c01", "O número de Azul é "+.Azul_Count+".",bc_map,"0x00ff00";
+			mapannounce "bat_c01", "O número de Vermelho é "+.Verm_Count+".",bc_map,"0x00ff00";
 		}
 	}
 	end;
 
-OnCroixQuit:
+OnVermQuit:
 	//set BG_Delay_Tick, gettimetick(2) + 1200;
-OnCroixDie:
+OnVermDie:
 	if( $@KvM01BG == 2 )
 	{
-		set .Croix_Count, .Croix_Count - 1;
-		bg_updatescore "bat_c01",.Guillaume_Count,.Croix_Count;
-		if( .Croix_Count < 1 ) donpcevent "KvM01_BG::OnGuillaumeWin";
+		set .Verm_Count, .Verm_Count - 1;
+		bg_updatescore "bat_c01",.Azul_Count,.Verm_Count;
+		if( .Verm_Count < 1 ) donpcevent "KvM01_BG::OnAzulWin";
 		else {
-			mapannounce "bat_c01", "O número de Guillaumes é "+.Guillaume_Count+".",bc_map,"0x00ff00";
-			mapannounce "bat_c01", "O número de Croixes é "+.Croix_Count+".",bc_map,"0x00ff00";
+			mapannounce "bat_c01", "O número de Azul é "+.Azul_Count+".",bc_map,"0x00ff00";
+			mapannounce "bat_c01", "O número de Vermelho é "+.Verm_Count+".",bc_map,"0x00ff00";
 		}
 	}
 	end;
@@ -155,15 +153,15 @@ OnStart:
 	end;
 
 OnTimer1000:
-	mapannounce "bat_c01", "Em 1 minuto, o KVM começará.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "Em 1 minuto, a batalha começará.",bc_map,"0x00ff00";
 	end;
 
 OnTimer3000:
-	mapannounce "bat_c01", "O tempo máximo para uma batalha KVM é de 5 minutos.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "O tempo máximo para uma batalha é de 5 minutos.",bc_map,"0x00ff00";
 	end;
 
 OnTimer6000:
-	mapannounce "bat_c01", "Prepare-se para a batalha KVM.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "Prepare-se para a batalha.",bc_map,"0x00ff00";
 	mapannounce "bat_c01", "Você pode proteger suas pessoas.",bc_map,"0x00ff00";
 	donpcevent "#A_camp_start01::OnEnable";
 	donpcevent "#B_camp_start01::OnEnable";
@@ -177,34 +175,34 @@ OnTimer13000:
 OnTimer30000:
 	areapercentheal "bat_c01",50,126,55,131,100,100;
 	areapercentheal "bat_c01",144,57,149,52,100,100;
-	mapannounce "bat_c01", "30 segundos restantes para iniciar a batalha KVM.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "30 segundos restantes para iniciar a batalha.",bc_map,"0x00ff00";
 	end;
 
 OnTimer45000:
-	mapannounce "bat_c01", "15 segundos restantes para iniciar a batalha KVM.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "15 segundos restantes para iniciar a batalha.",bc_map,"0x00ff00";
 	donpcevent "::OnKvM01One";
 	end;
 
 OnTimer50000:
-	mapannounce "bat_c01", "10 segundos restantes para iniciar a batalha KVM.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "10 segundos restantes para iniciar a batalha.",bc_map,"0x00ff00";
 	donpcevent "::OnKvM01Two";
 	end;
 
 OnTimer55000:
-	mapannounce "bat_c01", "5 segundos restantes para iniciar a batalha KVM.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "5 segundos restantes para iniciar a batalha.",bc_map,"0x00ff00";
 	donpcevent "::OnKvM01One";
 	end;
 
 OnTimer59000:
-	mapannounce "bat_c01", "KVM agora está começando.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "A Batalha está começando.",bc_map,"0x00ff00";
 	donpcevent "::OnKvM01Two";
 	end;
 
 OnTimer61000:
 	// Team Members
-	set .Guillaume_Count, bg_get_data($@KvM01BG_id1, 0);
-	set .Croix_Count, bg_get_data($@KvM01BG_id2, 0);
-	if( .Guillaume_Count < 5 || .Croix_Count < 5 )
+	set .Azul_Count, bg_get_data($@KvM01BG_id1, 0);
+	set .Verm_Count, bg_get_data($@KvM01BG_id2, 0);
+	if( .Azul_Count < 5 || .Verm_Count < 5 )
 	{
 		set $@KvM01BG_Victory, 3;
 		set $@KvM01BG, 3;
@@ -219,52 +217,52 @@ OnTimer61000:
 	end;
 
 OnTimer300000:
-	mapannounce "bat_c01", "1 minuto restante para terminar a batalha KVM.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "1 minuto restante para terminar a batalha.",bc_map,"0x00ff00";
 	end;
 
 OnTimer330000:
-	mapannounce "bat_c01", "30 segundos restantes para terminar a batalha KVM.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "30 segundos restantes para terminar a batalha.",bc_map,"0x00ff00";
 	end;
 
 OnTimer345000:
-	mapannounce "bat_c01", "15 segundos restantes para terminar a batalha KVM.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "15 segundos restantes para terminar a batalha.",bc_map,"0x00ff00";
 	end;
 
 OnTimer350000:
-	mapannounce "bat_c01", "10 segundos restantes para terminar a batalha KVM.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "10 segundos restantes para terminar a batalha.",bc_map,"0x00ff00";
 	end;
 
 OnTimer355000:
-	mapannounce "bat_c01", "5 segundos restantes para terminar a batalha KVM.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "5 segundos restantes para terminar a batalha.",bc_map,"0x00ff00";
 	end;
 
 OnTimer360000:
-	mapannounce "bat_c01", "The KVM battle is over.",bc_map,"0x00ff00";
-	if( .Croix_Count > .Guillaume_Count )
-		donpcevent "KvM01_BG::OnCroixWin";
-	else if( .Croix_Count < .Guillaume_Count )
-		donpcevent "KvM01_BG::OnGuillaumeWin";
+	mapannounce "bat_c01", "A batalha acabou.",bc_map,"0x00ff00";
+	if( .Verm_Count > .Azul_Count )
+		donpcevent "KvM01_BG::OnVermWin";
+	else if( .Verm_Count < .Azul_Count )
+		donpcevent "KvM01_BG::OnAzulWin";
 	else
 	{ // Draw Game
 		set $@KvM01BG, 3;
 		set $@KvM01BG_Victory, 3;
-		mapannounce "bat_c01", "O número de Guillaumes é "+.Guillaume_Count+".",bc_map,"0x00ff00";
-		mapannounce "bat_c01", "O número de Croixes é "+.Croix_Count+".",bc_map,"0x00ff00";
+		mapannounce "bat_c01", "O número de Time Azul é "+.Azul_Count+".",bc_map,"0x00ff00";
+		mapannounce "bat_c01", "O número de Time Vermelho é "+.Verm_Count+".",bc_map,"0x00ff00";
 		mapannounce "bat_c01", "Esta batalha terminou em um sorteio.",bc_map,"0x00ff00";
 		donpcevent "KvM01_BG::OnStop";
 	}
 	end;
 
-OnGuillaumeWin:
+OnAzulWin:
 	set $@KvM01BG, 3;
 	set $@KvM01BG_Victory, 1;
-	mapannounce "bat_c01", "Guillaume ganhou!",bc_map,"0x00ff00";
-	mapannounce "bat_c01", "Parabéns aos membros do Guillaume.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "Time Azul ganhou!",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "Parabéns aos membros do Time Azul.",bc_map,"0x00ff00";
 	mapannounce "bat_c01", "Todos serão movidos para o ponto inicial.",bc_map,"0x00ff00";
 	donpcevent "KvM01_BG::OnStop";
 	end;
 
-OnCroixWin:
+OnVermWin:
 	set $@KvM01BG, 3;
 	set $@KvM01BG_Victory, 2;
 	mapannounce "bat_c01", "Croix ganhou!",bc_map,"0x00ff00";
@@ -292,7 +290,7 @@ OnBegin:
 	end;
 
 OnTimer1000:
-	mapannounce "bat_c01", "Por favor, aplique com o oficial para adquirir pontos KVM.",bc_map,"0x00ff00";
+	mapannounce "bat_c01", "Por favor, aplique com o oficial para adquirir pontos de batalha.",bc_map,"0x00ff00";
 	end;
 
 OnTimer3000:
@@ -311,8 +309,8 @@ OnTimer55000:
 
 OnTimer60000:
 	stopnpctimer;
-	set getvariableofnpc(.Croix_Count,"KvM01_BG"), 0;
-	set getvariableofnpc(.Guillaume_Count,"KvM01_BG"), 0;
+	set getvariableofnpc(.Verm_Count,"KvM01_BG"), 0;
+	set getvariableofnpc(.Azul_Count,"KvM01_BG"), 0;
 	set $@KvM01BG_Victory, 0;
 	if( $@KvM01BG_id1 ) { bg_destroy $@KvM01BG_id1; set $@KvM01BG_id1, 0; }
 	if( $@KvM01BG_id2 ) { bg_destroy $@KvM01BG_id2; set $@KvM01BG_id2, 0; }
@@ -323,19 +321,19 @@ OnTimer60000:
 	bg_updatescore "bat_c01",5,5;
 	set $@KvM01BG, 0;
 
-OnGuillaumeJoin:
-OnCroixJoin:
+OnAzulJoin:
+OnVermJoin:
 	if( $@KvM01BG )
 		end;
-	set .@Guillaume, getwaitingroomstate(0,"KvM01R_Guillaume");
-	set .@Croix, getwaitingroomstate(0,"KvM01R_Croix");
+	set .@Azul, getwaitingroomstate(0,"KvM01R_Azul");
+	set .@Verm, getwaitingroomstate(0,"KvM01R_Verm");
 
-	if( .@Guillaume < 5 || .@Croix < 5 )
+	if( .@Azul < 5 || .@Verm < 5 )
 		end;
 
 	set $@KvM01BG, 1; // Starting
-	donpcevent "KvM01R_Croix::OnEnterBG";
-	donpcevent "KvM01R_Guillaume::OnEnterBG";
+	donpcevent "KvM01R_Azul::OnEnterBG";
+	donpcevent "KvM01R_Verm::OnEnterBG";
 	donpcevent "KvM01_BG::OnStart";
 	end;
 }
@@ -347,7 +345,7 @@ bat_c01,51,130,5	script	KVM Officer#KVM01A	419,{
 		mes "[KVM Officer]";
 		if( $@KvM01BG_Victory == Bat_Team ) {
 			mes "Good Game.";
-			mes "Que a glória da KVM esteja com você.";
+			mes "Que a glória esteja com você.";
 			close2;
 			//getitem 735, 15;
 		}

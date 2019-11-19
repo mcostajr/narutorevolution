@@ -90,10 +90,12 @@
 30017,Doki3@KN_CHARGEATK,attack,1001,1,700,0,1000,no,target,always,,,,,,,,
 
 // Ibuse
+30021,Salamandra@SO_CLOUD_KILL,attack,2450,5,700,0,1000,no,target,always,,,,,,,,
 30021,Salamandra@TF_POISON,attack,52,10,700,0,1000,no,target,always,,,,,,,,
 30021,Salamandra@AS_VENOMDUST,attack,140,10,700,0,1000,no,target,always,,,,,,,,
 30021,Salamandra@AS_SPLASHER,attack,141,10,700,0,1000,no,target,always,,,,,,,,
 30021,Salamandra@SO_POISON_BUSTER,attack,2448,5,700,0,1000,no,target,always,,,,,,,,
+30021,Salamandra@ASC_EDP,attack,378,10,500,0,60000,no,self,always,,,,,,,,
 
 // --------------- Kuchiyose ---------------
 30033,Filhote de Cobra@TF_POISON,attack,52,10,700,0,1000,no,target,always,,,,,,,,
@@ -178,7 +180,7 @@
 30085,Shikamaru Shippuuden@RG_CLOSECONFINE,attack,1005,4,700,0,1000,no,target,always,,,,,,,,
 30085,Shikamaru Shippuuden@GN_DEMONIC_FIRE,attack,2485,2,700,0,1000,no,target,always,,,,,,,,
 30125,Jounin Konoha@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
-30125,Jounin Konoha@NJ_RAIGEKISAI,attack,541,2,700,0,1000,no,self,always,,,,,,,,
+30125,Jounin Konoha@RAI_NAGASHI,attack,840,2,700,0,1000,no,self,always,,,,,,,,
 30125,Jounin Konoha@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 
 30045,Hinata Shippuuden@SR_TIGERCANNON,attack,2330,1,1000,0,1000,no,target,always,,,,,,,,
@@ -206,16 +208,16 @@
 30080,Sakura Shippuuden@AB_HIGHNESSHEAL,chase,2051,4,700,0,1000,no,friend,always,,,,,,,,
 30080,Sakura Shippuuden@KN_BOWLINGBASH,attack,62,10,700,0,1000,no,target,always,,,,,,,,
 30082,Sasuke Shippuuden@MG_FIREBALL,attack,17,10,700,0,1000,no,target,always,,,,,,,,
-30082,Sasuke Shippuuden@NJ_RAIGEKISAI,attack,541,2,500,0,1000,no,self,always,,,,,,,,
+30082,Sasuke Shippuuden@RAI_NAGASHI,attack,840,2,500,0,1000,no,self,always,,,,,,,,
 30082,Sasuke Shippuuden@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
 
 
 30083,Sasuke CS2@MG_FIREBALL,attack,17,10,700,0,1000,no,target,always,,,,,,,,
-30083,Sasuke CS2@NJ_RAIGEKISAI,attack,541,2,500,0,1000,no,self,always,,,,,,,,
+30083,Sasuke CS2@RAI_NAGASHI,attack,840,2,500,0,1000,no,self,always,,,,,,,,
 30083,Sasuke CS2@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
 
 
-30096,Asuma@WL_CRIMSONROCK,attack,2211,1,700,0,3000,no,target,always,,,,,,,,
+30096,Asuma@WL_CRIMSONROCK,attack,2211,10,700,0,3000,no,target,always,,,,,,,,
 30096,Asuma@AS_SONICBLOW,attack,136,3,700,0,1000,no,target,always,,,,,,,,
 30096,Asuma@AS_SONICBLOW,attack,136,3,700,0,1000,no,target,always,,,,,,,,
 30098,Gai@TK_JUMPKICK,attack,421,3,700,0,1000,no,target,always,,,,,,,,
@@ -223,9 +225,8 @@
 30098,Gai@TK_TURNKICK,attack,417,2,700,0,1000,no,self,always,,,,,,,,
 30098,Gai@TK_DOWNKICK,attack,415,6,700,0,1000,no,self,always,,,,,,,,
 30131,Kakashi@MG_COLDBOLT,attack,14,15,800,0,1000,no,target,always,,,,,,,,
-30131,Kakashi@NJ_RAIGEKISAI,attack,541,2,800,0,1000,no,self,always,,,,,,,,
+30131,Kakashi@RAI_NAGASHI,attack,840,2,800,0,1000,no,self,always,,,,,,,,
 30131,Kakashi@SC_MAELSTROM,attack,2302,3,500,0,1000,no,target,always,,,,,,,,
-30131,Kakashi@RG_INTIMIDATE,attack,219,5,700,0,1000,no,target,always,,,,,,,,
 30117,Yamato@SO_EARTHGRAVE,attack,2446,15,700,0,1000,no,target,always,,,,,,,,
 30117,Yamato@WZ_FROSTNOVA,attack,88,15,700,0,1000,no,self,always,,,,,,,,
 30117,Yamato@MG_FROSTDIVER,attack,15,15,700,0,1000,no,target,always,,,,,,,,
@@ -248,7 +249,6 @@
 30046,Hiruzen@MG_FIREBOLT,attack,19,10,700,0,1000,no,target,always,,,,,,,,
 30046,Hiruzen@MG_FIREBOLT,chase,19,10,700,0,1000,no,target,always,,,,,,,,
 30064,Minato@MO_BODYRELOCATION,attack,264,1,700,0,1000,no,target,always,,,,,,,,
-30064,Minato@NJ_KASUMIKIRI,attack,528,8,700,0,1000,no,target,always,,,,,,,,
 30064,Minato@MO_FINGEROFFENSIVE,attack,267,8,700,0,1000,no,target,always,,,,,,,,
 30090,Tobirama@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 30090,Tobirama@MG_FROSTDIVER,attack,15,10,700,0,1000,no,target,always,,,,,,,,
@@ -263,7 +263,6 @@
 30104,Hiruzen_Bushin@MG_FIREBOLT,attack,19,10,700,0,1000,no,target,always,,,,,,,,
 30104,Hiruzen_Bushin@MG_FIREBOLT,chase,19,10,700,0,1000,no,target,always,,,,,,,,
 30108,Minato_Bushin@MO_BODYRELOCATION,attack,264,1,700,0,1000,no,target,always,,,,,,,,
-30108,Minato_Bushin@NJ_KASUMIKIRI,attack,528,8,700,0,1000,no,target,always,,,,,,,,
 30108,Minato_Bushin@MO_FINGEROFFENSIVE,attack,267,8,700,0,1000,no,target,always,,,,,,,,
 30115,Tobirama_Bushin@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 30115,Tobirama_Bushin@MG_FROSTDIVER,attack,15,10,700,0,1000,no,target,always,,,,,,,,
@@ -271,7 +270,7 @@
 
 // Kirigakure
 30127,Jounin Nevoa@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
-30127,Jounin Nevoa@NJ_RAIGEKISAI,attack,541,2,700,0,5000,no,self,always,,,,,,,,
+30127,Jounin Nevoa@RAI_NAGASHI,attack,840,2,700,0,5000,no,self,always,,,,,,,,
 30127,Jounin Nevoa@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 30118,Zabuza@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 30118,Zabuza@WZ_FROSTNOVA,attack,88,10,700,0,1000,no,self,always,,,,,,,,
@@ -279,19 +278,18 @@
 
 //Kumogakure
 30128,Jounin Nuvem@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
-30128,Jounin Nuvem@NJ_RAIGEKISAI,attack,541,2,700,0,1000,no,self,always,,,,,,,,
+30128,Jounin Nuvem@RAI_NAGASHI,attack,840,2,700,0,1000,no,self,always,,,,,,,,
 30128,Jounin Nuvem@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 
-30038,Darui@NJ_RAIGEKISAI,attack,541,2,1000,0,1000,no,self,always,,,,,,,,
+30038,Darui@RAI_NAGASHI,attack,840,2,1000,0,1000,no,self,always,,,,,,,,
 30038,Darui@MG_LIGHTNINGBOLT,attack,20,10,2000,0,1000,no,target,always,,,,,,,,
 30038,Darui@MG_THUNDERSTORM,attack,21,10,2000,0,1000,no,target,always,,,,,,,,
-30076,Raikage@SR_LIGHTNINGWALK,any,2335,1,100,0,5000,no,self,always,,,,,,,,
 30076,Raikage@SR_RIDEINLIGHTNING,attack,2518,2,700,0,1000,no,target,always,,,,,,,,
 30076,Raikage@GC_CROSSIMPACT,attack,2022,6,500,0,1000,no,target,always,,,,,,,,
 
 // Sunagakure
 30126,Jounin Suna@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
-30126,Jounin Suna@NJ_RAIGEKISAI,attack,541,2,700,0,1000,no,self,always,,,,,,,,
+30126,Jounin Suna@RAI_NAGASHI,attack,840,2,700,0,1000,no,self,always,,,,,,,,
 30126,Jounin Suna@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 
 30042,Gaara Shippuuden@MG_STONECURSE,attack,16,10,700,0,1000,no,target,always,,,,,,,,
@@ -315,7 +313,7 @@
 
 // Iwagakure
 30129,Jounin Pedra@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
-30129,Jounin Pedra@NJ_RAIGEKISAI,attack,541,2,700,0,1000,no,self,always,,,,,,,,
+30129,Jounin Pedra@RAI_NAGASHI,attack,840,2,700,0,1000,no,self,always,,,,,,,,
 30129,Jounin Pedra@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 
 30063,Mifune@SM_BASH,attack,5,10,700,0,1000,no,target,always,,,,,,,,
@@ -327,7 +325,7 @@
 
 // Otogakure
 30130,Jounin Som@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
-30130,Jounin Som@NJ_RAIGEKISAI,attack,541,2,700,0,1000,no,self,always,,,,,,,,
+30130,Jounin Som@RAI_NAGASHI,attack,840,2,700,0,1000,no,self,always,,,,,,,,
 30130,Jounin Som@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 
 30078,Sakon2@MO_EXPLOSIONSPIRITS,attack,270,5,700,0,1000,no,self,always,,,,,,,,
@@ -384,7 +382,6 @@
 // Time Taka
 30008,Taka Juugo@SM_BASH,attack,5,10,700,0,1000,no,target,always,,,,,,,,
 30008,Taka Juugo@SM_ENDURE,attack,8,1,700,0,1000,no,self,always,,,,,,,,
-30008,Taka Juugo@KN_CHARGEATK,attack,1001,1,700,0,1000,no,target,always,,,,,,,,
 30008,Taka Juugo@SA_DISPELL,attack,289,10,700,0,1000,no,target,always,,,,,,,,
 30009,Taka Karin@AL_HEAL,attack,28,10,700,0,1000,no,target,always,,,,,,,,
 30009,Taka Karin@PR_KYRIE,attack,73,10,700,0,1000,no,target,always,,,,,,,,
@@ -469,10 +466,10 @@
 30061,Madara@MG_FIREBALL,chase,17,15,10000,500,10000,no,target,always,0,,,,,,,
 30061,Madara@MG_FIREBALL,attack,17,15,5000,500,10000,no,target,always,0,,,,,,,
 30061,Madara@NJ_BAKUENRYU,attack,536,1,2000,500,5000,no,target,myhpltmaxrate,50,,,,,,,
-30061,Madara@WZ_METEOR,attack,83,1,2000,500,5000,no,target,myhpltmaxrate,50,,,,,,,
+30061,Madara@WZ_METEOR,attack,83,10,2000,500,5000,no,target,myhpltmaxrate,50,,,,,,,
 30061,Madara@NPC_FIREBREATH,chase,654,6,2000,500,5000,no,target,always,0,,,,,,,
 30061,Madara@NPC_FIREBREATH,attack,654,6,2000,500,5000,no,target,always,0,,,,,,,
-30061,Madara@WZ_METEOR,idle,83,1,10000,0,5000,yes,target,always,0,,,,,,,
+30061,Madara@WZ_METEOR,idle,83,10,10000,0,5000,yes,target,always,0,,,,,,,
 30061,Madara@AL_HEAL,idle,28,11,10000,0,5000,yes,self,myhpltmaxrate,50,,,,,,,
 30061,Madara@AL_HEAL,idle,28,10,10000,0,10000,yes,self,myhpltmaxrate,99,,,,,,,
 
@@ -503,7 +500,6 @@
 30103,Hinata War@AL_HEAL,idle,28,10,10000,0,10000,yes,self,myhpltmaxrate,99,,,,,,,
 30103,Hinata War@SR_DRAGONCOMBO,attack,2326,4,3000,0,30000,yes,target,always,0,,,,,,,
 30103,Hinata War@SR_TIGERCANNON,attack,2330,4,3000,0,30000,yes,target,always,0,,,,,,,
-30103,Hinata War@CG_ARROWVULCAN,attack,394,1,3000,0,30000,yes,target,always,0,,,,,,,
 30103,Hinata War@SN_SHARPSHOOTING,attack,382,1,3000,0,30000,yes,target,always,0,,,,,,,
 
 30051,Kabuto War@AL_TELEPORT,idle,26,1,10000,0,0,yes,self,rudeattacked,,,,,,,,
@@ -534,8 +530,8 @@
 //30151,Itachi Edo@WZ_SIGHTRASHER,attack,81,30,3000,0,10000,yes,target,attackpcge,2,,,,,,,
 //30151,Itachi Edo@WZ_SIGHTRASHER,chase,81,30,3000,0,10000,yes,target,attackpcge,2,,,,,,,
 30151,Itachi Edo@WZ_FIREPILLAR,idle,80,5,2000,0,1000,yes,around2,always,0,,,,,,9,
-30151,Itachi Edo@WZ_METEOR,attack,83,1,2000,500,1000,no,target,myhpltmaxrate,50,,,,,,,
-30151,Itachi Edo@WZ_METEOR,chase,83,1,10000,0,1000,yes,target,always,0,,,,,,,
+30151,Itachi Edo@WZ_METEOR,attack,83,10,2000,500,1000,no,target,myhpltmaxrate,50,,,,,,,
+30151,Itachi Edo@WZ_METEOR,chase,83,10,10000,0,1000,yes,target,always,0,,,,,,,
 30151,Itachi Edo@NPC_DRAGONFEAR,chase,663,1,2000,0,5000,yes,self,always,0,,,,,,,
 30151,Itachi Edo@NPC_DRAGONFEAR,attack,663,1,2000,0,5000,yes,self,always,0,,,,,,,
 //30151,Itachi Edo@KO_KYOUGAKU,attack,3013,1,1000,0,60000,yes,target,always,,,,,,,,
@@ -547,9 +543,8 @@
 30066,Naruto 4 Caldas@RK_STORMBLAST,attack,2017,5,3000,0,10000,yes,self,always,0,,,,,,,
 30066,Naruto 4 Caldas@MO_EXPLOSIONSPIRITS,idle,270,5,3000,0,30000,yes,self,always,0,,,,,,,
 30066,Naruto 4 Caldas@CH_PALMSTRIKE,attack,370,5,1000,0,5000,no,target,always,,,,,,,,
-30066,Naruto 4 Caldas@WZ_METEOR,attack,83,1,2000,500,5000,no,target,myhpltmaxrate,50,,,,,,,
-30066,Naruto 4 Caldas@WZ_METEOR,chase,83,1,10000,0,5000,yes,target,always,0,,,,,,,
-30066,Naruto 4 Caldas@LG_EARTHDRIVE,attack,2323,5,3000,0,30000,yes,self,always,0,,,,,,,
+30066,Naruto 4 Caldas@WZ_METEOR,attack,83,10,2000,500,5000,no,target,myhpltmaxrate,50,,,,,,,
+30066,Naruto 4 Caldas@WZ_METEOR,chase,83,10,10000,0,5000,yes,target,always,0,,,,,,,
 30066,Naruto 4 Caldas@WL_EARTHSTRAIN,attack,2216,3,3000,0,30000,yes,target,always,0,,,,,,,
 30066,Naruto 4 Caldas@WL_EARTHSTRAIN,chase,2216,3,3000,0,30000,yes,target,always,0,,,,,,,
 

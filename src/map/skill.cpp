@@ -4918,6 +4918,7 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case NC_VULCANARM:
 	case NC_COLDSLOWER:
 	case NC_SELFDESTRUCTION:
+	case KN_C0:
 	case NC_AXETORNADO:
 	case GC_ROLLINGCUTTER:
 	case GC_COUNTERSLASH:
@@ -8953,6 +8954,36 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		}
 		break;
 
+	case VEL_HIRAISHIN:
+	{
+		struct s_mapiterator* it;
+
+		it = mapit_geteachmob();
+		for (;;)
+		{
+			TBL_MOB* md = (TBL_MOB*)mapit_next(it);
+
+			if (md == NULL)
+				break;// no more mobs
+
+			if (md->bl.m != sd->bl.m)
+				continue;
+			if (MOBID_SILVERSNIPER != -1 && md->mob_id != MOBID_SILVERSNIPER)
+				continue;
+			if(!md->special_state.ai || !(md->master_id == src->id))
+				continue; // oculta não escravos e mobs não convocados por jogadores
+			if (md->spawn_timer != INVALID_TIMER)
+				continue; // esconder mobs à espera de reaparecimento
+
+			if (unit_movepos(src, md->bl.x, md->bl.y, 0, 0)) {
+				clif_skill_nodamage(src, src, skill_id, skill_lv, 1);
+				clif_blown(src);
+			}
+		}
+		mapit_free(it);
+	}
+		break;
+
 	case HAMI_CASTLE:	//[orn]
 		if (src != bl && rnd()%100 < 20 * skill_lv) {
 			int x = src->x, y = src->y;
@@ -9689,28 +9720,28 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		break;
 
 	case NC_SELFDESTRUCTION:
-		if( sd ) {
-			if( pc_ismadogear(sd) )
-				pc_setmadogear(sd, 0);
-			skill_area_temp[1] = 0;
-			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-			map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR|BL_SKILL, src, skill_id, skill_lv, tick, flag|BCT_ENEMY|SD_SPLASH|1, skill_castend_damage_id);
-			status_set_sp(src, 0, 0);
-			skill_clear_unitgroup(src);
+		skill_area_temp[1] = 0;
+		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+		map_delblock(src);
+		map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR|BL_SKILL, src, skill_id, skill_lv, tick, flag|BCT_ENEMY|SD_SPLASH|1, skill_castend_damage_id);
+		if (map_addblock(src)) {
+			map_freeblock_unlock();
+			return 1;
 		}
+		status_damage(src, src, sstatus->max_hp, 0, 0, 1);
+		skill_clear_unitgroup(src);
 		break;
 
 	case KN_C0:
 		skill_area_temp[1] = 0;
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-		map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR | BL_MOB | BL_SKILL, src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+		map_delblock(src);
+		map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR|BL_SKILL, src, skill_id, skill_lv, tick, flag|BCT_ENEMY|SD_SPLASH|1, skill_castend_damage_id);
+		if(map_addblock(src)) {
+		map_freeblock_unlock();
+		return 1;
+		}
 		status_damage(src, src, sstatus->max_hp, 0, 0, 1);
-		/*if (bl->type == BL_PC) {
-			clif_specialeffect(&sd->bl, 183, AREA);
-		} else {
-			clif_specialeffect(src, 183, AREA);
-		}*/
-		skill_clear_unitgroup(src);
 		break;
 
 	case NC_EMERGENCYCOOL:
@@ -12070,18 +12101,18 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		}
 		break;
 	// Velocidade
-	case VEL_HIRAISHIN:
+	case VEL_MARCAHIRAI:
 	{
-		struct mob_data* md;
+		struct mob_data *md;
 
-		md = mob_once_spawn_sub(src, src->m, x, y, status_get_name(src), 30094, "", SZ_SMALL, AI_NONE);
+		md = mob_once_spawn_sub(src, src->m, x, y, status_get_name(src), MOBID_SILVERSNIPER, "", SZ_SMALL, AI_NONE);
 		if (md) {
 			md->master_id = src->id;
-			md->special_state.ai = AI_LEGION;
+			md->special_state.ai = AI_FAW;
 			if (md->deletetimer != INVALID_TIMER)
 				delete_timer(md->deletetimer, mob_timer_delete);
 			md->deletetimer = add_timer(gettick() + skill_get_time(skill_id, skill_lv), mob_timer_delete, md->bl.id, 0);
-			mob_spawn(md); //Now it is ready for spawning.
+			mob_spawn(md);
 		}
 	}
 	break;
@@ -12803,6 +12834,7 @@ int skill_castend_map (struct map_session_data *sd, uint16 skill_id, const char 
 			unsigned short mapindex;
 
 			mapindex  = mapindex_name2id((char*)mapname);
+			
 			if(!mapindex) { //Given map not found?
 				clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
 				skill_failed(sd);
@@ -15074,7 +15106,9 @@ static int skill_check_condition_mob_master_sub(struct block_list *bl, va_list a
 	skill=va_arg(ap,int);
 	c=va_arg(ap,int *);
 
-	ai = (unsigned)(skill == AM_SPHEREMINE?AI_SPHERE:skill == KO_ZANZOU?AI_ZANZOU:skill == MH_SUMMON_LEGION?AI_LEGION:skill == NC_SILVERSNIPER?AI_FAW:skill == NC_MAGICDECOY?AI_FAW:AI_FLORA);
+	ai = (unsigned)(skill == AM_SPHEREMINE?AI_SPHERE:skill == KO_ZANZOU?AI_ZANZOU:skill == MH_SUMMON_LEGION?AI_LEGION:skill == NC_SILVERSNIPER?AI_FAW:skill == NC_MAGICDECOY?AI_FAW:
+		skill == IB_SALAMANDRA ? AI_LEGION:skill == KN_C1 ? AI_LEGION: skill == KN_C2 ? AI_LEGION: skill == KN_C3 ? AI_LEGION:
+		skill == NPC_GROUNDATTACK ? AI_LEGION: skill == VEL_MARCAHIRAI ? AI_FAW: skill == VEL_HIRAISHIN? AI_FAW : AI_FLORA);
 	if( md->master_id != src_id || md->special_state.ai != ai)
 		return 0; //Non alchemist summoned mobs have nothing to do here.
 
@@ -16037,7 +16071,6 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 					}
 					break;
 				case NC_ACCELERATION:
-				case NC_SELFDESTRUCTION:
 				case NC_SHAPESHIFT:
 				case NC_EMERGENCYCOOL:
 				case NC_MAGNETICFIELD:
@@ -16172,6 +16205,103 @@ bool skill_check_condition_castend(struct map_session_data* sd, uint16 skill_id,
 
 	// perform skill-specific checks (and actions)
 	switch( skill_id ) {
+		// Velocidade
+		case VEL_MARCAHIRAI:
+		{
+			int c = 0;
+			int maxcount = skill_get_maxcount(skill_id,skill_lv);
+			int mob_class = MOBID_SILVERSNIPER;
+
+			if( battle_config.land_skill_limit && maxcount > 0 && ( battle_config.land_skill_limit&BL_PC ) ) {
+				map_foreachinmap(skill_check_condition_mob_master_sub, sd->bl.m, BL_MOB, sd->bl.id, mob_class, skill_id, &c);
+				if( c >= maxcount ) {
+					clif_skill_fail(sd , skill_id, USESKILL_FAIL_LEVEL, 0);
+					return false;
+				}
+			}
+		}
+		break;
+		// Doton
+		case NPC_GROUNDATTACK:
+		{
+			int c = 0;
+			int maxcount = skill_get_maxcount(skill_id,skill_lv);
+			int mob_class = 30094;
+
+			if( battle_config.land_skill_limit && maxcount > 0 && ( battle_config.land_skill_limit&BL_PC ) ) {
+				map_foreachinmap(skill_check_condition_mob_master_sub, sd->bl.m, BL_MOB, sd->bl.id, mob_class, skill_id, &c);
+				if( c >= maxcount ) {
+					clif_skill_fail(sd , skill_id, USESKILL_FAIL_LEVEL, 0);
+					return false;
+				}
+			}
+		}
+		break;
+		// Kibaku
+		case KN_C1:
+		{
+			int c = 0;
+			int maxcount = skill_get_maxcount(skill_id,skill_lv);
+			int mob_class = 30018;
+
+			if( battle_config.land_skill_limit && maxcount > 0 && ( battle_config.land_skill_limit&BL_PC ) ) {
+				map_foreachinmap(skill_check_condition_mob_master_sub, sd->bl.m, BL_MOB, sd->bl.id, mob_class, skill_id, &c);
+				if( c >= maxcount ) {
+					clif_skill_fail(sd , skill_id, USESKILL_FAIL_LEVEL, 0);
+					return false;
+				}
+			}
+		}
+		break;
+		case KN_C2:
+		{
+			int c = 0;
+			int maxcount = skill_get_maxcount(skill_id, skill_lv);
+			int mob_class = 30019;
+
+			if (battle_config.land_skill_limit && maxcount > 0 && (battle_config.land_skill_limit&BL_PC)) {
+				map_foreachinmap(skill_check_condition_mob_master_sub, sd->bl.m, BL_MOB, sd->bl.id, mob_class, skill_id, &c);
+				if (c >= maxcount) {
+					clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
+					return false;
+				}
+			}
+		}
+		break;
+		case KN_C3:
+		{
+			int c = 0;
+			int maxcount = skill_get_maxcount(skill_id, skill_lv);
+			int mob_class = 30020;
+
+			if (battle_config.land_skill_limit && maxcount > 0 && (battle_config.land_skill_limit&BL_PC)) {
+				map_foreachinmap(skill_check_condition_mob_master_sub, sd->bl.m, BL_MOB, sd->bl.id, mob_class, skill_id, &c);
+				if (c >= maxcount) {
+					clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
+					return false;
+				}
+			}
+		}
+		break;
+		//Ibuse
+		case IB_SALAMANDRA:
+		{
+			int c = 0;
+			int maxcount = skill_get_maxcount(skill_id,skill_lv);
+			int mob_class = 30021;
+
+			if( battle_config.land_skill_limit && maxcount > 0 && ( battle_config.land_skill_limit&BL_PC ) ) {
+				map_foreachinmap(skill_check_condition_mob_master_sub, sd->bl.m, BL_MOB, sd->bl.id, mob_class, skill_id, &c);
+				if( c >= maxcount ) {
+					clif_skill_fail(sd , skill_id, USESKILL_FAIL_LEVEL, 0);
+					return false;
+				}
+			}
+		}
+		break;
+
+
+		//------------------
 		case PR_BENEDICTIO:
 			skill_check_pc_partner(sd, skill_id, &skill_lv, 1, 1);
 			break;
@@ -20681,6 +20811,8 @@ void skill_init_unit_layout (void) {
 					memcpy(skill_unit_layout[pos].dx, dx, sizeof(dx));
 					memcpy(skill_unit_layout[pos].dy, dy, sizeof(dy));
 				}
+				break;
+
 				case PR_MAGNUS: {
 						static const int dx[] = {
 							-1, 0, 1,-1, 0, 1,-3,-2,-1, 0,

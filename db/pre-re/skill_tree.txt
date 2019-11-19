@@ -381,7 +381,7 @@
 
 7,29,10,0,0,0,0,0,0,0,0,0,0	 	//AL_INCAGI#Shunshin no Jutsu#
 7,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-7,219,10,0,0,0,0,0,0,0,0,0,0 	//RG_INTIMIDATE#Rapto#
+7,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 7,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 7,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -477,7 +477,7 @@
 
 8,29,10,0,0,0,0,0,0,0,0,0,0		//AL_INCAGI#Shunshin no Jutsu#
 8,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-8,219,10,0,0,0,0,0,0,0,0,0,0  	//RG_INTIMIDATE#Rapto#
+8,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 8,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 8,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -574,7 +574,7 @@
 
 9,29,10,0,0,0,0,0,0,0,0,0,0	 	//AL_INCAGI#Shunshin no Jutsu#
 9,26,2,0,0,0,0,0,0,0,0,0,0		//AL_TELEPORT#Tensoo no Jutsu#
-9,219,10,0,0,0,0,0,0,0,0,0,0  	//RG_INTIMIDATE#Rapto#
+9,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 9,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 9,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -657,7 +657,7 @@
 
 10,29,10,0,0,0,0,0,0,0,0,0,0	//AL_INCAGI#Shunshin no Jutsu#
 10,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-10,219,10,0,0,0,0,0,0,0,0,0,0  	//RG_INTIMIDATE#Rapto#
+10,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 10,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 10,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -740,7 +740,7 @@
 
 11,29,10,0,0,0,0,0,0,0,0,0,0	//AL_INCAGI#Shunshin no Jutsu#
 11,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-11,219,10,0,0,0,0,0,0,0,0,0,0  	//RG_INTIMIDATE#Rapto#
+11,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 11,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 11,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -837,7 +837,7 @@
 
 12,29,10,0,0,0,0,0,0,0,0,0,0	//AL_INCAGI#Shunshin no Jutsu#
 12,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-12,219,10,0,0,0,0,0,0,0,0,0,0  	//RG_INTIMIDATE#Rapto#
+12,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 12,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 12,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -920,7 +920,7 @@
 
 14,29,10,0,0,0,0,0,0,0,0,0,0	//AL_INCAGI#Shunshin no Jutsu#
 14,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-14,219,10,0,0,0,0,0,0,0,0,0,0  	//RG_INTIMIDATE#Rapto#
+14,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 14,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 14,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -1017,7 +1017,7 @@
 
 16,29,10,0,0,0,0,0,0,0,0,0,0	//AL_INCAGI#Shunshin no Jutsu#
 16,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-16,219,10,0,0,0,0,0,0,0,0,0,0  	//RG_INTIMIDATE#Rapto#
+16,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 16,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 16,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -1401,7 +1401,7 @@
 
 4008,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4008,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4008,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4008,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4008,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4008,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -1498,7 +1498,7 @@
 
 4009,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4009,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4009,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4009,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4009,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4009,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -1595,7 +1595,7 @@
 
 4010,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4010,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4010,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4010,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4010,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4010,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -1678,7 +1678,7 @@
 
 4012,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4012,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4012,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4012,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4012,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4012,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -1761,7 +1761,7 @@
 
 4011,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4011,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4011,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4011,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4011,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4011,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -1858,7 +1858,7 @@
 
 4013,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4013,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4013,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4013,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4013,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4013,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -1941,7 +1941,7 @@
 
 4015,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4015,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4015,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4015,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4015,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4015,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -2038,7 +2038,7 @@
 
 4017,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4017,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4017,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4017,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4017,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4017,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -2123,7 +2123,7 @@
 
 4060,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4060,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4060,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4060,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4060,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4060,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -2154,6 +2154,7 @@
 4060,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4060,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4060,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
+4060,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4060,268,10,390,5,0,0,0,0,0,0,0,0 //MO_STEELBODY#Domu#
 4060,252,10,249,5,0,0,0,0,0,0,0,0 //CR_REFLECTSHIELD#Refletir#
@@ -2249,7 +2250,7 @@
 
 4061,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4061,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4061,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4061,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4061,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4061,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -2294,6 +2295,7 @@
 4061,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4061,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4061,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
+4061,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4061,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
 4061,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#
@@ -2374,7 +2376,7 @@
 
 4062,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4062,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4062,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4062,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4062,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4062,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -2405,6 +2407,7 @@
 4062,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4062,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4062,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
+4062,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4062,268,10,390,5,0,0,0,0,0,0,0,0 //MO_STEELBODY#Domu#
 4062,252,10,249,5,0,0,0,0,0,0,0,0 //CR_REFLECTSHIELD#Refletir#
@@ -2499,7 +2502,7 @@
 
 4063,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4063,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4063,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4063,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4063,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4063,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -2544,6 +2547,7 @@
 4063,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4063,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4063,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
+4063,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4063,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
 4063,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#
@@ -2626,7 +2630,7 @@
 
 4064,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4064,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4064,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4064,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4064,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4064,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -2657,6 +2661,7 @@
 4064,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4064,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4064,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
+4064,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4064,268,10,390,5,0,0,0,0,0,0,0,0 //MO_STEELBODY#Domu#
 4064,252,10,249,5,0,0,0,0,0,0,0,0 //CR_REFLECTSHIELD#Refletir#
@@ -2751,7 +2756,7 @@
 
 4065,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4065,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4065,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4065,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4065,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4065,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -2796,6 +2801,7 @@
 4065,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4065,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4065,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
+4065,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4065,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
 4065,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#
@@ -2876,7 +2882,7 @@
 
 4073,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4073,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4073,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4073,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4073,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4073,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -2907,6 +2913,7 @@
 4073,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4073,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4073,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
+4073,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4073,268,10,390,5,0,0,0,0,0,0,0,0 //MO_STEELBODY#Domu#
 4073,252,10,249,5,0,0,0,0,0,0,0,0 //CR_REFLECTSHIELD#Refletir#
@@ -3001,7 +3008,7 @@
 
 4074,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4074,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4074,219,10,0,0,0,0,0,0,0,0,0,0  //RG_INTIMIDATE#Rapto#
+4074,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
 4074,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4074,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -3046,6 +3053,7 @@
 4074,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4074,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4074,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
+4074,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4074,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
 4074,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#

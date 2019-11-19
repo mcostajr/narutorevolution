@@ -30,7 +30,7 @@ if(@command$ == "sair") {
  end;
 }
 else if($@bomb_poring){
-	if(strcharinfo(3) == "quiz_01") { message strcharinfo(0),"Voce j? est? partipando do Evento Bomba Rel?gio."; 	end;}
+	if(strcharinfo(3) == "quiz_01") { message strcharinfo(0),"Voce j? est? partipando do Evento Bomba Relógio."; 	end;}
 	message strcharinfo(0),"Voce cadastrou-se no Evento Bomba Rel?gio.";
 	sc_end	SC_ANGELUS;
 	sc_end	SC_BLESSING;
@@ -76,14 +76,13 @@ else if($@corrida_maluca){
 	end;
 }
 else if($@poring_premiado){
-	if(strcharinfo(3) == "poring_c01") { message strcharinfo(0),"Voce j? est? partipando do Evento Poring Premiado."; 	end;}
-	if (countitem (4147) >= 1 || isequippedcnt (4147) >= 1) {	message strcharinfo(0),"Proibido o uso do item Carta Bafom?.";	end;	}
+	if(strcharinfo(3) == "poring_c01") { message strcharinfo(0),"Voce já está partipando do Evento Poring Premiado."; 	end;}
 	message strcharinfo(0),"Voce cadastrou-se no Evento Poring Premiado.";
 	warp "poring_c01", 104, 102;
 	end;
 }
 else if($@sortudo){
-	if(strcharinfo(3) == "quiz_02") { message strcharinfo(0),"Voce j? est? partipando do Evento Sortudo."; 	end;}
+	if(strcharinfo(3) == "quiz_02") { message strcharinfo(0),"Voce já está participando do Evento Sortudo."; 	end;}
 		set @evento, rand(1,8);
 		if(@evento == 1){ warp "quiz_02",318,34; }
 		if(@evento == 2){ warp "quiz_02",37,52; }
@@ -186,7 +185,6 @@ prontera,156,171,5	script	Eventos#rBR	715,{
 		end;
 	}
 	else if($@poring_premiado){
-		if (countitem (4147) >= 1 || isequippedcnt (4147) >= 1) {	mes .@npc$;	mes "Proibido o uso do item Carta Bafom?.";	close;	}
 		message strcharinfo(0),"Voce cadastrou-se no Evento Poring Premiado.";
 		warp "poring_c01", 104, 102;
 		end;
