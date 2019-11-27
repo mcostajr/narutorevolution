@@ -222,8 +222,8 @@
 27,9,6,2,0,0x1,0,10,1,no,0,0,3,magic,0,0x0,			AL_WARP,Tensoo no Jutsu
 2290,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,		SC_INVISIBILITY,Reika no Jutsu
 264,12,6,2,0,0x1,0,10,1,no,0,0,0,none,0,0x0,		MO_BODYRELOCATION,Hiraishin no Jutsu
-
 848,9,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,			VEL_HIRAISHIN,Hiraishin Lv2 no Jutsu
+
 //-------------------------------------------------------------------------------------------
 // Medicina
 28,9,6,16,0,0x21,0,15,1,no,0,0x1400,0,magic,0,0x0,	AL_HEAL,Chiyute no Jutsu

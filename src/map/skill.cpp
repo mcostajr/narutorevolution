@@ -1265,10 +1265,8 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 					break; // If a normal attack is a skill, it's splash damage. [Inkfish]
 				if(sd) {
 					// Automatic trigger of Blitz Beat
-					if (pc_isfalcon(sd) && sd->status.weapon == W_BOW && (skill=pc_checkskill(sd,HT_BLITZBEAT))>0 &&
-						rnd()%1000 <= sstatus->luk*10/3+1 ) {
-						rate=(sd->status.job_level+9)/10;
-						skill_castend_damage_id(src,bl,HT_BLITZBEAT,(skill<rate)?skill:rate,tick,SD_LEVEL);
+					if (pc_isfalcon(sd) && (skill=pc_checkskill(sd,HT_BLITZBEAT))>0 && rnd()%1000 <= (sstatus->agi/5)*10 ) {
+						skill_castend_damage_id(src,bl,HT_BLITZBEAT,skill,tick,SD_LEVEL);
 					}
 					// Automatic trigger of Warg Strike [Jobbie]
 					if( pc_iswug(sd) && (skill = pc_checkskill(sd,RA_WUGSTRIKE)) > 0 && rnd()%1000 <= sstatus->luk*10/3+1 )
@@ -16841,9 +16839,9 @@ int skill_castfix(struct block_list *bl, uint16 skill_id, uint16 skill_lv) {
 		int reduce_cast_rate = 0;
 		uint8 flag = skill_get_castnodex(skill_id);
 
-		// Calculate base cast time (reduced by dex)
+		// Calculate base cast time (reduced by dex e int/5) /* NRO */
 		if (!(flag&1)) {
-			int scale = battle_config.castrate_dex_scale - status_get_dex(bl);
+			int scale = battle_config.castrate_dex_scale - (status_get_dex(bl) + (status_get_int(bl)/5) );
 
 			if (scale > 0)	// not instant cast
 				time = time * (float)scale / battle_config.castrate_dex_scale;

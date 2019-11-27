@@ -13755,11 +13755,11 @@ BUILDIN_FUNC(getiteminfo)
 
 	if (i_data && n <= 16) {
 		int *item_arr = (int*)&i_data->value_buy;
-#ifndef RENEWAL
+/*#ifndef RENEWAL
 		if (n == 16)
 			script_pushint(st,0);
 		else
-#endif
+#endif*/
 		script_pushint(st,item_arr[n]);
 	} else
 		script_pushint(st,-1);

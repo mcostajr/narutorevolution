@@ -3,3 +3,37 @@
 // Structure of Database:
 // ID:ID:ID:ID,{ Script }
 
+2017:3005:5005,{ bonus bMaxSPRate,15; bonus bAllstats,10; }
+2018:3006:5006,{ bonus bMaxSPRate,10; bonus bCastrate,-5; bonus bInt,2; bonus bInt,2; bonus bAtk,50; bonus bMatk,50; }
+2039:3027:5027,{ bonus bCastrate,-10; bonus bDelayrate,-10;	bonus bAtkRate,1; bonus bMatkRate,1; bonus2 bMagicAtkEle,Ele_All,5; bonus bMatk,40; }
+2038:3026:5026,{ bonus bCritAtkRate,20; bonus bCritical,5; bonus bAspd,3; }
+2019:3007:5007,{ bonus bLongAtkRate,15; bonus bHit,30; bonus bAspd,2; }
+2020:3008:5008,{ bonus bMaxHPRate,5; bonus bMatk,40; bonus bCastrate,-5; bonus bDelayrate,-5; bonus2 bAddRace,RC_DemiHuman,5; bonus2 bAddRace,RC_Player,5; }
+2021:3009:5009,{ bonus bAspd,2; bonus bStr,5; bonus bAtk,60; }
+2022:3010:5010,{ bonus bInt,5; bonus bLuk,5;  }
+2041:3029:5029,{ bonus bAspd,2; bonus bHit,30; bonus bCritAtkRate,10; bonus bAtk,40; }
+2035:3023:5023,{ bonus bHealPower,35; bonus bMatkRate,1; }
+//
+2025:3013:5013,{ bonus bMatkRate,5; bonus bAtkRate,5; bonus2 bSubRace,RC_DemiHuman,5; bonus2 bSubRace,RC_Player,5; bonus bUseSPrate,-20; }
+2047:3036:5036,{ bonus bInt,5; bonus bDex,5; bonus bMatkRate,5; bonus2 bMagicAtkEle,Ele_Dark,5; }
+2033:3021:5021,{ bonus bInt,5; bonus bDex,5; bonus bMatkRate,5; bonus2 bMagicAtkEle,Ele_Wind,5; }
+2023:3011:5011,{ bonus bInt,5; bonus bDex,5; bonus bMatkRate,5; bonus2 bMagicAtkEle,Ele_Water,5; }
+2024:3012:5012,{ bonus bInt,5; bonus bDex,5; bonus bMatkRate,5; bonus2 bMagicAtkEle,Ele_Earth,5; }
+2046:3035:5035,{ bonus bInt,5; bonus bDex,5; bonus bMatkRate,5; bonus2 bMagicAtkEle,Ele_Fire,5; }
+2027:3015:5015,{ bonus bInt,10; bonus2 bResEff,SC_Stun,4000; bonus2 bResEff,Eff_Sleep,4000; bonus2 bResEff,Eff_Curse,4000; bonus2 bResEff,Eff_Silence,4000; }
+2030:3018:5018,{ bonus bAspdRate,10; bonus bSpeedAddRate,25; bonus2 bAddRace,RC_DemiHuman,5; bonus2 bAddRace,RC_Player,5; skill 848,5,1; }
+2031:3019:5019,{ bonus bAtkRate,5;  bonus bCritAtkRate,40; }
+2032:3020:5020,{  }
+2034:3022:5022,{ bonus2 bMagicAtkEle,Ele_All,10; bonus bAllstats,5; bonus bCastrate,-10; } 
+2040:3028:5028,{ bonus bHealPower,120; bonus bAtkRate,3; bonus2 bResEff,SC_Stun,3000; bonus2 bResEff,Eff_Sleep,3000; bonus2 bResEff,Eff_Curse,3000; bonus2 bResEff,Eff_Silence,3000; bonus2 bResEff,Eff_Confusion,3000; bonus2 bResEff,Eff_Crystalize,3000; bonus2 bResEff,Eff_Freeze,3000; bonus2 bResEff,Eff_Poison,3000; bonus2 bResEff,Eff_Stone,3000; bonus2 bResEff,Eff_DPoison,3000; bonus2 bResEff,Eff_Burning,3000; bonus2 bResEff,Eff_Blind,3000; bonus2 bResEff,Eff_Bleeding,3000; bonus2 bResEff,Eff_Fear,3000; }
+2036:3024:5024,{ bonus bLongAtkRate,10; bonus bAspdRate,5; bonus2 bSkillAtk,HT_BLITZBEAT,10; bonus2 bSkillAtk,SN_FALCONASSAULT,10; }
+2026:3014:5014,{ bonus bAspdRate,5; bonus bHit,100; bonus bCritAtkRate,20; bonus2 bAddRace,RC_DemiHuman,15; bonus2 bAddRace,RC_Player,15; } 
+2037:3025:5025,{ bonus bVit,10; bonus2 bSubRace,RC_DemiHuman,5; bonus2 bSubRace,RC_Player,5; bonus bStr,5; bonus2 bHPRegenRate,5000,5000; }
+//
+2044:3032:5032,{ bonus bCastrate,-20; bonus bDelayrate,-20; bonus bAllstats,10; bonus bInt,5; bonus2 bAddRace,RC_DemiHuman,15; bonus2 bAddRace,RC_Player,15; } 
+2045:3033:5033,{ bonus bCastrate,-15; bonus bDelayrate,-15; bonus bSpeedAddRate,15; bonus bHit,100; bonus2 bHPRegenRate,1000,1000; bonus2 bAddRace,RC_DemiHuman,10; bonus2 bAddRace,RC_Player,10; }
+8015:3034:5034,{ bonus bAspdRate,5; bonus bSpeedAddRate,15; bonus bFlee,30; bonus bAtkRate,5; }
+2028:3016:5016,{ }
+2029:3017:5017,{ }
+2042:3030:5030,{ }
+2043:3031:5031,{ }

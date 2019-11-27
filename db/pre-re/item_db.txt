@@ -2335,7 +2335,7 @@
 1215,Kiba,Kiba,5,10,,30,300,,1,1,0xFFFFFFFF,63,2,34,1,,1,3,{ bonus bUseSPrate,-20; bonus3 bAutoSpell,21,1,500; },{},{}
 1216,Hiramekarei,Hiramekarei,5,10,,30,350,,1,1,0xFFFFFFFF,63,2,34,1,,1,3,{ bonus bAtk,MaxSp*1/100; },{},{}
 1217,Foice_Hidan,Foice Hidan,5,10,,30,290,,1,1,0xFFFFFFFF,63,2,34,1,,1,3,{ bonus2 bAddRace,RC_Player,10; bonus2 bAddRace,RC_DemiHuman,10; },{},{}
-1218,Espada_Nunoboko,Espada Nunoboko,5,10,,30,550,,1,1,0xFFFFFFFF,63,2,2,1,,1,2,{  },{},{}
+1218,Espada_Nunoboko,Espada Nunoboko,5,10,,30,2000,,1,1,0xFFFFFFFF,63,2,2,1,,1,2,{  },{},{}
 
 1310,Soqueira_de_Chakra,Soqueira de Chakra,5,10,,20,250,,1,1,0xFFFFFFFF,63,2,34,1,,1,16,{ bonus bCritAtkRate,20; bonus2 bAddRace,RC_Player,5; bonus2 bAddRace,RC_DemiHuman,5; },{},{}
 1311,Nunchaku,Nunchaku,5,10,,20,300,,1,1,0xFFFFFFFF,63,2,34,1,,1,16,{  },{},{}
@@ -2437,7 +2437,7 @@
 3003,Calça_Chunin,Calça Chunin,4,10,,10,,,,1,0xFFFFFFFF,63,2,4,,,1,,{ bonus bMaxHPRate,3; bonus bAllstats,1; },{},{}
 3005,Calça_Chakra,Calça Chakra,4,10,,10,,,,1,0xFFFFFFFF,63,2,4,,,1,,{ bonus bMaxHPRate,3; bonus bMaxSPRate,10; },{},{}
 3006,Bermuda_Sasuke,Bermuda Sasuke,4,10,,10,,,,1,0xFFFFFFFF,63,2,4,,,1,,{ bonus bMaxHPRate,2; bonus bInt,2; bonus bStr,2; },{},{}
-3027,Calça_Shikamaru,Calça Shikamaru,4,10,,10,,,,1,0xFFFFFFFF,63,2,4,,,1,,{ bonus bMaxHPRate,3; bonus bInt,3; },{},{}
+3027,Calça_Shikamaru,Calça Shikamaru,4,10,,10,,,,1,0xFFFFFFFF,63,2,4,,,1,,{ bonus bMaxHPRate,2; bonus bInt,3; },{},{}
 3026,Calça_Kiba,Calça Kiba,4,10,,10,,,,1,0xFFFFFFFF,63,2,4,,,1,,{ bonus bMaxHPRate,2; bonus bCritical,3; },{},{}
 3007,Bermuda_Neji,Bermuda Neji,4,10,,10,,,,1,0xFFFFFFFF,63,2,4,,,1,,{ bonus bDex,5; },{},{}
 3008,Calça_Haku,Calça Haku,4,10,,10,,,,1,0xFFFFFFFF,63,2,4,,,1,,{ bonus bCastrate,-5; bonus bInt,5; },{},{}

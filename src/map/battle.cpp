@@ -1886,7 +1886,7 @@ static void battle_add_weapon_damage(struct map_session_data *sd, int64 *damage,
 	}
 }
 
-#ifdef RENEWAL
+//#ifdef RENEWAL
 static int battle_calc_sizefix(int64 damage, struct map_session_data *sd, unsigned char t_size, unsigned char weapon_type, short flag)
 {
 	if (sd && !sd->special_state.no_sizefix && !flag) // Size fix only for players
@@ -1943,7 +1943,7 @@ static int battle_calc_base_weapon_attack(struct block_list *src, struct status_
 
 	return (int)cap_value(damage, INT_MIN, INT_MAX);
 }
-#endif
+//#endif
 
 /*==========================================
  * Calculates the standard damage of a normal attack assuming it hits,
@@ -2065,10 +2065,10 @@ static int64 battle_calc_base_damage(struct block_list *src, struct status_data 
 	if (sd)
 		battle_add_weapon_damage(sd, &damage, type);
 
-#ifdef RENEWAL
+//#ifdef RENEWAL
 	if (flag&1)
 		damage = (damage * 14) / 10;
-#endif
+//#endif
 
 	return damage;
 }
@@ -2707,7 +2707,7 @@ static bool battle_skill_stacks_masteries_vvs(uint16 skill_id)
 	return true;
 }
 
-#ifdef RENEWAL
+//#ifdef RENEWAL
 /*========================================
  * Calculate equipment ATK for renewal ATK
  *----------------------------------------
@@ -2730,7 +2730,7 @@ static int battle_calc_equip_attack(struct block_list *src, int skill_id)
 	}
 	return 0; // shouldn't happen but just in case
 }
-#endif
+//#endif
 
 /*========================================
  * Returns the element type of attack
@@ -4745,7 +4745,7 @@ static void battle_calc_attack_left_right_hands(struct Damage* wd, struct block_
 			wd->damage = wd->damage2;
 			wd->damage2 = 0;
 		} else if(sd->status.weapon == W_KATAR && !skill_id) { //Katars (offhand damage only applies to normal attacks, tested on Aegis 10.2)
-			skill = pc_checkskill(sd,TF_DOUBLE);
+			skill = pc_checkskill(sd, AS_KATAR);
 			wd->damage2 = (int64)wd->damage * (1 + (skill * 2))/100;
 		} else if(is_attack_right_handed(src, skill_id) && is_attack_left_handed(src, skill_id)) {	//Dual-wield
 			if (wd->damage) {
@@ -5201,7 +5201,6 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 #endif
 		battle_calc_element_damage(&wd, src, target, skill_id, skill_lv);
 
-#ifdef RENEWAL
 	if (!skill_id && is_attack_critical(&wd, src, target, skill_id, skill_lv, false)) {
 		if (sd) { //Check for player so we don't crash out, monsters don't have bonus crit rates [helvetica]
 			wd.damage = (int)floor((float)((wd.damage * 140) / 100 * (100 + sd->bonus.crit_atk_rate)) / 100);
@@ -5210,7 +5209,6 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 		} else
 			wd.damage = (int)floor((float)(wd.damage * 140) / 100);
 	}
-#endif
 
 #ifndef RENEWAL
 	if (skill_id == NJ_KUNAI) {

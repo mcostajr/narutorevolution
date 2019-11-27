@@ -2885,7 +2885,7 @@ void pc_bonus(struct map_session_data *sd,int type,int val)
 			break;
 		case SP_BASE_ATK:
 			if(sd->state.lr_flag != 2) {
-#ifdef RENEWAL
+#ifndef RENEWAL
 				bonus = sd->bonus.eatk + val;
 				sd->bonus.eatk = cap_value(bonus, SHRT_MIN, SHRT_MAX);
 #else
@@ -8441,7 +8441,7 @@ int pc_readparam(struct map_session_data* sd,int type)
 		case SP_CRITICAL:        val = sd->battle_status.cri/10; break;
 		case SP_ASPD:            val = (2000-sd->battle_status.amotion)/10; break;
 		case SP_BASE_ATK:
-#ifdef RENEWAL
+#ifndef RENEWAL
 			val = sd->bonus.eatk;
 #else
 			val = sd->battle_status.batk;

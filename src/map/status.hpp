@@ -2294,10 +2294,10 @@ struct weapon_atk {
 	unsigned short atk, atk2;
 	unsigned short range;
 	unsigned char ele;
-#ifdef RENEWAL
+//#ifdef RENEWAL
 	unsigned short matk;
 	unsigned char wlv;
-#endif
+//#endif
 };
 
 extern sc_type SkillStatusChangeTable[MAX_SKILL];   /// skill  -> status
@@ -2318,10 +2318,10 @@ struct status_data {
 		eatk;
 	unsigned short
 		batk,
-#ifdef RENEWAL
+//#ifdef RENEWAL
 		watk,
 		watk2,
-#endif
+//#endif
 		matk_min, matk_max,
 		speed,
 		amotion, adelay, dmotion;
@@ -2576,15 +2576,15 @@ int status_check_visibility(struct block_list *src, struct block_list *target);
 int status_change_spread(struct block_list *src, struct block_list *bl, bool type);
 
 #ifndef RENEWAL
-unsigned short status_base_matk_min(const struct status_data* status);
-unsigned short status_base_matk_max(const struct status_data* status);
+unsigned short status_base_matk_min(struct block_list *bl, const struct status_data* status);
+unsigned short status_base_matk_max(struct block_list *bl, const struct status_data* status);
+unsigned short status_base_atk_min(struct block_list *bl, const struct status_data* status);
+unsigned short status_base_atk_max(struct block_list *bl, const struct status_data* status);
 #else
-unsigned int status_weapon_atk(struct weapon_atk wa, struct map_session_data *sd);
-unsigned short status_base_atk_min(struct block_list *bl, const struct status_data* status, int level);
-unsigned short status_base_atk_max(struct block_list *bl, const struct status_data* status, int level);
 unsigned short status_base_matk_min(struct block_list *bl, const struct status_data* status, int level);
 unsigned short status_base_matk_max(struct block_list *bl, const struct status_data* status, int level);
 #endif
+unsigned int status_weapon_atk(struct weapon_atk wa, struct map_session_data *sd);
 unsigned short status_base_atk(const struct block_list *bl, const struct status_data *status, int level);
 
 void initChangeTables(void);
