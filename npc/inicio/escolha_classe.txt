@@ -64,122 +64,44 @@ academia,95,26,4	script	Instrutor Inicial	79,{
 				switch(select("- Bandana Normal:- Bandana de Lado:- Bandana no Pescoço:- Bandana Yamato:- Bandana Kisame:- Bandana Kakashi")) {
 					case 1:
 						getitem 569,250;
+						getitem 30006,1;
+						equip 30006;
 						pegoubandana = 1;
-						if(konoha)
-							getitem 30000,1;
-							equip 30000;
-						if(suna)
-							getitem 30010,1;
-							equip 30010;
-						if(nevoa)
-							getitem 30020,1;
-							equip 30020;
-						if(nuvem)
-							getitem 30030,1;
-							equip 30030;
-						if(pedra)
-							getitem 30040,1;
-							equip 30040;
 						percentheal 100,100;
 						end;
 					case 2:
 						getitem 569,250;
+						getitem 30016,1;
+						equip 30016;
 						pegoubandana = 1;
-						if(konoha)
-							getitem 30001,1;
-							equip 30001;
-						if(suna)
-							getitem 30011,1;
-							equip 30011;
-						if(nevoa)
-							getitem 30021,1;
-							equip 30021;
-						if(nuvem)
-							getitem 30031,1;
-							equip 30031;
-						if(pedra)
-							getitem 30041,1;
-							equip 30041;
 						percentheal 100,100;
 						end;
 					case 3:
 						getitem 569,250;
+						getitem 30026,1;
+						equip 30026;
 						pegoubandana = 1;
-						if(konoha)
-							getitem 30002,1;
-							equip 30002;
-						if(suna)
-							getitem 30012,1;
-							equip 30012;
-						if(nevoa)
-							getitem 30022,1;
-							equip 30022;
-						if(nuvem)
-							getitem 30032,1;
-							equip 30032;
-						if(pedra)
-							getitem 30042,1;
-							equip 30042;
 						percentheal 100,100;
 						end;
 					case 4:
 						getitem 569,250;
+						getitem 30036,1;
+						equip 30036;
 						pegoubandana = 1;
-						if(konoha)
-							getitem 30003,1;
-							equip 30003;
-						if(suna)
-							getitem 30013,1;
-							equip 30013;
-						if(nevoa)
-							getitem 30023,1;
-							equip 30023;
-						if(nuvem)
-							getitem 30033,1;
-							equip 30033;
-						if(pedra)
-							getitem 30043,1;
-							equip 30043;
 						percentheal 100,100;
 						end;
 					case 5:
 						getitem 569,250;
+						getitem 30046,1;
+						equip 30046;
 						pegoubandana = 1;
-						if(konoha)
-							getitem 30004,1;
-							equip 30004;
-						if(suna)
-							getitem 30014,1;
-							equip 30014;
-						if(nevoa)
-							getitem 30024,1;
-							equip 30024;
-						if(nuvem)
-							getitem 30034,1;
-							equip 30034;
-						if(pedra)
-							getitem 30044,1;
-							equip 30044;
 						percentheal 100,100;
 						end;
 					case 6:
 						getitem 569,250;
+						getitem 30047,1;
+						equip 30047;
 						pegoubandana = 1;
-						if(konoha)
-							getitem 30005,1;
-							equip 30005;
-						if(suna)
-							getitem 30015,1;
-							equip 30015;
-						if(nevoa)
-							getitem 30025,1;
-							equip 30025;
-						if(nuvem)
-							getitem 30035,1;
-							equip 30035;
-						if(pedra)
-							getitem 30045,1;
-							equip 30045;
 						percentheal 100,100;
 						end;
 				}
@@ -276,18 +198,16 @@ academia,105,8,5	script	SAIDADA_ACADEMIA	WARPNPC,2,2,{
 
 	OnTouch:
 		if(checkquest(1002) == 1) { completequest 1002; }
-		if(Class == JOB_NOVICE) { mes "Termine o treinamento para genin."; close2; end; }
-		if(konoha)
+		if(Class != JOB_NOVICE) {
 			warp "konoha3",240,248; 
-		if(suna)
-			warp "sunagakure",225,125; 
-		if(nevoa)
-			warp "kirigakure",186,177; 
-		if(nuvem)
-			warp "kumogakure",107,63; 
-		if(pedra)
-			warp "iwagakure",185,84; 
-		end;
+			close2; 
+			end;
+		} else {
+			mes "Termine o treinamento para genin."; 
+			close2; 
+			end;
+		}
+		
 		
 }
 

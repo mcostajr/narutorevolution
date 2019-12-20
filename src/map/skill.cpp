@@ -16298,8 +16298,18 @@ bool skill_check_condition_castend(struct map_session_data* sd, uint16 skill_id,
 		}
 		break;
 
+		// Kawarime
+		case KO_ZANZOU: {
+			int c = 0;
 
-		//------------------
+			i = map_foreachinmap(skill_check_condition_mob_master_sub, sd->bl.m, BL_MOB, sd->bl.id, MOBID_ZANZOU, skill_id, &c);
+			if (c >= skill_get_maxcount(skill_id, skill_lv) || c != i) {
+				clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
+				return false;
+			}
+		}
+						break;
+		//---------------------------------------------------------------------------------------
 		case PR_BENEDICTIO:
 			skill_check_pc_partner(sd, skill_id, &skill_lv, 1, 1);
 			break;
@@ -16337,16 +16347,6 @@ bool skill_check_condition_castend(struct map_session_data* sd, uint16 skill_id,
 						clif_skill_fail(sd , skill_id, USESKILL_FAIL_LEVEL, 0);
 						return false;
 					}
-				}
-			}
-			break;
-		case KO_ZANZOU: {
-				int c = 0;
-
-				i = map_foreachinmap(skill_check_condition_mob_master_sub, sd->bl.m, BL_MOB, sd->bl.id, MOBID_ZANZOU, skill_id, &c);
-				if( c >= skill_get_maxcount(skill_id,skill_lv) || c != i) {
-					clif_skill_fail(sd , skill_id, USESKILL_FAIL_LEVEL, 0);
-					return false;
 				}
 			}
 			break;

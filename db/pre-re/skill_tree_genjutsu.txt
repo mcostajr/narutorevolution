@@ -63,6 +63,12 @@
 1,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 1,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+1,182,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+1,181,10,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+1,672,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+1,30,10,0,0,0,0,0,0,0,0,0,0 	//AL_DECAGI#Mahi no Jutsu#
+1,179,10,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 // Genin Ninjutsu
 2,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
 2,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
@@ -107,6 +113,12 @@
 2,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 2,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+2,182,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+2,181,10,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+2,672,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+2,30,10,0,0,0,0,0,0,0,0,0,0 	//AL_DECAGI#Mahi no Jutsu#
+2,179,10,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 // Genin Taijutsu
 3,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
 3,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
@@ -149,6 +161,12 @@
 3,45,10,0,0,0,0,0,0,0,0,0,0  //AC_CONCENTRATION#Concentração#
 3,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 3,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
+
+3,182,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+3,181,10,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+3,672,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+3,30,10,0,0,0,0,0,0,0,0,0,0 	//AL_DECAGI#Mahi no Jutsu#
+3,179,10,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
 
 // Genin Ninjutsu
 4,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -194,6 +212,11 @@
 4,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4,182,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4,181,10,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4,672,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4,30,10,0,0,0,0,0,0,0,0,0,0 	//AL_DECAGI#Mahi no Jutsu#
+4,179,10,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
 
 // Genin Taijutsu
 5,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -238,6 +261,11 @@
 5,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 5,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+5,182,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+5,181,10,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+5,672,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+5,30,10,0,0,0,0,0,0,0,0,0,0 	//AL_DECAGI#Mahi no Jutsu#
+5,179,10,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
 
 // Genin Ninjutsu
 6,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -283,6 +311,12 @@
 6,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 6,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+6,182,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+6,181,10,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+6,672,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+6,30,10,0,0,0,0,0,0,0,0,0,0 	//AL_DECAGI#Mahi no Jutsu#
+6,179,10,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 // Chunin Taijutsu
 7,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
 7,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
@@ -326,6 +360,11 @@
 7,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 7,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+7,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+7,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+7,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+7,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+7,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
 
 7,136,10,5,8,0,0,0,0,0,0,0,0	//AS_SONICBLOW#Panchi#
 7,370,10,0,0,0,0,0,0,0,0,0,0	//CH_PALMSTRIKE#Rasengan#
@@ -354,6 +393,12 @@
 7,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 7,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 7,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+7,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+7,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+7,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+7,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+7,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Chunin Ninjutsu
 8,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -399,6 +444,12 @@
 8,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 8,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+8,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+8,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+8,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+8,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+8,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 8,536,10,19,8,17,8,534,8,0,0,0,0 //NJ_BAKUENRYU#Katon Renkeijutsu - Karura#
 8,186,10,19,8,17,8,534,8,0,0,0,0 //NPC_FIREATTACK#Katon Haisekishou#
 8,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
@@ -438,6 +489,12 @@
 8,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 8,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 8,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+8,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+8,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+8,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+8,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+8,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Chunin Ninjutsu
 9,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -483,6 +540,12 @@
 9,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 9,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+9,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+9,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+9,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+9,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+9,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 9,536,10,19,8,17,8,534,8,0,0,0,0 //NJ_BAKUENRYU#Katon Renkeijutsu - Karura#
 9,186,10,19,8,17,8,534,8,0,0,0,0 //NPC_FIREATTACK#Katon Haisekishou#
 9,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
@@ -523,6 +586,12 @@
 9,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 9,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 9,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+9,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+9,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+9,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+9,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+9,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Chunin Taijutsu
 10,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -567,6 +636,12 @@
 10,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 10,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+10,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+10,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+10,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+10,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+10,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 10,136,10,5,8,0,0,0,0,0,0,0,0	//AS_SONICBLOW#Panchi#
 10,370,10,0,0,0,0,0,0,0,0,0,0	//CH_PALMSTRIKE#Rasengan#
 10,367,10,399,8,0,0,0,0,0,0,0,0	//PA_PRESSURE#Katadori#
@@ -594,6 +669,12 @@
 10,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 10,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 10,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+10,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+10,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+10,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+10,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+10,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Chunin Taijutsu
 11,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -638,6 +719,12 @@
 11,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 11,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+11,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+11,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+11,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+11,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+11,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 11,136,10,5,8,0,0,0,0,0,0,0,0	//AS_SONICBLOW#Panchi#
 11,370,10,0,0,0,0,0,0,0,0,0,0	//CH_PALMSTRIKE#Rasengan#
 11,367,10,399,8,0,0,0,0,0,0,0,0	//PA_PRESSURE#Katadori#
@@ -665,6 +752,12 @@
 11,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 11,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 11,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+11,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+11,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+11,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+11,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+11,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Chunin Ninjutsu
 12,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -710,6 +803,12 @@
 12,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 12,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+12,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+12,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+12,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+12,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+12,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 12,536,10,19,8,17,8,534,8,0,0,0,0 //NJ_BAKUENRYU#Katon Renkeijutsu - Karura#
 12,186,10,19,8,17,8,534,8,0,0,0,0 //NPC_FIREATTACK#Katon Haisekishou#
 12,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
@@ -750,6 +849,12 @@
 12,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 12,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 12,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+12,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+12,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+12,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+12,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+12,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Chunin Taijutsu
 14,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -794,6 +899,12 @@
 14,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 14,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+14,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+14,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+14,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+14,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+14,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 14,136,10,5,8,0,0,0,0,0,0,0,0	//AS_SONICBLOW#Panchi#
 14,370,10,0,0,0,0,0,0,0,0,0,0	//CH_PALMSTRIKE#Rasengan#
 14,367,10,399,8,0,0,0,0,0,0,0,0	//PA_PRESSURE#Katadori#
@@ -821,6 +932,12 @@
 14,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 14,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 14,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+14,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+14,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+14,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+14,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+14,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Chunin Ninjutsu
 16,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -866,6 +983,12 @@
 16,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 16,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+16,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+16,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+16,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+16,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+16,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 16,536,10,19,8,17,8,534,8,0,0,0,0 //NJ_BAKUENRYU#Katon Renkeijutsu - Karura#
 16,186,10,19,8,17,8,534,8,0,0,0,0 //NPC_FIREATTACK#Katon Haisekishou#
 16,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
@@ -906,6 +1029,12 @@
 16,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 16,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 16,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+16,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+16,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+16,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+16,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+16,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 //---------------------------------------------------------------------------------------------------------------
 
@@ -952,6 +1081,12 @@
 4002,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4002,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4002,182,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4002,181,10,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4002,672,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4002,30,10,0,0,0,0,0,0,0,0,0,0 	//AL_DECAGI#Mahi no Jutsu#
+4002,179,10,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 // Genin2 Ninjutsu
 4003,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
 4003,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
@@ -996,6 +1131,12 @@
 4003,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4003,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4003,182,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4003,181,10,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4003,672,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4003,30,10,0,0,0,0,0,0,0,0,0,0 	//AL_DECAGI#Mahi no Jutsu#
+4003,179,10,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 // Genin2 Taijutsu
 4004,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
 4004,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
@@ -1038,6 +1179,12 @@
 4004,45,10,0,0,0,0,0,0,0,0,0,0  //AC_CONCENTRATION#Concentração#
 4004,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4004,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
+
+4004,182,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4004,181,10,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4004,672,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4004,30,10,0,0,0,0,0,0,0,0,0,0 	//AL_DECAGI#Mahi no Jutsu#
+4004,179,10,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
 
 // Genin2 Ninjutsu
 4005,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -1083,6 +1230,12 @@
 4005,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4005,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4005,182,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4005,181,10,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4005,672,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4005,30,10,0,0,0,0,0,0,0,0,0,0 	//AL_DECAGI#Mahi no Jutsu#
+4005,179,10,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 // Genin2 Taijutsu
 4006,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
 4006,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
@@ -1125,6 +1278,12 @@
 4006,45,10,0,0,0,0,0,0,0,0,0,0  //AC_CONCENTRATION#Concentração#
 4006,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4006,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
+
+4006,182,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4006,181,10,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4006,672,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4006,30,10,0,0,0,0,0,0,0,0,0,0 	//AL_DECAGI#Mahi no Jutsu#
+4006,179,10,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
 
 // Genin2 Ninjutsu
 4007,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -1169,6 +1328,12 @@
 4007,45,10,0,0,0,0,0,0,0,0,0,0  //AC_CONCENTRATION#Concentração#
 4007,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4007,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
+
+4007,182,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4007,181,10,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4007,672,10,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4007,30,10,0,0,0,0,0,0,0,0,0,0 	//AL_DECAGI#Mahi no Jutsu#
+4007,179,10,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
 
 //---------------------------------------------------------------------------------------------------------------
 
@@ -1215,6 +1380,12 @@
 4008,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4008,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4008,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4008,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4008,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4008,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4008,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4008,136,10,5,8,0,0,0,0,0,0,0,0	//AS_SONICBLOW#Panchi#
 4008,370,10,0,0,0,0,0,0,0,0,0,0	//CH_PALMSTRIKE#Rasengan#
 4008,367,10,399,8,0,0,0,0,0,0,0,0	//PA_PRESSURE#Katadori#
@@ -1242,6 +1413,12 @@
 4008,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 4008,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4008,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+4008,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4008,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4008,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4008,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4008,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Jounin Ninjutsu
 4009,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -1287,6 +1464,12 @@
 4009,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4009,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4009,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4009,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4009,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4009,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4009,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4009,536,10,19,8,17,8,534,8,0,0,0,0 //NJ_BAKUENRYU#Katon Renkeijutsu - Karura#
 4009,186,10,19,8,17,8,534,8,0,0,0,0 //NPC_FIREATTACK#Katon Haisekishou#
 4009,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
@@ -1327,6 +1510,12 @@
 4009,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 4009,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4009,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+4009,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4009,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4009,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4009,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4009,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Jounin Ninjutsu
 4010,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -1372,6 +1561,12 @@
 4010,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4010,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4010,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4010,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4010,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4010,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4010,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4010,536,10,19,8,17,8,534,8,0,0,0,0 //NJ_BAKUENRYU#Katon Renkeijutsu - Karura#
 4010,186,10,19,8,17,8,534,8,0,0,0,0 //NPC_FIREATTACK#Katon Haisekishou#
 4010,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
@@ -1412,6 +1607,12 @@
 4010,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 4010,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4010,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+4010,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4010,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4010,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4010,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4010,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Jounin2 Taijutsu
 4012,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -1456,6 +1657,12 @@
 4012,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4012,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4012,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4012,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4012,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4012,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4012,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4012,136,10,5,8,0,0,0,0,0,0,0,0	//AS_SONICBLOW#Panchi#
 4012,370,10,0,0,0,0,0,0,0,0,0,0	//CH_PALMSTRIKE#Rasengan#
 4012,367,10,399,8,0,0,0,0,0,0,0,0	//PA_PRESSURE#Katadori#
@@ -1483,6 +1690,12 @@
 4012,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 4012,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4012,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+4012,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4012,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4012,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4012,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4012,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Jounin2 Taijutsu
 4011,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -1527,6 +1740,12 @@
 4011,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4011,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4011,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4011,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4011,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4011,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4011,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4011,136,10,5,8,0,0,0,0,0,0,0,0	//AS_SONICBLOW#Panchi#
 4011,370,10,0,0,0,0,0,0,0,0,0,0	//CH_PALMSTRIKE#Rasengan#
 4011,367,10,399,8,0,0,0,0,0,0,0,0	//PA_PRESSURE#Katadori#
@@ -1554,6 +1773,12 @@
 4011,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 4011,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4011,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+4011,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4011,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4011,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4011,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4011,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Jounin2 Ninjutsu
 4013,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -1599,6 +1824,12 @@
 4013,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4013,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4013,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4013,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4013,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4013,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4013,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4013,536,10,19,8,17,8,534,8,0,0,0,0 //NJ_BAKUENRYU#Katon Renkeijutsu - Karura#
 4013,186,10,19,8,17,8,534,8,0,0,0,0 //NPC_FIREATTACK#Katon Haisekishou#
 4013,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
@@ -1639,6 +1870,12 @@
 4013,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 4013,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4013,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+4013,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4013,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4013,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4013,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4013,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Jounin2 Taijutsu
 4015,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -1683,6 +1920,12 @@
 4015,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4015,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4015,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4015,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4015,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4015,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4015,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4015,136,10,5,8,0,0,0,0,0,0,0,0	//AS_SONICBLOW#Panchi#
 4015,370,10,0,0,0,0,0,0,0,0,0,0	//CH_PALMSTRIKE#Rasengan#
 4015,367,10,399,8,0,0,0,0,0,0,0,0	//PA_PRESSURE#Katadori#
@@ -1710,6 +1953,12 @@
 4015,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 4015,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4015,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+4015,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4015,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4015,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4015,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4015,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 // Jounin2 Ninjutsu
 4017,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -1755,6 +2004,12 @@
 4017,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4017,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4017,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4017,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4017,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4017,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4017,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4017,536,10,19,8,17,8,534,8,0,0,0,0 //NJ_BAKUENRYU#Katon Renkeijutsu - Karura#
 4017,186,10,19,8,17,8,534,8,0,0,0,0 //NPC_FIREATTACK#Katon Haisekishou#
 4017,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
@@ -1795,6 +2050,12 @@
 4017,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
 4017,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4017,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
+
+4017,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4017,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4017,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4017,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4017,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
 
 //---------------------------------------------------------------------------------------------------------------
 
@@ -1841,6 +2102,12 @@
 4060,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4060,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4060,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4060,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4060,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4060,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4060,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4060,136,10,5,8,0,0,0,0,0,0,0,0	//AS_SONICBLOW#Panchi#
 4060,370,10,0,0,0,0,0,0,0,0,0,0	//CH_PALMSTRIKE#Rasengan#
 4060,367,10,399,8,0,0,0,0,0,0,0,0	//PA_PRESSURE#Katadori#
@@ -1869,6 +2136,12 @@
 4060,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4060,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
 
+4060,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4060,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4060,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4060,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4060,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
+
 4060,2022,10,5,10,136,8,0,0,0,0,0,0 			//GC_CROSSIMPACT,Tsuyoi Panchi
 4060,2037,10,2279,10,2036,8,0,0,0,0,0,0 		//GC_CROSSRIPPERSLASHER,Soshuujin
 4060,2324,10,48,10,212,8,2257,8,2314,8,397,8 	//LG_HESPERUSLIT,Te Waza Gohon - Nukite
@@ -1892,6 +2165,12 @@
 4060,113,10,0,0,0,0,0,0,0,0,0,0 //BS_OVERTHRUST#Gaia Fuuin#
 4060,78,10,0,0,0,0,0,0,0,0,0,0 //PR_LEXAETERNA#Enfraquecer Oponente#
 4060,288,10,0,0,0,0,0,0,0,0,0,0 //SA_LANDPROTECTOR#Proteger Terreno#
+
+4060,311,10,677,5,0,0,0,0,0,0,0,0 //BD_ROKISWEIL#Miro no Jutsu#
+4060,667,10,3029,5,0,0,0,0,0,0,0,0 //NPC_WIDECONFUSE#Bakuhatsu Kemuri#
+4060,659,10,678,5,0,0,0,0,0,0,0,0 //NPC_DRAGONFEAR#Yubi no Jutsu#
+4060,663,10,76,5,0,0,0,0,0,0,0,0 //NPC_WIDESILENCE#Konohi Kemuri#
+4060,2455,10,668,5,0,0,0,0,0,0,0,0 //SO_ARRULLO#Neru no Jutsu#
 
 // Jounin Elite Ninjutsu
 4061,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -1937,6 +2216,12 @@
 4061,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4061,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4061,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4061,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4061,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4061,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4061,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4061,536,10,19,8,17,8,534,8,0,0,0,0 //NJ_BAKUENRYU#Katon Renkeijutsu - Karura#
 4061,186,10,19,8,17,8,534,8,0,0,0,0 //NPC_FIREATTACK#Katon Haisekishou#
 4061,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
@@ -1978,6 +2263,12 @@
 4061,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4061,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
 
+4061,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4061,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4061,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4061,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4061,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
+
 4061,81,10,536,8,186,8,80,8,2259,8,0,0 //WZ_SIGHTRASHER#Katon Bakufuu Ranbu#
 4061,83,10,536,8,186,8,80,8,2259,8,0,0 //WZ_METEOR#KatonRyuuen Houka#
 4061,2211,10,536,8,186,8,80,8,2259,8,0,0 //WL_CRIMSONROCK#Katon Gouka Mekkyaku#
@@ -2014,6 +2305,12 @@
 4061,113,10,0,0,0,0,0,0,0,0,0,0 //BS_OVERTHRUST#Gaia Fuuin#
 4061,78,10,0,0,0,0,0,0,0,0,0,0 //PR_LEXAETERNA#Enfraquecer Oponente#
 4061,288,10,0,0,0,0,0,0,0,0,0,0 //SA_LANDPROTECTOR#Proteger Terreno#
+
+4061,311,10,677,5,0,0,0,0,0,0,0,0 //BD_ROKISWEIL#Miro no Jutsu#
+4061,667,10,3029,5,0,0,0,0,0,0,0,0 //NPC_WIDECONFUSE#Bakuhatsu Kemuri#
+4061,659,10,678,5,0,0,0,0,0,0,0,0 //NPC_DRAGONFEAR#Yubi no Jutsu#
+4061,663,10,76,5,0,0,0,0,0,0,0,0 //NPC_WIDESILENCE#Konohi Kemuri#
+4061,2455,10,668,5,0,0,0,0,0,0,0,0 //SO_ARRULLO#Neru no Jutsu#
 
 // Procurado Taijutsu
 4062,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -2058,6 +2355,12 @@
 4062,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4062,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4062,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4062,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4062,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4062,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4062,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4062,136,10,5,8,0,0,0,0,0,0,0,0	//AS_SONICBLOW#Panchi#
 4062,370,10,0,0,0,0,0,0,0,0,0,0	//CH_PALMSTRIKE#Rasengan#
 4062,367,10,399,8,0,0,0,0,0,0,0,0	//PA_PRESSURE#Katadori#
@@ -2086,6 +2389,12 @@
 4062,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4062,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
 
+4062,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4062,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4062,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4062,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4062,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
+
 4062,2022,10,5,10,136,8,0,0,0,0,0,0 			//GC_CROSSIMPACT,Tsuyoi Panchi
 4062,2037,10,2279,10,2036,8,0,0,0,0,0,0 		//GC_CROSSRIPPERSLASHER,Soshuujin
 4062,2324,10,48,10,212,8,2257,8,2314,8,397,8 	//LG_HESPERUSLIT,Te Waza Gohon - Nukite
@@ -2109,6 +2418,12 @@
 4062,113,10,0,0,0,0,0,0,0,0,0,0 //BS_OVERTHRUST#Gaia Fuuin#
 4062,78,10,0,0,0,0,0,0,0,0,0,0 //PR_LEXAETERNA#Enfraquecer Oponente#
 4062,288,10,0,0,0,0,0,0,0,0,0,0 //SA_LANDPROTECTOR#Proteger Terreno#
+
+4062,311,10,677,5,0,0,0,0,0,0,0,0 //BD_ROKISWEIL#Miro no Jutsu#
+4062,667,10,3029,5,0,0,0,0,0,0,0,0 //NPC_WIDECONFUSE#Bakuhatsu Kemuri#
+4062,659,10,678,5,0,0,0,0,0,0,0,0 //NPC_DRAGONFEAR#Yubi no Jutsu#
+4062,663,10,76,5,0,0,0,0,0,0,0,0 //NPC_WIDESILENCE#Konohi Kemuri#
+4062,2455,10,668,5,0,0,0,0,0,0,0,0 //SO_ARRULLO#Neru no Jutsu#
 
 // Procurado Ninjutsu
 4063,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -2154,6 +2469,12 @@
 4063,270,10,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4063,24,10,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4063,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4063,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4063,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4063,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4063,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4063,536,10,19,8,17,8,534,8,0,0,0,0 //NJ_BAKUENRYU#Katon Renkeijutsu - Karura#
 4063,186,10,19,8,17,8,534,8,0,0,0,0 //NPC_FIREATTACK#Katon Haisekishou#
 4063,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
@@ -2194,6 +2515,12 @@
 4063,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4063,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
 
+4063,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4063,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4063,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4063,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4063,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
+
 4063,81,10,536,8,186,8,80,8,2259,8,0,0 //WZ_SIGHTRASHER#Katon Bakufuu Ranbu#
 4063,83,10,536,8,186,8,80,8,2259,8,0,0 //WZ_METEOR#KatonRyuuen Houka#
 4063,2211,10,536,8,186,8,80,8,2259,8,0,0 //WL_CRIMSONROCK#Katon Gouka Mekkyaku#
@@ -2230,6 +2557,12 @@
 4063,113,10,0,0,0,0,0,0,0,0,0,0 //BS_OVERTHRUST#Gaia Fuuin#
 4063,78,10,0,0,0,0,0,0,0,0,0,0 //PR_LEXAETERNA#Enfraquecer Oponente#
 4063,288,10,0,0,0,0,0,0,0,0,0,0 //SA_LANDPROTECTOR#Proteger Terreno#
+
+4063,311,10,677,5,0,0,0,0,0,0,0,0 //BD_ROKISWEIL#Miro no Jutsu#
+4063,667,10,3029,5,0,0,0,0,0,0,0,0 //NPC_WIDECONFUSE#Bakuhatsu Kemuri#
+4063,659,10,678,5,0,0,0,0,0,0,0,0 //NPC_DRAGONFEAR#Yubi no Jutsu#
+4063,663,10,76,5,0,0,0,0,0,0,0,0 //NPC_WIDESILENCE#Konohi Kemuri#
+4063,2455,10,668,5,0,0,0,0,0,0,0,0 //SO_ARRULLO#Neru no Jutsu#
 
 //---------------------------------------------------------------------------------------------------------------
 
@@ -2276,6 +2609,12 @@
 4064,270,15,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4064,24,15,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4064,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4064,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4064,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4064,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4064,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4064,136,10,5,8,0,0,0,0,0,0,0,0	//AS_SONICBLOW#Panchi#
 4064,370,10,0,0,0,0,0,0,0,0,0,0	//CH_PALMSTRIKE#Rasengan#
 4064,367,10,399,8,0,0,0,0,0,0,0,0	//PA_PRESSURE#Katadori#
@@ -2304,6 +2643,12 @@
 4064,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4064,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
 
+4064,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4064,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4064,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4064,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4064,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
+
 4064,2022,10,5,10,136,8,0,0,0,0,0,0 			//GC_CROSSIMPACT,Tsuyoi Panchi
 4064,2037,10,2279,10,2036,8,0,0,0,0,0,0 		//GC_CROSSRIPPERSLASHER,Soshuujin
 4064,2324,10,48,10,212,8,2257,8,2314,8,397,8 	//LG_HESPERUSLIT,Te Waza Gohon - Nukite
@@ -2327,6 +2672,12 @@
 4064,113,10,0,0,0,0,0,0,0,0,0,0 //BS_OVERTHRUST#Gaia Fuuin#
 4064,78,10,0,0,0,0,0,0,0,0,0,0 //PR_LEXAETERNA#Enfraquecer Oponente#
 4064,288,10,0,0,0,0,0,0,0,0,0,0 //SA_LANDPROTECTOR#Proteger Terreno#
+
+4064,311,10,677,5,0,0,0,0,0,0,0,0 //BD_ROKISWEIL#Miro no Jutsu#
+4064,667,10,3029,5,0,0,0,0,0,0,0,0 //NPC_WIDECONFUSE#Bakuhatsu Kemuri#
+4064,659,10,678,5,0,0,0,0,0,0,0,0 //NPC_DRAGONFEAR#Yubi no Jutsu#
+4064,663,10,76,5,0,0,0,0,0,0,0,0 //NPC_WIDESILENCE#Konohi Kemuri#
+4064,2455,10,668,5,0,0,0,0,0,0,0,0 //SO_ARRULLO#Neru no Jutsu#
 
 // Sanin Ninjutsu
 4065,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -2372,6 +2723,12 @@
 4065,270,15,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4065,24,15,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4065,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4065,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4065,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4065,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4065,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4065,536,10,19,8,17,8,534,8,0,0,0,0 //NJ_BAKUENRYU#Katon Renkeijutsu - Karura#
 4065,186,10,19,8,17,8,534,8,0,0,0,0 //NPC_FIREATTACK#Katon Haisekishou#
 4065,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
@@ -2412,6 +2769,12 @@
 4065,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4065,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
 
+4065,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4065,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4065,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4065,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4065,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
+
 4065,81,10,536,8,186,8,80,8,2259,8,0,0 //WZ_SIGHTRASHER#Katon Bakufuu Ranbu#
 4065,83,10,536,8,186,8,80,8,2259,8,0,0 //WZ_METEOR#KatonRyuuen Houka#
 4065,2211,10,536,8,186,8,80,8,2259,8,0,0 //WL_CRIMSONROCK#Katon Gouka Mekkyaku#
@@ -2448,6 +2811,12 @@
 4065,113,10,0,0,0,0,0,0,0,0,0,0 //BS_OVERTHRUST#Gaia Fuuin#
 4065,78,10,0,0,0,0,0,0,0,0,0,0 //PR_LEXAETERNA#Enfraquecer Oponente#
 4065,288,10,0,0,0,0,0,0,0,0,0,0 //SA_LANDPROTECTOR#Proteger Terreno#
+
+4065,311,10,677,5,0,0,0,0,0,0,0,0 //BD_ROKISWEIL#Miro no Jutsu#
+4065,667,10,3029,5,0,0,0,0,0,0,0,0 //NPC_WIDECONFUSE#Bakuhatsu Kemuri#
+4065,659,10,678,5,0,0,0,0,0,0,0,0 //NPC_DRAGONFEAR#Yubi no Jutsu#
+4065,663,10,76,5,0,0,0,0,0,0,0,0 //NPC_WIDESILENCE#Konohi Kemuri#
+4065,2455,10,668,5,0,0,0,0,0,0,0,0 //SO_ARRULLO#Neru no Jutsu#
 
 // Renegado Taijutsu
 4073,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -2492,6 +2861,12 @@
 4073,270,15,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4073,24,15,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4073,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4073,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4073,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4073,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4073,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4073,136,10,5,8,0,0,0,0,0,0,0,0	//AS_SONICBLOW#Panchi#
 4073,370,10,0,0,0,0,0,0,0,0,0,0	//CH_PALMSTRIKE#Rasengan#
 4073,367,10,399,8,0,0,0,0,0,0,0,0	//PA_PRESSURE#Katadori#
@@ -2520,6 +2895,12 @@
 4073,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4073,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
 
+4073,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4073,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4073,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4073,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4073,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
+
 4073,2022,10,5,10,136,8,0,0,0,0,0,0 			//GC_CROSSIMPACT,Tsuyoi Panchi
 4073,2037,10,2279,10,2036,8,0,0,0,0,0,0 		//GC_CROSSRIPPERSLASHER,Soshuujin
 4073,2324,10,48,10,212,8,2257,8,2314,8,397,8 	//LG_HESPERUSLIT,Te Waza Gohon - Nukite
@@ -2543,6 +2924,12 @@
 4073,113,10,0,0,0,0,0,0,0,0,0,0 //BS_OVERTHRUST#Gaia Fuuin#
 4073,78,10,0,0,0,0,0,0,0,0,0,0 //PR_LEXAETERNA#Enfraquecer Oponente#
 4073,288,10,0,0,0,0,0,0,0,0,0,0 //SA_LANDPROTECTOR#Proteger Terreno#
+
+4073,311,10,677,5,0,0,0,0,0,0,0,0 //BD_ROKISWEIL#Miro no Jutsu#
+4073,667,10,3029,5,0,0,0,0,0,0,0,0 //NPC_WIDECONFUSE#Bakuhatsu Kemuri#
+4073,659,10,678,5,0,0,0,0,0,0,0,0 //NPC_DRAGONFEAR#Yubi no Jutsu#
+4073,663,10,76,5,0,0,0,0,0,0,0,0 //NPC_WIDESILENCE#Konohi Kemuri#
+4073,2455,10,668,5,0,0,0,0,0,0,0,0 //SO_ARRULLO#Neru no Jutsu#
 
 // Renegado Ninjutsu
 4074,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
@@ -2588,6 +2975,12 @@
 4074,270,15,0,0,0,0,0,0,0,0,0,0 //MO_EXPLOSIONSPIRITS#Fury#
 4074,24,15,0,0,0,0,0,0,0,0,0,0   //AL_RUWACH#Ruwach#
 
+4074,182,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLEEPATTACK#Fukai Yasumi#
+4074,181,15,0,0,0,0,0,0,0,0,0,0 //NPC_CURSEATTACK#Kokubanjou no Jutsu#
+4074,672,15,0,0,0,0,0,0,0,0,0,0 //NPC_SLOWCAST#Magen Narakumi#
+4074,30,15,0,0,0,0,0,0,0,0,0,0 //AL_DECAGI#Mahi no Jutsu#
+4074,179,15,0,0,0,0,0,0,0,0,0,0 //NPC_STUNATTACK#Shikumi no Jutsu#
+
 4074,536,10,19,8,17,8,534,8,0,0,0,0 //NJ_BAKUENRYU#Katon Renkeijutsu - Karura#
 4074,186,10,19,8,17,8,534,8,0,0,0,0 //NPC_FIREATTACK#Katon Haisekishou#
 4074,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
@@ -2628,6 +3021,12 @@
 4074,533,10,0,0,0,0,0,0,0,0,0,0  //NJ_NINPOU#Spirit of the Blade#
 4074,2451,10,0,0,0,0,0,0,0,0,0,0 //SO_STRIKING#Striking#
 
+4074,677,10,181,5,0,0,0,0,0,0,0,0 //NPC_WIDECURSE#Jigoku Kouka#
+4074,678,10,179,5,0,0,0,0,0,0,0,0 //NPC_WIDESTUN#Kanashibari no Jutsu#
+4074,76,10,672,5,0,0,0,0,0,0,0,0 //PR_LEXDIVINA#Jigyaku no Chakra#
+4074,668,10,182,5,0,0,0,0,0,0,0,0 //NPC_WIDESLEEP#Fukai Kemuri#
+4074,3029,10,30,5,0,0,0,0,0,0,0,0 //OB_AKAITSUKI#Akai Tsukiakari#
+
 4074,81,10,536,8,186,8,80,8,2259,8,0,0 //WZ_SIGHTRASHER#Katon Bakufuu Ranbu#
 4074,83,10,536,8,186,8,80,8,2259,8,0,0 //WZ_METEOR#KatonRyuuen Houka#
 4074,2211,10,536,8,186,8,80,8,2259,8,0,0 //WL_CRIMSONROCK#Katon Gouka Mekkyaku#
@@ -2664,3 +3063,9 @@
 4074,113,10,0,0,0,0,0,0,0,0,0,0 //BS_OVERTHRUST#Gaia Fuuin#
 4074,78,10,0,0,0,0,0,0,0,0,0,0 //PR_LEXAETERNA#Enfraquecer Oponente#
 4074,288,10,0,0,0,0,0,0,0,0,0,0 //SA_LANDPROTECTOR#Proteger Terreno#
+
+4074,311,10,677,5,0,0,0,0,0,0,0,0 //BD_ROKISWEIL#Miro no Jutsu#
+4074,667,10,3029,5,0,0,0,0,0,0,0,0 //NPC_WIDECONFUSE#Bakuhatsu Kemuri#
+4074,659,10,678,5,0,0,0,0,0,0,0,0 //NPC_DRAGONFEAR#Yubi no Jutsu#
+4074,663,10,76,5,0,0,0,0,0,0,0,0 //NPC_WIDESILENCE#Konohi Kemuri#
+4074,2455,10,668,5,0,0,0,0,0,0,0,0 //SO_ARRULLO#Neru no Jutsu#

@@ -1986,10 +1986,10 @@ static int64 battle_calc_base_damage(struct block_list *src, struct status_data 
 			atkmin = atkmax;
 	} else { //PCs
 		atkmax = wa->atk;
+
 		type = (wa == &status->lhw)?EQI_HAND_L:EQI_HAND_R;
 
 		if (!(flag&1) || (flag&2)) { //Normal attacks
-			atkmin = status->dex;
 
 			if (sd->equip_index[type] >= 0 && sd->inventory_data[sd->equip_index[type]])
 				atkmin = atkmin*(80 + sd->inventory_data[sd->equip_index[type]]->wlv*20)/100;
@@ -2065,10 +2065,8 @@ static int64 battle_calc_base_damage(struct block_list *src, struct status_data 
 	if (sd)
 		battle_add_weapon_damage(sd, &damage, type);
 
-//#ifdef RENEWAL
 	if (flag&1)
 		damage = (damage * 14) / 10;
-//#endif
 
 	return damage;
 }
@@ -3023,34 +3021,6 @@ static void battle_calc_skill_base_damage(struct Damage* wd, struct block_list *
 	int nk = battle_skill_get_damage_properties(skill_id, wd->miscflag);
 
 	switch (skill_id) {	//Calc base damage according to skill
-#ifdef RENEWAL
-		case ML_SPIRALPIERCE:
-			if (sd) {
-				short index = sd->equip_index[EQI_HAND_R];
-
-				if (index >= 0 &&
-					sd->inventory_data[index] &&
-					sd->inventory_data[index]->type == IT_WEAPON)
-					wd->equipAtk += sd->inventory_data[index]->weight/20; // weight from spear is treated as equipment ATK on official [helvetica]
-
-				battle_calc_damage_parts(wd, src, target, skill_id, skill_lv);
-				wd->masteryAtk = 0; // weapon mastery is ignored for spiral
-			} else {
-				wd->damage = battle_calc_base_damage(src, sstatus, &sstatus->rhw, sc, tstatus->size, 0); //Monsters have no weight and use ATK instead
-			}
-
-			switch (tstatus->size) { //Size-fix. Is this modified by weapon perfection?
-				case SZ_SMALL: //Small: 125%
-					ATK_RATE(wd->damage, wd->damage2, 125);
-					RE_ALLATK_RATE(wd, 125);
-					break;
-				//case SZ_MEDIUM: //Medium: 100%
-				case SZ_BIG: //Large: 75%
-					ATK_RATE(wd->damage, wd->damage2, 75);
-					RE_ALLATK_RATE(wd, 75);
-					break;
-			}
-#else
 		case NJ_ISSEN:
 			wd->damage = 40 * sstatus->str + sstatus->hp * 8 * skill_lv / 100;
 			wd->damage2 = 0;
@@ -3081,7 +3051,7 @@ static void battle_calc_skill_base_damage(struct Damage* wd, struct block_list *
 					ATK_RATE(wd->damage, wd->damage2, 75);
 					break;
 			}
-#endif
+
 			break;
 		case CR_SHIELDBOOMERANG:
 			wd->damage = sstatus->batk;
@@ -3090,9 +3060,6 @@ static void battle_calc_skill_base_damage(struct Damage* wd, struct block_list *
 
 				if (index >= 0 && sd->inventory_data[index] && sd->inventory_data[index]->type == IT_ARMOR) {
 					ATK_ADD(wd->damage, wd->damage2, sd->inventory_data[index]->weight / 10);
-#ifdef RENEWAL
-					ATK_ADD(wd->weaponAtk, wd->weaponAtk2, sd->inventory_data[index]->weight / 10);
-#endif
 				}
 			} else
 				ATK_ADD(wd->damage, wd->damage2, sstatus->rhw.atk2); //Else use Atk2
@@ -3106,26 +3073,11 @@ static void battle_calc_skill_base_damage(struct Damage* wd, struct block_list *
 				if(sd)
 					damagevalue = damagevalue * (100 + 5 * (pc_checkskill(sd,RK_DRAGONTRAINING) - 1)) / 100;
 				ATK_ADD(wd->damage, wd->damage2, damagevalue);
-#ifdef RENEWAL
-				ATK_ADD(wd->weaponAtk, wd->weaponAtk2, damagevalue);
-#endif
 				wd->flag |= BF_LONG;
 			}
 			break;
 
 		default:
-#ifdef RENEWAL
-			if (sd)
-				battle_calc_damage_parts(wd, src, target, skill_id, skill_lv);
-			else {
-				i = (is_attack_critical(wd, src, target, skill_id, skill_lv, false)?1:0)|
-					(!skill_id && sc && sc->data[SC_CHANGE]?4:0);
-
-				wd->damage = battle_calc_base_damage(src, sstatus, &sstatus->rhw, sc, tstatus->size, i);
-				if (is_attack_left_handed(src, skill_id))
-					wd->damage2 = battle_calc_base_damage(src, sstatus, &sstatus->lhw, sc, tstatus->size, i);
-			}
-#else
 			i = (is_attack_critical(wd, src, target, skill_id, skill_lv, false)?1:0)|
 				(is_skill_using_arrow(src, skill_id)?2:0)|
 				(skill_id == HW_MAGICCRASHER?4:0)|
@@ -3147,16 +3099,10 @@ static void battle_calc_skill_base_damage(struct Damage* wd, struct block_list *
 			wd->damage = battle_calc_base_damage(src, sstatus, &sstatus->rhw, sc, tstatus->size, i);
 			if (is_attack_left_handed(src, skill_id))
 				wd->damage2 = battle_calc_base_damage(src, sstatus, &sstatus->lhw, sc, tstatus->size, i);
-#endif
+
 			if (nk&NK_SPLASHSPLIT){ // Divide ATK among targets
 				if(wd->miscflag > 0) {
 					wd->damage /= wd->miscflag;
-#ifdef RENEWAL
-					wd->statusAtk /= wd->miscflag;
-					wd->weaponAtk /= wd->miscflag;
-					wd->equipAtk /= wd->miscflag;
-					wd->masteryAtk /= wd->miscflag;
-#endif
 				} else
 					ShowError("0 enemies targeted by %d:%s, divide per 0 avoided!\n", skill_id, skill_get_name(skill_id));
 			}
@@ -3169,11 +3115,11 @@ static void battle_calc_skill_base_damage(struct Damage* wd, struct block_list *
 					ATK_ADDRATE(wd->damage, wd->damage2, sd->bonus.atk_rate);
 					RE_ALLATK_ADDRATE(wd, sd->bonus.atk_rate);
 				}
-#ifndef RENEWAL
+
 				if(sd->bonus.crit_atk_rate && !skill_id && is_attack_critical(wd, src, target, skill_id, skill_lv, false)) { // add +crit damage bonuses here in pre-renewal mode [helvetica]
 					ATK_ADDRATE(wd->damage, wd->damage2, sd->bonus.crit_atk_rate);
 				}
-#endif
+
 				if(sd->status.party_id && (skill=pc_checkskill(sd,TK_POWER)) > 0) {
 					if( (i = party_foreachsamemap(party_sub_count, sd, 0)) > 1 ) { // exclude the player himself [Inkfish]
 						ATK_ADDRATE(wd->damage, wd->damage2, 2*skill*i);

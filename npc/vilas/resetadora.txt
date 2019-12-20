@@ -1,4 +1,4 @@
-konoha3,186,179,4	script	Baki#1::reset	50,{
+konoha3,229,189,4	script	Baki#1::reset	50,{
 	mes "[Baki]";
 	mes "Olá, posso resetar seus pontos.";
 	mes "Resetar Habilidades: 5,000z";

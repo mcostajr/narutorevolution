@@ -1,4 +1,4 @@
-konoha3,188,167,4	script	Missões::missao	4_board3,{
+konoha3,187,178,4	script	Missões::missao	4_board3,{
 
 	mes "[Missões]";
 	if(#EventoMissao > 0) {

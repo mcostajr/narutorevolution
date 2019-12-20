@@ -1,4 +1,4 @@
-konoha3,190,176,5	script	Teletransporte#1::teleport	448,{
+konoha3,181,165,5	script	Teletransporte#1::teleport	448,{
 		mes "[Teletransporte]";
 		mes "Olá "+strcharinfo(0)+", seja bem-vindo ao Serviço de Teletransporte!";
 		mes "Para onde voce gostaria de ir?";

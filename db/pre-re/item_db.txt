@@ -1924,6 +1924,13 @@
 
 // Bandanas
 //=============================================================
+30006,Bandana_Aliança1,Bandana Aliança,4,10,,100,,0,,0,0xFFFFFFFF,63,2,256,,0,0,2000,{ bonus bAllstats,1; bonus bMaxHP,1000; bonus bMaxSP,500; },{},{}
+30016,Bandana_Aliança2,Bandana Aliança,4,10,,100,,0,,0,0xFFFFFFFF,63,2,256,,0,0,2001,{ bonus bAllstats,1; bonus bMaxHP,1000; bonus bMaxSP,500; },{},{}
+30026,Bandana_Aliança3,Bandana Aliança,4,10,,100,,0,,0,0xFFFFFFFF,63,2,256,,0,0,2002,{ bonus bAllstats,1; bonus bMaxHP,1000; bonus bMaxSP,500; },{},{}
+30036,Bandana_Aliança4,Bandana Aliança,4,10,,100,,0,,0,0xFFFFFFFF,63,2,256,,0,0,2003,{ bonus bAllstats,1; bonus bMaxHP,1000; bonus bMaxSP,500; },{},{}
+30046,Bandana_Aliança5,Bandana Aliança,4,10,,100,,0,,0,0xFFFFFFFF,63,2,256,,0,0,2004,{ bonus bAllstats,1; bonus bMaxHP,1000; bonus bMaxSP,500; },{},{}
+30047,Bandana_Aliança6,Bandana Aliança,4,10,,100,,0,,0,0xFFFFFFFF,63,2,256,,0,0,2004,{ bonus bAllstats,1; bonus bMaxHP,1000; bonus bMaxSP,500; },{},{}
+
 30000,Bandana_Konoha1,Bandana Konoha,4,10,,100,,0,,0,0xFFFFFFFF,63,2,256,,0,0,2000,{ bonus bAllstats,1; bonus bMaxHP,1000; bonus bMaxSP,500; },{},{}
 30001,Bandana_Konoha2,Bandana Konoha,4,10,,100,,0,,0,0xFFFFFFFF,63,2,256,,0,0,2001,{ bonus bAllstats,1; bonus bMaxHP,1000; bonus bMaxSP,500; },{},{}
 30002,Bandana_Konoha3,Bandana Konoha,4,10,,100,,0,,0,0xFFFFFFFF,63,2,256,,0,0,2002,{ bonus bAllstats,1; bonus bMaxHP,1000; bonus bMaxSP,500; },{},{}

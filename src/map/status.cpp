@@ -2463,19 +2463,13 @@ int status_base_amotion_pc(struct map_session_data* sd, struct status_data* stat
  */
 unsigned short status_base_atk(const struct block_list *bl, const struct status_data *status, int level)
 {
-	int flag = 0, str, dex, dstr;
+	int flag = 0, str, dstr;
 
-#ifdef RENEWAL
-	if (!(bl->type&battle_config.enable_baseatk_renewal))
-		return 0;
-#else
 	if (!(bl->type&battle_config.enable_baseatk))
 		return 0;
-#endif
 
 	if (bl->type == BL_PC)
-	/* Conversão Arco para Dex */
-	/*switch(((TBL_PC*)bl)->status.weapon) {
+	switch(((TBL_PC*)bl)->status.weapon) {
 		case W_BOW:
 		case W_MUSICAL:
 		case W_WHIP:
@@ -2486,19 +2480,10 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 		case W_GRENADE:
 			flag = 1;
 	}
-	*/
 	if (flag) {
-#ifdef RENEWAL
-		dstr =
-#endif
-		str = status->dex;
-		dex = status->str;
-	} else {
-#ifdef RENEWAL
-		dstr =
-#endif
 		str = status->str;
-		dex = status->dex;
+	} else {
+		str = status->str;
 	}
 	
 
@@ -2508,30 +2493,18 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 	**/
 	switch (bl->type) {
 		case BL_HOM:
-#ifdef RENEWAL
-			str = 2 * level + status_get_homstr(bl);
-#else
 			dstr = str / 10;
 			str += dstr*dstr;
-#endif
 			break;
 		case BL_PC:
-#ifdef RENEWAL
-			str = (dstr * 10 + dex * 10 / 5 + status->luk * 10 / 3 + level * 10 / 4) / 10;
-#else
 			dstr = str / 5;
 			str += dstr*dstr;
-			str += status->agi / 3 + dex / 5;  /* NRO */
-#endif
+			str += status->agi / 3 + status->dex / 5;  /* NRO */
 			break;
 		default:// Others
-#ifdef RENEWAL
-			str = dstr + level;
-#else
 			dstr = str / 5;
 			str += dstr*dstr;
-			str += status->agi / 3 + dex / 5;  /* NRO */
-#endif
+			str += status->agi / 3 + status->dex / 5;  /* NRO */
 			break;
 	}
 
@@ -2567,12 +2540,11 @@ unsigned int status_weapon_atk(struct weapon_atk wa, struct map_session_data *sd
 }
 //#endif
 
-#ifndef RENEWAL
 unsigned short status_base_matk_min(struct block_list *bl, const struct status_data* status) {
-	return status->int_ + (status->int_ / 7) * (status->int_ / 7) + (status->agi/3) + (status->dex / 5);  /* NRO */
+	return status->int_ + (status->int_ / 5) * (status->int_ / 5) + (status->agi / 3) + (status->dex / 5);  /* NRO */
 }
 unsigned short status_base_matk_max(struct block_list *bl, const struct status_data* status) {
-	return status->int_ + (status->int_ / 5) * (status->int_ / 5) + (status->agi / 3) + (status->dex / 5);  /* NRO */
+	return status->int_ + (status->int_/5) * (status->int_/5) + (status->agi/3) + (status->dex/5);  /* NRO */
 }
 
 
@@ -2614,45 +2586,7 @@ unsigned short status_base_atk_max(struct block_list *bl, const struct status_da
 	}
 }
 
-#else
-/*
-* Calculates minimum magic attack
-*/
-unsigned short status_base_matk_min(struct block_list *bl, const struct status_data* status, int level)
-{
-	switch (bl->type) {
-		case BL_PET:
-		case BL_MOB:
-		case BL_MER:
-		case BL_ELEM:
-			return status->int_ + level + status->rhw.matk * 70 / 100;
-		case BL_HOM:
-			return status_get_homint(bl) + level + (status_get_homint(bl) + status_get_homdex(bl)) / 5;
-		case BL_PC:
-		default:
-			return status->int_ + (status->int_ / 2) + (status->dex / 5) + (status->luk / 3) + (level / 4);
-	}
-}
 
-/*
-* Calculates maximum magic attack
-*/
-unsigned short status_base_matk_max(struct block_list *bl, const struct status_data* status, int level)
-{
-	switch (bl->type) {
-		case BL_PET:
-		case BL_MOB:
-		case BL_MER:
-		case BL_ELEM:
-			return status->int_ + level + status->rhw.matk * 130 / 100;
-		case BL_HOM:
-			return status_get_homint(bl) + level + (status_get_homluk(bl) + status_get_homint(bl) + status_get_homdex(bl)) / 3;
-		case BL_PC:
-		default:
-			return status->int_ + (status->int_ / 2) + (status->dex / 5) + (status->luk / 3) + (level / 4);
-	}
-}
-#endif
 
 /**
  * Fills in the misc data that can be calculated from the other status info (except for level)
@@ -3317,10 +3251,10 @@ static int status_get_spbonus(struct block_list *bl, enum e_status_bonus type) {
 		//Only for BL_PC
 		if (bl->type == BL_PC) {
 			struct map_session_data *sd = map_id2sd(bl->id);
-			uint8 i;
+			//uint8 i;
 
 			bonus += sd->bonus.sp;
-			if ((i = pc_checkskill(sd,SL_KAINA)) > 0)
+			/*if ((i = pc_checkskill(sd,SL_KAINA)) > 0)
 				bonus += 30 * i;
 			if ((i = pc_checkskill(sd,RA_RESEARCHTRAP)) > 0)
 				bonus += 200 + 20 * i;
@@ -3333,12 +3267,13 @@ static int status_get_spbonus(struct block_list *bl, enum e_status_bonus type) {
 				if ((pc_checkskill(sd, SU_TUNABELLY) + pc_checkskill(sd, SU_TUNAPARTY) + pc_checkskill(sd, SU_BUNCHOFSHRIMP) + pc_checkskill(sd, SU_FRESHSHRIMP) +
 					pc_checkskill(sd, SU_GROOMING) + pc_checkskill(sd, SU_PURRING) + pc_checkskill(sd, SU_SHRIMPARTY)) > 19)
 						bonus += 200;
-			}
+			
+			}*/
 		}
 
 		//Bonus by SC
 		if (sc) {
-			if(sc->data[SC_INCMSP])
+			/*if(sc->data[SC_INCMSP])
 				bonus += sc->data[SC_INCMSP]->val1;
 			if(sc->data[SC_EARTH_INSIGNIA] && sc->data[SC_EARTH_INSIGNIA]->val1 == 3)
 				bonus += 50;
@@ -3354,6 +3289,7 @@ static int status_get_spbonus(struct block_list *bl, enum e_status_bonus type) {
 				bonus += 10;
 			if(sc->data[SC_GLASTHEIM_HPSP])
 				bonus += sc->data[SC_GLASTHEIM_HPSP]->val2;
+			*/
 		}
 	} else if (type == STATUS_BONUS_RATE) {
 		struct status_change *sc = status_get_sc(bl);
@@ -3366,14 +3302,18 @@ static int status_get_spbonus(struct block_list *bl, enum e_status_bonus type) {
 			bonus += sd->sprate;
 			bonus -= 100; //Default sprate is 100, so it should be add 0%
 
-			if((i = pc_checkskill(sd,HP_MEDITATIO)) > 0)
+			if ((i = pc_checkskill(sd, NJ_NINPOU)) > 0)
+				bonus += i / (25/10);
+			/*if((i = pc_checkskill(sd,HP_MEDITATIO)) > 0)
 				bonus += i;
 			if((i = pc_checkskill(sd,HW_SOULDRAIN)) > 0)
 				bonus += 2 * i;
+			*/
 		}
 
 		//Bonus by SC
 		if (sc) {
+			/*
 			if(sc->data[SC_INCMSPRATE])
 				bonus += sc->data[SC_INCMSPRATE]->val1;
 			if(sc->data[SC_RAISINGDRAGON])
@@ -3388,6 +3328,7 @@ static int status_get_spbonus(struct block_list *bl, enum e_status_bonus type) {
 				bonus += sc->data[SC_VITATA_500]->val2;
 			if (sc->data[SC_ENERGY_DRINK_RESERCH])
 				bonus += sc->data[SC_ENERGY_DRINK_RESERCH]->val3;
+			*/
 		}
 		// Max rate reduce is -100%
 		bonus = cap_value(bonus,-100,INT_MAX);
@@ -4160,8 +4101,9 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 		sd->critical_rate = 0;
 	if(sd->critical_rate != 100)
 		base_status->cri = cap_value(base_status->cri * sd->critical_rate/100,SHRT_MIN,SHRT_MAX);
-	if (pc_checkskill(sd, SU_POWEROFLIFE) > 0)
+	/*if (pc_checkskill(sd, SU_POWEROFLIFE) > 0)
 		base_status->cri += 200;
+	*/
 
 	if(sd->flee2_rate < 0)
 		sd->flee2_rate = 0;
@@ -5163,10 +5105,10 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	}
 
 	if(flag&SCB_CRI && b_status->cri) {
-		if (status->dex == b_status->dex)
+		if (status->agi == b_status->agi)
 			status->cri = status_calc_critical(bl, sc, b_status->cri);
 		else
-			status->cri = status_calc_critical(bl, sc, b_status->cri + 3*(status->dex - b_status->dex));
+			status->cri = status_calc_critical(bl, sc, b_status->cri + 3*(status->agi - b_status->agi));
 
 		/// After status_calc_critical so the bonus is applied despite if you have or not a sc bugreport:5240
 		if( bl->type == BL_PC && ((TBL_PC*)bl)->status.weapon == W_KATAR )
@@ -7260,21 +7202,9 @@ static short status_calc_aspd_rate(struct block_list *bl, struct status_change *
 {
 	int i;
 
-	if(!sc || !sc->count)
-		//Only for BL_PC
-		if (bl->type == BL_PC) {
-			struct map_session_data *sd = map_id2sd(bl->id);
-			int max = 0;
-			uint8 i;
-
-			if ((i = pc_checkskill(sd, KN_ONEHAND)) > 0)
-				max += i * 30;
-
-			aspd_rate -= max;
-		}
-
-		return cap_value(aspd_rate,0,SHRT_MAX);
-
+	/*if(!sc || !sc->count)
+		return cap_value(aspd_rate, 0, SHRT_MAX);
+	*/
 	if( !sc->data[SC_QUAGMIRE] ) {
 		int max = 0;
 
@@ -7399,6 +7329,16 @@ static short status_calc_aspd_rate(struct block_list *bl, struct status_change *
 	if (sc->data[SC_WIND_INSIGNIA] && sc->data[SC_WIND_INSIGNIA]->val1 == 2)
 		aspd_rate -= 100;
 
+	if (bl->type == BL_PC) {
+		struct map_session_data *sd = map_id2sd(bl->id);
+		int max = 0;
+		uint8 i;
+
+		if ((i = pc_checkskill(sd, KN_ONEHAND)) > 0)
+			max += i * 30;
+
+		aspd_rate -= max;
+	}
 	return (short)cap_value(aspd_rate,0,SHRT_MAX);
 }
 
@@ -7967,6 +7907,8 @@ int status_chakra(struct block_list* bl)
 		if (sc->data[SC_NEN])
 			chakra += 5 * sc->data[SC_NEN]->val1;
 	}
+
+	chakra += status->agi*6;
 	
 	return chakra;
 }
