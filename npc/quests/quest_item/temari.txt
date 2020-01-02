@@ -109,8 +109,8 @@ OnInit:
 // Shop number corresponds with order above (default is 1).
 // Note: Do NOT use a reward item more than once!
 	
-	Add(1,1514,1,1000000,0,1505,1,9055,200,7253,70);
-	Add(1,8123,1,1000000,0,6299,100,9093,100,9094,100);
+	Add(1,1514,1,1000000,0,1505,1,10055,200,7253,70);
+	Add(1,8123,1,1000000,0,6299,100,10093,100,10094,100);
 	
 	// --------------------------------------------------
 	for(set .@i,1; .@i<=getarraysize(.SetsTemari$); set .@i,.@i+1)

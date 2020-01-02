@@ -292,7 +292,7 @@ function	script	pvpm_func	{
 					close;
 					} if($@MapTypePM==0||$@MapTypePM==1) callfunc("pvpm_func","ban",0,1); else callfunc("pvpm_func","ban",2,1);
 			} else	{
-					getmapxy(@map$,@x,@y,0);
+					getmapxy(@map$,@x,@y,BL_PC);
 						if($@mapPM$[(getarg(2)-1)]==@map$)
 						{
 						dispbottom "<!!!> "+callfunc("getMesPM",73);
@@ -339,7 +339,7 @@ function	script	pvpm_func	{
 				set @kills,0;
 				set @dies,0;
 				query_sql("select kills,dies from pvpm_data where id="+getcharid(getarg(2))+" and type="+getarg(2)+" limit 1",@kills,@dies);
-				query_sql("update pvpm_data set ratio="+(@kills-@dies)+" where id="+getcharid(getarg(2))+" and type="+getarg(2)+" limit 1");
+				query_sql("update pvpm_data set ratio="+(@kills/(@kills+@dies)*100)+" where id="+getcharid(getarg(2))+" and type="+getarg(2)+" limit 1");
 				set @points,@kills-@dies;
 				return;				
 				} return;
@@ -397,32 +397,29 @@ function	script	pvpm_func	{
 				} return;
 		}
 
-		if(getarg(0) == "PCKillEvent")
-		{
+		if(getarg(0) == "PCKillEvent") {
 		set @Live,1;
-				if(@RightWoEMap)
-				{
+			if(@RightWoEMap) {
 				if($@CountPointsInWoE==1 || $@CountPointsInWoE==3) callfunc "pvpm_func","Up","kills",0,100;
-				dispbottom "Player Score: "+@points;
+					dispbottom "Player Score: "+@points;
 				if($@CountPointsInWoE==2 || $@CountPointsInWoE==3) callfunc "pvpm_func","Up","kills",2,1000;
-				dispbottom "Guild Score: "+@points;
+					dispbottom "Guild Score: "+@points;
 				end;
-				} getmapxy(@map$,@x,@y,0);
-			if(@map$==$@mapPM$[@MapIDx] && $@MapTypePM[@MapIDx]>=0 && $@MapTypePM[@MapIDx]<=1 || $@PK_Mode)
-			{
-			set @withoutDying,@withoutDying+1;
-			callfunc("pvpm_func","Up","kills",0,100);
-			dispbottom "Player Score: "+@points;
-			callfunc("pvpm_func","ChangeLeader",0);
-			callfunc("pvpm_func","Annc",0,100,"PvP");
+			} 
+			getmapxy(@map$,@x,@y,BL_PC);
+			if(@map$ == $@mapPM$[@MapIDx] && $@MapTypePM[@MapIDx]>=0 && $@MapTypePM[@MapIDx]<=1 || $@PK_Mode) {
+				set @withoutDying,@withoutDying+1;
+				callfunc("pvpm_func","Up","kills",0,100);
+				dispbottom "Player Score: "+@points;
+				callfunc("pvpm_func","ChangeLeader",0);
+				callfunc("pvpm_func","Annc",0,100,"PvP");
 			}
-				if(@map$==$@mapPM$[@MapIDx] && $@MapTypePM[@MapIDx]==2 && getcharid(2) || $@PK_Mode && getcharid(2))
-				{
+			if(@map$ == $@mapPM$[@MapIDx] && $@MapTypePM[@MapIDx]==2 && getcharid(2) || $@PK_Mode && getcharid(2)) {
 				callfunc("pvpm_func","Up","kills",2,1000);
 				dispbottom "Guild Score: "+@points;
 				callfunc("pvpm_func","ChangeLeader",2);
 				callfunc("pvpm_func","Annc",2,1000,"GvG");
-				} end;
+			} end;
 		}
 
 		if(getarg(0) == "PCDieEvent")
@@ -438,7 +435,7 @@ function	script	pvpm_func	{
 			set @withoutDyingAnnc,0;
 			set @MapIDx,0;
 			set @RightWoEMap,0;
-		getmapxy(@map$,@x,@y,0);
+		getmapxy(@map$,@x,@y,BL_PC);
 		if(@map$==$@mapPM$[@MapIDx] && $@MapTypePM[@MapIDx]>=0 && $@MapTypePM[@MapIDx]<=1 || $@PK_Mode) { callfunc "pvpm_func","Up","dies",0,100; if($@mainRanking) dispbottom "Player Score: "+@points; }
 		if(@map$==$@mapPM$[@MapIDx] && $@MapTypePM[@MapIDx]==2 && getcharid(2) || $@PK_Mode && getcharid(2)) { callfunc "pvpm_func","Up","dies",2,1000; if($@mainRanking) dispbottom "Guild Score: "+@points; }
 		end;
@@ -446,7 +443,7 @@ function	script	pvpm_func	{
 
 		if(getarg(0) == "PCLoadEvent")
 		{
-		getmapxy(@map$,@x,@y,0);
+		getmapxy(@map$,@x,@y,BL_PC);
 		if(getcastlename(@map$)=="") { set @RightWoEMap,0; end; }
 		if(agitcheck() || agitcheck2()) set @RightWoEMap,1;
 		end;

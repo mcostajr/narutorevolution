@@ -360,52 +360,8 @@ academia,114,26,3	script	Orochimaru#2	125,{
 				next;
 				mes "[Orochimaru]";
 				mes "Seus calculos usam Ataque(STR)";
-				switch(select("- Hyuuga:- Portões de Chakra:- Akimichi:- Inuzuka:- Ibuse:- Kaguya:- Kidoumaru"))  {
+				switch(select("- Akimichi:- Hyuuga:- Ibuse:- Inuzuka:- Kaguya:- Kidoumaru:- Portões de Chakra"))  {
 					case 1:
-						next;
-						mes "[Orochimaru]";
-						mes "Você escolheu Hyuuga ?";
-						mes "- ^3366FF Isto irá decidir a sua Habilidaes Hiden ^000000 -";
-						if(select("- Sim.:- Não.")) {
-							next;
-							mes "[Orochimaru]";
-							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30106,1,1,0,0,30301,0,0,0;
-							equip 30106;
-							hidenlvl = 100;
-							hiden = 1;
-							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
-							close;
-						} else {
-							close; 
-						}
-						break;
-						
-					case 2:
-						next;
-						mes "[Orochimaru]";
-						mes "Você escolheu Portões de Chakra ?";
-						mes "- ^3366FF Isto irá decidir a sua Habilidaes Hiden ^000000 -";
-						if(select("- Sim.:- Não.")) {
-							next;
-							mes "[Orochimaru]";
-							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30107,1,1,0,0,30301,0,0,0;
-							equip 30107;
-							hidenlvl = 100;
-							hiden = 1;
-							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
-							close;
-						} else {
-							close; 
-						}
-						break;
-						
-					case 3:
 						next;
 						mes "[Orochimaru]";
 						mes "Você escolheu Akimichi ?";
@@ -427,6 +383,49 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						}
 						break;
 						
+					case 2:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Hyuuga ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidaes Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30106,1,1,0,0,30301,0,0,0;
+							equip 30106;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close; 
+						}
+						break;
+						
+					case 3:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Ibuse ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30118,1,1,0,0,30301,0,0,0;
+							equip 30118;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close;
+						}
+						break;
 					case 4:
 						next;
 						mes "[Orochimaru]";
@@ -452,28 +451,6 @@ academia,114,26,3	script	Orochimaru#2	125,{
 					case 5:
 						next;
 						mes "[Orochimaru]";
-						mes "Você escolheu Ibuse ?";
-						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-						if(select("- Sim.:- Não.")) {
-							next;
-							mes "[Orochimaru]";
-							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30118,1,1,0,0,30301,0,0,0;
-							equip 30118;
-							hidenlvl = 100;
-							hiden = 1;
-							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
-							close;
-						} else {
-							close;
-						}
-						break;
-						
-					case 6:
-						next;
-						mes "[Orochimaru]";
 						mes "Você escolheu Kaguya ?";
 						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
 						if(select("- Sim.:- Não.")) {
@@ -493,7 +470,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						}
 						break;
 						
-					case 7:
+					case 6:
 						next;
 						mes "[Orochimaru]";
 						mes "Você escolheu Kidoumaru ?";
@@ -514,57 +491,35 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							close;
 						}
 						break;
+						
+					case 7:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Portões de Chakra ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidaes Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30107,1,1,0,0,30301,0,0,0;
+							equip 30107;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close; 
+						}
+						break;
 				}
 			case 2:
 				next;
 				mes "[Orochimaru]";
 				mes "Seus calculos usam Ataque Magico(INT)";
-				switch(select("- Uchiha:- Nara:- Hyouton:- Shakuton:- Jinton:- Ressonante"))  {
+				switch(select("- Hyouton:- Jinton:- Nara:- Ressonante:- Shakuton:- Uchiha"))  {
 					case 1:
-						next;
-						mes "[Orochimaru]";
-						mes "Você escolheu Uchiha ?";
-						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-						if(select("- Sim.:- Não.")) {
-							next;
-							mes "[Orochimaru]";
-							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30101,1,1,0,0,30301,0,0,0;
-							equip 30101;
-							hidenlvl = 100;
-							hiden = 1;
-							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
-							close;
-						} else {
-							close; 
-						}
-						break;
-						
-					case 2:
-						next;
-						mes "[Orochimaru]";
-						mes "Você escolheu Nara ?";
-						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-						if(select("- Sim.:- Não.")) {
-							next;
-							mes "[Orochimaru]";
-							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30109,1,1,0,0,30301,0,0,0;
-							equip 30109;
-							hidenlvl = 100;
-							hiden = 1;
-							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
-							close;
-						} else {
-							close; 
-						}
-						break;
-						
-					case 3:
 						next;
 						mes "[Orochimaru]";
 						mes "Você escolheu Hyouton ?";
@@ -586,29 +541,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						}
 						break;
 						
-					case 4:
-						next;
-						mes "[Orochimaru]";
-						mes "Você escolheu Shakuton ?";
-						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
-						if(select("- Sim.:- Não.")) {
-							next;
-							mes "[Orochimaru]";
-							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30122,1,1,0,0,30301,0,0,0;
-							equip 30122;
-							hidenlvl = 100;
-							hiden = 1;
-							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
-							close;
-						} else {
-							close; 
-						}
-						break;
-						
-					case 5:
+					case 2:
 						next;
 						mes "[Orochimaru]";
 						mes "Você escolheu Jinton ?";
@@ -630,7 +563,29 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						}
 						break;
 						
-					case 6:
+					case 3:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Nara ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30109,1,1,0,0,30301,0,0,0;
+							equip 30109;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close; 
+						}
+						break;
+						
+					case 4:
 						next;
 						mes "[Orochimaru]";
 						mes "Você escolheu Ressonante ?";
@@ -651,23 +606,67 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							close; 
 						}
 						break;
+						
+					case 5:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Shakuton ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30122,1,1,0,0,30301,0,0,0;
+							equip 30122;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close; 
+						}
+						break;
+						
+					case 6:
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Uchiha ?";
+						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
+						if(select("- Sim.:- Não.")) {
+							next;
+							mes "[Orochimaru]";
+							mes "Você acabou de adiquirir uma Habilidade Hiden!";
+							getitem2 30101,1,1,0,0,30301,0,0,0;
+							equip 30101;
+							hidenlvl = 100;
+							hiden = 1;
+							getitem 569,250;
+							completequest 1001;
+							setquest 1002;
+							close;
+						} else {
+							close; 
+						}
+						break;
 				}
 			case 3:
 				next;
 				mes "[Orochimaru]";
 				mes "Seus calculos usam mais de um status";
-				switch(select("- Kugutsu:- Selo Amaldiçoado:- Kibaku Nendo:- Aburame:- Jashin"))  {
+				switch(select("- Aburame:- Jashin:- Kibaku Nendo:- Kugutsu:- Selo Amaldiçoado"))  {
 					case 1:
 						next;
 						mes "[Orochimaru]";
-						mes "Você escolheu Kugutsu ?";
+						mes "Você escolheu Aburame ?";
 						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
 						if(select("- Sim.:- Não.")) {
 							next;
 							mes "[Orochimaru]";
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30105,1,1,0,0,30301,0,0,0;
-							equip 30105;
+							getitem2 30115,1,1,0,0,30301,0,0,0;
+							equip 30115;
 							hidenlvl = 100;
 							hiden = 1;
 							getitem 569,250;
@@ -678,20 +677,18 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							close;
 						}
 						break;
+						
 					case 2:
 						next;
 						mes "[Orochimaru]";
-						mes "Quando ativado o selo, aumenta todos os status do usuário.";
-						next;
-						mes "[Orochimaru]";
-						mes "Você escolheu Selo Amaldiçoado ?";
+						mes "Você escolheu Jashin ?";
 						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
 						if(select("- Sim.:- Não.")) {
 							next;
 							mes "[Orochimaru]";
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30110,1,1,0,0,30301,0,0,0;
-							equip 30110;
+							getitem2 30116,1,1,0,0,30301,0,0,0;
+							equip 30116;
 							hidenlvl = 100;
 							hiden = 1;
 							getitem 569,250;
@@ -702,6 +699,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							close;
 						}
 						break;
+						
 					case 3:
 						next;
 						mes "[Orochimaru]";
@@ -723,17 +721,18 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							close;
 						}
 						break;
+						
 					case 4:
 						next;
 						mes "[Orochimaru]";
-						mes "Você escolheu Aburame ?";
+						mes "Você escolheu Kugutsu ?";
 						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
 						if(select("- Sim.:- Não.")) {
 							next;
 							mes "[Orochimaru]";
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30115,1,1,0,0,30301,0,0,0;
-							equip 30115;
+							getitem2 30105,1,1,0,0,30301,0,0,0;
+							equip 30105;
 							hidenlvl = 100;
 							hiden = 1;
 							getitem 569,250;
@@ -744,17 +743,21 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							close;
 						}
 						break;
+						
 					case 5:
 						next;
 						mes "[Orochimaru]";
-						mes "Você escolheu Jashin ?";
+						mes "Quando ativado o selo, aumenta todos os status do usuário.";
+						next;
+						mes "[Orochimaru]";
+						mes "Você escolheu Selo Amaldiçoado ?";
 						mes "- ^3366FF Isto irá decidir a sua Habilidade Hiden ^000000 -";
 						if(select("- Sim.:- Não.")) {
 							next;
 							mes "[Orochimaru]";
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
-							getitem2 30116,1,1,0,0,30301,0,0,0;
-							equip 30116;
+							getitem2 30110,1,1,0,0,30301,0,0,0;
+							equip 30110;
 							hidenlvl = 100;
 							hiden = 1;
 							getitem 569,250;

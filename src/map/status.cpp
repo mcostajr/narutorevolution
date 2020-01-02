@@ -233,9 +233,7 @@ void initChangeTables(void)
 
 	/* ----------------------------------------------------------------------------------------------------------------------------------- */
 	/* Hiden */
-	set_sc(UH_MANGEKYOU1, SC_ATIVAR_MANGEKYOU, EFST_ATIVAR_MANGEKYOU, SCB_NONE);
-	set_sc(UH_MANGEKYOU2, SC_ATIVAR_MANGEKYOU, EFST_ATIVAR_MANGEKYOU, SCB_NONE);
-	set_sc(UH_MANGEKYOU3, SC_ATIVAR_MANGEKYOU, EFST_ATIVAR_MANGEKYOU, SCB_NONE);
+	set_sc(UH_SHARINGAN, SC_SHARINGAN, EFST_SHARINGAN, SCB_NONE);
 
 	set_sc(UH_SUSANOO1, SC_SUSANOO1, EFST_SUSANOO1, SCB_NONE);
 	set_sc(UH_SUSANOO2, SC_SUSANOO2, EFST_SUSANOO2, SCB_NONE);

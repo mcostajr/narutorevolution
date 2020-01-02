@@ -893,7 +893,7 @@ enum sc_type : int16 {
 
 	//----------------------
 	//Uchiha
-	SC_ATIVAR_MANGEKYOU,
+	SC_SHARINGAN,
 
 	//----------------------
 	//Hyuuga
@@ -2021,7 +2021,7 @@ enum efst_types : short{
 
 	EFST_AMALDICOADO = 1208,
 
-	EFST_ATIVAR_MANGEKYOU = 1209,
+	EFST_SHARINGAN = 1209,
 	EFST_BYAKUGANEXTREMO = 1210,
 	EFST_SUSANOO1 = 1211,
 	EFST_SUSANOO2 = 1212,

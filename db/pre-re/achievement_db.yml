@@ -82,3 +82,54 @@ Header:
   Version: 1
 
 Body:
+  - ID: 110000
+    Group: "AG_JOB_CHANGE"
+    Name: "Graduação Genin"
+    Condition: " Class == 1 || Class == 2 "
+    Reward:
+        TitleID: 1000
+    Score: 10
+  - ID: 110001
+    Group: "AG_JOB_CHANGE"
+    Name: "Graduação Chunin"
+    Condition: " Class == 7 || Class == 9 "
+    Reward:
+        TitleID: 1001
+    Score: 10
+  - ID: 110002
+    Group: "AG_JOB_CHANGE"
+    Name: "Graduação Jounin"
+    Condition: " Class == 4008 || Class == 4010 "
+    Reward:
+        TitleID: 1002
+    Score: 10
+  - ID: 110003
+    Group: "AG_JOB_CHANGE"
+    Name: "Graduação Jounin Elite"
+    Condition: " Class == 4060 || Class == 4061 "
+    Reward:
+        TitleID: 1003
+    Score: 10
+  - ID: 110004
+    Group: "AG_JOB_CHANGE"
+    Name: "Graduação Procurado"
+    Condition: " Class == 4062 || Class == 4063 "
+    Reward:
+        TitleID: 1004
+    Score: 10
+  - ID: 110005
+    Group: "AG_JOB_CHANGE"
+    Name: "Graduação Sanin"
+    Condition: " Class == 4064 || Class == 4065 "
+    Reward:
+        ItemID: 30221
+        TitleID: 1005
+    Score: 10
+  - ID: 110006
+    Group: "AG_JOB_CHANGE"
+    Name: "Graduação Renegado"
+    Condition: " Class == 4073 || Class == 4074 "
+    Reward:
+        ItemID: 30222
+        TitleID: 1006
+    Score: 10

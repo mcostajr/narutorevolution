@@ -104,9 +104,9 @@
     #define MAP_DEFAULT_X 18
     #define MAP_DEFAULT_Y 26
 #else
-    #define MAP_DEFAULT_NAME "new_1-1"
-    #define MAP_DEFAULT_X 53
-    #define MAP_DEFAULT_Y 111
+    #define MAP_DEFAULT_NAME "acad_fild00"
+    #define MAP_DEFAULT_X 37
+    #define MAP_DEFAULT_Y 22
 #endif
 
 /**

@@ -87,7 +87,7 @@ moc_fild12,154,376,4	script	Tsunade#1	65,{
 					mes "Você precisa de um grupo.";
 					close;
 				case IE_OK:
-					//warp "1@ponte_t",199,65;
+					//warp "1@ponte_t",206,64;
 					close;
 				}
 			}
@@ -102,7 +102,7 @@ moc_fild12,154,376,4	script	Tsunade#1	65,{
 }
 
 // Entrance
-1@ponte_t,199,65,0	script	#ponte_tchi01	HIDDEN_WARP_NPC,1,1,{ // Alterar Localizacao
+1@ponte_t,205,59,0	script	#ponte_tchi01	HIDDEN_WARP_NPC,1,1,{
 	end;
 OnTouch:
 	disablenpc instance_npcname("#ponte_tchi01");
@@ -133,7 +133,7 @@ OnTouch:
 	end;
 }
 
-1@ponte_t,100,100,4 script	Tsunade#2	99,{
+1@ponte_t,208,91,4 script	Tsunade#2	99,{
 
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 
@@ -145,7 +145,7 @@ OnTouch:
 		end;
 }
 
-1@ponte_t,100,100,4 script	Shino Shippuuden#1	99,{
+1@ponte_t,211,91,4 script	Shino Shippuuden#1	99,{
 
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 
@@ -177,7 +177,7 @@ OnTouch:
 	end;
 }
 
-1@ponte_t,100,100,4 script	Kiba Shippuuden#1	99,{
+1@ponte_t,208,88,4 script	Kiba Shippuuden#1	99,{
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
 	mes .@npc$;
@@ -185,14 +185,14 @@ OnTouch:
 	close;
 	
 }
-1@ponte_t,100,100,4 script	Akamaru#1	99,{
+1@ponte_t,211,88,4 script	Akamaru#1	99,{
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
 	mes .@npc$;
 	mes "";
 	close;
 }
-1@ponte_t,100,100,4 script	Shino Shippuuden#1	99,{
+1@ponte_t,214,88,4 script	Shino Shippuuden#1	99,{
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
 	mes .@npc$;
@@ -200,7 +200,7 @@ OnTouch:
 	close;
 }
 
-1@ponte_t,100,100,4 script	Shikamaru Shippuuden#1	99,{
+1@ponte_t,217,91,4 script	Shikamaru Shippuuden#1	99,{
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
 	mes .@npc$;
@@ -214,13 +214,13 @@ OnTouch:
 			instance_announce instance_id(),"A expressão do Shikamaru e Choji mudaram rapidamente",0;
 			sleep2 2000;
 			instance_announce instance_id(),"Quem é aquele? Ele usa o protetor da folha, então por que está nos atacando?",0;
-			monster ""+instance_mapname("1@ponte_t",instance_id())+"",24,88,"Neji",30142,1,"ponte_t1instance::OnTinta1Die";
+			monster ""+instance_mapname("1@ponte_t",instance_id())+"",195,171,"Sai",30142,1,"ponte_t1instance::OnTinta1Die";
 		}
 		end;
 	
 }
 
-1@ponte_t,100,100,4 script	Choji Shippuuden#1	99,{
+1@ponte_t,220,91,4 script	Choji Shippuuden#1	99,{
 	.@npc$ = "[" + strnpcinfo(1) + "]";
 	
 	mes .@npc$;
@@ -234,7 +234,7 @@ OnTouch:
 			instance_announce instance_id(),"A expressão do Shikamaru e Choji mudaram rapidamente",0;
 			sleep2 2000;
 			instance_announce instance_id(),"Quem é aquele? Ele usa o protetor da folha, então por que está nos atacando?",0;
-			monster ""+instance_mapname("1@ponte_t",instance_id())+"",24,88,"Neji",30142,1,"ponte_t1instance::OnTinta1Die";
+			monster ""+instance_mapname("1@ponte_t",instance_id())+"",195,171,"Sai",30142,1,"ponte_t1instance::OnTinta1Die";
 		}
 		end;
 	

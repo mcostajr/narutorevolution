@@ -110,7 +110,7 @@ OnInit:
 // Shop number corresponds with order above (default is 1).
 // Note: Do NOT use a reward item more than once!
 	
-	Add(1,8110,1,1000000,0,9032,100,1015,100,9075,100);
+	Add(1,8110,1,1000000,0,10032,100,10015,100,10075,100);
 	
 	// --------------------------------------------------
 	for(set .@i,1; .@i<=getarraysize(.SetsDeidara$); set .@i,.@i+1)

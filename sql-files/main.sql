@@ -123,6 +123,7 @@ CREATE TABLE `pvpm_data` (
 `name` varchar(255) NOT NULL default '',
 `kills` int(11) unsigned NOT NULL default '0',
 `dies` int(11) unsigned NOT NULL default '0',
+`ratio` int(11) unsigned NOT NULL default '0',
 `leader` int(11) unsigned NOT NULL default '0',
 `annc` int(11) unsigned NOT NULL default '0',
 `ban` int(11) unsigned NOT NULL default '0',
@@ -131,11 +132,6 @@ KEY `id` (`id`),
 KEY `kills` (`kills`),
 KEY `dies` (`dies`)
 ) ENGINE=MyISAM;
-
---
--- Table update (v1.1.1+):
---
-alter table pvpm_data add ratio int(11) not null default '0' after dies
 
 --
 -- Table structure for table `acc_reg_num`

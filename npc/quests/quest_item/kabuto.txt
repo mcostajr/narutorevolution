@@ -1,4 +1,4 @@
-otogakure,196,29,4	script	Kabuto	84,{
+otogakure,196,29,8	script	Kabuto	84,{
 function Add; function Chk; function Slot; function A_An;
 	
 
@@ -110,7 +110,7 @@ OnInit:
 // Shop number corresponds with order above (default is 1).
 // Note: Do NOT use a reward item more than once!
 	
-	Add(1,8116,1,1000000,0,947,150,9080,100,7974,120);
+	Add(1,8116,1,1000000,0,947,150,10080,100,7974,120);
 	
 	// --------------------------------------------------
 	for(set .@i,1; .@i<=getarraysize(.SetsKabuto$); set .@i,.@i+1)

@@ -110,7 +110,7 @@ OnInit:
 // Shop number corresponds with order above (default is 1).
 // Note: Do NOT use a reward item more than once!
 	
-	Add(1,1513,1,1000000,0,1505,1,9099,70,9043,70,9055,70,9062,70,9086,70);
+	Add(1,1513,1,1000000,0,1505,1,10099,70,10043,70,10055,70,10062,70,10086,70);
 	
 	// --------------------------------------------------
 	for(set .@i,1; .@i<=getarraysize(.SetsHAGOROMO$); set .@i,.@i+1)

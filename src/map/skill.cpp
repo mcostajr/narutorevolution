@@ -5187,7 +5187,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case NPC_DARKTHUNDER:
 	case PR_ASPERSIO:
 	case WZ_SIGHTBLASTER:
-	case WZ_SIGHTRASHER:
 	case NJ_KOUENKA:
 	case NJ_HYOUSENSOU:
 	case NJ_HUUJIN:
@@ -5210,6 +5209,8 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case MH_SILENT_BREEZE:
 	case GS_FULLBUSTER:
 	case WL_SOULEXPANSION:
+	// Katon
+	case WZ_SIGHTRASHER:
 	// Medicina
 	case AL_HEAL:
 		skill_attack(BF_MAGIC,src,src,bl,skill_id,skill_lv,tick,flag);
@@ -6144,12 +6145,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case SO_STRIKING:
 	case PR_LEXAETERNA:
 	case BS_OVERTHRUST:
-	/* Uchiha */
-	case UH_MANGEKYOU1:
-	case UH_MANGEKYOU2:
-	case UH_MANGEKYOU3:
-	/* Hyuuga */
-	case BY_BYAKUGAN:
 	/* Portões */
 	case PT_1PORTAO:
 	/* Akimichi */
@@ -6182,6 +6177,10 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case SN_WINDWALK:
 	/* Fuuinjutsu */
 	case AC_CONCENTRATION:
+	/* Uchiha */
+	case UH_SHARINGAN:
+	/* Hyuuga */
+	case BY_BYAKUGAN:
 		if (tsce) {
 			clif_skill_nodamage(src, bl, skill_id, -1, status_change_end(bl, type, INVALID_TIMER));
 			map_freeblock_unlock();
@@ -7267,6 +7266,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			skill_get_splash(skill_id, skill_lv),BL_CHAR|BL_SKILL,
 			src,skill_id,skill_lv,tick, flag|BCT_ENEMY|SD_ANIMATION|1,
 			skill_castend_damage_id);
+		clif_specialeffect(&sd->bl, EF_NO100_FIRECRACKER, AREA);
 		break;
 
 	case SUI_HARANBASHOU:
@@ -15329,7 +15329,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 		case RK_DRAGONBREATH:
 		case UH_DIMENSION:
 		case KO_KYOUGAKU:
-			if (!(sc && sc->data[SC_ATIVAR_MANGEKYOU]))
+			if (!(sc && sc->data[SC_SHARINGAN]))
 				return false;
 			break;
 
@@ -17104,7 +17104,7 @@ int skill_delayfix(struct block_list *bl, uint16 skill_id, uint16 skill_lv)
 			//If delay not specified, it will be 1000 - 4*agi - 2*dex
 			if (time == 0)
 				time = 1000;
-			time -= (4 * status_get_agi(bl) + 2 * status_get_dex(bl));
+			time -= (4 * status_get_dex(bl) + 2 * status_get_agi(bl));
 			break;
 		case HP_BASILICA:
 			if (sc && !sc->data[SC_BASILICA])

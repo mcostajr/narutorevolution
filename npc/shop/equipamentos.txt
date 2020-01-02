@@ -2,10 +2,10 @@ ama_in01,26,30,4	shop	Armas Basica#1::armabasic		446,1102:-1,1103:-1,1104:-1,110
 ama_in01,23,30,4	shop	Armas Magica#1::armacamagic		445,1500:-1,1501:-1,1502:-1,1503:-1,1504:-1
 ama_in01,27,26,4	shop	Armas Longa#1::armalong		447,1600:-1,1601:-1,1602:-1,1603:-1,1604:-1
 ama_in01,20,26,4	shop	Suprimentos#1::surpimento		447,687:-1,611:-1,528:-1,1025:-1
-konoha3,209,165,3	shop	Loja de Ramen#1::ramen		118,9000:-1,9001:-1,9002:-1,9003:-1,9004:-1
+konoha3,209,165,3	shop	Loja de Ramen#1::ramen		118,10000:-1,10001:-1,10002:-1,10003:-1,10004:-1
 ama_in01,16,24,4	shop	Loja de Escudo#1::escudo		447,2109:-1,2110:-1,2111:-1,2106:-1,2112:-1,2113:-1
 
-prtbar,36,17,4	shop	Loja Vip		118,9120:-1,9121:-1,9122:-1,9123:-1,9124:-1,687:-1,611:-1,528:-1
+prtbar,36,17,4	shop	Loja Vip		118,10120:-1,10121:-1,10122:-1,10123:-1,10124:-1,687:-1,611:-1,528:-1
 
 ama_in01,171,132,4	duplicate(armabasic)	Armas Basica#2	446
 ama_in01,174,132,4	duplicate(armacamagic)	Armas Magica#2	445

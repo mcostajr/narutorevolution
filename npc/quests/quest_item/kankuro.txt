@@ -110,7 +110,7 @@ OnInit:
 // Shop number corresponds with order above (default is 1).
 // Note: Do NOT use a reward item more than once!
 
-	Add(1,8118,1,1000000,0,9035,100,7111,100,975,100);
+	Add(1,8118,1,1000000,0,10035,100,7111,100,975,100);
 	
 	// --------------------------------------------------
 	for(set .@i,1; .@i<=getarraysize(.SetsKankuro$); set .@i,.@i+1)

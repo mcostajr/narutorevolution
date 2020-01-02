@@ -125,7 +125,7 @@
 616,Old_Card_Album,Velho Álbum de Cartas,2,10000,,50,,,,0,0xFFFFFFFF,63,2,,,,,,{},{},{}
 617,Old_Violet_Box,Velha Caixa Roxa,2,10000,,200,,,,0,0xFFFFFFFF,63,2,,,,,,{},{},{}
 618,Worn_Out_Scroll,Pergaminho Desgastado,2,50,,20,,,,0,0xFFFFFFFF,63,2,,,,,,{},{},{}
-619,Unripe_Apple,Maçã Verde,2,1000,,50,,,,0,0xFFFFFFFF,63,2,,,,,,{},{},{}
+619,Unripe_Apple,Maçã Verde,2,1000,,50,,,,0,0xFFFFFFFF,63,2,,,,,,{ pet 1002; },{},{}
 620,Orange_Juice,Suco de Laranja,2,1500,,50,,,,0,0xFFFFFFFF,63,2,,,,,,{},{},{}
 621,Bitter_Herb,Erva Amarga,2,20,,50,,,,0,0xFFFFFFFF,63,2,,,,,,{},{},{}
 622,Rainbow_Carrot,Cenoura Arco-Íris,2,2500,,50,,,,0,0xFFFFFFFF,63,2,,,,,,{},{},{}
@@ -149,7 +149,7 @@
 640,Shining_Stone,Pedra Brilhante,2,3000,,50,,,,0,0xFFFFFFFF,63,2,,,,,,{},{},{}
 641,Contracts_In_Shadow,Contratos das Sombras,2,100,,50,,,,0,0xFFFFFFFF,63,2,,,,,,{},{},{}
 642,Book_Of_Devil,Livro do Diabo,2,1800,,50,,,,0,0xFFFFFFFF,63,2,,,,,,{},{},{}
-643,Pet_Incubator,Incubadora,2,3000,,30,,,,0,0xFFFFFFFF,63,2,,,,,,{},{},{}
+643,Pet_Incubator,Incubadora,2,3000,,30,,,,0,0xFFFFFFFF,63,2,,,,,,{ bpet; },{},{}
 644,Gift_Box,Caixa de Presente,2,1000,,200,,,,0,0xFFFFFFFF,63,2,,,,,,{},{},{}
 //ASPD in RE they give a fixed +4/+6/+9 ASPD
 645,Center_Potion,Poção da Concentração,2,800,,100,,,,0,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_ASPDPOTION0,1800000,4; },{},{}
@@ -1781,55 +1781,55 @@
 7998,Spring_Stanza21,Cartão Chinês 21,3,2,,10,,,,,,,,,,,,,{},{},{}
 7999,Spring_Stanza22,Cartão Chinês 22,3,2,,10,,,,,,,,,,,,,{},{},{}
 
-9000,Lamen_de_Lombo,Lamen de Lombo,0,500,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 500,0; },{},{}
-9001,Lamen_de_Porco,Lamen de Porco,0,1000,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 1500,0; },{},{}
-9002,Lamen_de_Carne,Lamen de Carne,0,3000,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 5000,0; },{},{}
-9003,Lamen_Low_Carb,Lamen Low Carb,0,10000,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 10000,0; },{},{}
-9004,Lamen_Ichiranku,Lamen Ichiraku,0,500000,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ percentheal 50,0; },{},{}
+10000,Lamen_de_Lombo,Lamen de Lombo,0,500,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 500,0; },{},{}
+10001,Lamen_de_Porco,Lamen de Porco,0,1000,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 1500,0; },{},{}
+10002,Lamen_de_Carne,Lamen de Carne,0,3000,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 5000,0; },{},{}
+10003,Lamen_Low_Carb,Lamen Low Carb,0,10000,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 10000,0; },{},{}
+10004,Lamen_Ichiranku,Lamen Ichiraku,0,500000,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ percentheal 50,0; },{},{}
 
-9005,Pilulas_Basica,Pílulas Basica,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
-9006,Pilulas_Intermediaria,Pílulas Intermediaria,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ percentheal 0,30; },{},{}
-9007,Pilulas_Avançada,Pílulas Avançada,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ percentheal 0,80; },{},{}
+10005,Pilulas_Basica,Pílulas Basica,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+10006,Pilulas_Intermediaria,Pílulas Intermediaria,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ percentheal 0,30; },{},{}
+10007,Pilulas_Avançada,Pílulas Avançada,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ percentheal 0,80; },{},{}
 
-9008,Pilula_Curry,Pílula Curry,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
-9009,Pilula_Espinafre,Pílula Espinafre,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
-9010,Pilula_Pimenta,Pílula Pimenta,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+10008,Pilula_Curry,Pílula Curry,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+10009,Pilula_Espinafre,Pílula Espinafre,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+10010,Pilula_Pimenta,Pílula Pimenta,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
 
-9011,Fragmento_Magatama_A,Fragmento Magatama A,3,0,,0,,,,,,,,,,,,,{},{},{}
-9012,Fragmento_Magatama_S,Fragmento Magatama S,3,0,,0,,,,,,,,,,,,,{},{},{}
-9013,Fragmento_Magatama_SS,Fragmento Magatama SS,3,0,,0,,,,,,,,,,,,,{},{},{}
+10011,Fragmento_Magatama_A,Fragmento Magatama A,3,0,,0,,,,,,,,,,,,,{},{},{}
+10012,Fragmento_Magatama_S,Fragmento Magatama S,3,0,,0,,,,,,,,,,,,,{},{},{}
+10013,Fragmento_Magatama_SS,Fragmento Magatama SS,3,0,,0,,,,,,,,,,,,,{},{},{}
 
-9014,Caixa_de_Missão,Caixa de Missão,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_GiftBox,1); },{},{}
-9015,Caixa_de_Ramen,Caixa de Ramen,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_CardAlbum,1); },{},{}
-9016,Caixa_de_Pílula,Caixa de Pílula,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_VioletBox,1); },{},{}
-9017,Caixa_Misteriosa,Caixa Misteriosa,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_SCROLLBOX,1); },{},{}
-9018,Caixa_de_Magatama_Rank_D,Caixa de Magatama Rank D,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_BlueBox,1); },{},{}
-9019,Goma_de_Mascar2,Goma de Mascar,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_ITEMBOOST,1800000,125; },{},{}
-9112,Sacola_de_Zeny,Sacola_de_Zeny,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ Zeny += 100000; dispbottom "100,000 Zeny Adiquirido"; },{},{}
-9113,Sacola_de_Zeny2,Sacola_de_Zeny,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ Zeny += 3000000; dispbottom "3.000,000 Zeny Adiquirido"; },{},{}
+10014,Caixa_de_Missão,Caixa de Missão,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_GiftBox,1); },{},{}
+10015,Caixa_de_Ramen,Caixa de Ramen,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_CardAlbum,1); },{},{}
+10016,Caixa_de_Pílula,Caixa de Pílula,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_VioletBox,1); },{},{}
+10017,Caixa_Misteriosa,Caixa Misteriosa,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_SCROLLBOX,1); },{},{}
+10018,Caixa_de_Magatama_Rank_D,Caixa de Magatama Rank D,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_BlueBox,1); },{},{}
+10019,Goma_de_Mascar2,Goma de Mascar,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_ITEMBOOST,1800000,125; },{},{}
+10112,Sacola_de_Zeny,Sacola_de_Zeny,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ Zeny += 100000; dispbottom "100,000 Zeny Adiquirido"; },{},{}
+10113,Sacola_de_Zeny2,Sacola_de_Zeny,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ Zeny += 3000000; dispbottom "3.000,000 Zeny Adiquirido"; },{},{}
 
-9101,Caixa_de_Pedra_Enriquecida,Caixa de Pedra Enriquecida,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_COOKIEBAG,1); },{},{}
-9102,Caixa_de_Mega_Pedra,Caixa de Mega Pedra,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_FIRSTAID,1); },{},{}
+10101,Caixa_de_Pedra_Enriquecida,Caixa de Pedra Enriquecida,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_COOKIEBAG,1); },{},{}
+10102,Caixa_de_Mega_Pedra,Caixa de Mega Pedra,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_FIRSTAID,1); },{},{}
 
-9103,Ticket_de_Eventos,Ticket de Eventos,3,2,,10,,,,,,,,,,,,,{},{},{}
+10103,Ticket_de_Eventos,Ticket de Eventos,3,2,,10,,,,,,,,,,,,,{},{},{}
 
 //===================================================================
 // Cash Shop Items
 //===================================================================
-9120,Lamen_de_Lombo[VIP],Lamen de Lombo[VIP],0,250,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ if(vip_status(1)) { heal 500,0; } else { dispbottom "Apenas jogadores premium podem usar esse item."; } },{},{}
-9121,Lamen_de_Porco[VIP],Lamen de Porco[VIP],0,500,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ if(vip_status(1)) { heal 1500,0; } else { dispbottom "Apenas jogadores premium podem usar esse item."; } },{},{}
-9122,Lamen_de_Carne[VIP],Lamen de Carne[VIP],0,1500,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ if(vip_status(1)) { heal 5000,0; } else { dispbottom "Apenas jogadores premium podem usar esse item."; } },{},{}
-9123,Lamen_Low_Carb[VIP],Lamen Low Carb[VIP],0,5000,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ if(vip_status(1)) { heal 10000,0; } else { dispbottom "Apenas jogadores premium podem usar esse item."; } },{},{}
-9124,Lamen_Ichiranku[VIP],Lamen Ichiraku[VIP],0,250000,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ if(vip_status(1)) { percentheal 50,0; } else { dispbottom "Apenas jogadores premium podem usar esse item."; } },{},{}
+10120,Lamen_de_Lombo[VIP],Lamen de Lombo[VIP],0,250,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ if(vip_status(1)) { heal 500,0; } else { dispbottom "Apenas jogadores premium podem usar esse item."; } },{},{}
+10121,Lamen_de_Porco[VIP],Lamen de Porco[VIP],0,500,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ if(vip_status(1)) { heal 1500,0; } else { dispbottom "Apenas jogadores premium podem usar esse item."; } },{},{}
+10122,Lamen_de_Carne[VIP],Lamen de Carne[VIP],0,1500,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ if(vip_status(1)) { heal 5000,0; } else { dispbottom "Apenas jogadores premium podem usar esse item."; } },{},{}
+10123,Lamen_Low_Carb[VIP],Lamen Low Carb[VIP],0,5000,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ if(vip_status(1)) { heal 10000,0; } else { dispbottom "Apenas jogadores premium podem usar esse item."; } },{},{}
+10124,Lamen_Ichiranku[VIP],Lamen Ichiraku[VIP],0,250000,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ if(vip_status(1)) { percentheal 50,0; } else { dispbottom "Apenas jogadores premium podem usar esse item."; } },{},{}
 
-9104,Cash_10,Cash 1,2,1,,1,,,,,0xFFFFFFFF,63,2,,,,,,{ set #CASHPOINTS, #CASHPOINTS+10; dispbottom "Gained 10 Cash Points.Total "+#CASHPOINTS+" Points."; },{},{}
-9105,Cash_100,Cash 10,2,1,,1,,,,,0xFFFFFFFF,63,2,,,,,,{ set #CASHPOINTS, #CASHPOINTS+100; dispbottom "Gained 100 Cash Points.Total "+#CASHPOINTS+" Points."; },{},{}
-9106,Vip_7,Vip_7,18,1,,1,,,,,0xFFFFFFFF,63,2,,,,,,{ atcommand "@vip +7d "+strcharinfo(0)+""; },{},{}
-9107,Vip_15,Vip 15,18,1,,1,,,,,0xFFFFFFFF,63,2,,,,,,{ atcommand "@vip +15d "+strcharinfo(0)+" "; },{},{}
-9108,Vip_30,Vip 30,18,1,,1,,,,,0xFFFFFFFF,63,2,,,,,,{ atcommand "@vip +30d "+strcharinfo(0)+" "; },{},{}
-9109,Alvará_de_Guild,Alvará de Guild,3,2,,10,,,,,,,,,,,,,{},{},{}
-9110,Troca_de_Hiden,Troca de Hiden,3,2,,10,,,,,,,,,,,,,{},{},{}
-9111,Troca_de_Treino,Troca de Treino,3,2,,10,,,,,,,,,,,,,{},{},{}
+10104,Cash_10,Cash 1,2,1,,1,,,,,0xFFFFFFFF,63,2,,,,,,{ set #CASHPOINTS, #CASHPOINTS+10; dispbottom "Gained 10 Cash Points.Total "+#CASHPOINTS+" Points."; },{},{}
+10105,Cash_100,Cash 10,2,1,,1,,,,,0xFFFFFFFF,63,2,,,,,,{ set #CASHPOINTS, #CASHPOINTS+100; dispbottom "Gained 100 Cash Points.Total "+#CASHPOINTS+" Points."; },{},{}
+10106,Vip_7,Vip_7,18,1,,1,,,,,0xFFFFFFFF,63,2,,,,,,{ atcommand "@vip +7d "+strcharinfo(0)+""; },{},{}
+10107,Vip_15,Vip 15,18,1,,1,,,,,0xFFFFFFFF,63,2,,,,,,{ atcommand "@vip +15d "+strcharinfo(0)+" "; },{},{}
+10108,Vip_30,Vip 30,18,1,,1,,,,,0xFFFFFFFF,63,2,,,,,,{ atcommand "@vip +30d "+strcharinfo(0)+" "; },{},{}
+10109,Alvará_de_Guild,Alvará de Guild,3,2,,10,,,,,,,,,,,,,{},{},{}
+10110,Troca_de_Hiden,Troca de Hiden,3,2,,10,,,,,,,,,,,,,{},{},{}
+10111,Troca_de_Treino,Troca de Treino,3,2,,10,,,,,,,,,,,,,{},{},{}
 
 //===================================================================
 // Cash Shop Usable Items
@@ -1840,87 +1840,87 @@
 12214,Espelho_Convexo,Espelho Convexo,2,2,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_BOSSMAPINFO,600000,0; },{},{}
 12221,Megaphone_,Megaphone,2,2,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ input .@megaphone$; announce strcharinfo(0) + ": " + .@megaphone$,bc_all,0xFF0000; },{},{}
 
-9020,Arame_Gasto,Arame Gasto,3,2,,10,,,,,,,,,,,,,{},{},{}
-9021,Arco_Kumo_Nenkin,Arco Kumo Nenkin,3,2,,10,,,,,,,,,,,,,{},{},{}
-9022,Armadura_Incompleta,Armadura Incompleta,3,2,,10,,,,,,,,,,,,,{},{},{}
-9023,Armadura_Suiton_Danificada,Armadura Suiton Danificada,3,2,,10,,,,,,,,,,,,,{},{},{}
-9024,Armadura_Uchiha_Destruida,Armadura Uchiha Destruida,3,2,,10,,,,,,,,,,,,,{},{},{}
-9025,Armor_Samurai,Armor Samurai,3,2,,10,,,,,,,,,,,,,{},{},{}
-9026,Bainha_Darui,Bainha Darui,3,2,,10,,,,,,,,,,,,,{},{},{}
-9027,Bainha_Kusanagi,Bainha Kusanagi,3,2,,10,,,,,,,,,,,,,{},{},{}
-9028,Bandagem_de_Luta,Bandagem de Luta,3,2,,10,,,,,,,,,,,,,{},{},{}
-9029,Bandana_Neji,Bandana Neji,3,2,,10,,,,,,,,,,,,,{},{},{}
-9030,Barra_de_Chumbo,Barra de Chumbo,3,2,,10,,,,,,,,,,,,,{},{},{}
-9031,Batatinhas,Batatinhas,3,2,,10,,,,,,,,,,,,,{},{},{}
-9032,Binoculo,Binoculo,3,2,,10,,,,,,,,,,,,,{},{},{}
-9033,Bracadeira_Som,Bracadeira Som,3,2,,10,,,,,,,,,,,,,{},{},{}
-9034,Chakra_Corrompido,Chakra Corrompido,3,2,,10,,,,,,,,,,,,,{},{},{}
-9035,Chakra_Cristalizado,Chakra Cristalizado,3,2,,10,,,,,,,,,,,,,{},{},{}
-9036,Chakra_de_Cura,Chakra de Cura,3,2,,10,,,,,,,,,,,,,{},{},{}
-9037,Chakra_Kyuubi,Chakra Kyuubi,3,2,,10,,,,,,,,,,,,,{},{},{}
-9038,Chakra_Leão,Chakra Leão,3,2,,10,,,,,,,,,,,,,{},{},{}
-9039,Cinturão,Cinturão,3,2,,10,,,,,,,,,,,,,{},{},{}
-9040,Colar_Sakon,Colar Sakon,3,2,,10,,,,,,,,,,,,,{},{},{}
-9041,Contrato_Enma,Contrato Enma,3,2,,10,,,,,,,,,,,,,{},{},{}
-9042,Dentes_Ninken,Dentes Ninken,3,2,,10,,,,,,,,,,,,,{},{},{}
-9043,Doton_Concentrado,Doton Concentrado,3,2,,10,,,,,,,,,,,,,{},{},{}
-9044,Elmo_Hiruzen_Danificado,Elmo Hiruzen Danificado,3,2,,10,,,,,,,,,,,,,{},{},{}
-9045,Elmo_Samurai,Elmo Samurai,3,2,,10,,,,,,,,,,,,,{},{},{}
-9046,Escama_Shukaku,Escama Shukaku,3,2,,10,,,,,,,,,,,,,{},{},{}
-9047,Faixa_Hiruzen,Faixa Hiruzen,3,2,,10,,,,,,,,,,,,,{},{},{}
-9048,Ficha_de_Aposta,Ficha de Aposta,3,2,,10,,,,,,,,,,,,,{},{},{}
-9049,Flauta_Genjutsu,Flauta Genjutsu,3,2,,10,,,,,,,,,,,,,{},{},{}
-9050,Flecha_Kumo_Nenkin,Flecha Kumo Nenkin,3,2,,10,,,,,,,,,,,,,{},{},{}
-9051,Foice_Quebrada,Foice Quebrada,3,2,,10,,,,,,,,,,,,,{},{},{}
-9052,Fragmento_Akatsuki,Fragmento Akatsuki,3,2,,10,,,,,,,,,,,,,{},{},{}
-9053,Fragmento_Chakra_Kyuubi,Fragmento Chakra Kyuubi,3,2,,10,,,,,,,,,,,,,{},{},{}
-9054,Fragmento_de_Musica,Fragmento de Musica,3,2,,10,,,,,,,,,,,,,{},{},{}
-9055,Fuuton_Concentrado,Fuuton Concentrado,3,2,,10,,,,,,,,,,,,,{},{},{}
-9056,Garra_Niken,Garra Niken,3,2,,10,,,,,,,,,,,,,{},{},{}
-9057,Garra_Ninja,Garra Ninja,3,2,,10,,,,,,,,,,,,,{},{},{}
-9058,Gudoudama,Gudoudama,3,2,,10,,,,,,,,,,,,,{},{},{}
-9059,Halteres,Halteres,3,2,,10,,,,,,,,,,,,,{},{},{}
-9060,Haste_de_Lança,Haste de Lança,3,2,,10,,,,,,,,,,,,,{},{},{}
-9061,Isqueiro_Asuma,Isqueiro Asuma,3,2,,10,,,,,,,,,,,,,{},{},{}
-9062,Katon_Concentrado,Katon Concentrado,3,2,,10,,,,,,,,,,,,,{},{},{}
-9063,Kikaichu_Morto,Kikaichu Morto,3,2,,10,,,,,,,,,,,,,{},{},{}
-9064,Kunai_Danificada,Kunai Danificada,3,2,,10,,,,,,,,,,,,,{},{},{}
-9065,Lamina_Quebrada,Lamina Quebrada,3,2,,10,,,,,,,,,,,,,{},{},{}
-9066,Lança_de_Ossos,Lança de Ossos,3,2,,10,,,,,,,,,,,,,{},{},{}
-9067,Luvas_Danificadas,Luvas Danificadas,3,2,,10,,,,,,,,,,,,,{},{},{}
-9068,Luvas_Medicas_Danificadas,Luvas Medicas Danificadas,3,2,,10,,,,,,,,,,,,,{},{},{}
-9069,Manto_Danificado_do_Yondaime,Manto Danificado do Yondaime,3,2,,10,,,,,,,,,,,,,{},{},{}
-9070,Mascara_Anbu_Danificada,Mascara Anbu Danificada,3,2,,10,,,,,,,,,,,,,{},{},{}
-9071,Mecha_de_Cabelo,Mecha de Cabelo,3,2,,10,,,,,,,,,,,,,{},{},{}
-9072,Oculos_Naruto,Oculos Naruto,3,2,,10,,,,,,,,,,,,,{},{},{}
-9073,Oculos_Quebrado,Oculos Quebrado,3,2,,10,,,,,,,,,,,,,{},{},{}
-9074,Oculos_Shino,Oculos Shino,3,2,,10,,,,,,,,,,,,,{},{},{}
-9075,Olho_Falso,Olho Falso,3,2,,10,,,,,,,,,,,,,{},{},{}
-9076,Ombreira_Samurai,Ombreira Samurai,3,2,,10,,,,,,,,,,,,,{},{},{}
-9077,Osso_Kimimaro,Osso Kimimaru,3,2,,10,,,,,,,,,,,,,{},{},{}
-9078,Papel_Explosivo_Falso,Papel Explosivo Falso,3,2,,10,,,,,,,,,,,,,{},{},{}
-9079,Pedaço_Camisa_Shikamaru,Pedaço Camisa Shikamaru,3,2,,10,,,,,,,,,,,,,{},{},{}
-9080,Pena_Genjutsu,Pena Genjutsu,3,2,,10,,,,,,,,,,,,,{},{},{}
-9081,Pergaminho_de_Armas,Pergaminho de Armas,3,2,,10,,,,,,,,,,,,,{},{},{}
-9082,Pergaminho_Rasgado,Pergaminho Rasgado,3,2,,10,,,,,,,,,,,,,{},{},{}
-9083,Pesos_para_Braços,Pesos para Braços,3,2,,10,,,,,,,,,,,,,{},{},{}
-9084,Pincel,Pincel,3,2,,10,,,,,,,,,,,,,{},{},{}
-9085,Raio_Negro_Concentrado,Raio Negro Concentrado,3,2,,10,,,,,,,,,,,,,{},{},{}
-9086,Raiton_Concentrado,Raiton Concentrado,3,2,,10,,,,,,,,,,,,,{},{},{}
-9087,Receita_Pilula_Amarela,Receita Pilula Amarela,3,2,,10,,,,,,,,,,,,,{},{},{}
-9088,Receita_Pilula_Verde,Receita Pilula Verde,3,2,,10,,,,,,,,,,,,,{},{},{}
-9089,Receita_Pilula_Vermelha,Receita Pilula Vermelha,3,2,,10,,,,,,,,,,,,,{},{},{}
-9090,Restos_de_Cobra,Restos de Cobra,3,2,,10,,,,,,,,,,,,,{},{},{}
-9091,Roupa_Rasgada,Roupa Rasgada,3,2,,10,,,,,,,,,,,,,{},{},{}
-9092,Saia_Neji,Saia Neji,3,2,,10,,,,,,,,,,,,,{},{},{}
-9093,Simbolo_País_Fogo,Simbolo País Fogo,3,2,,10,,,,,,,,,,,,,{},{},{}
-9094,Simbolo_País_Terra,Simbolo País Terra,3,2,,10,,,,,,,,,,,,,{},{},{}
-9095,Simbolo_Uchiha,Simbolo Uchiha,3,2,,10,,,,,,,,,,,,,{},{},{}
-9096,Simbolo_Uzumaki,Simbolo Uzumaki,3,2,,10,,,,,,,,,,,,,{},{},{}
-9097,Sinos2,Sinos,3,2,,10,,,,,,,,,,,,,{},{},{}
-9098,Soqueiras_Gastas,Soqueiras Gastas,3,2,,10,,,,,,,,,,,,,{},{},{}
-9099,Suiton_Concentrado,Suiton Concentrado,3,2,,10,,,,,,,,,,,,,{},{},{}
-9100,Tecido_Som,Tecido Som,3,2,,10,,,,,,,,,,,,,{},{},{}
+10020,Arame_Gasto,Arame Gasto,3,2,,10,,,,,,,,,,,,,{},{},{}
+10021,Arco_Kumo_Nenkin,Arco Kumo Nenkin,3,2,,10,,,,,,,,,,,,,{},{},{}
+10022,Armadura_Incompleta,Armadura Incompleta,3,2,,10,,,,,,,,,,,,,{},{},{}
+10023,Armadura_Suiton_Danificada,Armadura Suiton Danificada,3,2,,10,,,,,,,,,,,,,{},{},{}
+10024,Armadura_Uchiha_Destruida,Armadura Uchiha Destruida,3,2,,10,,,,,,,,,,,,,{},{},{}
+10025,Armor_Samurai,Armor Samurai,3,2,,10,,,,,,,,,,,,,{},{},{}
+10026,Bainha_Darui,Bainha Darui,3,2,,10,,,,,,,,,,,,,{},{},{}
+10027,Bainha_Kusanagi,Bainha Kusanagi,3,2,,10,,,,,,,,,,,,,{},{},{}
+10028,Bandagem_de_Luta,Bandagem de Luta,3,2,,10,,,,,,,,,,,,,{},{},{}
+10029,Bandana_Neji,Bandana Neji,3,2,,10,,,,,,,,,,,,,{},{},{}
+10030,Barra_de_Chumbo,Barra de Chumbo,3,2,,10,,,,,,,,,,,,,{},{},{}
+10031,Batatinhas,Batatinhas,3,2,,10,,,,,,,,,,,,,{},{},{}
+10032,Binoculo,Binoculo,3,2,,10,,,,,,,,,,,,,{},{},{}
+10033,Bracadeira_Som,Bracadeira Som,3,2,,10,,,,,,,,,,,,,{},{},{}
+10034,Chakra_Corrompido,Chakra Corrompido,3,2,,10,,,,,,,,,,,,,{},{},{}
+10035,Chakra_Cristalizado,Chakra Cristalizado,3,2,,10,,,,,,,,,,,,,{},{},{}
+10036,Chakra_de_Cura,Chakra de Cura,3,2,,10,,,,,,,,,,,,,{},{},{}
+10037,Chakra_Kyuubi,Chakra Kyuubi,3,2,,10,,,,,,,,,,,,,{},{},{}
+10038,Chakra_Leão,Chakra Leão,3,2,,10,,,,,,,,,,,,,{},{},{}
+10039,Cinturão,Cinturão,3,2,,10,,,,,,,,,,,,,{},{},{}
+10040,Colar_Sakon,Colar Sakon,3,2,,10,,,,,,,,,,,,,{},{},{}
+10041,Contrato_Enma,Contrato Enma,3,2,,10,,,,,,,,,,,,,{},{},{}
+10042,Dentes_Ninken,Dentes Ninken,3,2,,10,,,,,,,,,,,,,{},{},{}
+10043,Doton_Concentrado,Doton Concentrado,3,2,,10,,,,,,,,,,,,,{},{},{}
+10044,Elmo_Hiruzen_Danificado,Elmo Hiruzen Danificado,3,2,,10,,,,,,,,,,,,,{},{},{}
+10045,Elmo_Samurai,Elmo Samurai,3,2,,10,,,,,,,,,,,,,{},{},{}
+10046,Escama_Shukaku,Escama Shukaku,3,2,,10,,,,,,,,,,,,,{},{},{}
+10047,Faixa_Hiruzen,Faixa Hiruzen,3,2,,10,,,,,,,,,,,,,{},{},{}
+10048,Ficha_de_Aposta,Ficha de Aposta,3,2,,10,,,,,,,,,,,,,{},{},{}
+10049,Flauta_Genjutsu,Flauta Genjutsu,3,2,,10,,,,,,,,,,,,,{},{},{}
+10050,Flecha_Kumo_Nenkin,Flecha Kumo Nenkin,3,2,,10,,,,,,,,,,,,,{},{},{}
+10051,Foice_Quebrada,Foice Quebrada,3,2,,10,,,,,,,,,,,,,{},{},{}
+10052,Fragmento_Akatsuki,Fragmento Akatsuki,3,2,,10,,,,,,,,,,,,,{},{},{}
+10053,Fragmento_Chakra_Kyuubi,Fragmento Chakra Kyuubi,3,2,,10,,,,,,,,,,,,,{},{},{}
+10054,Fragmento_de_Musica,Fragmento de Musica,3,2,,10,,,,,,,,,,,,,{},{},{}
+10055,Fuuton_Concentrado,Fuuton Concentrado,3,2,,10,,,,,,,,,,,,,{},{},{}
+10056,Garra_Niken,Garra Niken,3,2,,10,,,,,,,,,,,,,{},{},{}
+10057,Garra_Ninja,Garra Ninja,3,2,,10,,,,,,,,,,,,,{},{},{}
+10058,Gudoudama,Gudoudama,3,2,,10,,,,,,,,,,,,,{},{},{}
+10059,Halteres,Halteres,3,2,,10,,,,,,,,,,,,,{},{},{}
+10060,Haste_de_Lança,Haste de Lança,3,2,,10,,,,,,,,,,,,,{},{},{}
+10061,Isqueiro_Asuma,Isqueiro Asuma,3,2,,10,,,,,,,,,,,,,{},{},{}
+10062,Katon_Concentrado,Katon Concentrado,3,2,,10,,,,,,,,,,,,,{},{},{}
+10063,Kikaichu_Morto,Kikaichu Morto,3,2,,10,,,,,,,,,,,,,{},{},{}
+10064,Kunai_Danificada,Kunai Danificada,3,2,,10,,,,,,,,,,,,,{},{},{}
+10065,Lamina_Quebrada,Lamina Quebrada,3,2,,10,,,,,,,,,,,,,{},{},{}
+10066,Lança_de_Ossos,Lança de Ossos,3,2,,10,,,,,,,,,,,,,{},{},{}
+10067,Luvas_Danificadas,Luvas Danificadas,3,2,,10,,,,,,,,,,,,,{},{},{}
+10068,Luvas_Medicas_Danificadas,Luvas Medicas Danificadas,3,2,,10,,,,,,,,,,,,,{},{},{}
+10069,Manto_Danificado_do_Yondaime,Manto Danificado do Yondaime,3,2,,10,,,,,,,,,,,,,{},{},{}
+10070,Mascara_Anbu_Danificada,Mascara Anbu Danificada,3,2,,10,,,,,,,,,,,,,{},{},{}
+10071,Mecha_de_Cabelo,Mecha de Cabelo,3,2,,10,,,,,,,,,,,,,{},{},{}
+10072,Oculos_Naruto,Oculos Naruto,3,2,,10,,,,,,,,,,,,,{},{},{}
+10073,Oculos_Quebrado,Oculos Quebrado,3,2,,10,,,,,,,,,,,,,{},{},{}
+10074,Oculos_Shino,Oculos Shino,3,2,,10,,,,,,,,,,,,,{},{},{}
+10075,Olho_Falso,Olho Falso,3,2,,10,,,,,,,,,,,,,{},{},{}
+10076,Ombreira_Samurai,Ombreira Samurai,3,2,,10,,,,,,,,,,,,,{},{},{}
+10077,Osso_Kimimaro,Osso Kimimaru,3,2,,10,,,,,,,,,,,,,{},{},{}
+10078,Papel_Explosivo_Falso,Papel Explosivo Falso,3,2,,10,,,,,,,,,,,,,{},{},{}
+10079,Pedaço_Camisa_Shikamaru,Pedaço Camisa Shikamaru,3,2,,10,,,,,,,,,,,,,{},{},{}
+10080,Pena_Genjutsu,Pena Genjutsu,3,2,,10,,,,,,,,,,,,,{},{},{}
+10081,Pergaminho_de_Armas,Pergaminho de Armas,3,2,,10,,,,,,,,,,,,,{},{},{}
+10082,Pergaminho_Rasgado,Pergaminho Rasgado,3,2,,10,,,,,,,,,,,,,{},{},{}
+10083,Pesos_para_Braços,Pesos para Braços,3,2,,10,,,,,,,,,,,,,{},{},{}
+10084,Pincel,Pincel,3,2,,10,,,,,,,,,,,,,{},{},{}
+10085,Raio_Negro_Concentrado,Raio Negro Concentrado,3,2,,10,,,,,,,,,,,,,{},{},{}
+10086,Raiton_Concentrado,Raiton Concentrado,3,2,,10,,,,,,,,,,,,,{},{},{}
+10087,Receita_Pilula_Amarela,Receita Pilula Amarela,3,2,,10,,,,,,,,,,,,,{},{},{}
+10088,Receita_Pilula_Verde,Receita Pilula Verde,3,2,,10,,,,,,,,,,,,,{},{},{}
+10089,Receita_Pilula_Vermelha,Receita Pilula Vermelha,3,2,,10,,,,,,,,,,,,,{},{},{}
+10090,Restos_de_Cobra,Restos de Cobra,3,2,,10,,,,,,,,,,,,,{},{},{}
+10091,Roupa_Rasgada,Roupa Rasgada,3,2,,10,,,,,,,,,,,,,{},{},{}
+10092,Saia_Neji,Saia Neji,3,2,,10,,,,,,,,,,,,,{},{},{}
+10093,Simbolo_País_Fogo,Simbolo País Fogo,3,2,,10,,,,,,,,,,,,,{},{},{}
+10094,Simbolo_País_Terra,Simbolo País Terra,3,2,,10,,,,,,,,,,,,,{},{},{}
+10095,Simbolo_Uchiha,Simbolo Uchiha,3,2,,10,,,,,,,,,,,,,{},{},{}
+10096,Simbolo_Uzumaki,Simbolo Uzumaki,3,2,,10,,,,,,,,,,,,,{},{},{}
+10097,Sinos2,Sinos,3,2,,10,,,,,,,,,,,,,{},{},{}
+10098,Soqueiras_Gastas,Soqueiras Gastas,3,2,,10,,,,,,,,,,,,,{},{},{}
+10099,Suiton_Concentrado,Suiton Concentrado,3,2,,10,,,,,,,,,,,,,{},{},{}
+10100,Tecido_Som,Tecido Som,3,2,,10,,,,,,,,,,,,,{},{},{}
 
 // Bandanas
 //=============================================================
@@ -1998,12 +1998,7 @@
 //=============================================================
 
 // Ofensiva Ninjutsu
-30101,Sharingan1,Sharingan,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2100,{ bonus bNoWalkDelay; skill 225,1; skill 475,1; },{},{}
-30102,Sharingan2,Sharingan,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2100,{ bonus bNoWalkDelay; skill 225,2; skill 475,2; },{},{}
-30103,Sharingan3,Sharingan,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2100,{ bonus bNoWalkDelay; skill 225,3; skill 475,3; },{},{}
-30104,Mangekyou_Itachi,Mangekyou Itachi,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2100,{ bonus bNoWalkDelay; skill 225,4; skill 475,4; skill 800,1; skill 825,1; skill 3013,1; },{},{}
-30130,Mangekyou_Sasuke,Mangekyou Sasuke,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2100,{ bonus bNoWalkDelay; skill 225,4; skill 475,4; skill 801,1; skill 826,1; skill 2008,1; },{},{}
-30131,Mangekyou_Obito,Mangekyou Obito,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2100,{ bonus bNoWalkDelay; skill 225,4; skill 475,4; skill 802,1; skill 827,1; skill 2299,3; skill 2300,3; skill 2302,3; },{},{}
+30101,Uchiha,Uchiha,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2100,{ bonus bNoWalkDelay; callfunc "KG_UCHIHA"; },{},{}
 30109,Nara,Nara,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_NARA"; },{},{}
 30112,Hyouton,Hyouton,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_HYOUTON"; },{},{}
 30122,Shakuton,Shakuton,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_SHAKUTON"; },{},{}
@@ -2011,7 +2006,7 @@
 30124,Ressonante,Ressonante,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_RESSONANTE"; },{},{}
 
 // Ofensiva Taijutsu
-30106,Byakugan,Byakugan,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2102,{ bonus bNoWalkDelay; bonus bIntravision,0; callfunc "KG_BYAKUGAN_PRIMARIO"; },{},{}
+30106,Hyuuga,Hyuuga,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2102,{ bonus bNoWalkDelay; bonus bIntravision,0; callfunc "KG_HYUUGA"; },{},{}
 30107,Portoes_de_Chakra,Portões de Chakra,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_PORTOES"; },{},{}
 30108,Akimichi,Akimichi,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_AKIMICHI"; },{},{}
 30111,Inuzuka,Inuzuka,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,1459,{ bonus bNoWalkDelay; callfunc "KG_INUZUKA"; },{},{}
@@ -2570,7 +2565,7 @@
 
 //=============================================================
 // Magatama
-//===================================================================
+//=============================================================
 4000,MagatamaD1,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bStr,2; },{},{}
 4001,MagatamaD2,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bAgi,2; },{},{}
 4002,MagatamaD3,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bVit,2; },{},{}
@@ -2662,32 +2657,37 @@
 4082,MagatamaS23,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bFlee,40; },{},{}
 4083,MagatamaS24,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bHealPower,4; },{},{}
 
-//// All Equips
-//4090,MagatamaSS1,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bStr,15; },{},{}
-//4091,MagatamaSS2,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bAgi,15; },{},{}
-//4092,MagatamaSS3,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bVit,15; },{},{}
-//4093,MagatamaSS4,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bInt,15; },{},{}
-//4094,MagatamaSS5,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bDex,15; },{},{}
-//4095,MagatamaSS6,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bLuk,15; },{},{}
-//4096,MagatamaSS7,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bMDef,18; },{},{}
-//4097,MagatamaSS8,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bDef,20; },{},{}
-//// Armadura/Escudo
-//4098,MagatamaSS9,Magatama,6,1,,10,,,,,,,,48,,,,,{ bonus bMaxHP,11000; },{},{}
-//4099,MagatamaSS10,Magatama,6,1,,10,,,,,,,,48,,,,,{ bonus bMaxSP,6000; },{},{}
-//4100,MagatamaSS11,Magatama,6,1,,10,,,,,,,,48,,,,,{ bonus bMaxHPrate,15; },{},{}
-//4101,MagatamaSS22,Magatama,6,1,,10,,,,,,,,48,,,,,{ bonus2 bSubEle,Ele_All,10; },{},{}
-//// Armas
-//4102,MagatamaSS12,Magatama,6,1,,10,,,,,,,,2,,,,,{ bonus bAtkrate,7; },{},{}
-//4103,MagatamaSS13,Magatama,6,1,,10,,,,,,,,2,,,,,{ bonus bMatkrate,7; },{},{}
-//4104,MagatamaSS14,Magatama,6,1,,10,,,,,,,,2,,,,,{ bonus bAtk,50; },{},{}
-//4105,MagatamaSS15,Magatama,6,1,,10,,,,,,,,2,,,,,{ bonus bMatk,50; },{},{}
-//4106,MagatamaSS18,Magatama,6,1,,10,,,,,,,,2,,,,,{ bonus bLongAtkRate,12; },{},{}
-//4107,MagatamaSS19,Magatama,6,1,,10,,,,,,,,2,,,,,{ bonus bCriticalRate,10; },{},{}
-//// Acessorio/Luva
-//4108,MagatamaSS16,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bAspd,4; },{},{}
-//4109,MagatamaSS17,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bCastRate,4; },{},{}
-//4110,MagatamaSS20,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bCritical,15; },{},{}
-//4111,MagatamaSS21,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bHit,60; },{},{}
-//4112,MagatamaSS23,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bFlee,60; },{},{}
-//4113,MagatamaSS24,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bHealPower,8; },{},{}
+// All Equips
+4090,MagatamaSS1,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bStr,15; },{},{}
+4091,MagatamaSS2,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bAgi,15; },{},{}
+4092,MagatamaSS3,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bVit,15; },{},{}
+4093,MagatamaSS4,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bInt,15; },{},{}
+4094,MagatamaSS5,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bDex,15; },{},{}
+4095,MagatamaSS6,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bLuk,15; },{},{}
+4096,MagatamaSS7,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bMDef,18; },{},{}
+4097,MagatamaSS8,Magatama,6,1,,10,,,,,,,,511,,,,,{ bonus bDef,20; },{},{}
+// Armadura/Escudo
+4098,MagatamaSS9,Magatama,6,1,,10,,,,,,,,48,,,,,{ bonus bMaxHP,11000; },{},{}
+4099,MagatamaSS10,Magatama,6,1,,10,,,,,,,,48,,,,,{ bonus bMaxSP,6000; },{},{}
+4100,MagatamaSS11,Magatama,6,1,,10,,,,,,,,48,,,,,{ bonus bMaxHPrate,15; },{},{}
+4101,MagatamaSS22,Magatama,6,1,,10,,,,,,,,48,,,,,{ bonus2 bSubEle,Ele_All,10; },{},{}
+// Armas
+4102,MagatamaSS12,Magatama,6,1,,10,,,,,,,,2,,,,,{ bonus bAtkrate,7; },{},{}
+4103,MagatamaSS13,Magatama,6,1,,10,,,,,,,,2,,,,,{ bonus bMatkrate,7; },{},{}
+4104,MagatamaSS14,Magatama,6,1,,10,,,,,,,,2,,,,,{ bonus bAtk,50; },{},{}
+4105,MagatamaSS15,Magatama,6,1,,10,,,,,,,,2,,,,,{ bonus bMatk,50; },{},{}
+4106,MagatamaSS18,Magatama,6,1,,10,,,,,,,,2,,,,,{ bonus bLongAtkRate,12; },{},{}
+4107,MagatamaSS19,Magatama,6,1,,10,,,,,,,,2,,,,,{ bonus bCriticalRate,10; },{},{}
+// Acessorio/Luva
+4108,MagatamaSS16,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bAspd,4; },{},{}
+4109,MagatamaSS17,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bCastRate,4; },{},{}
+4110,MagatamaSS20,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bCritical,15; },{},{}
+4111,MagatamaSS21,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bHit,60; },{},{}
+4112,MagatamaSS23,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bFlee,60; },{},{}
+4113,MagatamaSS24,Magatama,6,1,,10,,,,,,,,136,,,,,{ bonus bHealPower,8; },{},{}
 
+//=============================================================
+// Pet's
+//=============================================================
+9001,Poring_Egg,Poring Egg,7,20,,0,,,,,,,,,,,,,{},{},{}
+19013,Backpack,Backpack,8,1500,,0,,,,,,,,,,,,,{},{},{}

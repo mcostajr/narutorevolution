@@ -110,7 +110,7 @@ OnInit:
 // Shop number corresponds with order above (default is 1).
 // Note: Do NOT use a reward item more than once!
 	
-	Add(1,8108,1,1000000,0,9020,150,6398,100,7507,100);
+	Add(1,8108,1,1000000,0,10020,150,6398,100,7507,100);
 	
 	// --------------------------------------------------
 	for(set .@i,1; .@i<=getarraysize(.SetsSasuke$); set .@i,.@i+1)
