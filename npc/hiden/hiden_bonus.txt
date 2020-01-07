@@ -1,18 +1,9 @@
 function	script	KG_UCHIHA	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30301 ) { skill 800,1; }
 	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 800,1; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 800,2; skill 225,2; skill 475,2; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 800,3; skill 225,3; skill 475,3; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) {
-		if(ITACHI){
-			skill 225,4; skill 475,4; skill 800,4; skill 825,1; skill 3013,1;	
-		}
-		if(SASUKE) {
-			skill 225,4; skill 475,4; skill 800,4; skill 826,1; skill 2008,1;
-		}
-		if(OBITO) {
-			skill 225,4; skill 475,4; skill 800,4; skill 827,1; skill 2299,3; skill 2300,3; skill 2302,3;
-		}
-	}
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 800,2; skill 801,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 800,3; skill 801,2; skill 5003,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 802,1; skill 801,3; skill 5003,2; skill 803,1; skill 2008,1; }
 	end;
 }
 
@@ -25,10 +16,12 @@ function	script	KG_KUGUTSU	{
 }
 
 function	script	KG_HYUUGA	{
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 805,1; skill 263,1; skill 272,1; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 805,2; skill 263,2; skill 272,2; skill 273,2; skill 841,2; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 805,3; skill 263,3; skill 272,3; skill 273,3; skill 841,3; skill 371,3; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 805,4; skill 263,4; skill 272,4; skill 273,4; skill 841,4; skill 371,4; skill 372,4; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30301 ) { skill 805,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 805,2; skill 263,1; skill 272,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 805,3; skill 263,2; skill 272,2; skill 273,1; skill 841,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 805,4; skill 263,3; skill 272,3; skill 273,2; skill 841,2; skill 371,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30385 ) { skill 805,4; skill 263,4; skill 272,4; skill 273,3; skill 841,3; skill 371,2; skill 372,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 805,5; skill 263,5; skill 272,5; skill 273,4; skill 841,4; skill 371,3; skill 372,2; }
 	end;
 }
 

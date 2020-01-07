@@ -17,4 +17,7 @@ hu_fild03,0,0,0,0	boss_monster	Itachi Edo	30151,1,43200000,43200000,0
 myouboku,0,0,0,0	boss_monster	Naruto Sennin	30132,1,21600000,21600000,0
 um_fild03,0,0,0,0	boss_monster	Naruto 4 Caldas	30066,1,43200000,43200000,0
 
+//-------------------------------------------------------
+// Mapa da Guerra
+//-------------------------------------------------------
 moc_fild15,0,0,0,0	monster	Zetsu Clone	30152,85,0,0,0

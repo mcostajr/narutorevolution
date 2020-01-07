@@ -24,18 +24,16 @@ if(BaseLevel < 175 || JobLevel < 10) {
 	if(select("- Não:- Sim") == 1) close;
 	
 	if(Class == 4060) { 
-		jobchange 4064; 
+		jobchange 4064;
 		SkillPoint += 1;
-		getitem 30221,1;
 		skill "SN_EREMITA",1,SKILL_PERM;
 		mes "[Sanin Shiken]";
 		mes "Parabéns você acaba de se tornar um Sanin.";
 		close;
 	}
 	if(Class == 4061) {
-		jobchange 4065; 
+		jobchange 4065;
 		SkillPoint += 1;
-		getitem 30221,1;
 		skill "SN_EREMITA",1,SKILL_PERM;
 		mes "[Sanin Shiken]";
 		mes "Parabéns você acaba de se tornar um Sanin.";

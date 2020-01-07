@@ -2560,7 +2560,7 @@ ACMD_FUNC(param)
 {
 	uint8 i;
 	int value = 0;
-	const char* param[] = { "str", "agi", "vit", "int", "dex", "luk" };
+	const char* param[] = { "tai", "spt", "vit", "nin", "dex", "gen" };
 	unsigned short new_value, *status[6], max_status[6];
  	//we don't use direct initialization because it isn't part of the c standard.
 	nullpo_retr(-1, sd);
@@ -10157,12 +10157,12 @@ void atcommand_basecommands(void) {
 		ACMD_DEF2("stpoint", statuspoint),
 		ACMD_DEF2("skpoint", skillpoint),
 		ACMD_DEF(zeny),
-		ACMD_DEF2("str", param),
-		ACMD_DEF2("agi", param),
+		ACMD_DEF2("tai", param),
+		ACMD_DEF2("spt", param),
 		ACMD_DEF2("vit", param),
-		ACMD_DEF2("int", param),
+		ACMD_DEF2("nin", param),
 		ACMD_DEF2("dex", param),
-		ACMD_DEF2("luk", param),
+		ACMD_DEF2("gen", param),
 		ACMD_DEF2("glvl", guildlevelup),
 		ACMD_DEF(makeegg),
 		ACMD_DEF(hatch),

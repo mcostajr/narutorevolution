@@ -11,24 +11,24 @@ konoha3,229,189,4	script	Baki#1::reset	50,{
 	
 	L0:
 		next;
-		mes "[Baki]";
 		if (Zeny < 5000) goto NeedZenys;
+		mes "[Baki]";
 		mes "Tudo bem, vou resetar agora.. Lembrando, ajeite seus pontos e fale comigo mais vezes se precisar!";
 		set Zeny,zeny-5000;
 		ResetSkill;
 		close;
 	L1:
 		next;
-		mes "[Baki]";
 		if (Zeny < 5000) goto NeedZenys;
+		mes "[Baki]";
 		mes "Tudo bem, vou resetar agora.. Lembrando, ajeite seus pontos e fale comigo mais vezes se precisar!";
 		set Zeny,zeny-5000;
 		ResetStatus;
 		close;
 	L2:
 		next;
-		mes "[Baki]";
 		if (Zeny < 9000) goto NeedZenys;
+		mes "[Baki]";
 		mes "Tudo bem, vou resetar agora.. Lembrando, ajeite seus pontos e fale comigo mais vezes se precisar!";
 		set Zeny,zeny-9000;
 		ResetSkill;

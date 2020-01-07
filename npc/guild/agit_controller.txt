@@ -23,7 +23,18 @@ OnAgitInit:
 		end;
 	}
 	end;
-
+	
+S_Premiacao:
+	getguildmember getcastledata("prtg_cas01",1),0;
+	getguildmember getcastledata("prtg_cas01",1),1;
+	getguildmember getcastledata("prtg_cas01",1),2;
+	for(.@i = 0; .@i < $@guildmembercount; .@i++) {
+		attachrid($@guildmemberaid[.@i]);
+		if ( isloggedin( $@guildmemberaid[.@i], $@guildmembercid[.@i] ) ) {
+			getitem 501,1;
+		}
+	}
+	
 S_DisplayOwners:
 	setarray .@maps$[0],"aldeg_cas01","aldeg_cas02","aldeg_cas03","aldeg_cas04","aldeg_cas05";
 	setarray .@maps$[5],"gefg_cas01","gefg_cas02","gefg_cas03","gefg_cas04","gefg_cas05";

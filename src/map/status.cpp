@@ -234,14 +234,15 @@ void initChangeTables(void)
 	/* ----------------------------------------------------------------------------------------------------------------------------------- */
 	/* Hiden */
 	set_sc(UH_SHARINGAN, SC_SHARINGAN, EFST_SHARINGAN, SCB_NONE);
+	set_sc(UH_MANGEKYOU, SC_MANGEKYOU, EFST_SHARINGAN, SCB_NONE);
 
-	set_sc(UH_SUSANOO1, SC_SUSANOO1, EFST_SUSANOO1, SCB_NONE);
-	set_sc(UH_SUSANOO2, SC_SUSANOO2, EFST_SUSANOO2, SCB_NONE);
-	set_sc(UH_SUSANOO3, SC_SUSANOO3, EFST_SUSANOO3, SCB_NONE);
+	set_sc(UH_SUSANOO1, SC_SUSANOO, EFST_SUSANOO, SCB_NONE);
+	set_sc(UH_SUSANOO2, SC_SUSANOO, EFST_SUSANOO, SCB_NONE);
+	set_sc(UH_SUSANOO3, SC_SUSANOO, EFST_SUSANOO, SCB_NONE);
 
 	set_sc(MG_ENERGYCOAT, SC_ENERGYCOAT, EFST_ENERGYCOAT, SCB_DEF | SCB_MDEF);
 
-	set_sc(BY_BYAKUGAN, SC_BYAKUGANEXTREMO, EFST_BYAKUGANEXTREMO, SCB_HIT);
+	set_sc(BY_BYAKUGAN, SC_BYAKUGAN, EFST_BYAKUGAN, SCB_HIT);
 
 	set_sc(PT_1PORTAO, SC_PORTAO1, EFST_PORTAO1, SCB_BATK | SCB_WATK);
 
@@ -9686,15 +9687,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 
 	/* Habilidade Hiden */
 	// Uchiha
-	case SC_SUSANOO1:
-		t_tickime = 1000;
-		val4 = tick / t_tickime;
-		break;
-	case SC_SUSANOO2:
-		t_tickime = 1000;
-		val4 = tick / t_tickime;
-		break;
-	case SC_SUSANOO3:
+	case SC_SUSANOO:
 		t_tickime = 1000;
 		val4 = tick / t_tickime;
 		break;
@@ -12342,13 +12335,7 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 	vd = status_get_viewdata(bl);
 	calc_flag = static_cast<scb_flag>(StatusChangeFlagTable[type]);
 	switch(type) {
-		case SC_SUSANOO1:
-			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2100);
-			break;
-		case SC_SUSANOO2:
-			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2100);
-			break;
-		case SC_SUSANOO3:
+		case SC_SUSANOO:
 			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2100);
 			break;
 		case SC_PORTAO1:
@@ -13113,21 +13100,7 @@ TIMER_FUNC(status_change_timer){
 			break;
 
 		/* Uchiha */
-		case SC_SUSANOO1:
-			if (--(sce->val4) >= 0) {
-				status_charge(bl, 0, status->max_sp * 1 / 100);
-				sc_timer_next(1000 + tick);
-				return 0;
-			}
-			break;
-		case SC_SUSANOO2:
-			if (--(sce->val4) >= 0) {
-				status_charge(bl, 0, status->max_sp * 1 / 100);
-				sc_timer_next(1000 + tick);
-				return 0;
-			}
-			break;
-		case SC_SUSANOO3:
+		case SC_SUSANOO:
 			if (--(sce->val4) >= 0) {
 				status_charge(bl, 0, status->max_sp * 1 / 100);
 				sc_timer_next(1000 + tick);

@@ -17,16 +17,14 @@ if(BaseLevel < 175 || JobLevel < 10) {
 	
 	if(Class == 4062) { 
 		jobchange 4073;
-		getitem 30222,1;
-		SkillPoint += 11;
+		SkillPoint += 1;
 		mes "[Renegado Shiken]";
 		mes "Parabéns você acaba de se tornar um Renegado.";
 		close;
 	}
 	if(Class == 4063) {
 		jobchange 4074;
-		getitem 30222,1;
-		SkillPoint += 11;
+		SkillPoint += 1;
 		mes "[Renegado Shiken]";
 		mes "Parabéns você acaba de se tornar um Renegado.";
 		close;

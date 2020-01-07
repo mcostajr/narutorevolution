@@ -741,8 +741,8 @@ static int8 skill_isCopyable(struct map_session_data *sd, uint16 skill_idx) {
 		while (1) {
 			if (job_allowed&0x01 && sd->status.class_ == JOB_ROGUE) break;
 			if (job_allowed&0x02 && sd->status.class_ == JOB_STALKER) break;
-			if (job_allowed&0x04 && sd->status.class_ == JOB_SHADOW_CHASER) break;
-			if (job_allowed&0x08 && sd->status.class_ == JOB_SHADOW_CHASER_T) break;
+			if (job_allowed&0x04 && sd->status.class_ == JOB_GUILLOTINE_CROSS) break;
+			if (job_allowed&0x08 && sd->status.class_ == JOB_GUILLOTINE_CROSS_T) break;
 			if (job_allowed&0x10 && sd->status.class_ == JOB_BABY_ROGUE) break;
 			if (job_allowed&0x20 && sd->status.class_ == JOB_BABY_CHASER) break;
 			return 0;
@@ -6179,6 +6179,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case AC_CONCENTRATION:
 	/* Uchiha */
 	case UH_SHARINGAN:
+	case UH_MANGEKYOU:
 	/* Hyuuga */
 	case BY_BYAKUGAN:
 		if (tsce) {
@@ -15441,7 +15442,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 				return false;
 			break;
 		case CH_CHAINCRUSH:
-			if(!(sc && sc->data[SC_COMBO] && sc->data[SC_COMBO]->val1 == CH_TIGERFIST && sc->data[SC_BYAKUGANEXTREMO]))
+			if(!(sc && sc->data[SC_COMBO] && sc->data[SC_COMBO]->val1 == CH_TIGERFIST && sc->data[SC_BYAKUGAN]))
 				return false;
 			break;
 		//-------------------------------------------------------------------
