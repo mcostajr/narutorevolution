@@ -6207,7 +6207,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		}
 		break;
 
-	case UH_SUSANOO1:
+	case UH_SUSANOO:
 		if (tsce) {
 			clif_skill_nodamage(src, bl, skill_id, -1, status_change_end(bl, type, INVALID_TIMER)); //Hide skill-scream animation.
 			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2100);
@@ -6215,30 +6215,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			return 0;
 		}
 		clif_changelook(&sd->bl, LOOK_HEAD_MID, 1800);
-		clif_skill_nodamage(src, bl, skill_id, skill_lv,
-			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
-		break;
-
-	case UH_SUSANOO2:
-		if (tsce) {
-			clif_skill_nodamage(src, bl, skill_id, -1, status_change_end(bl, type, INVALID_TIMER)); //Hide skill-scream animation.
-			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2100);
-			map_freeblock_unlock();
-			return 0;
-		}
-		clif_changelook(&sd->bl, LOOK_HEAD_MID, 1801);
-		clif_skill_nodamage(src, bl, skill_id, skill_lv,
-			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
-		break;
-
-	case UH_SUSANOO3:
-		if (tsce) {
-			clif_skill_nodamage(src, bl, skill_id, -1, status_change_end(bl, type, INVALID_TIMER)); //Hide skill-scream animation.
-			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2100);
-			map_freeblock_unlock();
-			return 0;
-		}
-		clif_changelook(&sd->bl, LOOK_HEAD_MID, 1802);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
 			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
 		break;
@@ -15323,9 +15299,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 	}
 	// perform skill-specific checks (and actions)
 	switch( skill_id ) {
-		case UH_SUSANOO1: // Mangekyou
-		case UH_SUSANOO2:
-		case UH_SUSANOO3:
+		case UH_SUSANOO:
 		case SA_MAGICROD:
 		case RK_DRAGONBREATH:
 		case UH_DIMENSION:
@@ -21260,9 +21234,7 @@ int skill_block_check(struct block_list *bl, sc_type type , uint16 skill_id) {
 int skill_disable_check(struct status_change *sc, uint16 skill_id)
 {
 	switch( skill_id ) { //HP & SP Consumption Check
-		case UH_SUSANOO1:
-		case UH_SUSANOO2:
-		case UH_SUSANOO3:
+		case UH_SUSANOO:
 		case SL_AMALDICOADO:
 		case BS_MAXIMIZE:
 		case NV_TRICKDEAD:

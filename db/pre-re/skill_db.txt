@@ -713,6 +713,7 @@
 222,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,		RG_CLEANER,Selo de Mão: Tigre
 223,0,0,0,0,0,1,1,0,no,0,0,0,none,0,0x0,		RG_GANGSTER,Slyness
 224,0,0,0,0,0,0,5,0,no,0,0,0,none,0,0x0,		RG_COMPULSION,Haggle
+225,0,0,0,0,0,0,10,0,no,0,0,0,none,0,0x0,		RG_PLAGIARISM,Intimidate
 
 //****
 // Alchemist
