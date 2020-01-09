@@ -1,8 +1,8 @@
 function	script	KG_UCHIHA	{
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30301 ) { skill 800,1; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 800,1; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 800,2; skill 801,1; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 800,3; skill 801,2; skill 5003,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30301 && getequipcardid(EQI_HEAD_MID,0) < 30325 ) { skill 800,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 && getequipcardid(EQI_HEAD_MID,0) < 30350 ) { skill 800,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 && getequipcardid(EQI_HEAD_MID,0) < 30375 ) { skill 800,2; skill 801,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 && getequipcardid(EQI_HEAD_MID,0) < 30400 ) { skill 800,3; skill 801,2; skill 5003,1; }
 	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 802,1; skill 801,3; skill 5003,2; skill 803,1; skill 2008,1; }
 	end;
 }

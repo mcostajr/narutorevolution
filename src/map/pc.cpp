@@ -2134,14 +2134,14 @@ int pc_calc_skilltree_normalize_job(struct map_session_data *sd)
 					sd->change_level_2nd = job_info[pc_class2idx(pc_mapid2jobid(sd->class_&MAPID_UPPERMASK, sd->status.sex))].max_level[1];
 				else
 					sd->change_level_2nd = 1 + skill_point + sd->status.skill_point
-						- (sd->status.job_level - 1)
-						- (sd->change_level_3rd - 1)
+						- (sd->status.job_level)
+						- (sd->change_level_3rd)
 						- novice_skills;
 			}
 			else
 			{
 				sd->change_level_2nd = 1 + skill_point + sd->status.skill_point
-						- (sd->status.job_level - 1)
+						- (sd->status.job_level)
 						- novice_skills;
 
 			}
@@ -2149,7 +2149,7 @@ int pc_calc_skilltree_normalize_job(struct map_session_data *sd)
 			pc_setglobalreg(sd, add_str(JOBCHANGE2ND_VAR), sd->change_level_2nd);
 		}
 
-		if (skill_point < novice_skills + (sd->change_level_2nd - 1))
+		if (skill_point < novice_skills + (sd->change_level_2nd))
 		{
 			c &= MAPID_BASEMASK;
 		}
@@ -2160,13 +2160,13 @@ int pc_calc_skilltree_normalize_job(struct map_session_data *sd)
 			if (!sd->change_level_3rd)
 			{
 					sd->change_level_3rd = 1 + skill_point + sd->status.skill_point
-						- (sd->status.job_level - 1)
-						- (sd->change_level_2nd - 1)
+						- (sd->status.job_level)
+						- (sd->change_level_2nd)
 						- novice_skills;
 					pc_setglobalreg(sd, add_str(JOBCHANGE3RD_VAR), sd->change_level_3rd);
 			}
 
-			if (skill_point < novice_skills + (sd->change_level_2nd - 1) + 35 + (sd->change_level_3rd - 1))
+			if (skill_point < novice_skills + (sd->change_level_2nd) + 35 + (sd->change_level_3rd))
 				c &= MAPID_UPPERMASK;
 		}
 	}

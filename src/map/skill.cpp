@@ -15304,7 +15304,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 		case RK_DRAGONBREATH:
 		case UH_DIMENSION:
 		case KO_KYOUGAKU:
-			if (!(sc && sc->data[SC_SHARINGAN]))
+			if (!(sc && sc->data[SC_MANGEKYOU]))
 				return false;
 			break;
 
@@ -16593,7 +16593,8 @@ struct skill_condition skill_get_requirement(struct map_session_data* sd, uint16
 	if( sc ) {
 		/*
 		* --------------------------------------
-		* Naruto
+		*
+
 		* --------------------------------------
 		*/
 		if (sc->data[SC_RECOGNIZEDSPELL])

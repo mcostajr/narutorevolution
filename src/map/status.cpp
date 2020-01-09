@@ -5559,6 +5559,11 @@ static unsigned short status_calc_str(struct block_list *bl, struct status_chang
 	if (sc->data[SC_BLESSING]) 
 		str += sc->data[SC_BLESSING]->val2;
 
+	// Uchiha
+	if (sc->data[SC_SHARINGAN])
+		str += sc->data[SC_SHARINGAN]->val3;
+	if (sc->data[SC_MANGEKYOU])
+		str += sc->data[SC_MANGEKYOU]->val3;
 	// Portões
 	if (sc->data[SC_PORTAO1])
 		str += str * 10 / 100;
@@ -5569,6 +5574,9 @@ static unsigned short status_calc_str(struct block_list *bl, struct status_chang
 	if (sc->data[SC_AMALDICOADO])
 		str += str * sc->data[SC_AMALDICOADO]->val2 / 100;
 
+	// ------------------------------------
+	//  Outros
+	// ------------------------------------
 	if(sc->data[SC_INCALLSTATUS])
 		str += sc->data[SC_INCALLSTATUS]->val1;
 	if(sc->data[SC_CHASEWALK2])
@@ -5649,6 +5657,9 @@ static unsigned short status_calc_agi(struct block_list *bl, struct status_chang
 		agi += agi * sc->data[SC_AMALDICOADO]->val2 / 100;
 
 
+	// ------------------------------------
+	//  Outros
+	// ------------------------------------
 	if(sc->data[SC_INCALLSTATUS])
 		agi += sc->data[SC_INCALLSTATUS]->val1;
 	if(sc->data[SC_INCAGI])
@@ -5727,6 +5738,9 @@ static unsigned short status_calc_vit(struct block_list *bl, struct status_chang
 	if (sc->data[SC_AMALDICOADO])
 		vit += vit * sc->data[SC_AMALDICOADO]->val2 / 100;
 
+	// ------------------------------------
+	//  Outros
+	// ------------------------------------
 	if(sc->data[SC_INCALLSTATUS])
 		vit += sc->data[SC_INCALLSTATUS]->val1;
 	if(sc->data[SC_INCVIT])
@@ -5787,11 +5801,6 @@ static unsigned short status_calc_int(struct block_list *bl, struct status_chang
 	if(!sc || !sc->count)
 		return cap_value(int_,0,USHRT_MAX);
 
-	if(sc->data[SC_HARMONIZE]) {
-		int_ -= sc->data[SC_HARMONIZE]->val2;
-		return (unsigned short)cap_value(int_,0,USHRT_MAX);
-	}
-
 	// Basico
 	if (sc->data[SC_EREMITA])
 		int_ += int_ * 6 / 100;
@@ -5802,10 +5811,23 @@ static unsigned short status_calc_int(struct block_list *bl, struct status_chang
 		int_ += int_ * sc->data[SC_CONCENTRATE]->val2 / 100;
 	if (sc->data[SC_BLESSING])
 		int_ += sc->data[SC_BLESSING]->val2;
+
+	// Uchiha
+	if (sc->data[SC_SHARINGAN])
+		int_ += sc->data[SC_SHARINGAN]->val2;
+	if (sc->data[SC_MANGEKYOU])
+		int_ += sc->data[SC_MANGEKYOU]->val2;
 	// Selo Amaldiçoado
 	if (sc->data[SC_AMALDICOADO])
 		int_ += int_ * sc->data[SC_AMALDICOADO]->val2 / 100;
 
+	// ------------------------------------
+	//  Outros
+	// ------------------------------------
+	if (sc->data[SC_HARMONIZE]) {
+		int_ -= sc->data[SC_HARMONIZE]->val2;
+		return (unsigned short)cap_value(int_, 0, USHRT_MAX);
+	}
 
 	if(sc->data[SC_INCALLSTATUS])
 		int_ += sc->data[SC_INCALLSTATUS]->val1;
@@ -5888,8 +5910,9 @@ static unsigned short status_calc_dex(struct block_list *bl, struct status_chang
 	if (sc->data[SC_AMALDICOADO])
 		dex += dex * sc->data[SC_AMALDICOADO]->val2 / 100;
 
-
-
+	// ------------------------------------
+	//  Outros
+	// ------------------------------------
 	if (sc->data[SC_HARMONIZE]) {
 		dex -= sc->data[SC_HARMONIZE]->val2;
 		return (unsigned short)cap_value(dex, 0, USHRT_MAX);
@@ -5973,6 +5996,9 @@ static unsigned short status_calc_luk(struct block_list *bl, struct status_chang
 	if (sc->data[SC_AMALDICOADO])
 		luk += luk * sc->data[SC_AMALDICOADO]->val2 / 100;
 
+	// ------------------------------------
+	//  Outros
+	// ------------------------------------
 	if(sc->data[SC_CURSE])
 		return 0;
 	if(sc->data[SC_INCALLSTATUS])
@@ -6965,6 +6991,13 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val += max(val, sc->data[SC_WINDWALK]->val2);
 		if (sc->data[SC_INCREASEAGI])
 			val += max(val, 40);
+
+		// Uchiha
+		if (sc->data[SC_SHARINGAN])
+			val += max(val, sc->data[SC_SHARINGAN]->val2);
+		if (sc->data[SC_MANGEKYOU])
+			val += max(val, sc->data[SC_MANGEKYOU]->val2);
+
 
 		// -------------------------------------------------------------
 		if( sc->data[SC_SPEEDUP1] ) // !FIXME: used both by NPC_AGIUP and Speed Potion script
@@ -9674,8 +9707,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		tick = INFINITE_TICK;
 		break;
 
-	/* Medicina */
-
 	/* Genjutsu */
 	case SC_DECREASEAGI:
 		val2 = 2 + val1; // Agi change
@@ -9683,6 +9714,14 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 
 	/* Habilidade Hiden */
 	// Uchiha
+	case SC_SHARINGAN:
+		val2 = val1;
+		val3 = val1;
+		break;
+	case SC_MANGEKYOU:
+		val2 = 5;
+		val3 = 10;
+		break;
 	case SC_SUSANOO:
 		t_tickime = 1000;
 		val4 = tick / t_tickime;

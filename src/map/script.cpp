@@ -13540,6 +13540,7 @@ BUILDIN_FUNC(strmobinfo)
 	case 5: script_pushint(st,mob_db(class_)->status.max_sp); break;
 	case 6: script_pushint(st,mob_db(class_)->base_exp); break;
 	case 7: script_pushint(st,mob_db(class_)->job_exp); break;
+	case 8: script_pushint(st, mob_db(class_)->hiden_exp); break;
 	default:
 		script_pushint(st,0);
 		break;

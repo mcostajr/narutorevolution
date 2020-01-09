@@ -53,14 +53,10 @@ academia,114,26,3	script	Orochimaru#2	125,{
 				switch(select("- Clã Uchiha:- Clã Hyuuga:- Portões de Chakra:- Clã Akimichi:- Clã Nara:- Selo Amaldiçoado:- Clã Inuzuka:- Hyouton:- Kibaku Nendo:- Clã Aburame:- Jashin:- Fláuta Demoniaca:- Ibuse:- Byakugo no In:- Clã Kaguya:- Shakuton:- Jinton:- Ressonante:- Kidoumaru")) {
 					case 1:
 						next;
-						if(hidenlvl < 25) .@sharinganlvl = 1;
-						if(hidenlvl >= 25 && hidenlv < 75) .@sharinganlvl = 2;
-						if(hidenlvl >= 75 && hidenlvl <= 100) .@sharinganlvl = 3;
-						@nivelsharingan = 30100+.@sharinganlvl;
 						mes "[Orochimaru]";
-						if( (countitem(30101) || countitem(30102) || countitem(30103) || countitem(30104) || countitem(30130) || countitem(30131)) != 1 ) { 
+						if(countitem(30101) != 1 ) { 
 							mes "Troca bem sucedida.";
-							delitem .hidenAtual,1; getitem2 @nivelsharingan,1,1,0,0,.seulvlhiden,0,0,0; equip @nivelsharingan;
+							delitem .hidenAtual,1; getitem2 30101,1,1,0,0,.seulvlhiden,0,0,0; equip 30101;
 							delitem 9110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
@@ -372,7 +368,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30108,1,1,0,0,30301,0,0,0;
 							equip 30108;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -394,7 +390,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30106,1,1,0,0,30301,0,0,0;
 							equip 30106;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -416,7 +412,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30118,1,1,0,0,30301,0,0,0;
 							equip 30118;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -437,7 +433,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30111,1,1,0,0,30301,0,0,0;
 							equip 30111;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -459,7 +455,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30121,1,1,0,0,30301,0,0,0;
 							equip 30121;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -481,7 +477,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30125,1,1,0,0,30301,0,0,0;
 							equip 30125;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -503,7 +499,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30107,1,1,0,0,30301,0,0,0;
 							equip 30107;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -530,7 +526,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30112,1,1,0,0,30301,0,0,0;
 							equip 30112;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -552,7 +548,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30123,1,1,0,0,30301,0,0,0;
 							equip 30123;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -574,7 +570,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30109,1,1,0,0,30301,0,0,0;
 							equip 30109;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -596,7 +592,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30124,1,1,0,0,30301,0,0,0;
 							equip 30124;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -618,7 +614,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30122,1,1,0,0,30301,0,0,0;
 							equip 30122;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -640,7 +636,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30101,1,1,0,0,30301,0,0,0;
 							equip 30101;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -667,7 +663,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30115,1,1,0,0,30301,0,0,0;
 							equip 30115;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -689,7 +685,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30116,1,1,0,0,30301,0,0,0;
 							equip 30116;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -711,7 +707,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30114,1,1,0,0,30301,0,0,0;
 							equip 30114;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -733,7 +729,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30105,1,1,0,0,30301,0,0,0;
 							equip 30105;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -758,7 +754,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30110,1,1,0,0,30301,0,0,0;
 							equip 30110;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -785,7 +781,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30119,1,1,0,0,30301,0,0,0;
 							equip 30119;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;
@@ -806,7 +802,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							mes "Você acabou de adiquirir uma Habilidade Hiden!";
 							getitem2 30117,1,1,0,0,30301,0,0,0;
 							equip 30117;
-							hidenlvl = 100;
+							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
 							completequest 1001;

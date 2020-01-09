@@ -28,14 +28,7 @@ OnNPCKillEvent:
 					specialeffect2 98;
 					dispbottom "Hiden Level Up ["+hidenlvl+"]";
 					
-					if(countitem(30101)) { if(getequipcardid(EQI_HEAD_MID,0) == 30324 ) { set hidenexp,0; delitem 30101,1; getitem2 30102,1,1,0,0,30325,0,0,0; equip 30102; end; } }
 					if(countitem(30101)) { set hidenexp,0; delitem 30101,1; getitem2 30101,1,1,0,0,30300+hidenlvl,0,0,0; equip 30101; end; }
-					
-					if(countitem(30102)) { if(getequipcardid(EQI_HEAD_MID,0) == 30349 ) { set hidenexp,0; delitem 30102,1; getitem2 30103,1,1,0,0,30350,0,0,0; equip 30103; end; } }
-					if(countitem(30102)) { set hidenexp,0; delitem 30102,1; getitem2 30102,1,1,0,0,30300+hidenlvl,0,0,0; equip 30102; end; }
-					
-					if(countitem(30103)) { set hidenexp,0; delitem 30103,1; getitem2 30103,1,1,0,0,30300+hidenlvl,0,0,0; equip 30103; end; }
-				
 					if(countitem(30105)) { set hidenexp,0; delitem 30105,1; getitem2 30105,1,1,0,0,30300+hidenlvl,0,0,0; equip 30105; end; }
 					if(countitem(30106)) { set hidenexp,0; delitem 30106,1; getitem2 30106,1,1,0,0,30300+hidenlvl,0,0,0; equip 30106; end; }
 					if(countitem(30107)) { set hidenexp,0; delitem 30107,1; getitem2 30107,1,1,0,0,30300+hidenlvl,0,0,0; equip 30107; end; }
