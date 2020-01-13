@@ -1826,7 +1826,7 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		sc_start4(src, bl, SC_BURNING, 10 * skill_lv, skill_lv, 1000, src->id, 0, skill_get_time2(skill_id, skill_lv));
 		break;
 	case GN_ILLUSIONDOPING:
-		if( sc_start(src,bl,SC_ILLUSIONDOPING,100 - skill_lv * 10,skill_lv,skill_get_time(skill_id,skill_lv)) )
+		if( sc_start(src,bl,SC_ILLUSIONDOPING,20*skill_lv,skill_lv,skill_get_time(skill_id,skill_lv)) )
 			sc_start(src,bl,SC_HALLUCINATION,100,skill_lv,skill_get_time(skill_id,skill_lv));
 		break;
 
@@ -3254,13 +3254,13 @@ int64 skill_attack (int attack_type, struct block_list* src, struct block_list *
 
 				dmg.damage = battle_attr_fix(bl, bl, dmg.damage, s_ele, status_get_element(bl), status_get_element_level(bl));
 
-				if( tsc && tsc->data[SC_ENERGYCOAT] ) {
+				if( tsc && tsc->data[SC_SUSANOO] ) {
 					struct status_data *status = status_get_status_data(bl);
 					int per = 100*status->sp / status->max_sp -1; //100% should be counted as the 80~99% interval
 					per /=20; //Uses 20% SP intervals.
 					//SP Cost: 1% + 0.5% per every 20% SP
 					if (!status_charge(bl, 0, (10+5*per)*status->max_sp/1000))
-						status_change_end(bl, SC_ENERGYCOAT, INVALID_TIMER);
+						status_change_end(bl, SC_SUSANOO, INVALID_TIMER);
 					//Reduction: 6% + 6% every 20%
 					dmg.damage -= dmg.damage * (6 * (1+per)) / 100;
 				}
@@ -6179,7 +6179,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case AC_CONCENTRATION:
 	/* Uchiha */
 	case UH_SHARINGAN:
-	case UH_MANGEKYOU:
 	/* Hyuuga */
 	case BY_BYAKUGAN:
 		if (tsce) {
@@ -6187,6 +6186,22 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			map_freeblock_unlock();
 			return 0;
 		} else {
+			clif_skill_nodamage(src, bl, skill_id, skill_lv,
+				sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		}
+		break;
+
+	/* Uchiha */
+	case UH_MANGEKYOU:
+		if (tsce) {
+			clif_skill_nodamage(src, bl, skill_id, -1, status_change_end(bl, type, INVALID_TIMER));
+			if (tsc->data[SC_SUSANOO]) {
+				status_change_end(bl, SC_SUSANOO, INVALID_TIMER);
+			}
+			map_freeblock_unlock();
+			return 0;
+		}
+		else {
 			clif_skill_nodamage(src, bl, skill_id, skill_lv,
 				sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
 		}
@@ -6201,7 +6216,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		} else {
 			clif_skill_nodamage(src, bl, skill_id, skill_lv,
 				sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
-			//clif_specialeffect(&sd->bl, 646, AREA);
 			if (tsc->data[SC_AMALDICOADO]->val1 == 4)
 				clif_changelook(&sd->bl, LOOK_HEAD_MID, 1804);
 		}
@@ -6211,6 +6225,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		if (tsce) {
 			clif_skill_nodamage(src, bl, skill_id, -1, status_change_end(bl, type, INVALID_TIMER)); //Hide skill-scream animation.
 			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2100);
+			skill_blockpc_start(sd, UH_SUSANOO, 40000);
 			map_freeblock_unlock();
 			return 0;
 		}
@@ -16656,8 +16671,7 @@ struct skill_condition skill_get_requirement(struct map_session_data* sd, uint16
 		case SO_WATER_INSIGNIA:
 		case SO_FIRE_INSIGNIA:
 		case SO_WIND_INSIGNIA:
-		case SO_EARTH_INSIGNIA:
-		case WZ_FIREPILLAR: // no gems required at level 1-5 [celest]
+		case SO_EARTH_INSIGNIA: // no gems required at level 1-5 [celest]
 			req.itemid[0] = skill_db[idx]->require.itemid[min(skill_lv-1,MAX_SKILL_ITEM_REQUIRE-1)];
 			req.amount[0] = skill_db[idx]->require.amount[min(skill_lv-1,MAX_SKILL_ITEM_REQUIRE-1)];
 			level_dependent = true;

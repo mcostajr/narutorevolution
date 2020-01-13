@@ -313,7 +313,6 @@ void initChangeTables(void)
 	set_sc( NPC_BLEEDING		, SC_BLEEDING		, EFST_BLOODING, SCB_REGEN );
 	set_sc( NPC_POISON		, SC_DPOISON		, EFST_BLANK		, SCB_DEF2|SCB_REGEN );
 	add_sc( ALL_REVERSEORCISH,	SC_ORCISH );
-	set_sc(MG_ENERGYCOAT, SC_ENERGYCOAT, EFST_ENERGYCOAT, SCB_DEF | SCB_MDEF);
 
 	/* The main status definitions */
 	add_sc( SM_BASH			, SC_STUN		);
@@ -4782,6 +4781,7 @@ void status_calc_regen_rate(struct block_list *bl, struct regen_data *regen, str
 	// No HP or SP regen
 	if ((sc->data[SC_POISON] && !sc->data[SC_SLOWPOISON])
 		|| (sc->data[SC_DPOISON] && !sc->data[SC_SLOWPOISON])
+		|| sc->data[SC_SUSANOO]
 		|| sc->data[SC_BERSERK]
 		|| sc->data[SC_TRICKDEAD]
 		|| sc->data[SC_BLEEDING]
@@ -5814,9 +5814,9 @@ static unsigned short status_calc_int(struct block_list *bl, struct status_chang
 
 	// Uchiha
 	if (sc->data[SC_SHARINGAN])
-		int_ += sc->data[SC_SHARINGAN]->val2;
+		int_ += sc->data[SC_SHARINGAN]->val3;
 	if (sc->data[SC_MANGEKYOU])
-		int_ += sc->data[SC_MANGEKYOU]->val2;
+		int_ += sc->data[SC_MANGEKYOU]->val3;
 	// Selo Amaldiçoado
 	if (sc->data[SC_AMALDICOADO])
 		int_ += int_ * sc->data[SC_AMALDICOADO]->val2 / 100;
@@ -5981,11 +5981,6 @@ static unsigned short status_calc_luk(struct block_list *bl, struct status_chang
 	if(!sc || !sc->count)
 		return cap_value(luk,0,USHRT_MAX);
 
-	if(sc->data[SC_HARMONIZE]) {
-		luk -= sc->data[SC_HARMONIZE]->val2;
-		return (unsigned short)cap_value(luk,0,USHRT_MAX);
-	}
-
 	// Basico
 	if (sc->data[SC_EREMITA])
 		luk += luk * 6 / 100;
@@ -5995,10 +5990,20 @@ static unsigned short status_calc_luk(struct block_list *bl, struct status_chang
 	// Selo Amaldiçoado
 	if (sc->data[SC_AMALDICOADO])
 		luk += luk * sc->data[SC_AMALDICOADO]->val2 / 100;
+	// Uchiha
+	if (sc->data[SC_SHARINGAN])
+		luk += sc->data[SC_SHARINGAN]->val3;
+	if (sc->data[SC_MANGEKYOU])
+		luk += sc->data[SC_MANGEKYOU]->val3;
 
 	// ------------------------------------
 	//  Outros
 	// ------------------------------------
+
+	if(sc->data[SC_HARMONIZE]) {
+		luk -= sc->data[SC_HARMONIZE]->val2;
+		return (unsigned short)cap_value(luk, 0, USHRT_MAX);
+	}
 	if(sc->data[SC_CURSE])
 		return 0;
 	if(sc->data[SC_INCALLSTATUS])
@@ -6906,6 +6911,9 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			// Genjutsu
 			if (sc->data[SC_DECREASEAGI])
 				val = max(val, 25);
+			// Uchiha
+			if (sc->data[SC_SUSANOO])
+				val = max(val, 30);
 
 			// ---------------------------------
 
@@ -8322,7 +8330,6 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 	// Uchiha
 	case SC_KYOUGAKU:
 		sc_def = 0;
-		//tick_def2 = 30*status->int_;
 		break;
 
 	// Jinton
@@ -9715,8 +9722,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	/* Habilidade Hiden */
 	// Uchiha
 	case SC_SHARINGAN:
-		val2 = val1;
-		val3 = val1;
+		val2 = 5;
+		val3 = 10;
 		break;
 	case SC_MANGEKYOU:
 		val2 = 5;
@@ -13136,7 +13143,7 @@ TIMER_FUNC(status_change_timer){
 
 		/* Uchiha */
 		case SC_SUSANOO:
-			if (--(sce->val4) >= 0) {
+			if (--(sce->val4) >= 0 && sc->data[SC_MANGEKYOU]) {
 				status_charge(bl, 0, status->max_sp * 1 / 100);
 				sc_timer_next(1000 + tick);
 				return 0;

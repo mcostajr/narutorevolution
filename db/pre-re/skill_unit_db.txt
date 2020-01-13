@@ -54,7 +54,7 @@
 // -----------------------------
  536,0x10a,    ,  3, 0,1000,enemy, 0x010	//NJ_BAKUENRYU
  186, 0x86,    ,  5, 0, 1000,enemy, 0x010	//NPC_FIREATTACK
-  80, 0x87,0x88,  -1, 1,2000,enemy, 0x002	//WZ_FIREPILLAR
+  80, 0x88,    ,  -1, 1,2000,enemy, 0x018	//WZ_FIREPILLAR
 
 83,0x86,    ,  0, 3,150,enemy, 0x010	//WZ_METEOR
 

@@ -214,9 +214,8 @@ int hom_dead(struct homun_data* hd)
 	sd = hd->master;
 	hd = sd->hd;
 	hom_save(hd);
-	sd = hd->master;
-	pc_delitem(sd, pc_search_inventory(sd, 690), 1, 0, 0, LOG_TYPE_COMMAND);
 
+	sd = hd->master;
 	hom_hungry_timer_delete(hd);
 	hd->homunculus.hp = 0;
 
@@ -226,13 +225,12 @@ int hom_dead(struct homun_data* hd)
 	tmp_item.card[0] = CARD0_HUN;
 	tmp_item.card[1] = GetWord(hd->homunculus.hom_id, 0);
 	tmp_item.card[2] = GetWord(hd->homunculus.hom_id, 1);
-	tmp_item.card[3] = 0;
+	tmp_item.card[3] = 1;
 	if ((flag = pc_additem(sd, &tmp_item, 1, LOG_TYPE_CONSUME))) {
 		clif_additem(sd, 0, 0, flag);
 		map_addflooritem(&tmp_item, 1, sd->bl.m, sd->bl.x, sd->bl.y, 0, 0, 0, 0, 0);
 	}
 
-	hd->homunculus.hp = 0;
 	hd->homunculus.intimacy = 0;
 	return unit_remove_map(&hd->bl, CLR_OUTSIGHT);
 
@@ -617,7 +615,7 @@ int hom_evolution(struct homun_data *hd)
 	hom->int_+= 10*rnd_value(min->int_,max->int_);
 	hom->dex += 10*rnd_value(min->dex, max->dex);
 	hom->luk += 10*rnd_value(min->luk, max->luk);
-	hom->intimacy = battle_config.homunculus_evo_intimacy_reset;
+	hom->intimacy = 500;
 
 	unit_remove_map(&hd->bl, CLR_OUTSIGHT);
 	map_addblock(&hd->bl);

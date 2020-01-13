@@ -1377,7 +1377,7 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			sce->val3&flag && sce->val4&flag)
 			damage -= damage * sc->data[SC_ARMOR]->val2 / 100;
 
-		if( sc->data[SC_ENERGYCOAT] && (skill_id == GN_HELLS_PLANT_ATK ||
+		if( sc->data[SC_SUSANOO] && (skill_id == GN_HELLS_PLANT_ATK ||
 #ifdef RENEWAL
 			((flag&BF_WEAPON || flag&BF_MAGIC) && skill_id != WS_CARTTERMINATION)
 #else
@@ -1390,7 +1390,7 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			per /=20; //Uses 20% SP intervals.
 			//SP Cost: 1% + 0.5% per every 20% SP
 			if (!status_charge(bl, 0, (10+5*per)*status->max_sp/1000))
-				status_change_end(bl, SC_ENERGYCOAT, INVALID_TIMER);
+				status_change_end(bl, SC_SUSANOO, INVALID_TIMER);
 			damage -= damage * 6 * (1 + per) / 100; //Reduction: 6% + 6% every 20%
 		}
 
@@ -6528,7 +6528,7 @@ struct Damage battle_calc_attack(int attack_type,struct block_list *bl,struct bl
 int64 battle_calc_return_damage(struct block_list* bl, struct block_list *src, int64 *dmg, int flag, uint16 skill_id, bool status_reflect){
 	struct map_session_data* sd;
 	int64 rdamage = 0, damage = *dmg;
-	int max_damage = status_get_max_hp(bl);
+	int max_damage = status_get_max_hp(bl), i;
 	struct status_change *sc, *ssc;
 
 	sd = BL_CAST(BL_PC, bl);
@@ -6539,10 +6539,17 @@ int64 battle_calc_return_damage(struct block_list* bl, struct block_list *src, i
 		return 0; // White Imprison does not reflect any damage
 
 	if (flag & BF_SHORT) {//Bounces back part of the damage.
-		if ( (skill_get_inf2(skill_id)&INF2_TRAP || !status_reflect) && sd && sd->bonus.short_weapon_damage_return ) {
+		if ((skill_get_inf2(skill_id)&INF2_TRAP || !status_reflect) && sd && sd->bonus.short_weapon_damage_return) {
 			rdamage += damage * sd->bonus.short_weapon_damage_return / 100;
-			rdamage = i64max(rdamage,1);
-		} else if( status_reflect && sc && sc->count ) {
+			rdamage = i64max(rdamage, 1);
+		}
+		else if (status_reflect) {
+			if (i = pc_checkskill(sd, UH_DOSATSUGAN)) {
+				if (rnd() % 100 <= i * 5)
+					rdamage += damage * (i * 10) / 100;
+			}
+		}
+		else if( status_reflect && sc && sc->count ) {
 			if( sc->data[SC_REFLECTSHIELD] ) {
 				struct status_change_entry *sce_d;
 				struct block_list *d_bl = NULL;

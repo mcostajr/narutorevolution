@@ -5127,6 +5127,13 @@ bool pc_isUseitem(struct map_session_data *sd,int n)
 		case ITEMID_AKAMARU5:
 		case ITEMID_AKAMARU6:
 		case ITEMID_AKAMARU7:
+		case ITEMID_AKAMARU_EVO1:
+		case ITEMID_AKAMARU_EVO2:
+		case ITEMID_AKAMARU_EVO3:
+		case ITEMID_AKAMARU_EVO4:
+		case ITEMID_AKAMARU_EVO5:
+		case ITEMID_AKAMARU_EVO6:
+		case ITEMID_AKAMARU_EVO7:
 			if (sd->hd == NULL) {
 				if (sd->inventory.u.items_inventory[n].card[3] > 2) {
 					hom_create_request(sd, (sd->inventory.u.items_inventory[n].card[3]));
