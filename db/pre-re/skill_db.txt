@@ -355,17 +355,18 @@
 
 //****
 // Hyuuga
-805,9,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,					BY_BYAKUGAN,Byakugan
+804,9,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,					HYU_BYAKUGAN,Byakugan
 263,-1,8,0,-1,0,0,5,-4,no,0,0x40000,0,weapon,0,0x10,		MO_TRIPLEATTACK,Yon sho
 272,-2,8,4,-1,0,0,5,-8,no,0,0x201,0,weapon,0,0x0,			MO_CHAINCOMBO,Hachi Sho
 273,-2,6,4,-1,0x2,2,4,-10,no,0,0x40200,0,weapon,0,0x0,		MO_COMBOFINISH,Juuroku Sho
-841,0,6,4,3,0x2,1:2:2:3,4,1,no,0,0x40000,0,weapon,2,0x0,	HYU_KAITEN,Kaiten
+805,0,6,4,3,0x2,1:2:2:3,4,1,no,0,0x40000,0,weapon,2,0x0,	HYU_KAITEN,Kaiten
 371,-2,8,4,-1,0,0,3,-10,no,0,0x201,0,weapon,0,0x0,			CH_TIGERFIST,Sanjuni Sho
 372,-2,8,4,-1,0,0,2,-10,no,0,0x200,0,weapon,0,0x0,			CH_CHAINCRUSH,Rokujuyon Sho
+806,0,6,4,3,0x2,3,4,1,no,0,0,0,weapon,0,0x0,				HYU_HYAKU,Hyaku Nijuhachi Sho
 
 //****
 // Portões de Chakra
-806,0,6,4,0,0x1,0,7,0,no,0,0,0,none,0,0x0,					PT_1PORTAO,Abrir 1 ao 7 Portão
+807,0,6,4,0,0x1,0,7,0,no,0,0,0,none,0,0x0,					PT_1PORTAO,Abrir 1 ao 7 Portão
 2443,0,6,4,3,0,0,1,1,no,0,0,30,weapon,0,0x1000,				SO_FIREWALK,Abrir 8 Portão
 368,9,6,1,0,0x40,0,4,1,no,0,0,0,weapon,3,0x0,				PA_SACRIFICE,Ura Ranger
 2256,5,6,1,-1,0,0,4,-5,no,0,0,0,weapon,0,0x0,				NC_BOOSTKNUCKLE,Asa Kujaku
@@ -373,7 +374,7 @@
 
 //****
 // Akimichi
-842,0,6,4,-1,0x2,5:5:6:6,4,1,no,0,0x40000,0,weapon,0,0x0,	AKI_NIKUDAN,Nikudan Sensha
+809,0,6,4,-1,0x2,5:5:6:6,4,1,no,0,0x40000,0,weapon,0,0x0,	AKI_NIKUDAN,Nikudan Sensha
 810,9,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,					AK_VERDE,Pilula Verde
 811,9,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,					AK_AMARELA,Pilula Amarela
 812,9,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,					AK_VERMELHA,Pilula Vermelha

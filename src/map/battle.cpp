@@ -3394,7 +3394,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 	//-------------------------------------------------------------------
 	// Hyuuga
 		case HYU_KAITEN:
-			skillratio += 1000 * skill_lv; //Outer 5x5 circle takes 100%+10%*level damage [Playtester]
+			skillratio += 1000 * skill_lv;
 			break;
 		case MO_TRIPLEATTACK:
 			skillratio += 200 * skill_lv;
@@ -3410,6 +3410,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case CH_CHAINCRUSH:
 			skillratio += 1500 * skill_lv;
+			break;
+		case HYU_HYAKU:
+			skillratio += 1000 * skill_lv;
 			break;
 
 	// ------------------------------------------------------------------
@@ -6443,8 +6446,9 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
  * @param target: Target to vanish HP/SP
  * @param flag: Damage struct battle flag
  */
-void battle_vanish_damage(struct map_session_data *sd, struct block_list *target, int flag)
+void battle_vanish_damage(struct map_session_data *sd, struct block_list *bl, struct block_list *target, int flag)
 {
+	struct status_change *sc = status_get_sc(bl);
 	nullpo_retv(sd);
 	nullpo_retv(target);
 
@@ -6472,6 +6476,11 @@ void battle_vanish_damage(struct map_session_data *sd, struct block_list *target
 			if (it.rate && (it.rate >= 1000 || rnd() % 1000 < it.rate))
 				vanish_sp += it.per;
 		}
+	}
+
+	// Byakugan
+	if (sc && sc->count && sc->data[SC_BYAKUGAN]) {
+		vanish_sp += sc->data[SC_BYAKUGAN]->val1;
 	}
 
 	if (vanish_hp > 0 || vanish_sp > 0)
@@ -6512,7 +6521,7 @@ struct Damage battle_calc_attack(int attack_type,struct block_list *bl,struct bl
 	struct map_session_data *sd = BL_CAST(BL_PC, bl);
 
 	if (sd && d.damage + d.damage2 > 1)
-		battle_vanish_damage(sd, target, d.flag);
+		battle_vanish_damage(sd, bl, target, d.flag);
 
 	return d;
 }

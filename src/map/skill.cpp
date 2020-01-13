@@ -4897,9 +4897,7 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case RK_LUXANIMA:
 	case HW_NAPALMVULCAN:
 	case NJ_HUUMA:
-	case ASC_METEORASSAULT:
 	case GS_SPREADATTACK:
-	case NPC_EARTHQUAKE:
 	case NPC_PULSESTRIKE:
 	case NPC_HELLJUDGEMENT:
 	case NPC_VAMPIRE_GIFT:
@@ -4916,7 +4914,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case NC_VULCANARM:
 	case NC_COLDSLOWER:
 	case NC_SELFDESTRUCTION:
-	case KN_C0:
 	case NC_AXETORNADO:
 	case GC_ROLLINGCUTTER:
 	case GC_COUNTERSLASH:
@@ -4933,8 +4930,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case GN_DEMONIC_FIRE:
 	case GN_FIRE_EXPANSION_ACID:
 	case KO_HAPPOKUNAI:
-	case TAI_DAIHOKO:
-	case AKI_NIKUDAN:
 	case KO_HUUMARANKA:
 	case KO_MUCHANAGE:
 	case KO_BAKURETSU:
@@ -4948,6 +4943,14 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case SU_SCRATCH:
 	case SU_LUNATICCARROTBEAT:
 	case SU_LUNATICCARROTBEAT2:
+	//
+	case TAI_DAIHOKO:
+	case NPC_EARTHQUAKE:
+	//
+	case AKI_NIKUDAN:
+	case HYU_HYAKU:
+	case KN_C0:
+	case ASC_METEORASSAULT:
 		if( flag&1 ) {//Recursive invocation
 			int sflag = skill_area_temp[0] & 0xFFF;
 			int heal = 0;
@@ -6148,13 +6151,13 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	/* Portões */
 	case PT_1PORTAO:
 	/* Akimichi */
-	case AK_VERDE:
-	case AK_AMARELA:
+	case AKI_VERDE:
+	case AKI_AMARELA:
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
 			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
 		break;
 	/* Akimichi */
-	case AK_VERMELHA:
+	case AKI_VERMELHA:
 		clif_changelook(&sd->bl, LOOK_HEAD_MID, 1803);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
 			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
@@ -6179,8 +6182,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case AC_CONCENTRATION:
 	/* Uchiha */
 	case UH_SHARINGAN:
-	/* Hyuuga */
-	case BY_BYAKUGAN:
 		if (tsce) {
 			clif_skill_nodamage(src, bl, skill_id, -1, status_change_end(bl, type, INVALID_TIMER));
 			map_freeblock_unlock();
@@ -6191,6 +6192,37 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		}
 		break;
 
+	/* Hyuuga */
+	case HYU_BYAKUGAN:
+		if (tsce) {
+			clif_skill_nodamage(src, bl, skill_id, -1, status_change_end(bl, type, INVALID_TIMER));
+			map_freeblock_unlock();
+			return 0;
+		} else {
+			int number = 0;
+			struct s_mapiterator* it;
+
+			it = mapit_getallusers();
+			for (;;)
+			{
+				TBL_PC* md = (TBL_PC*)mapit_next(it);
+
+				if (md == NULL)
+					break;// no more player
+
+				if (md->bl.m != sd->bl.m)
+					continue;
+
+				++number;
+				clif_viewpoint(sd, 1, 0, md->bl.x, md->bl.y, number, 0xFF0000);
+
+				clif_skill_nodamage(src, bl, skill_id, skill_lv,
+					sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+			}
+			mapit_free(it);
+		}
+		break;
+	
 	/* Uchiha */
 	case UH_MANGEKYOU:
 		if (tsce) {
@@ -6234,6 +6266,26 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
 		break;
 
+	/*
+	*	Elemental
+	*/
+	case WZ_SIGHTRASHER:
+		//Passive side of the attack.
+		clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
+		map_foreachinshootrange(skill_area_sub,src,
+			skill_get_splash(skill_id, skill_lv),BL_CHAR|BL_SKILL,
+			src,skill_id,skill_lv,tick, flag|BCT_ENEMY|SD_ANIMATION|1,
+			skill_castend_damage_id);
+		clif_specialeffect(&sd->bl, EF_NO100_FIRECRACKER, AREA);
+		break;
+
+	case SUI_HARANBASHOU:
+		clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
+		skill_area_temp[1] = 0;
+		map_foreachinshootrange(skill_attack_area, src,
+			skill_get_splash(skill_id, skill_lv), splash_target(src),
+			BF_MAGIC, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+		break;
 	/*
 	*	Jutsu de Homunculu
 	*/
@@ -6339,6 +6391,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 	}
 	break;
+
+	// ------------------------------------------------------------------------
 
 	case HLIF_HEAL:	//[orn]
 	case AL_HEAL:
@@ -6761,7 +6815,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			src,skill_id,skill_lv,tick, flag|BCT_ENEMY|1, skill_castend_damage_id);
 		clif_skill_nodamage (src,src,skill_id,skill_lv,1);
 		// Initiate 20% of your damage becomes fire element.
-		sc_start4(src,src,SC_WATK_ELEMENT,100,3,20,0,0,skill_get_time2(skill_id, skill_lv));
+		//sc_start4(src,src,SC_WATK_ELEMENT,100,3,20,0,0,skill_get_time2(skill_id, skill_lv));
 		break;
 
 	case TK_JUMPKICK:
@@ -7171,10 +7225,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		break;
 
 	//List of self skills that give damage around caster
-	case ASC_METEORASSAULT:
 	case GS_SPREADATTACK:
-	case TAI_DAIHOKO:
-	case AKI_NIKUDAN:
 	case NC_AXETORNADO:
 	case GC_COUNTERSLASH:
 	case SR_SKYNETBLOW:
@@ -7185,6 +7236,12 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case RL_R_TRIP:
 	case WM_LULLABY_DEEPSLEEP:
 	case MH_SILENT_BREEZE:
+	//
+	case TAI_DAIHOKO:
+	//
+	case HYU_HYAKU:
+	case AKI_NIKUDAN:
+	case ASC_METEORASSAULT:
 	{
 		struct status_change *sc = status_get_sc(src);
 		int starget = BL_CHAR|BL_SKILL;
@@ -7193,8 +7250,13 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			flag |= 8;
 		if (skill_id == SR_HOWLINGOFLION)
 			starget = splash_target(src);
+
 		skill_area_temp[1] = 0;
-		clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
+		if (skill_id == HYU_HYAKU) {
+			clif_skill_nodamage(src, bl, skill_id, skill_lv, sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		} else {
+			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+		}
 		i = map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), starget,
 				src, skill_id, skill_lv, tick, flag|BCT_ENEMY|SD_SPLASH|1, skill_castend_damage_id);
 		if( !i && ( skill_id == NC_AXETORNADO || skill_id == SR_SKYNETBLOW) )
@@ -7249,24 +7311,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				src, skill_id, skill_lv, tick, flag | BCT_ENEMY | 0,
 				skill_castend_damage_id);
 		}
-		break;
-
-	case WZ_SIGHTRASHER:
-		//Passive side of the attack.
-		clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
-		map_foreachinshootrange(skill_area_sub,src,
-			skill_get_splash(skill_id, skill_lv),BL_CHAR|BL_SKILL,
-			src,skill_id,skill_lv,tick, flag|BCT_ENEMY|SD_ANIMATION|1,
-			skill_castend_damage_id);
-		clif_specialeffect(&sd->bl, EF_NO100_FIRECRACKER, AREA);
-		break;
-
-	case SUI_HARANBASHOU:
-		clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
-		skill_area_temp[1] = 0;
-		map_foreachinshootrange(skill_attack_area, src,
-			skill_get_splash(skill_id, skill_lv), splash_target(src),
-			BF_MAGIC, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
 		break;
 
 	case NPC_SELFDESTRUCTION:
@@ -15317,7 +15361,6 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 		case UH_SUSANOO:
 		case SA_MAGICROD:
 		case RK_DRAGONBREATH:
-		case UH_DIMENSION:
 		case KO_KYOUGAKU:
 			if (!(sc && sc->data[SC_MANGEKYOU]))
 				return false;

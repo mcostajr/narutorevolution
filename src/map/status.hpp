@@ -881,6 +881,7 @@ enum sc_type : int16 {
 	//----------------------
 	//Hyuuga
 	SC_BYAKUGAN,
+	SC_HYAKU,
 
 	//----------------------
 	//Portões
