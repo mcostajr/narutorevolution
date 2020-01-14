@@ -6153,11 +6153,12 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	/* Akimichi */
 	case AKI_VERDE:
 	case AKI_AMARELA:
+	case AKI_VERMELHA:
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
 			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
 		break;
 	/* Akimichi */
-	case AKI_VERMELHA:
+	case AKI_CHOOMODO:
 		clif_changelook(&sd->bl, LOOK_HEAD_MID, 1803);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
 			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
@@ -15382,7 +15383,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 			break;
 
 		case MO_EXTREMITYFIST: // Akimichi
-			if (!(sc && sc->data[SC_PILULA3]))
+			if (!(sc && sc->data[SC_CHOOMODO]))
 				return false;
 			break;
 

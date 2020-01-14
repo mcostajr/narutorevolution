@@ -1,35 +1,35 @@
-otogakure,70,221,4	script	Sasuke Shippuuden	414,{
+otogakure,70,221,4	script	Sasuke Shippuden	414,{
 
 function Add; function Chk; function Slot; function A_An;
 	
 
-	mes "[Sasuke Shippuuden]";
-	mes "Hum...";
-	switch(select("- Obrigado pela conversa.:- Quero o seu olho.:- Olhar Quest") ) {
+	mes "[Sasuke Shippuden]";
+	mes "Hum. Naruto o mandou até aqui?";
+	switch(select("- ^0000FF* Não devo contar *.^000000:- .:- Olhar missões.") ) {
 		case 1:
 			close;
 		
 		case 2:
 		next;
 			if(getequipid(EQI_HEAD_MID) == 30103 && getequipcardid(EQI_HEAD_MID,0) == 30400) { 
-				mes "[Sasuke Shippuuden]";
+				mes "[Sasuke Shippuden]";
 				mes "Venha arrancar de mim se você é capaz.";
 				next;
-				mes "[Sasuke Shippuuden]";
+				mes "[Sasuke Shippuden]";
 				mes "Você realmente é um uchiha.";
 				delitem 30103,1;
 				getitem 30130,1;
 				equip 30130;
 				close;
 			}
-			mes "[Sasuke Shippuuden]";
+			mes "[Sasuke Shippuden]";
 			mes "Sai fora bastardo.";
 			close;
 			
 		case 3:
 			next;
-			mes "[Sasuke Shippuuden]";
-			mes "Irei mostrar oque tenho a oferecer.";
+			mes "[Sasuke Shippuden]";
+			mes "Irei mostrar o que tenho a oferecer.";
 			close2;
 			dispbottom "Selecione um item por vez.";
 			callshop "SETSASUKES",1;
@@ -83,12 +83,12 @@ OnBuyItem:
 		switch(select(" - Fazer ^0055FF"+getitemname(.@q[0])+"^000000:"+((((@qe1&1) || (@qe1&256) || (@qe1&512)) && @qe2>0 && !@qe6)?" Probarselo...":"")+": - ^777777Cancelar^000000")) {
 			case 1:
 				if (@qe0) { 
-					mes "[Shinobi Desconhecido]";
-					mes "Voce está faltando um ou mais requisitos de missao.";
+					mes "[Sasuke Shippuden]";
+					mes "Porque perde o meu tempo? Pare de me atrasar.";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
-					mes "[Shinobi Desconhecido]";
-					mes "^FF0000Voce Precisa "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" Capacidade de peso adicional para completar este comércio.^000000";
+					mes "[Sasuke Shippuden]";
+					mes "^FF0000Você precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];

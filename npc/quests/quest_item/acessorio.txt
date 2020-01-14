@@ -3,11 +3,11 @@ function Add; function Chk; function Slot; function A_An;
 	
 
 	mes "[Danzo]";
-	mes "Estou um belo dia.";
-	if(select("- Obrigado pela conversa.:- Olhar Quest") == 1) close;
+	mes "Tsc.. Não me faça perder tempo..";
+	if(select("- Deixa pra lá..:- Olhar missões") == 1) close;
 	next;
 	mes "[Danzo]";
-	mes "Irei mostrar oque tenho a oferecer.";
+	mes "Irei mostrar o que tenho a oferecer.";
 	close2;
 	dispbottom "Selecione um item por vez.";
 	callshop "SETACESSORIOS",1;
@@ -60,12 +60,12 @@ OnBuyItem:
 		switch(select(" - Fazer ^0055FF"+getitemname(.@q[0])+"^000000:"+((((@qe1&1) || (@qe1&256) || (@qe1&512)) && @qe2>0 && !@qe6)?" Probarselo...":"")+": - ^777777Cancelar^000000")) {
 			case 1:
 				if (@qe0) { 
-					mes "[Shinobi Desconhecido]";
-					mes "Vocę está faltando um ou mais requisitos de missăo.";
+					mes "[Danzo]";
+					mes "Não me faça perder tempo, ainda estão faltando itens da missão.";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
-					mes "[Shinobi Desconhecido]";
-					mes "^FF0000Vocę Precisa "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" Capacidade de peso adicional para completar este comércio.^000000";
+					mes "[Danzo]";
+					mes "^FF0000Você precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de peso adicional para receber seu item.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];

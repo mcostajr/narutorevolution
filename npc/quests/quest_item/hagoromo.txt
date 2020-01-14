@@ -2,11 +2,11 @@ konoha3,148,200,4	script	Hagoromo	101,{
 function Add; function Chk; function Slot; function A_An;
 	
 
-	mes "[Hagoromo]";
-	mes "Estou um belo dia.";
-	if(select("- Obrigado pela conversa.:- Olhar Quest") == 1) close;
+	mes "[Deus Shinobi]";
+	mes "Meu Ninshuu foi feito para criar esperança. Não confunda com Ninjutsu, que foi feito para criar guerras.";
+	if(select("- ^00FF00* Gesto de reverência *^000000:- Olhar missões") == 1) close;
 	next;
-	mes "[Hagoromo]";
+	mes "[Deus Shinobi]";
 	mes "Irei mostrar oque tenho a oferecer.";
 	close2;
 	dispbottom "Selecione um item por vez.";
@@ -60,12 +60,12 @@ OnBuyItem:
 		switch(select(" - Fazer ^0055FF"+getitemname(.@q[0])+"^000000:"+((((@qe1&1) || (@qe1&256) || (@qe1&512)) && @qe2>0 && !@qe6)?" Probarselo...":"")+": - ^777777Cancelar^000000")) {
 			case 1:
 				if (@qe0) { 
-					mes "[Shinobi Desconhecido]";
-					mes "Voce está faltando um ou mais requisitos de missao.";
+					mes "[Deus Shinobi]";
+					mes "Ainda estão faltando itens da missão, traga-os para mim.";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
-					mes "[Shinobi Desconhecido]";
-					mes "^FF0000Voce Precisa "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" Capacidade de peso adicional para completar este comércio.^000000";
+					mes "[Deus Shinobi]";
+					mes "^FF0000Você precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];

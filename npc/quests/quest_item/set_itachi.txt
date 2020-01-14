@@ -1,6 +1,6 @@
 es_fild01,84,76,4	script	Kisame	99,{
 	mes "[Kisame]";
-	mes "Uhhmm...";
+	mes "Hehehe..";
 	close;
 }
 
@@ -9,8 +9,8 @@ function Add; function Chk; function Slot; function A_An;
 	
 
 	mes "[Itachi]";
-	mes "Hum...";
-	switch(select("- Obrigado pela conversa.:- Quero o seu olho.:- Olhar Quest") ) {
+	mes "Não há nenhum valor em matar alguém como você.";
+	switch(select("- Argh..:- Quero o seu olho:- Olhar missões.") ) {
 		case 1:
 			close;
 		
@@ -34,7 +34,7 @@ function Add; function Chk; function Slot; function A_An;
 		case 3:
 			next;
 			mes "[Itachi]";
-			mes "Irei mostrar oque tenho a oferecer.";
+			mes "Hum..";
 			close2;
 			dispbottom "Selecione um item por vez.";
 			callshop "SETITACHI",1;
@@ -88,12 +88,12 @@ OnBuyItem:
 		switch(select(" - Fazer ^0055FF"+getitemname(.@q[0])+"^000000:"+((((@qe1&1) || (@qe1&256) || (@qe1&512)) && @qe2>0 && !@qe6)?" Probarselo...":"")+": - ^777777Cancelar^000000")) {
 			case 1:
 				if (@qe0) { 
-					mes "[Shinobi Desconhecido]";
-					mes "Voce está faltando um ou mais requisitos de missao.";
+					mes "[Itachi]";
+					mes "Saia da minha frente, você não possui todos os requisitos da missao.";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
-					mes "[Shinobi Desconhecido]";
-					mes "^FF0000Voce Precisa "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" Capacidade de peso adicional para completar este comércio.^000000";
+					mes "[Itachi]";
+					mes "^FF0000Você precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];

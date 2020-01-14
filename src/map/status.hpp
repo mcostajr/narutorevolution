@@ -890,9 +890,10 @@ enum sc_type : int16 {
 
 	//----------------------
 	//Akimichi
-	SC_PILULA1,
-	SC_PILULA2,
-	SC_PILULA3,
+	SC_VERDE,
+	SC_AMARELA,
+	SC_VERMELHA,
+	SC_CHOOMODO = 716,
 
 	//----------------------
 	//Nara
@@ -2014,11 +2015,11 @@ enum efst_types : short{
 	EFST_BYAKUGAN = 1203,
 
 	EFST_PORTAO1 = 1204,
-	EFST_PORTAO2 = 1205,
 
-	EFST_PILULA1 = 1206,
-	EFST_PILULA2 = 1207,
-	EFST_PILULA3 = 1208,
+	EFST_VERDE = 1206,
+	EFST_AMARELA = 1207,
+	EFST_VERMELHA = 1208,
+	EFST_CHOOMODO = 1217,
 
 	EFST_MEDITAR = 1209,
 

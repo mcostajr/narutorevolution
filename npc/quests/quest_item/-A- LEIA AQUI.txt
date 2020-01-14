@@ -1,0 +1,10 @@
+Nota de atualização:
+- Alguns nomes dos NPCs foram alterados, vão dar erro na hora de subir.
+- Os arquivos não foram passados para ANSI.
+- Os NPCs Uchihas (Sasuke, Itachi, Obito) remover a fala sobre evolução/alteração de sharingan.
+- NPC "set_raikage" não foi encontrado na coordenada (kumogakure 178 76 4), não recebeu alteração ainda. 
+
+Falta fazer:
+- Reordenar coordenada dos NPCs.
+- Reordenar itens de missão.
+- Adicionar novos NPCs

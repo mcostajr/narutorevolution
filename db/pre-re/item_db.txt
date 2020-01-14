@@ -1791,8 +1791,8 @@
 10006,Pilulas_Intermediaria,Pílulas Intermediaria,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ percentheal 0,30; },{},{}
 10007,Pilulas_Avançada,Pílulas Avançada,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ percentheal 0,80; },{},{}
 
-10008,Pilula_Curry,Pílula Curry,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
-10009,Pilula_Espinafre,Pílula Espinafre,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+10008,Pilula_Espinafre,Pílula Espinafre,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+10009,Pilula_Curry,Pílula Curry,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
 10010,Pilula_Pimenta,Pílula Pimenta,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
 
 10011,Fragmento_Magatama_A,Fragmento Magatama A,3,0,,0,,,,,,,,,,,,,{},{},{}

@@ -242,9 +242,10 @@ void initChangeTables(void)
 
 	set_sc(PT_1PORTAO, SC_PORTAO1, EFST_PORTAO1, SCB_BATK | SCB_WATK);
 
-	set_sc(AKI_VERDE, SC_PILULA1, EFST_PILULA1, SCB_DEF | SCB_MDEF);
-	set_sc(AKI_AMARELA, SC_PILULA2, EFST_PILULA2, SCB_MAXHP | SCB_REGEN);
-	set_sc(AKI_VERMELHA, SC_PILULA3, EFST_PILULA3, SCB_BATK | SCB_WATK | SCB_SPEED);
+	set_sc(AKI_VERDE, SC_VERDE, EFST_VERDE, SCB_DEF | SCB_MDEF);
+	set_sc(AKI_AMARELA, SC_AMARELA, EFST_AMARELA, SCB_MAXHP | SCB_REGEN);
+	set_sc(AKI_VERMELHA, SC_VERMELHA, EFST_VERMELHA, SCB_BATK | SCB_WATK | SCB_SPEED);
+	set_sc(AKI_CHOOMODO, SC_CHOOMODO, EFST_CHOOMODO, SCB_NONE);
 
 	set_sc(NR_MEDITAR, SC_MEDITAR, EFST_MEDITAR, SCB_NONE);
 
@@ -254,6 +255,8 @@ void initChangeTables(void)
 	add_sc(JIN_GENKAIHAKURI, SC_WHITEIMPRISON);
 
 	set_sc(SC_SHADOWFORM, SC__SHADOWFORM, EFST_SHADOWFORM, SCB_NONE);
+
+	set_sc(ALL_FULL_THROTTLE, SC_FULL_THROTTLE, EFST_FULL_THROTTLE, SCB_SPEED | SCB_STR | SCB_AGI | SCB_VIT | SCB_INT | SCB_DEX | SCB_LUK);
 
 	/* ----------------------------------------------------------------------------------------------------------------------------------- */
 	/* Basica */
@@ -886,8 +889,6 @@ void initChangeTables(void)
 	set_sc( OB_ZANGETSU			, SC_ZANGETSU		, EFST_ZANGETSU		, SCB_MATK|SCB_BATK );
 	set_sc_with_vfx( OB_AKAITSUKI		, SC_AKAITSUKI		, EFST_AKAITSUKI		, SCB_NONE );
 	set_sc( OB_OBOROGENSOU			, SC_GENSOU		, EFST_GENSOU		, SCB_NONE );
-
-	set_sc( ALL_FULL_THROTTLE		, SC_FULL_THROTTLE	, EFST_FULL_THROTTLE	, SCB_SPEED|SCB_STR|SCB_AGI|SCB_VIT|SCB_INT|SCB_DEX|SCB_LUK );
 
 	/* Rebellion */
 	add_sc( RL_MASS_SPIRAL		, SC_BLEEDING );
@@ -3171,6 +3172,13 @@ static int status_get_hpbonus(struct block_list *bl, enum e_status_bonus type) {
 
 		//Bonus by SC
 		if (sc) {
+			/*
+			*	Naruto
+			*/
+			if (sc->data[SC_CHOOMODO])
+				bonus += sc->data[SC_CHOOMODO]->val3;
+
+			// ---------------------------
 			//Increasing
 			if(sc->data[SC_INCMHPRATE])
 				bonus += sc->data[SC_INCMHPRATE]->val1;
@@ -3308,6 +3316,13 @@ static int status_get_spbonus(struct block_list *bl, enum e_status_bonus type) {
 
 		//Bonus by SC
 		if (sc) {
+			/*
+			*	Naruto
+			*/
+			if (sc->data[SC_CHOOMODO])
+				bonus += sc->data[SC_CHOOMODO]->val3;
+
+			// ---------------------------
 			/*
 			if(sc->data[SC_INCMSPRATE])
 				bonus += sc->data[SC_INCMSPRATE]->val1;
@@ -4248,7 +4263,10 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 		sd->dsprate -= 2 * sc->data[SC_CONCENTRATE]->val1;
 	if((skill=pc_checkskill(sd,HP_MANARECHARGE))>0 )
 		sd->dsprate -= 4*skill;
-	//-------
+	// Akimichi
+	if ((skill = pc_checkskill(sd, AKI_KARORI)) > 0)
+		sd->dsprate -= 3 * skill;
+	//-------------------------------
 	if(sc->data[SC_SERVICE4U])
 		sd->dsprate -= sc->data[SC_SERVICE4U]->val3;
 
@@ -4659,10 +4677,11 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 
 	regen->hp = cap_value(val, reg_flag, SHRT_MAX);
 
-	val = 1 + (status->int_/6) + (status->max_sp/100);
-	if( status->int_ >= 120 )
+	//val = 1 + (status->int_/6) + (status->max_sp/100);
+	val = 0;
+	/*if( status->int_ >= 120 )
 		val += ((status->int_-120)>>1) + 4;
-
+	*/
 	if( sd && sd->sprecov_rate != 100 )
 		val = val*sd->sprecov_rate/100;
 
@@ -4670,31 +4689,40 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 
 	if( sd ) {
 		struct regen_data_sub *sregen;
+		/*
 		if( (skill=pc_checkskill(sd,HP_MEDITATIO)) > 0 ) {
 			val = regen->sp*(100+3*skill)/100;
 			regen->sp = cap_value(val, 1, SHRT_MAX);
 		}
+		*/
 		// Only players have skill/sitting skill regen for now.
 		sregen = regen->sregen;
 
 		val = 0;
+		/*
 		if( (skill=pc_checkskill(sd,SM_RECOVERY)) > 0 )
 			val += skill*5 + skill*status->max_hp/500;
+		*/
 		sregen->hp = cap_value(val, 0, SHRT_MAX);
 
 		val = 0;
-		//if( (skill=pc_checkskill(sd,MG_SRECOVERY)) > 0 )
-		//	val += skill*3 + skill*status->max_sp/500;
-		//if( (skill=pc_checkskill(sd,NJ_NINPOU)) > 0 )
-		//	val += skill*3 + skill*status->max_sp/500;
+		/*
+		if( (skill=pc_checkskill(sd,MG_SRECOVERY)) > 0 )
+			val += skill*3 + skill*status->max_sp/500;
+		if( (skill=pc_checkskill(sd,NJ_NINPOU)) > 0 )
+			val += skill*3 + skill*status->max_sp/500;
 		if( (skill=pc_checkskill(sd,WM_LESSON)) > 0 )
 			val += 3 + 3 * skill;
-
+		*/
 		if (sc && sc->count) {
+			if (sc->data[SC_AMARELA])
+				val += sc->data[SC_AMARELA]->val3;
+			/*
 			if (sc->data[SC_SHRIMPBLESSING])
 				val *= 150 / 100;
 			if (sc->data[SC_ANCILLA])
 				val += sc->data[SC_ANCILLA]->val2 / 100;
+			*/
 		}
 
 		sregen->sp = cap_value(val, 0, SHRT_MAX);
@@ -4703,14 +4731,16 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 		sregen = regen->ssregen;
 
 		val = 0;
+		/*
 		if( (skill=pc_checkskill(sd,MO_SPIRITSRECOVERY)) > 0 )
 			val += skill*4 + skill*status->max_hp/500;
 
 		if( (skill=pc_checkskill(sd,TK_HPTIME)) > 0 && sd->state.rest )
 			val += skill*30 + skill*status->max_hp/500;
 		sregen->hp = cap_value(val, 0, SHRT_MAX);
-
+		*/
 		val = 0;
+		/*
 		if( (skill=pc_checkskill(sd,TK_SPTIME)) > 0 && sd->state.rest ) {
 			val += skill*3 + skill*status->max_sp/500;
 			if ((skill=pc_checkskill(sd,SL_KAINA)) > 0) // Power up Enjoyable Rest
@@ -4719,6 +4749,7 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 		if( (skill=pc_checkskill(sd,MO_SPIRITSRECOVERY)) > 0 )
 			val += skill*2 + skill*status->max_sp/500;
 		sregen->sp = cap_value(val, 0, SHRT_MAX);
+		*/
 	}
 
 	if( bl->type == BL_HOM ) {
@@ -4792,7 +4823,11 @@ void status_calc_regen_rate(struct block_list *bl, struct regen_data *regen, str
 		regen->flag = RGN_NONE;
 
 	// No natural SP regen
-	if (sc->data[SC_DANCING] ||
+
+	if (sc->data[SC_AMARELA])
+		regen->rate.sp += 100;
+
+	/*if (sc->data[SC_DANCING] ||
 #ifdef RENEWAL
 		sc->data[SC_MAXIMIZEPOWER] ||
 #endif
@@ -4826,7 +4861,8 @@ void status_calc_regen_rate(struct block_list *bl, struct regen_data *regen, str
 			regen->rate.sp += (sce->val3*100);
 		} else
 			regen->flag &= ~sce->val4; // Remove regen as specified by val4
-	}
+	}*/
+
 	if (sc->data[SC_BANDING] && sc->data[SC_BANDING]->val2 > 1)
 		regen->hp += cap_value(regen->hp * 50 / 100, 1, SHRT_MAX);
 	if(sc->data[SC_GT_REVITALIZE]) {
@@ -5569,12 +5605,14 @@ static unsigned short status_calc_str(struct block_list *bl, struct status_chang
 	if (sc->data[SC_PORTAO1])
 		str += str * 10 / 100;
 	// Akimichi
-	if (sc->data[SC_PILULA1])
-		str += sc->data[SC_PILULA1]->val2;
+	if (sc->data[SC_VERDE])
+		str += sc->data[SC_VERDE]->val2;
 	// Selo Amaldiçoado
 	if (sc->data[SC_AMALDICOADO])
 		str += str * sc->data[SC_AMALDICOADO]->val2 / 100;
-
+	// Byakugo
+	if (sc->data[SC_FULL_THROTTLE])
+		str += str * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	// ------------------------------------
 	//  Outros
 	// ------------------------------------
@@ -5620,8 +5658,6 @@ static unsigned short status_calc_str(struct block_list *bl, struct status_chang
 		str += 1;
 	if(sc->data[SC_JUMPINGCLAN])
 		str += 1;
-	if(sc->data[SC_FULL_THROTTLE])
-		str += str * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if(sc->data[SC_CHEERUP])
 		str += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -5656,6 +5692,9 @@ static unsigned short status_calc_agi(struct block_list *bl, struct status_chang
 	// Selo Amaldiçoado
 	if (sc->data[SC_AMALDICOADO])
 		agi += agi * sc->data[SC_AMALDICOADO]->val2 / 100;
+	// Byakugo
+	if (sc->data[SC_FULL_THROTTLE])
+		agi += agi * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 
 
 	// ------------------------------------
@@ -5703,8 +5742,6 @@ static unsigned short status_calc_agi(struct block_list *bl, struct status_chang
 		agi += 1;
 	if(sc->data[SC_JUMPINGCLAN])
 		agi += 1;
-	if(sc->data[SC_FULL_THROTTLE])
-		agi += agi * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if (sc->data[SC_ARCLOUSEDASH])
 		agi += sc->data[SC_ARCLOUSEDASH]->val2;
 	if(sc->data[SC_CHEERUP])
@@ -5738,6 +5775,9 @@ static unsigned short status_calc_vit(struct block_list *bl, struct status_chang
 	// Selo Amaldiçoado
 	if (sc->data[SC_AMALDICOADO])
 		vit += vit * sc->data[SC_AMALDICOADO]->val2 / 100;
+	// Byakugo
+	if (sc->data[SC_FULL_THROTTLE])
+		vit += vit * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 
 	// ------------------------------------
 	//  Outros
@@ -5776,8 +5816,6 @@ static unsigned short status_calc_vit(struct block_list *bl, struct status_chang
 		vit += 1;
 	if(sc->data[SC_STRIPARMOR] && bl->type != BL_PC)
 		vit -= vit * sc->data[SC_STRIPARMOR]->val2/100;
-	if(sc->data[SC_FULL_THROTTLE])
-		vit += vit * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 #ifdef RENEWAL
 	if(sc->data[SC_DEFENCE])
 		vit += sc->data[SC_DEFENCE]->val2;
@@ -5821,6 +5859,9 @@ static unsigned short status_calc_int(struct block_list *bl, struct status_chang
 	// Selo Amaldiçoado
 	if (sc->data[SC_AMALDICOADO])
 		int_ += int_ * sc->data[SC_AMALDICOADO]->val2 / 100;
+	// Byakugo
+	if (sc->data[SC_FULL_THROTTLE])
+		int_ += int_ * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 
 	// ------------------------------------
 	//  Outros
@@ -5868,8 +5909,6 @@ static unsigned short status_calc_int(struct block_list *bl, struct status_chang
 		int_ += 1;
 	if(sc->data[SC_JUMPINGCLAN])
 		int_ += 1;
-	if(sc->data[SC_FULL_THROTTLE])
-		int_ += int_ * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if(sc->data[SC_CHEERUP])
 		int_ += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -5910,6 +5949,9 @@ static unsigned short status_calc_dex(struct block_list *bl, struct status_chang
 	// Selo Amaldiçoado
 	if (sc->data[SC_AMALDICOADO])
 		dex += dex * sc->data[SC_AMALDICOADO]->val2 / 100;
+	// Byakugo
+	if (sc->data[SC_FULL_THROTTLE])
+		dex += dex * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 
 	// ------------------------------------
 	//  Outros
@@ -5960,8 +6002,6 @@ static unsigned short status_calc_dex(struct block_list *bl, struct status_chang
 		dex -= dex * sc->data[SC__STRIPACCESSORY]->val2 / 100;
 	if(sc->data[SC_MARSHOFABYSS])
 		dex -= dex * sc->data[SC_MARSHOFABYSS]->val2 / 100;
-	if(sc->data[SC_FULL_THROTTLE])
-		dex += dex * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if(sc->data[SC_CHEERUP])
 		dex += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -5996,6 +6036,9 @@ static unsigned short status_calc_luk(struct block_list *bl, struct status_chang
 		luk += sc->data[SC_SHARINGAN]->val3;
 	if (sc->data[SC_MANGEKYOU])
 		luk += sc->data[SC_MANGEKYOU]->val3;
+	// Byakugo
+	if (sc->data[SC_FULL_THROTTLE])
+		luk += luk * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 
 	// ------------------------------------
 	//  Outros
@@ -6041,8 +6084,6 @@ static unsigned short status_calc_luk(struct block_list *bl, struct status_chang
 		luk += 1;
 	if(sc->data[SC_JUMPINGCLAN])
 		luk += 1;
-	if(sc->data[SC_FULL_THROTTLE])
-		luk += luk * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if(sc->data[SC_CHEERUP])
 		luk += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -6076,8 +6117,10 @@ static unsigned short status_calc_batk(struct block_list *bl, struct status_chan
 	if (sc->data[SC_PROPERTYWALK])
 		batk += batk * 10 / 100;
 	// Akimichi
-	if (sc->data[SC_PILULA3])
-		batk += sc->data[SC_PILULA3]->val2;
+	if (sc->data[SC_VERMELHA])
+		batk += sc->data[SC_VERMELHA]->val2;
+	if (sc->data[SC_CHOOMODO])
+		batk += sc->data[SC_CHOOMODO]->val3;
 
 
 	if(sc->data[SC_ATKPOTION])
@@ -6305,6 +6348,12 @@ static unsigned short status_calc_matk(struct block_list *bl, struct status_chan
 	if(!sc || !sc->count)
 		return cap_value(matk,0,USHRT_MAX);
 
+	// Akimichi
+	if (sc->data[SC_VERMELHA])
+		matk += sc->data[SC_VERMELHA]->val2;
+	if (sc->data[SC_CHOOMODO])
+		matk += sc->data[SC_CHOOMODO]->val3;
+	// Byakugo
 	if (sc->data[SC_FULL_THROTTLE])
 		matk += sc->data[SC_FULL_THROTTLE]->val2;
 
@@ -7007,6 +7056,13 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 		if (sc->data[SC_MANGEKYOU])
 			val += max(val, sc->data[SC_MANGEKYOU]->val2);
 
+		// Akimichi
+		if (sc->data[SC_CHOOMODO])
+			val += max(val, sc->data[SC_CHOOMODO]->val2);
+
+		// Byakugo
+		if (sc->data[SC_FULL_THROTTLE])
+			val = max(val, 25);
 
 		// -------------------------------------------------------------
 		if( sc->data[SC_SPEEDUP1] ) // !FIXME: used both by NPC_AGIUP and Speed Potion script
@@ -7033,8 +7089,6 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max( val, sc->data[SC_SWINGDANCE]->val3 );
 		if( sc->data[SC_WIND_STEP_OPTION] )
 			val = max( val, sc->data[SC_WIND_STEP_OPTION]->val2 );
-		if( sc->data[SC_FULL_THROTTLE] )
-			val = max( val, 25 );
 		if (sc->data[SC_ARCLOUSEDASH])
 			val = max(val, sc->data[SC_ARCLOUSEDASH]->val3);
 		if( sc->data[SC_DORAM_WALKSPEED] )
@@ -9742,7 +9796,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		t_tickime = 1000;
 		val4 = tick / t_tickime;
 		break;
-
 	case SC_PROPERTYWALK:
 		val3 = 0;
 		t_tickime = 1000;
@@ -9750,16 +9803,19 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		break;
 
 	// Akimichi
-	case SC_PILULA1:
-		val2 = 4 * val1;
+	case SC_VERDE:
+		val2 = 4 + (4 * val1); // Str
 		break;
-
-	case SC_PILULA2:
-		val2 = 5 * val1; // MaxSp
+	case SC_AMARELA:
+		val2 = 5 + (5 * val1); // MaxSp
+		val3 = 5 + (5 * val1); // RegenSp
 		break;
-
-	case SC_PILULA3:
-		val2 = 50 * val1; // 100 atq
+	case SC_VERMELHA:
+		val2 = 100 + (100 * val1); // Atk/Matk
+		break;
+	case SC_CHOOMODO:
+		val2 = 15; // MoveSpeed
+		val3 = 5; // Atk/Matk
 		t_tickime = 1000;
 		val4 = tick / t_tickime;
 		break;
@@ -9782,6 +9838,13 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		val4 = tick / 5000;
 		t_tickime = 5000;
 		break;
+	case SC_FULL_THROTTLE:
+		val2 = (val1 == 1 ? 6 : 6 - val1);
+		val3 = 20; //+% AllStats
+		t_tickime = 1000;
+		val4 = tick / t_tickime;
+		break;
+
 	// --------------------------------------------------------------------
 
 		/* Permanent effects */
@@ -11230,12 +11293,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 					val4 = 50;
 			}
 			break;
-		case SC_FULL_THROTTLE:
-			val2 = ( val1 == 1 ? 6 : 6 - val1 );
-			val3 = 20; //+% AllStats
-			t_tickime = 1000;
-			val4 = tick / t_tickime;
-			break;
 		case SC_REBOUND:
 			t_tickime = 2000;
 			val4 = tick / t_tickime;
@@ -12378,18 +12435,62 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 	vd = status_get_viewdata(bl);
 	calc_flag = static_cast<scb_flag>(StatusChangeFlagTable[type]);
 	switch(type) {
+		/*
+		* Naruto
+		*/
+		// Uchiha
 		case SC_SUSANOO:
 			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2100);
 			break;
+
+		// Portão
 		case SC_PORTAO1:
 			clif_changelook(&sd->bl, LOOK_HEAD_MID, 0);
 			break;
-		case SC_PILULA3:
+
+		// Akimichi
+		case SC_VERDE: {
+			int sec = skill_get_time2(status_sc2skill(type), sce->val1);
+
+			sc_start(bl, bl, SC_REBOUND, 100, sce->val1, sec);
+		}
+		break;
+		case SC_AMARELA: {
+			int sec = skill_get_time2(status_sc2skill(type), sce->val1);
+
+			sc_start(bl, bl, SC_REBOUND, 100, sce->val1, sec);
+		}
+		break;
+		case SC_VERMELHA: {
+			int sec = skill_get_time2(status_sc2skill(type), sce->val1);
+
+			sc_start(bl, bl, SC_REBOUND, 100, sce->val1, sec);
+		}
+		break;
+		case SC_CHOOMODO: {
+			int sec = skill_get_time2(status_sc2skill(type), sce->val1);
+
+			sc_start(bl, bl, SC_REBOUND, 100, sce->val1, sec);
 			clif_changelook(&sd->bl, LOOK_HEAD_MID, 0);
-			break;
+		}
+		break;
+
+		// Ten
 		case SC_AMALDICOADO:
 			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2106);
 			break;
+
+		// Byakugo
+		case SC_FULL_THROTTLE: {
+			int sec = skill_get_time2(status_sc2skill(type), sce->val1);
+
+			clif_status_change(bl, EFST_DEC_AGI, 1, sec, 0, 0, 0);
+			sc_start(bl, bl, SC_REBOUND, 100, sce->val1, sec);
+		}
+		break;
+
+
+		// ---------------------------------------------------------------------------
 
 		case SC_GRANITIC_ARMOR:
 			{
@@ -12771,13 +12872,6 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 				case BL_PC:
 					status_zap(bl,0,status_get_max_sp(bl) / 2);
 					break;
-			}
-			break;
-		case SC_FULL_THROTTLE: {
-				int sec = skill_get_time2(status_sc2skill(type), sce->val1);
-
-				clif_status_change(bl, EFST_DEC_AGI, 1, sec, 0, 0, 0);
-				sc_start(bl, bl, SC_REBOUND, 100, sce->val1, sec);
 			}
 			break;
 		case SC_REBOUND:
@@ -13165,7 +13259,7 @@ TIMER_FUNC(status_change_timer){
 			}
 			break;
 		/* Akimichi */
-		case SC_PILULA3:
+		case SC_CHOOMODO:
 			if (--(sce->val4) >= 0) {
 				sc_timer_next(1000 + tick);
 				return 0;
@@ -14628,11 +14722,6 @@ static int status_natural_heal(struct block_list* bl, va_list args)
 		// Homun SP regen fix (they should regen as if they were sitting (twice as fast)
 		if(bl->type==BL_HOM)
 			rate *= 2;
-#ifdef RENEWAL
-		if (bl->type == BL_PC && (((TBL_PC*)bl)->class_&MAPID_UPPERMASK) == MAPID_MONK &&
-			sc && sc->data[SC_EXPLOSIONSPIRITS] && (!sc->data[SC_SPIRIT] || sc->data[SC_SPIRIT]->val2 != SL_MONK))
-			rate /= 2; // Tick is doubled in Fury state
-#endif
 		regen->tick.sp += rate;
 
 		if(regen->tick.sp >= (unsigned int)battle_config.natural_healsp_interval) {

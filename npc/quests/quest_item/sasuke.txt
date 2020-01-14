@@ -3,11 +3,11 @@ function Add; function Chk; function Slot; function A_An;
 	
 
 	mes "[Sasuke]";
-	mes "Estou um belo dia.";
-	if(select("- Obrigado pela conversa.:- Olhar Quest") == 1) close;
+	mes "Eu odeio um monte de coisas, particularmente não gosto de nada. O que eu tenho não é um sonho, porque eu vou torná-lo uma realidade. Vou restaurar meu clã, e matar um certo alguém..";
+	if(select("- Boa sorte:- Olhar missões.") == 1) close;
 	next;
 	mes "[Sasuke]";
-	mes "Irei mostrar oque tenho a oferecer.";
+	mes "Irei mostrar o que tenho a oferecer.";
 	close2;
 	dispbottom "Selecione um item por vez.";
 	callshop "SETSASUKE",1;
@@ -61,11 +61,11 @@ OnBuyItem:
 			case 1:
 				if (@qe0) { 
 					mes "[Sasuke]";
-					mes "Voce está faltando um ou mais requisitos de missao.";
+					mes "Ainda estão faltando itens da missão, traga-os para mim.";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
 					mes "[Sasuke]";
-					mes "^FF0000Voce Precisa "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" Capacidade de peso adicional para completar este comércio.^000000";
+					mes "^FF0000Você precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];
