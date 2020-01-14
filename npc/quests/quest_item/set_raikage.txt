@@ -1,4 +1,4 @@
-kumogakure,178,76,4	script	Raikage#2	49,{
+salakage4,31,21,4	script	Raikage#2	49,{
 function Add; function Chk; function Slot; function A_An;
 	
 

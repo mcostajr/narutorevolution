@@ -3444,22 +3444,22 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 
 		case PA_SACRIFICE:
 			if (sc && sc->data[SC_PROPERTYWALK]) {
-				skillratio += 2000 * skill_lv;
+				skillratio += 2666 * skill_lv;
 			} else {
-				skillratio += 1000 * skill_lv;
+				skillratio += 1333 * skill_lv;
 			}
 			break;
 
-		case NC_BOOSTKNUCKLE:
+		case CG_ARROWVULCAN:
 			if (sc && sc->data[SC_PROPERTYWALK]) {
-				skillratio += 1500 * skill_lv;
+				skillratio += 3000 * skill_lv;
 			} else {
-				skillratio += 750 * skill_lv;
+				skillratio += 1500 * skill_lv;
 			}
 			break;
 
 		case PA_SHIELDCHAIN:
-			skillratio += 2500 * skill_lv;
+			skillratio += 10000;
 			break;
 	// ------------------------------------------------------------------
 	// Akimichi	
@@ -3468,7 +3468,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 
 		case MO_EXTREMITYFIST:
-			skillratio += (10 + 5 * skill_lv) * (sstatus->sp / 100);
+			skillratio += 30 * (sstatus->sp / 100);
 			skillratio = min(500000, skillratio); //We stop at roughly 50k SP for overflow protection
 			break;
 
@@ -3702,9 +3702,6 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 #endif
 		case MA_SHARPSHOOTING:
 			skillratio += 100 + 50 * skill_lv;
-			break;
-		case CG_ARROWVULCAN:
-			skillratio += 100 + 100 * skill_lv;
 			break;
 		case AS_SPLASHER:
 			skillratio += 400 + 50 * skill_lv;

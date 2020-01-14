@@ -1,4 +1,4 @@
-kumogakure,100,174,4	script	Darui	59,{
+kumogakure,211,147,4	script	Darui	59,{
 function Add; function Chk; function Slot; function A_An;
 	
 

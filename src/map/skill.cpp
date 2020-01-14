@@ -1360,6 +1360,12 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		sc_start(src,bl,SC_BLIND,min(4*skill_lv,40),skill_lv,skill_get_time2(skill_id,skill_lv));
 		break;
 
+	// Uchiha
+	//---------------------------------
+	case RK_DRAGONBREATH:
+		sc_start4(src, bl, SC_BURNING, 100, skill_lv, 1000, src->id, 0, skill_get_time(skill_id, skill_lv));
+		break;
+
 	// Hyuuga
 	//---------------------------------
 		case CH_TIGERFIST: {
@@ -1373,6 +1379,12 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		}
 		break;
 
+		
+	// Uchiha
+	//---------------------------------
+	case CG_ARROWVULCAN:
+		sc_start4(src, bl, SC_BURNING, 10*skill_lv, skill_lv, 1000, src->id, 0, skill_get_time(skill_id, skill_lv));
+		
 	//---------------------------------
 
 	case NPC_BLINDATTACK:
@@ -1603,9 +1615,6 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		break;
 	case NPC_CRITICALWOUND:
 		sc_start(src,bl,SC_CRITICALWOUND,100,skill_lv,skill_get_time2(skill_id,skill_lv));
-		break;
-	case RK_DRAGONBREATH:
-		sc_start4(src, bl, SC_BURNING, 100, skill_lv, 1000, src->id, 0, skill_get_time(skill_id, skill_lv));
 		break;
 	case RK_DRAGONBREATH_WATER:
 		sc_start(src,bl,SC_FREEZING,15,skill_lv,skill_get_time(skill_id,skill_lv));
@@ -3079,7 +3088,6 @@ void skill_attack_blow(struct block_list *src, struct block_list *dsrc, struct b
 			if (skill_blown(dsrc,target,blewcount,dir,(enum e_skill_blown)(BLOWN_NO_KNOCKBACK_MAP|BLOWN_MD_KNOCKBACK_IMMUNE|BLOWN_TARGET_NO_KNOCKBACK|BLOWN_TARGET_BASILICA)) < blewcount)
 				skill_addtimerskill(src, tick + status_get_amotion(src), target->id, 0, 0, LG_OVERBRAND_PLUSATK, skill_lv, BF_WEAPON, flag|SD_ANIMATION);
 			break;
-		case PA_SACRIFICE:
 		case SR_KNUCKLEARROW:
 			// Ignore knockback damage bonus if in WOE (player cannot be knocked in WOE)
 			// Boss & Immune Knockback stay in place and don't get bonus damage
@@ -3612,9 +3620,6 @@ int64 skill_attack (int attack_type, struct block_list* src, struct block_list *
 				break;
 			case WM_METALICSOUND:
 				status_zap(bl, 0, damage*100/(100*(110-((sd) ? pc_checkskill(sd,WM_LESSON) : skill_get_max(WM_LESSON))*10)));
-				break;
-			case PA_SACRIFICE:
-				status_zap(src, sstatus->max_hp* (2 * skill_lv) / 100, 0); //Damage to self is always 9%
 				break;
 			case SR_TIGERCANNON:
 				status_zap(bl, 0, damage * 10 / 100);
@@ -4627,7 +4632,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case LK_SPIRALPIERCE:
 	case ML_SPIRALPIERCE:
 	case LK_HEADCRUSH:
-	case CG_ARROWVULCAN:
 	case HW_MAGICCRASHER:
 	case ITM_TOMAHAWK:
 	case CH_TIGERFIST:
@@ -4684,6 +4688,11 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case RL_SLUGSHOT:
 	case RL_AM_BLAST:
 	case PA_PRESSURE:
+	/*
+		Naruto
+	*/
+	// Portões
+	case CG_ARROWVULCAN:
 		skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
 		break;
 
@@ -15359,7 +15368,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 			break;
 
 		// Portões
-		case PA_SACRIFICE: 
+		case PA_SACRIFICE:
 			if (!(sc && sc->data[SC_PORTAO1] && pc_checkskill(sd, PT_1PORTAO) >= 7))
 				return false;
 			break;

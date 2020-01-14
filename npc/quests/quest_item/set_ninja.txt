@@ -1,4 +1,4 @@
-kumogakure,166,219,4	script	Dan	57,{
+kumogakure,203,197,4	script	Dan	57,{
 function Add; function Chk; function Slot; function A_An;
 	
 
