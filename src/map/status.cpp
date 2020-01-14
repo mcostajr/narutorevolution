@@ -245,6 +245,7 @@ void initChangeTables(void)
 	set_sc(AKI_VERDE, SC_VERDE, EFST_VERDE, SCB_DEF | SCB_MDEF);
 	set_sc(AKI_AMARELA, SC_AMARELA, EFST_AMARELA, SCB_MAXHP | SCB_REGEN);
 	set_sc(AKI_VERMELHA, SC_VERMELHA, EFST_VERMELHA, SCB_BATK | SCB_WATK | SCB_SPEED);
+	set_sc(MO_EXTREMITYFIST, SC_EXTREMITYFIST, EFST_BLANK, SCB_REGEN);
 	set_sc(AKI_CHOOMODO, SC_CHOOMODO, EFST_CHOOMODO, SCB_NONE);
 
 	set_sc(NR_MEDITAR, SC_MEDITAR, EFST_MEDITAR, SCB_NONE);
@@ -426,10 +427,7 @@ void initChangeTables(void)
 	set_sc( MO_STEELBODY		, SC_STEELBODY		, EFST_STEELBODY		, SCB_DEF|SCB_MDEF|SCB_ASPD|SCB_SPEED );
 	add_sc( MO_BLADESTOP		, SC_BLADESTOP_WAIT	);
 	set_sc( MO_BLADESTOP		, SC_BLADESTOP	, EFST_BLADESTOP	, SCB_NONE );
-	set_sc( MO_EXTREMITYFIST	, SC_EXTREMITYFIST	, EFST_BLANK			, SCB_REGEN );
-#ifdef RENEWAL
-	set_sc( MO_EXTREMITYFIST	, SC_EXTREMITYFIST2	, EFST_EXTREMITYFIST	, SCB_NONE );
-#endif
+
 	set_sc( SA_MAGICROD		, SC_MAGICROD	, EFST_MAGICROD	, SCB_NONE );
 	set_sc( SA_AUTOSPELL		, SC_AUTOSPELL		, EFST_AUTOSPELL		, SCB_NONE );
 	set_sc( SA_FLAMELAUNCHER	, SC_FIREWEAPON		, EFST_PROPERTYFIRE, SCB_ATK_ELE );
@@ -3175,6 +3173,12 @@ static int status_get_hpbonus(struct block_list *bl, enum e_status_bonus type) {
 			/*
 			*	Naruto
 			*/
+
+			// Portòes
+			if (sc->data[SC_PORTAO1] && sc->data[SC_PORTAO1]->val1 >= 3)
+				bonus += 5;
+
+			// Akimichi
 			if (sc->data[SC_CHOOMODO])
 				bonus += sc->data[SC_CHOOMODO]->val3;
 
@@ -5603,7 +5607,7 @@ static unsigned short status_calc_str(struct block_list *bl, struct status_chang
 		str += sc->data[SC_MANGEKYOU]->val3;
 	// Portões
 	if (sc->data[SC_PORTAO1])
-		str += str * 10 / 100;
+		str += 15;
 	// Akimichi
 	if (sc->data[SC_VERDE])
 		str += sc->data[SC_VERDE]->val2;
@@ -6109,11 +6113,9 @@ static unsigned short status_calc_batk(struct block_list *bl, struct status_chan
 		batk += sc->data[SC_EXPLOSIONSPIRITS]->val2;
 	if (sc->data[SC_STRIKING])
 		batk += sc->data[SC_STRIKING]->val2;
-	//if (sc->data[SC_OVERTHRUST])
-	//	batk += sc->data[SC_OVERTHRUST]->val2;
 	// Portões
 	if (sc->data[SC_PORTAO1] && sc->data[SC_PORTAO1]->val1 >= 4)
-		batk += sc->data[SC_PORTAO1]->val1 >= 5 ? 100 : 50;
+		batk += sc->data[SC_PORTAO1]->val1 >= 7 ? 150 : 100;
 	if (sc->data[SC_PROPERTYWALK])
 		batk += batk * 10 / 100;
 	// Akimichi
@@ -7055,6 +7057,10 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val += max(val, sc->data[SC_SHARINGAN]->val2);
 		if (sc->data[SC_MANGEKYOU])
 			val += max(val, sc->data[SC_MANGEKYOU]->val2);
+
+		// Portões
+		if (sc->data[SC_PORTAO1] && sc->data[SC_PORTAO1]->val1 >= 3)
+			val += max(val, 5);
 
 		// Akimichi
 		if (sc->data[SC_CHOOMODO])
@@ -12443,34 +12449,31 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2100);
 			break;
 
-		// Portão
-		case SC_PORTAO1:
-			clif_changelook(&sd->bl, LOOK_HEAD_MID, 0);
-			break;
-
 		// Akimichi
 		case SC_VERDE: {
 			int sec = skill_get_time2(status_sc2skill(type), sce->val1);
 
-			sc_start(bl, bl, SC_REBOUND, 100, sce->val1, sec);
+			if(!sc->data[SC_AMARELA])
+				sc_start(bl, bl, SC_SLOWDOWN, 100, sce->val1, sec);
 		}
 		break;
 		case SC_AMARELA: {
 			int sec = skill_get_time2(status_sc2skill(type), sce->val1);
 
-			sc_start(bl, bl, SC_REBOUND, 100, sce->val1, sec);
+			if (!sc->data[SC_VERMELHA])
+				sc_start(bl, bl, SC_BLIND, 100, sce->val1, sec);
 		}
 		break;
 		case SC_VERMELHA: {
 			int sec = skill_get_time2(status_sc2skill(type), sce->val1);
 
-			sc_start(bl, bl, SC_REBOUND, 100, sce->val1, sec);
+			sc_start(bl, bl, SC_BLIND, 100, sce->val1, sec);
 		}
 		break;
 		case SC_CHOOMODO: {
 			int sec = skill_get_time2(status_sc2skill(type), sce->val1);
 
-			sc_start(bl, bl, SC_REBOUND, 100, sce->val1, sec);
+			sc_start(bl, bl, SC_CURSE, 100, sce->val1, sec);
 			clif_changelook(&sd->bl, LOOK_HEAD_MID, 0);
 		}
 		break;

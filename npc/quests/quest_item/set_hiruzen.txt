@@ -3,7 +3,7 @@ function Add; function Chk; function Slot; function A_An;
 	
 	mes "[Hiruzen]";
 	mes "Eu me pergunto.. Se todos os jovens da nova era possuem a vontade do fogo.";
-	if(select("- Com certeza!:- Olhar miss√µes.") == 1) close;
+	if(select("- Com certeza!:- Olhar missıes.") == 1) close;
 	next;
 	mes "[Hiruzen]";
 	mes "Irei mostrar o que tenho a oferecer.";
@@ -60,11 +60,11 @@ OnBuyItem:
 			case 1:
 				if (@qe0) { 
 					mes "[Hiruzen]";
-					mes "Ainda est√£o faltando itens da miss√£o, lembre-se de anotar para facilitar, traga-os para mim.";
+					mes "Ainda est„o faltando itens da miss„o, lembre-se de anotar para facilitar, traga-os para mim.";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
 					mes "[Hiruzen]";
-					mes "^FF0000Voc√™ precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
+					mes "^FF0000VocÍ precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];

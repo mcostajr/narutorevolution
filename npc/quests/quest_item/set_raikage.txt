@@ -61,11 +61,11 @@ OnBuyItem:
 			case 1:
 				if (@qe0) { 
 					mes "[Shinobi Desconhecido]";
-					mes "Vocę está faltando um ou mais requisitos de missăo.";
+					mes "Voce est� faltando um ou mais requisitos de missao.";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
 					mes "[Shinobi Desconhecido]";
-					mes "^FF0000Vocę Precisa "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" Capacidade de peso adicional para completar este comércio.^000000";
+					mes "^FF0000Voce Precisa "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" Capacidade de peso adicional para completar este com�rcio.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];

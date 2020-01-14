@@ -3,8 +3,8 @@ function Add; function Chk; function Slot; function A_An;
 	
 
 	mes "[Sasuke]";
-	mes "Eu odeio um monte de coisas, particularmente n√£o gosto de nada. O que eu tenho n√£o √© um sonho, porque eu vou torn√°-lo uma realidade. Vou restaurar meu cl√£, e matar um certo algu√©m..";
-	if(select("- Boa sorte:- Olhar miss√µes.") == 1) close;
+	mes "Eu odeio um monte de coisas, particularmente n„o gosto de nada. O que eu tenho n„o È um sonho, porque eu vou torn·-lo uma realidade. Vou restaurar meu cl„, e matar um certo alguÈm..";
+	if(select("- Boa sorte:- Olhar missıes.") == 1) close;
 	next;
 	mes "[Sasuke]";
 	mes "Irei mostrar o que tenho a oferecer.";
@@ -61,11 +61,11 @@ OnBuyItem:
 			case 1:
 				if (@qe0) { 
 					mes "[Sasuke]";
-					mes "Ainda est√£o faltando itens da miss√£o, traga-os para mim.";
+					mes "Ainda est„o faltando itens da miss„o, traga-os para mim.";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
 					mes "[Sasuke]";
-					mes "^FF0000Voc√™ precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
+					mes "^FF0000VocÍ precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];

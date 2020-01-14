@@ -3,8 +3,8 @@ function Add; function Chk; function Slot; function A_An;
 	
 
 	mes "[Kimimaro]";
-	mes "As flores, elas n√£o s√£o belas? T√£o pequenas, mas ainda sim, t√£o puras..";
-	if(select("- Erh.. Ent√£o ta..:- Olhar miss√µoes") == 1) close;
+	mes "As flores, elas n„o s„o belas? T„o pequenas, mas ainda sim, t„o puras..";
+	if(select("- Erh.. Ent„o ta..:- Olhar missıoes") == 1) close;
 	next;
 	mes "[Kimimaro]";
 	mes "Irei mostrar o que tenho a oferecer.";
@@ -61,11 +61,11 @@ OnBuyItem:
 			case 1:
 				if (@qe0) { 
 					mes "[Kimimaro]";
-					mes "Ainda est√£o faltando itens da miss√£o, se esforce mais.";
+					mes "Ainda est„o faltando itens da miss„o, se esforce mais.";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
 					mes "[Kimimaro]";
-					mes "^FF0000Voc√™ precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de peso adicional para receber seu item.^000000";
+					mes "^FF0000VocÍ precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de peso adicional para receber seu item.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];

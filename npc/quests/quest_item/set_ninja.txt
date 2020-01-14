@@ -3,8 +3,8 @@ function Add; function Chk; function Slot; function A_An;
 	
 
 	mes "[Dan]";
-	mes "Ah.. Vejo que vocÃª Ã© de Konoha, que saudade da minha sobrinha, como estÃ¡ a Shizune?!";
-	if(select("- Dedicada como sempre.:- Olhar missÃµes.") == 1) close;
+	mes "Ah.. Vejo que você é de Konoha, que saudade da minha sobrinha, como está a Shizune?!";
+	if(select("- Dedicada como sempre.:- Olhar missões.") == 1) close;
 	next;
 	mes "[Dan]";
 	mes "Aprendi a confeccionar excelentes equipamentos durante a vida, veja!";
@@ -61,11 +61,11 @@ OnBuyItem:
 			case 1:
 				if (@qe0) { 
 					mes "[Dan]";
-					mes "Ainda estÃ£o faltando itens da missÃ£o, traga-os para mim.";
+					mes "Ainda estão faltando itens da missão, traga-os para mim.";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
 					mes "[Dan]";
-					mes "^FF0000VocÃª precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
+					mes "^FF0000Você precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];

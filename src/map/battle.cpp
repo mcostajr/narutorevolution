@@ -3240,6 +3240,8 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 
 	//Skill damage modifiers that stack linearly
 	if(sc) {
+		if (sc->data[SC_PORTAO1] && sc->data[SC_PORTAO1]->val1 >= 5)
+			skillratio += sc->data[SC_PORTAO1]->val1 >= 7 ? 10 : 5;
 		if (sc->data[SC_OVERTHRUST])
 			skillratio += sc->data[SC_OVERTHRUST]->val2;
 		if(sc->data[SC_MAXOVERTHRUST])

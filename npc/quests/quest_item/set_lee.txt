@@ -3,8 +3,8 @@ function Add; function Chk; function Slot; function A_An;
 	
 
 	mes "[Rock Lee]";
-	mes "Existem dois tipos diferentes de ninja. Aqueles que nascem com um talento natural e n√£o tem que trabalhar duro. E aqueles como eu! Os que tem que treinar todos os dias de nossas vidas!";
-	if(select("- Obrigado pela conversa.:- Olhar miss√µes.") == 1) close;
+	mes "Existem dois tipos diferentes de ninja. Aqueles que nascem com um talento natural e n„o tem que trabalhar duro. E aqueles como eu! Os que tem que treinar todos os dias de nossas vidas!";
+	if(select("- Obrigado pela conversa.:- Olhar missıes.") == 1) close;
 	next;
 	mes "[Rock Lee]";
 	mes "Irei mostrar o que tenho a oferecer.";
@@ -61,11 +61,11 @@ OnBuyItem:
 			case 1:
 				if (@qe0) { 
 					mes "[Rock Lee]";
-					mes "Voc√™ n√£o est√° se esfor√ßando o bastante, ainda est√£o faltando itens da miss√£o, traga-os para mim.";
+					mes "VocÍ n„o est· se esforÁando o bastante, ainda est„o faltando itens da miss„o, traga-os para mim.";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
 					mes "[Rock Lee]";
-					mes "^FF0000Voc√™ precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
+					mes "^FF0000VocÍ precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];

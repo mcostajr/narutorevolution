@@ -3,8 +3,8 @@ function Add; function Chk; function Slot; function A_An;
 	
 
 	mes "[Deus Shinobi]";
-	mes "Meu Ninshuu foi feito para criar esperanÃ§a. NÃ£o confunda com Ninjutsu, que foi feito para criar guerras.";
-	if(select("- ^00FF00* Gesto de reverÃªncia *^000000:- Olhar missÃµes") == 1) close;
+	mes "Meu Ninshuu foi feito para criar esperança. Não confunda com Ninjutsu, que foi feito para criar guerras.";
+	if(select("- ^00FF00* Gesto de reverência *^000000:- Olhar missões") == 1) close;
 	next;
 	mes "[Deus Shinobi]";
 	mes "Irei mostrar oque tenho a oferecer.";
@@ -61,11 +61,11 @@ OnBuyItem:
 			case 1:
 				if (@qe0) { 
 					mes "[Deus Shinobi]";
-					mes "Ainda estÃ£o faltando itens da missÃ£o, traga-os para mim.";
+					mes "Ainda estão faltando itens da missão, traga-os para mim.";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
 					mes "[Deus Shinobi]";
-					mes "^FF0000VocÃª precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
+					mes "^FF0000Você precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de carga adicional para receber seu item.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];

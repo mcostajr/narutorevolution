@@ -3,8 +3,8 @@ function Add; function Chk; function Slot; function A_An;
 	
 
 	mes "[Kidoumaru]";
-	mes "HAHA! Seu personagem Ã© fraco, tem certeza de que estÃ¡ jogando isso direito?! ^0000FF(noob)^000000";
-	if(select("- ^FF0000Noob Ã© vocÃª !^000000:- Olhar missÃµes.") == 1) close;
+	mes "HAHA! Seu personagem é fraco, tem certeza de que está jogando isso direito?! ^0000FF(noob)^000000";
+	if(select("- ^FF0000Noob é você !^000000:- Olhar missões.") == 1) close;
 	next;
 	mes "[Kidoumaru]";
 	mes "Ta afim mesmo de subir de nivel? Vou mostrar do que precisa.";
@@ -61,11 +61,11 @@ OnBuyItem:
 			case 1:
 				if (@qe0) { 
 					mes "[Kidomaru]";
-					mes "Uma simples missÃ£o como essa, e vocÃª nÃ£o anotou os requisitos? EstÃ£o faltando itens seu noob! HAHA";
+					mes "Uma simples missão como essa, e você não anotou os requisitos? Estão faltando itens seu noob! HAHA";
 					close; }
 				if (!checkweight(.@q[0],.@q[1])) {
 					mes "[Kidomaru]";
-					mes "^FF0000VocÃª precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de peso adicional para receber seu item.^000000";
+					mes "^FF0000Você precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de peso adicional para receber seu item.^000000";
 					close; }
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
 				if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];

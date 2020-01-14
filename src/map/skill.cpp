@@ -2290,9 +2290,11 @@ int skill_counter_additional_effect (struct block_list* src, struct block_list *
 	}
 
 	switch(skill_id) {
+	/*
 	case MO_EXTREMITYFIST:
 		sc_start(src,src,SC_EXTREMITYFIST,100,skill_lv,skill_get_time2(skill_id,skill_lv));
 		break;
+	*/
 	case CR_GRANDCROSS:
 	case NPC_GRANDDARKNESS:
 		attack_type |= BF_WEAPON;
@@ -4815,9 +4817,7 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
 		break;
 
-#ifndef RENEWAL
 	case NJ_ISSEN:
-#endif
 	case MO_EXTREMITYFIST:
 		{
 			struct block_list *mbl = bl; // For NJ_ISSEN
@@ -4827,15 +4827,8 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 			skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
 			if (skill_id == MO_EXTREMITYFIST) {
 				status_set_sp(src, 0, 0);
-				status_change_end(src, SC_EXPLOSIONSPIRITS, INVALID_TIMER);
-				status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
-#ifdef RENEWAL
-				sc_start(src,src,SC_EXTREMITYFIST2,100,skill_lv,skill_get_time(skill_id,skill_lv));
-#endif
 			} else {
 				status_set_hp(src, 1, 0);
-				status_change_end(src, SC_NEN, INVALID_TIMER);
-				status_change_end(src, SC_HIDING, INVALID_TIMER);
 			}
 			if (skill_id == MO_EXTREMITYFIST) {
 				mbl = src; // For MO_EXTREMITYFIST
@@ -11580,14 +11573,10 @@ TIMER_FUNC(skill_castend_id){
 		skill_consume_requirement(sd,ud->skill_id, ud->skill_lv,1);
 		status_set_sp(src, 0, 0);
 		sc = &sd->sc;
-		if (sc->count)
+		/*if (sc->count)
 		{	//End states
-			status_change_end(src, SC_EXPLOSIONSPIRITS, INVALID_TIMER);
 			status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
-#ifdef RENEWAL
-			sc_start(src,src, SC_EXTREMITYFIST2, 100, ud->skill_lv, skill_get_time(ud->skill_id, ud->skill_lv));
-#endif
-		}
+		}*/
 		if( target && target->m == src->m ) { //Move character to target anyway.
 			short x, y;
 			short dir = map_calc_dir(src,target->x,target->y);
@@ -15359,33 +15348,37 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 	}
 	// perform skill-specific checks (and actions)
 	switch( skill_id ) {
+		/*
+		*	Naruto
+		*/
+		// Uchiha
 		case UH_SUSANOO:
-		case SA_MAGICROD:
 		case RK_DRAGONBREATH:
-		case KO_KYOUGAKU:
 			if (!(sc && sc->data[SC_MANGEKYOU]))
 				return false;
 			break;
 
-		case PA_SACRIFICE: // Portões
-			if (!(sc && sc->data[SC_PORTAO1] && pc_checkskill(sd, PT_1PORTAO) >= 2))
+		// Portões
+		case PA_SACRIFICE: 
+			if (!(sc && sc->data[SC_PORTAO1] && pc_checkskill(sd, PT_1PORTAO) >= 7))
 				return false;
 			break;
-
-		case NC_BOOSTKNUCKLE: // Portões
+		case NC_BOOSTKNUCKLE:
 			if (!(sc && sc->data[SC_PORTAO1] && pc_checkskill(sd, PT_1PORTAO) >= 6))
 				return false;
 			break;
-
-		case PA_SHIELDCHAIN: // Portões
+		case PA_SHIELDCHAIN:
 			if (!(sc && sc->data[SC_PROPERTYWALK]))
 				return false;
 			break;
 
-		case MO_EXTREMITYFIST: // Akimichi
+		// Akimichi
+		case MO_EXTREMITYFIST:
 			if (!(sc && sc->data[SC_CHOOMODO]))
 				return false;
 			break;
+
+		// --------------------------------------------------------------
 
 		case RG_GRAFFITI:
 			if (map_foreachinmap(skill_graffitiremover,sd->bl.m,BL_SKILL,0)) { // If a previous Graffiti exists skill fails to cast.
@@ -16808,14 +16801,6 @@ struct skill_condition skill_get_requirement(struct map_session_data* sd, uint16
 			else if(sd->status.base_level>=70)
 				req.sp -= req.sp*3*kaina_lv/100;
 		}
-			break;
-		case MO_EXTREMITYFIST:
-			if( sc ) {
-				if( sc->data[SC_BLADESTOP] )
-					req.spiritball--;
-				 else if( sc->data[SC_RAISINGDRAGON] && sd->spiritball > 5)
-					req.spiritball = sd->spiritball; // must consume all regardless of the amount required
-			}
 			break;
 		case SR_RAMPAGEBLASTER:
 			req.spiritball = sd->spiritball?sd->spiritball:15;

@@ -3,11 +3,11 @@ function Add; function Chk; function Slot; function A_An;
 	
 
 	mes "[Deidara]";
-	mes "A arte.. A ARTE Ã‰ UMA GRAND.E.. Espera quem Ã© vocÃª?!.";
-	if(select("- ^FF0000KATSU!!^000000:- Olhar missÃµes") == 1) close;
+	mes "A arte.. A ARTE É UMA GRAND.E.. Espera quem é você?!.";
+	if(select("- ^FF0000KATSU!!^000000:- Olhar missões") == 1) close;
 	next;
 	mes "[Deidara]";
-	mes "VocÃª Ã© tÃ£o puro e louco de se aproximar de mim, aprecio a arte da sua coragem!";
+	mes "Você é tão puro e louco de se aproximar de mim, aprecio a arte da sua coragem!";
 	close2;
 	dispbottom "Selecione um item por vez.";
 	callshop "SETDEIDARA",1;
@@ -61,12 +61,12 @@ OnBuyItem:
 			case 1:
 				if (@qe0) { 
 					mes "[Deidara]";
-					mes "VocÃª quer que eu te exploda?! Ainda estÃ£o faltando itens da missÃ£o -.- !";
+					mes "Você quer que eu te exploda?! Ainda estão faltando itens da missão -.- !";
 					close; 
 				}
 				if (!checkweight(.@q[0],.@q[1])) {
 					mes "[Deidara]";
-					mes "^FF0000VocÃª precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de peso adicional para receber seu item.^000000";
+					mes "^FF0000Você precisa de "+(((.@q[1]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" de capacidade de peso adicional para receber seu item.^000000";
 					close; 
 				}
 				if (.@q[2]) set Zeny, Zeny-.@q[2];
