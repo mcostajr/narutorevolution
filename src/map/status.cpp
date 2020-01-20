@@ -241,6 +241,7 @@ void initChangeTables(void)
 	add_sc(HYU_HYAKU, SC_HYAKU );
 
 	set_sc(PT_1PORTAO, SC_PORTAO1, EFST_PORTAO1, SCB_BATK | SCB_WATK);
+	set_sc(SO_FIREWALK, SC_PROPERTYWALK, EFST_PROPERTYWALK, SCB_NONE);
 
 	set_sc(AKI_VERDE, SC_VERDE, EFST_VERDE, SCB_DEF | SCB_MDEF);
 	set_sc(AKI_AMARELA, SC_AMARELA, EFST_AMARELA, SCB_MAXHP | SCB_REGEN);
@@ -250,7 +251,7 @@ void initChangeTables(void)
 
 	set_sc(NR_MEDITAR, SC_MEDITAR, EFST_MEDITAR, SCB_NONE);
 
-	set_sc(SL_AMALDICOADO, SC_AMALDICOADO, EFST_AMALDICOADO, SCB_STR | SCB_AGI | SCB_VIT | SCB_INT | SCB_DEX | SCB_LUK);
+	set_sc(SL_TENJUIN, SC_AMALDICOADO, EFST_AMALDICOADO, SCB_STR | SCB_AGI | SCB_VIT | SCB_INT | SCB_DEX | SCB_LUK);
 
 	set_sc(SG_FUSION, SC_FUSION, EFST_BLANK, SCB_SPEED);
 	add_sc(JIN_GENKAIHAKURI, SC_WHITEIMPRISON);
@@ -824,7 +825,6 @@ void initChangeTables(void)
 	set_sc( WM_FRIGG_SONG			, SC_FRIGG_SONG			, EFST_FRIGG_SONG			, SCB_MAXHP );
 
 	/* Sorcerer */
-	set_sc( SO_FIREWALK		, SC_PROPERTYWALK	, EFST_PROPERTYWALK	, SCB_NONE );
 	set_sc( SO_ELECTRICWALK		, SC_PROPERTYWALK	, EFST_PROPERTYWALK	, SCB_NONE );
 	set_sc( SO_SPELLFIST		, SC_SPELLFIST		, EFST_SPELLFIST		, SCB_NONE );
 	set_sc_with_vfx( SO_DIAMONDDUST	, SC_CRYSTALIZE		, EFST_COLD		, SCB_NONE );
@@ -13256,7 +13256,7 @@ TIMER_FUNC(status_change_timer){
 			break;
 		case SC_PROPERTYWALK:
 			if (--(sce->val4) >= 0) {
-				status_charge(bl, status->max_hp * 1 / 100, 0);
+				status_charge(bl, status->max_hp * 3 / 100, 0);
 				sc_timer_next(1000 + tick);
 				return 0;
 			}

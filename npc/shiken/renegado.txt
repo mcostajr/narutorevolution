@@ -5,7 +5,7 @@ if(Class > 4063 || Class < 4062) {
 	mes "Você não é um procurado."; 
 	close; 
 }
-if(BaseLevel < 175 || JobLevel < 10) { 
+if(BaseLevel < 255 || JobLevel < 10) { 
 	mes "[Renegado Shiken]"; 
 	mes "Você não tem level de Base ou Job suficiente."; 
 	close; 

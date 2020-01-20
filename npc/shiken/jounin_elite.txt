@@ -6,7 +6,7 @@ if(Class > 4010 || Class < 4008) {
 	close;
 }
 
-if(BaseLevel < 99 || JobLevel < 35) { 
+if(BaseLevel < 175 || JobLevel < 35) { 
 	mes "[Jounin Elite Shiken]"; 
 	mes "Você não tem level de Bas ou Jobe suficiente."; 
 	close; 

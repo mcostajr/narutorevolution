@@ -3021,10 +3021,15 @@ static void battle_calc_skill_base_damage(struct Damage* wd, struct block_list *
 	int nk = battle_skill_get_damage_properties(skill_id, wd->miscflag);
 
 	switch (skill_id) {	//Calc base damage according to skill
+		// ------------------------------------------------------------------
+		// Fuuinjutsu
 		case NJ_ISSEN:
 			wd->damage = 40 * sstatus->str + sstatus->hp * 8 * skill_lv / 100;
 			wd->damage2 = 0;
 			break;
+
+		// ------------------------------------------------------------------
+
 		case ML_SPIRALPIERCE:
 			if (sd) {
 				short index = sd->equip_index[EQI_HAND_R];
@@ -3516,18 +3521,6 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 
 		case GN_CRAZYWEED_ATK:
-			skillratio += 250 * skill_lv;
-			break;
-
-	// ------------------------------------------------------------------
-	// Kibaku Nendo
-		case GS_RAPIDSHOWER:
-			skillratio += 1000 * skill_lv;
-			break;
-		case SC_FEINTBOMB:
-			skillratio += 250 * skill_lv;
-			break;
-		case GS_GROUNDDRIFT:
 			skillratio += 250 * skill_lv;
 			break;
 
@@ -6136,13 +6129,22 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 
 		// -----------------------------------------------------------
 		// Kibaku Nendo
+		case GS_RAPIDSHOWER:
+			md.damage += sstatus->agi * skill_lv;
+			break;
+		case SC_FEINTBOMB:
+			md.damage += 250 * skill_lv;
+			break;
+		case GS_GROUNDDRIFT:
+			md.damage += 250 * skill_lv;
+			break;
+
 		case KN_C0:
 			md.damage = sstatus->hp * 167/100;
 			break;
 		case NC_SELFDESTRUCTION:
 			md.damage = sstatus->hp * 167/100;
 			break;
-	
 		
 		// -----------------------------------------------------------
 

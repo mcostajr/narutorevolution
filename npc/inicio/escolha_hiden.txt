@@ -26,7 +26,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 				(((delay_hiden-gettimetick(2))) - (((delay_hiden-gettimetick(2))/60)*60))+" Segundo(s) ";
 				close;
 			}
-			if(countitem(9110) < 1) {
+			if(countitem(10110) < 1) {
 				next;
 				mes "[Orochimaru]";
 				mes "Você Precisa do Troca de Hiden, para finalizarmos a operação.";
@@ -57,7 +57,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30101) != 1 ) { 
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30101,1,1,0,0,.seulvlhiden,0,0,0; equip 30101;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -72,7 +72,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30106) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30106,1,1,0,0,.seulvlhiden,0,0,0; equip 30106;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -87,7 +87,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30107) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30107,1,1,0,0,.seulvlhiden,0,0,0; equip 30107;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -102,7 +102,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30108) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30108,1,1,0,0,.seulvlhiden,0,0,0; equip 30108;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -117,7 +117,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30109) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30109,1,1,0,0,.seulvlhiden,0,0,0; equip 30109;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -132,7 +132,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30110) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30110,1,1,0,0,.seulvlhiden,0,0,0; equip 30110;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -147,7 +147,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30111) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30111,1,1,0,0,.seulvlhiden,0,0,0; equip 30111;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -162,7 +162,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30112) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30112,1,1,0,0,.seulvlhiden,0,0,0; equip 30112;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -177,7 +177,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30114) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30114,1,1,0,0,.seulvlhiden,0,0,0; equip 30114;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -192,7 +192,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30115) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30115,1,1,0,0,.seulvlhiden,0,0,0; equip 30115;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -207,7 +207,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30116) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30116,1,1,0,0,.seulvlhiden,0,0,0; equip 30116;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -222,7 +222,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30117) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30117,1,1,0,0,.seulvlhiden,0,0,0; equip 30117;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -237,7 +237,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30118) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30118,1,1,0,0,.seulvlhiden,0,0,0; equip 30118;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -252,7 +252,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30119) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30119,1,1,0,0,.seulvlhiden,0,0,0; equip 30119;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -267,7 +267,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30121) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30121,1,1,0,0,.seulvlhiden,0,0,0; equip 30121;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -282,7 +282,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30122) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30122,1,1,0,0,.seulvlhiden,0,0,0; equip 30122;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -297,7 +297,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30123) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30123,1,1,0,0,.seulvlhiden,0,0,0; equip 30123;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -312,7 +312,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30124) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30124,1,1,0,0,.seulvlhiden,0,0,0; equip 30124;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {
@@ -327,7 +327,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 						if(countitem(30125) != 1) {
 							mes "Troca bem sucedida.";
 							delitem .hidenAtual,1; getitem2 30125,1,1,0,0,.seulvlhiden,0,0,0; equip 30125;
-							delitem 9110,1;
+							delitem 10110,1;
 							set delay_hiden, gettimetick(2) + 172800;
 							close;
 						} else {

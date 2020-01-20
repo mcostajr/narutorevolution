@@ -2,31 +2,31 @@
 
 // Estudante
 0,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-0,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+0,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 
 0,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 0,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 0,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-0,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+0,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 // Estudante
 4001,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4001,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4001,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4001,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4001,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4001,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4001,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4001,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 
 //---------------------------------------------------------------------------------------------------------------
 
 // Genin Taijutsu
 1,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-1,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+1,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 1,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 1,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 1,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-1,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+1,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 1,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 1,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -65,18 +65,18 @@
 
 // Genin Ninjutsu
 2,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-2,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+2,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 2,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 2,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 2,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-2,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+2,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 2,19,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 2,17,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 2,534,10,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-2,838,10,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-2,839,10,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+2,4040,10,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+2,4041,10,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 2,2447,10,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 2,20,10,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -109,11 +109,11 @@
 
 // Genin Taijutsu
 3,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-3,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+3,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 3,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 3,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 3,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-3,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+3,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 3,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 3,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -152,18 +152,18 @@
 
 // Genin Ninjutsu
 4,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4,19,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 4,17,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 4,534,10,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-4,838,10,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-4,839,10,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+4,4040,10,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+4,4041,10,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 4,2447,10,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 4,20,10,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -197,11 +197,11 @@
 
 // Genin Taijutsu
 5,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-5,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+5,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 5,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 5,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 5,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-5,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+5,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 5,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 5,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -241,18 +241,18 @@
 
 // Genin Ninjutsu
 6,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-6,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+6,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 6,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 6,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 6,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-6,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+6,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 6,19,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 6,17,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 6,534,10,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-6,838,10,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-6,839,10,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+6,4040,10,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+6,4041,10,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 6,2447,10,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 6,20,10,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -285,11 +285,11 @@
 
 // Chunin Taijutsu
 7,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-7,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+7,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 7,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 7,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 7,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-7,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+7,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 7,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 7,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -342,7 +342,7 @@
 
 7,29,10,0,0,0,0,0,0,0,0,0,0	 	//AL_INCAGI#Shunshin no Jutsu#
 7,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-7,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+7,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 7,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 7,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -357,18 +357,18 @@
 
 // Chunin Ninjutsu
 8,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-8,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+8,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 8,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 8,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 8,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-8,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+8,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 8,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 8,17,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 8,534,15,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-8,838,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-8,839,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+8,4040,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+8,4041,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 8,2447,15,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 8,20,15,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -404,10 +404,10 @@
 8,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
 8,2259,10,19,8,17,8,534,8,0,0,0,0 //NC_FLAMELAUNCHER#Katon Karyuu Endan#
 
-8,2274,10,838,8,839,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
-8,2449,10,838,8,839,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
-8,539,10,838,8,839,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
-8,18,10,838,8,839,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
+8,2274,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
+8,2449,10,4040,8,4041,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
+8,539,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
+8,18,10,4040,8,4041,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
 
 8,187,10,20,8,192,8,3005,8,0,0,0,0 //NPC_WINDATTACK#Raiton Amigumo#
 8,21,10,20,8,192,8,3005,8,0,0,0,0 //MG_THUNDERSTORM#Raiton Senbon#
@@ -426,7 +426,7 @@
 
 8,29,10,0,0,0,0,0,0,0,0,0,0		//AL_INCAGI#Shunshin no Jutsu#
 8,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-8,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+8,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 8,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 8,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -441,18 +441,18 @@
 
 // Chunin Ninjutsu
 9,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-9,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+9,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 9,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 9,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 9,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-9,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+9,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 9,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 9,17,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 9,534,15,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-9,838,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-9,839,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+9,4040,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+9,4041,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 9,2447,15,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 9,20,15,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -488,10 +488,10 @@
 9,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
 9,2259,10,19,8,17,8,534,8,0,0,0,0 //NC_FLAMELAUNCHER#Katon Karyuu Endan#
 
-9,2274,10,838,8,839,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
-9,2449,10,838,8,839,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
-9,539,10,838,8,839,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
-9,18,10,838,8,839,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
+9,2274,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
+9,2449,10,4040,8,4041,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
+9,539,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
+9,18,10,4040,8,4041,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
 
 9,187,10,20,8,192,8,3005,8,0,0,0,0 //NPC_WINDATTACK#Raiton Amigumo#
 9,21,10,20,8,192,8,3005,8,0,0,0,0 //MG_THUNDERSTORM#Raiton Senbon#
@@ -511,7 +511,7 @@
 
 9,29,10,0,0,0,0,0,0,0,0,0,0	 	//AL_INCAGI#Shunshin no Jutsu#
 9,26,2,0,0,0,0,0,0,0,0,0,0		//AL_TELEPORT#Tensoo no Jutsu#
-9,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+9,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 9,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 9,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -526,11 +526,11 @@
 
 // Chunin Taijutsu
 10,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-10,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+10,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 10,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 10,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 10,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-10,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+10,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 10,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 10,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -582,7 +582,7 @@
 
 10,29,10,0,0,0,0,0,0,0,0,0,0	//AL_INCAGI#Shunshin no Jutsu#
 10,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-10,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+10,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 10,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 10,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -597,11 +597,11 @@
 
 // Chunin Taijutsu
 11,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-11,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+11,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 11,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 11,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 11,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-11,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+11,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 11,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 11,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -653,7 +653,7 @@
 
 11,29,10,0,0,0,0,0,0,0,0,0,0	//AL_INCAGI#Shunshin no Jutsu#
 11,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-11,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+11,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 11,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 11,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -668,18 +668,18 @@
 
 // Chunin Ninjutsu
 12,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-12,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+12,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 12,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 12,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 12,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-12,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+12,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 12,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 12,17,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 12,534,15,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-12,838,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-12,839,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+12,4040,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+12,4041,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 12,2447,15,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 12,20,15,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -715,10 +715,10 @@
 12,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
 12,2259,10,19,8,17,8,534,8,0,0,0,0 //NC_FLAMELAUNCHER#Katon Karyuu Endan#
 
-12,2274,10,838,8,839,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
-12,2449,10,838,8,839,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
-12,539,10,838,8,839,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
-12,18,10,838,8,839,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
+12,2274,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
+12,2449,10,4040,8,4041,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
+12,539,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
+12,18,10,4040,8,4041,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
 
 12,187,10,20,8,192,8,3005,8,0,0,0,0 //NPC_WINDATTACK#Raiton Amigumo#
 12,21,10,20,8,192,8,3005,8,0,0,0,0 //MG_THUNDERSTORM#Raiton Senbon#
@@ -738,7 +738,7 @@
 
 12,29,10,0,0,0,0,0,0,0,0,0,0	//AL_INCAGI#Shunshin no Jutsu#
 12,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-12,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+12,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 12,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 12,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -753,11 +753,11 @@
 
 // Chunin Taijutsu
 14,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-14,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+14,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 14,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 14,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 14,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-14,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+14,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 14,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 14,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -809,7 +809,7 @@
 
 14,29,10,0,0,0,0,0,0,0,0,0,0	//AL_INCAGI#Shunshin no Jutsu#
 14,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-14,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+14,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 14,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 14,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -824,18 +824,18 @@
 
 // Chunin Ninjutsu
 16,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-16,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+16,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 16,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 16,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 16,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-16,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+16,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 16,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 16,17,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 16,534,15,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-16,838,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-16,839,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+16,4040,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+16,4041,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 16,2447,15,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 16,20,15,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -871,10 +871,10 @@
 16,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
 16,2259,10,19,8,17,8,534,8,0,0,0,0 //NC_FLAMELAUNCHER#Katon Karyuu Endan#
 
-16,2274,10,838,8,839,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
-16,2449,10,838,8,839,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
-16,539,10,838,8,839,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
-16,18,10,838,8,839,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
+16,2274,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
+16,2449,10,4040,8,4041,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
+16,539,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
+16,18,10,4040,8,4041,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
 
 16,187,10,20,8,192,8,3005,8,0,0,0,0 //NPC_WINDATTACK#Raiton Amigumo#
 16,21,10,20,8,192,8,3005,8,0,0,0,0 //MG_THUNDERSTORM#Raiton Senbon#
@@ -894,7 +894,7 @@
 
 16,29,10,0,0,0,0,0,0,0,0,0,0	//AL_INCAGI#Shunshin no Jutsu#
 16,26,2,0,0,0,0,0,0,0,0,0,0	 	//AL_TELEPORT#Tensoo no Jutsu#
-16,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+16,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 16,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
 16,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -911,11 +911,11 @@
 
 // Genin2 Taijutsu
 4002,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4002,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4002,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4002,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4002,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4002,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4002,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4002,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4002,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 4002,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -954,18 +954,18 @@
 
 // Genin2 Ninjutsu
 4003,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4003,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4003,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4003,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4003,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4003,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4003,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4003,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4003,19,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 4003,17,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 4003,534,10,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-4003,838,10,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-4003,839,10,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+4003,4040,10,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+4003,4041,10,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 4003,2447,10,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 4003,20,10,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -998,11 +998,11 @@
 
 // Genin2 Taijutsu
 4004,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4004,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4004,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4004,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4004,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4004,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4004,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4004,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4004,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 4004,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -1041,18 +1041,18 @@
 
 // Genin2 Ninjutsu
 4005,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4005,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4005,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4005,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4005,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4005,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4005,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4005,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4005,19,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 4005,17,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 4005,534,10,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-4005,838,10,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-4005,839,10,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+4005,4040,10,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+4005,4041,10,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 4005,2447,10,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 4005,20,10,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -1085,11 +1085,11 @@
 
 // Genin2 Taijutsu
 4006,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4006,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4006,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4006,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4006,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4006,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4006,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4006,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4006,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 4006,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -1128,18 +1128,18 @@
 
 // Genin2 Ninjutsu
 4007,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4007,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4007,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4007,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4007,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4007,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4007,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4007,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4007,19,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 4007,17,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 4007,534,10,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-4007,838,10,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-4007,839,10,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+4007,4040,10,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+4007,4041,10,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 4007,2447,10,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 4007,20,10,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -1174,11 +1174,11 @@
 
 // Jounin Taijutsu
 4008,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4008,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4008,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4008,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4008,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4008,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4008,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4008,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4008,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 4008,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -1230,7 +1230,7 @@
 
 4008,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4008,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4008,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4008,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4008,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4008,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -1245,18 +1245,18 @@
 
 // Jounin Ninjutsu
 4009,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4009,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4009,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4009,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4009,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4009,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4009,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4009,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4009,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 4009,17,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 4009,534,15,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-4009,838,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-4009,839,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+4009,4040,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+4009,4041,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 4009,2447,15,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 4009,20,15,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -1292,10 +1292,10 @@
 4009,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
 4009,2259,10,19,8,17,8,534,8,0,0,0,0 //NC_FLAMELAUNCHER#Katon Karyuu Endan#
 
-4009,2274,10,838,8,839,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
-4009,2449,10,838,8,839,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
-4009,539,10,838,8,839,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
-4009,18,10,838,8,839,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
+4009,2274,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
+4009,2449,10,4040,8,4041,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
+4009,539,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
+4009,18,10,4040,8,4041,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
 
 4009,187,10,20,8,192,8,3005,8,0,0,0,0 //NPC_WINDATTACK#Raiton Amigumo#
 4009,21,10,20,8,192,8,3005,8,0,0,0,0 //MG_THUNDERSTORM#Raiton Senbon#
@@ -1315,7 +1315,7 @@
 
 4009,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4009,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4009,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4009,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4009,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4009,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -1330,18 +1330,18 @@
 
 // Jounin Ninjutsu
 4010,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4010,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4010,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4010,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4010,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4010,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4010,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4010,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4010,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 4010,17,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 4010,534,15,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-4010,838,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-4010,839,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+4010,4040,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+4010,4041,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 4010,2447,15,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 4010,20,15,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -1377,10 +1377,10 @@
 4010,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
 4010,2259,10,19,8,17,8,534,8,0,0,0,0 //NC_FLAMELAUNCHER#Katon Karyuu Endan#
 
-4010,2274,10,838,8,839,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
-4010,2449,10,838,8,839,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
-4010,539,10,838,8,839,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
-4010,18,10,838,8,839,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
+4010,2274,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
+4010,2449,10,4040,8,4041,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
+4010,539,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
+4010,18,10,4040,8,4041,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
 
 4010,187,10,20,8,192,8,3005,8,0,0,0,0 //NPC_WINDATTACK#Raiton Amigumo#
 4010,21,10,20,8,192,8,3005,8,0,0,0,0 //MG_THUNDERSTORM#Raiton Senbon#
@@ -1400,7 +1400,7 @@
 
 4010,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4010,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4010,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4010,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4010,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4010,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -1415,11 +1415,11 @@
 
 // Jounin2 Taijutsu
 4012,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4012,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4012,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4012,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4012,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4012,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4012,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4012,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4012,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 4012,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -1471,7 +1471,7 @@
 
 4012,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4012,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4012,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4012,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4012,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4012,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -1486,11 +1486,11 @@
 
 // Jounin2 Taijutsu
 4011,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4011,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4011,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4011,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4011,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4011,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4011,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4011,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4011,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 4011,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -1542,7 +1542,7 @@
 
 4011,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4011,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4011,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4011,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4011,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4011,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -1557,18 +1557,18 @@
 
 // Jounin2 Ninjutsu
 4013,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4013,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4013,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4013,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4013,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4013,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4013,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4013,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4013,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 4013,17,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 4013,534,15,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-4013,838,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-4013,839,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+4013,4040,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+4013,4041,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 4013,2447,15,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 4013,20,15,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -1604,10 +1604,10 @@
 4013,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
 4013,2259,10,19,8,17,8,534,8,0,0,0,0 //NC_FLAMELAUNCHER#Katon Karyuu Endan#
 
-4013,2274,10,838,8,839,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
-4013,2449,10,838,8,839,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
-4013,539,10,838,8,839,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
-4013,18,10,838,8,839,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
+4013,2274,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
+4013,2449,10,4040,8,4041,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
+4013,539,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
+4013,18,10,4040,8,4041,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
 
 4013,187,10,20,8,192,8,3005,8,0,0,0,0 //NPC_WINDATTACK#Raiton Amigumo#
 4013,21,10,20,8,192,8,3005,8,0,0,0,0 //MG_THUNDERSTORM#Raiton Senbon#
@@ -1627,7 +1627,7 @@
 
 4013,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4013,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4013,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4013,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4013,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4013,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -1642,11 +1642,11 @@
 
 // Jounin2 Taijutsu
 4015,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4015,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4015,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4015,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4015,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4015,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4015,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4015,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4015,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 4015,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -1698,7 +1698,7 @@
 
 4015,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4015,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4015,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4015,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4015,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4015,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -1713,18 +1713,18 @@
 
 // Jounin2 Ninjutsu
 4017,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4017,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4017,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4017,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4017,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4017,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4017,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4017,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4017,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 4017,17,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 4017,534,15,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-4017,838,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-4017,839,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+4017,4040,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+4017,4041,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 4017,2447,15,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 4017,20,15,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -1760,10 +1760,10 @@
 4017,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
 4017,2259,10,19,8,17,8,534,8,0,0,0,0 //NC_FLAMELAUNCHER#Katon Karyuu Endan#
 
-4017,2274,10,838,8,839,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
-4017,2449,10,838,8,839,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
-4017,539,10,838,8,839,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
-4017,18,10,838,8,839,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
+4017,2274,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
+4017,2449,10,4040,8,4041,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
+4017,539,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
+4017,18,10,4040,8,4041,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
 
 4017,187,10,20,8,192,8,3005,8,0,0,0,0 //NPC_WINDATTACK#Raiton Amigumo#
 4017,21,10,20,8,192,8,3005,8,0,0,0,0 //MG_THUNDERSTORM#Raiton Senbon#
@@ -1783,7 +1783,7 @@
 
 4017,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4017,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4017,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4017,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4017,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4017,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -1800,11 +1800,11 @@
 
 // Jounin Elite Taijutsu
 4060,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4060,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4060,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4060,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4060,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4060,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4060,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4060,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4060,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 4060,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -1856,7 +1856,7 @@
 
 4060,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4060,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4060,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4060,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4060,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4060,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -1873,15 +1873,15 @@
 4060,2037,10,2279,10,2036,8,0,0,0,0,0,0 		//GC_CROSSRIPPERSLASHER,Soshuujin
 4060,2324,10,48,10,212,8,2257,8,2314,8,397,8 	//LG_HESPERUSLIT,Te Waza Gohon - Nukite
 4060,267,10,370,10,0,0,0,0,0,0,0,0 				//MO_FINGEROFFENSIVE,Oodama Rasengan
-4060,836,10,0,0,0,0,0,0,0,0,0,0 				//TAI_TSUUTENKYAKU,Tsuutenkyaku
-4060,837,10,0,0,0,0,0,0,0,0,0,0  				//TAI_DAIHOKO,Daihoko
+4060,4010,10,0,0,0,0,0,0,0,0,0,0 				//TAI_TSUUTENKYAKU,Tsuutenkyaku
+4060,4011,10,0,0,0,0,0,0,0,0,0,0  				//TAI_DAIHOKO,Daihoko
 4060,2418,10,522,10,3010,8,3007,8,3006,8,0,0  	//WM_SEVERE_RAINSTORM,Sogu Tensasai
 4060,359,10,0,0,0,0,0,0,0,0,0,0  				//LK_BERSERK,Dohatsuten
 
 4060,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4060,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4060,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
-4060,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
+4060,4061,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4060,268,10,390,5,0,0,0,0,0,0,0,0 //MO_STEELBODY#Domu#
 4060,252,10,249,5,0,0,0,0,0,0,0,0 //CR_REFLECTSHIELD#Refletir#
@@ -1895,18 +1895,18 @@
 
 // Jounin Elite Ninjutsu
 4061,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4061,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4061,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4061,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4061,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4061,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4061,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4061,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4061,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 4061,17,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 4061,534,15,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-4061,838,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-4061,839,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+4061,4040,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+4061,4041,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 4061,2447,15,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 4061,20,15,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -1942,10 +1942,10 @@
 4061,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
 4061,2259,10,19,8,17,8,534,8,0,0,0,0 //NC_FLAMELAUNCHER#Katon Karyuu Endan#
 
-4061,2274,10,838,8,839,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
-4061,2449,10,838,8,839,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
-4061,539,10,838,8,839,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
-4061,18,10,838,8,839,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
+4061,2274,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
+4061,2449,10,4040,8,4041,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
+4061,539,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
+4061,18,10,4040,8,4041,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
 
 4061,187,10,20,8,192,8,3005,8,0,0,0,0 //NPC_WINDATTACK#Raiton Amigumo#
 4061,21,10,20,8,192,8,3005,8,0,0,0,0 //MG_THUNDERSTORM#Raiton Senbon#
@@ -1965,7 +1965,7 @@
 
 4061,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4061,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4061,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4061,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4061,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4061,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -1987,7 +1987,7 @@
 4061,2203,10,2274,8,2449,8,539,8,18,8,0,0 //WL_FROSTMISTY#Suiton Dai Bakusui Shoha#
 
 4061,85,10,187,8,21,8,84,8,2040,8,0,0 //WZ_VERMILION#Raiton Kirin#
-4061,840,10,187,8,21,8,84,8,2040,8,0,0 //RAI_NAGASHI#Raiton Chidori Nagashi#
+4061,4050,10,187,8,21,8,84,8,2040,8,0,0 //RAI_NAGASHI#Raiton Chidori Nagashi#
 4061,2444,10,187,8,21,8,84,8,2040,8,0,0 //SO_ELECTRICWALK#Raiton Raigaa Bomu#
 
 4061,185,10,502,8,91,8,2446,8,527,8,0,0 //NPC_GROUNDATTACK#Doton Gouremu#
@@ -2004,7 +2004,7 @@
 4061,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4061,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4061,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
-4061,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
+4061,4061,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4061,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
 4061,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#
@@ -2017,11 +2017,11 @@
 
 // Procurado Taijutsu
 4062,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4062,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4062,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4062,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4062,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4062,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4062,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4062,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4062,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 4062,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -2073,7 +2073,7 @@
 
 4062,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4062,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4062,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4062,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4062,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4062,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -2090,15 +2090,15 @@
 4062,2037,10,2279,10,2036,8,0,0,0,0,0,0 		//GC_CROSSRIPPERSLASHER,Soshuujin
 4062,2324,10,48,10,212,8,2257,8,2314,8,397,8 	//LG_HESPERUSLIT,Te Waza Gohon - Nukite
 4062,267,10,370,10,0,0,0,0,0,0,0,0 				//MO_FINGEROFFENSIVE,Oodama Rasengan
-4062,836,10,0,0,0,0,0,0,0,0,0,0 				//TAI_TSUUTENKYAKU,Tsuutenkyaku
-4062,837,10,0,0,0,0,0,0,0,0,0,0  				//TAI_DAIHOKO,Daihoko
+4062,4010,10,0,0,0,0,0,0,0,0,0,0 				//TAI_TSUUTENKYAKU,Tsuutenkyaku
+4062,4011,10,0,0,0,0,0,0,0,0,0,0  				//TAI_DAIHOKO,Daihoko
 4062,2418,10,522,10,3010,8,3007,8,3006,8,0,0  	//WM_SEVERE_RAINSTORM,Sogu Tensasai
 4062,359,10,0,0,0,0,0,0,0,0,0,0  				//LK_BERSERK,Dohatsuten
 
 4062,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4062,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4062,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
-4062,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
+4062,4061,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4062,268,10,390,5,0,0,0,0,0,0,0,0 //MO_STEELBODY#Domu#
 4062,252,10,249,5,0,0,0,0,0,0,0,0 //CR_REFLECTSHIELD#Refletir#
@@ -2112,18 +2112,18 @@
 
 // Procurado Ninjutsu
 4063,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4063,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4063,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4063,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4063,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4063,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4063,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4063,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4063,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 4063,17,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 4063,534,15,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-4063,838,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-4063,839,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+4063,4040,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+4063,4041,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 4063,2447,15,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 4063,20,15,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -2159,10 +2159,10 @@
 4063,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
 4063,2259,10,19,8,17,8,534,8,0,0,0,0 //NC_FLAMELAUNCHER#Katon Karyuu Endan#
 
-4063,2274,10,838,8,839,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
-4063,2449,10,838,8,839,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
-4063,539,10,838,8,839,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
-4063,18,10,838,8,839,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
+4063,2274,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
+4063,2449,10,4040,8,4041,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
+4063,539,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
+4063,18,10,4040,8,4041,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
 
 4063,187,10,20,8,192,8,3005,8,0,0,0,0 //NPC_WINDATTACK#Raiton Amigumo#
 4063,21,10,20,8,192,8,3005,8,0,0,0,0 //MG_THUNDERSTORM#Raiton Senbon#
@@ -2181,7 +2181,7 @@
 
 4063,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4063,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4063,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4063,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4063,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4063,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -2203,7 +2203,7 @@
 4063,2203,10,2274,8,2449,8,539,8,18,8,0,0 //WL_FROSTMISTY#Suiton Dai Bakusui Shoha#
 
 4063,85,10,187,8,21,8,84,8,2040,8,0,0 //WZ_VERMILION#Raiton Kirin#
-4063,840,10,187,8,21,8,84,8,2040,8,0,0 //RAI_NAGASHI#Raiton Chidori Nagashi#
+4063,4050,10,187,8,21,8,84,8,2040,8,0,0 //RAI_NAGASHI#Raiton Chidori Nagashi#
 4063,2444,10,187,8,21,8,84,8,2040,8,0,0 //SO_ELECTRICWALK#Raiton Raigaa Bomu#
 
 4063,185,10,502,8,91,8,2446,8,527,8,0,0 //NPC_GROUNDATTACK#Doton Gouremu#
@@ -2220,7 +2220,7 @@
 4063,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4063,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4063,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
-4063,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
+4063,4061,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4063,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
 4063,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#
@@ -2235,11 +2235,11 @@
 
 // Sanin Taijutsu
 4064,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4064,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4064,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4064,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4064,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4064,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4064,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4064,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4064,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 4064,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -2291,7 +2291,7 @@
 
 4064,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4064,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4064,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4064,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4064,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4064,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -2308,15 +2308,15 @@
 4064,2037,10,2279,10,2036,8,0,0,0,0,0,0 		//GC_CROSSRIPPERSLASHER,Soshuujin
 4064,2324,10,48,10,212,8,2257,8,2314,8,397,8 	//LG_HESPERUSLIT,Te Waza Gohon - Nukite
 4064,267,10,370,10,0,0,0,0,0,0,0,0 				//MO_FINGEROFFENSIVE,Oodama Rasengan
-4064,836,10,0,0,0,0,0,0,0,0,0,0 				//TAI_TSUUTENKYAKU,Tsuutenkyaku
-4064,837,10,0,0,0,0,0,0,0,0,0,0  				//TAI_DAIHOKO,Daihoko
+4064,4010,10,0,0,0,0,0,0,0,0,0,0 				//TAI_TSUUTENKYAKU,Tsuutenkyaku
+4064,4011,10,0,0,0,0,0,0,0,0,0,0  				//TAI_DAIHOKO,Daihoko
 4064,2418,10,522,10,3010,8,3007,8,3006,8,0,0  	//WM_SEVERE_RAINSTORM,Sogu Tensasai
 4064,359,10,0,0,0,0,0,0,0,0,0,0  				//LK_BERSERK,Dohatsuten
 
 4064,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4064,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4064,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
-4064,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
+4064,4061,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4064,268,10,390,5,0,0,0,0,0,0,0,0 //MO_STEELBODY#Domu#
 4064,252,10,249,5,0,0,0,0,0,0,0,0 //CR_REFLECTSHIELD#Refletir#
@@ -2330,18 +2330,18 @@
 
 // Sanin Ninjutsu
 4065,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4065,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4065,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4065,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4065,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4065,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4065,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4065,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4065,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 4065,17,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 4065,534,15,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-4065,838,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-4065,839,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+4065,4040,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+4065,4041,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 4065,2447,15,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 4065,20,15,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -2377,10 +2377,10 @@
 4065,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
 4065,2259,10,19,8,17,8,534,8,0,0,0,0 //NC_FLAMELAUNCHER#Katon Karyuu Endan#
 
-4065,2274,10,838,8,839,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
-4065,2449,10,838,8,839,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
-4065,539,10,838,8,839,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
-4065,18,10,838,8,839,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
+4065,2274,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
+4065,2449,10,4040,8,4041,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
+4065,539,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
+4065,18,10,4040,8,4041,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
 
 4065,187,10,20,8,192,8,3005,8,0,0,0,0 //NPC_WINDATTACK#Raiton Amigumo#
 4065,21,10,20,8,192,8,3005,8,0,0,0,0 //MG_THUNDERSTORM#Raiton Senbon#
@@ -2399,7 +2399,7 @@
 
 4065,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4065,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4065,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4065,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4065,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4065,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -2421,7 +2421,7 @@
 4065,2203,10,2274,8,2449,8,539,8,18,8,0,0 //WL_FROSTMISTY#Suiton Dai Bakusui Shoha#
 
 4065,85,10,187,8,21,8,84,8,2040,8,0,0 //WZ_VERMILION#Raiton Kirin#
-4065,840,10,187,8,21,8,84,8,2040,8,0,0 //RAI_NAGASHI#Raiton Chidori Nagashi#
+4065,4050,10,187,8,21,8,84,8,2040,8,0,0 //RAI_NAGASHI#Raiton Chidori Nagashi#
 4065,2444,10,187,8,21,8,84,8,2040,8,0,0 //SO_ELECTRICWALK#Raiton Raigaa Bomu#
 
 4065,185,10,502,8,91,8,2446,8,527,8,0,0 //NPC_GROUNDATTACK#Doton Gouremu#
@@ -2438,7 +2438,7 @@
 4065,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4065,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4065,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
-4065,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
+4065,4061,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4065,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
 4065,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#
@@ -2451,11 +2451,11 @@
 
 // Renegado Taijutsu
 4073,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4073,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4073,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4073,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4073,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4073,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4073,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4073,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4073,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
 4073,133,5,132,2,0,0,0,0,0,0,0,0 	//AS_LEFT#Migite#
@@ -2507,7 +2507,7 @@
 
 4073,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4073,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4073,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4073,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4073,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4073,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
@@ -2524,15 +2524,15 @@
 4073,2037,10,2279,10,2036,8,0,0,0,0,0,0 		//GC_CROSSRIPPERSLASHER,Soshuujin
 4073,2324,10,48,10,212,8,2257,8,2314,8,397,8 	//LG_HESPERUSLIT,Te Waza Gohon - Nukite
 4073,267,10,370,10,0,0,0,0,0,0,0,0 				//MO_FINGEROFFENSIVE,Oodama Rasengan
-4073,836,10,0,0,0,0,0,0,0,0,0,0 				//TAI_TSUUTENKYAKU,Tsuutenkyaku
-4073,837,10,0,0,0,0,0,0,0,0,0,0  				//TAI_DAIHOKO,Daihoko
+4073,4010,10,0,0,0,0,0,0,0,0,0,0 				//TAI_TSUUTENKYAKU,Tsuutenkyaku
+4073,4011,10,0,0,0,0,0,0,0,0,0,0  				//TAI_DAIHOKO,Daihoko
 4073,2418,10,522,10,3010,8,3007,8,3006,8,0,0  	//WM_SEVERE_RAINSTORM,Sogu Tensasai
 4073,359,10,0,0,0,0,0,0,0,0,0,0  				//LK_BERSERK,Dohatsuten
 
 4073,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4073,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4073,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
-4073,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
+4073,4061,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4073,268,10,390,5,0,0,0,0,0,0,0,0 //MO_STEELBODY#Domu#
 4073,252,10,249,5,0,0,0,0,0,0,0,0 //CR_REFLECTSHIELD#Refletir#
@@ -2546,18 +2546,18 @@
 
 // Renegado Ninjutsu
 4074,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
-4074,845,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
+4074,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4074,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4074,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
 4074,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
-4074,830,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
+4074,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4074,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
 4074,17,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBALL#Katon Housenka#
 4074,534,15,0,0,0,0,0,0,0,0,0,0 //NJ_KOUENKA#Katon Tsumabeni#
 
-4074,838,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
-4074,839,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
+4074,4040,15,0,0,0,0,0,0,0,0,0,0 //SUI_HANHONRYUU#Suiton Hahonryuu#
+4074,4041,15,0,0,0,0,0,0,0,0,0,0 //SUI_HARANBASHOU#Suiton Haran Banshou#
 4074,2447,15,0,0,0,0,0,0,0,0,0,0 //SO_DIAMONDDUST#Suiton Homatsu Rappa#
 
 4074,20,15,0,0,0,0,0,0,0,0,0,0 //MG_LIGHTNINGBOLT#Raiton Jian#
@@ -2593,10 +2593,10 @@
 4074,80,10,19,8,17,8,534,8,0,0,0,0 //WZ_FIREPILLAR#Katon Gouryuuka#
 4074,2259,10,19,8,17,8,534,8,0,0,0,0 //NC_FLAMELAUNCHER#Katon Karyuu Endan#
 
-4074,2274,10,838,8,839,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
-4074,2449,10,838,8,839,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
-4074,539,10,838,8,839,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
-4074,18,10,838,8,839,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
+4074,2274,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_SUITON#Suiton Kirigakure#
+4074,2449,10,4040,8,4041,5,2447,5,0,0,0,0 //SO_PSYCHIC_WAVE#Suiton Daibakufu#
+4074,539,10,4040,8,4041,5,2447,5,0,0,0,0 //NJ_HYOUSYOURAKU#Suiton Daikodan#
+4074,18,10,4040,8,4041,5,2447,5,0,0,0,0 //MG_FIREWALL#Suiton Suijinheki#
 
 4074,187,10,20,8,192,8,3005,8,0,0,0,0 //NPC_WINDATTACK#Raiton Amigumo#
 4074,21,10,20,8,192,8,3005,8,0,0,0,0 //MG_THUNDERSTORM#Raiton Senbon#
@@ -2615,7 +2615,7 @@
 
 4074,29,10,0,0,0,0,0,0,0,0,0,0	 //AL_INCAGI#Shunshin no Jutsu#
 4074,26,2,0,0,0,0,0,0,0,0,0,0	 //AL_TELEPORT#Tensoo no Jutsu#
-4074,847,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARACAHIRAI#Marca Hiraishin#
+4074,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4074,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
 4074,2043,10,28,10,0,0,0,0,0,0,0,0 //AB_CHEAL#Coluceo Heal#
@@ -2637,7 +2637,7 @@
 4074,2203,10,2274,8,2449,8,539,8,18,8,0,0 //WL_FROSTMISTY#Suiton Dai Bakusui Shoha#
 
 4074,85,10,187,8,21,8,84,8,2040,8,0,0 //WZ_VERMILION#Raiton Kirin#
-4074,840,10,187,8,21,8,84,8,2040,8,0,0 //RAI_NAGASHI#Raiton Chidori Nagashi#
+4074,4050,10,187,8,21,8,84,8,2040,8,0,0 //RAI_NAGASHI#Raiton Chidori Nagashi#
 4074,2444,10,187,8,21,8,84,8,2040,8,0,0 //SO_ELECTRICWALK#Raiton Raigaa Bomu#
 
 4074,185,10,502,8,91,8,2446,8,527,8,0,0 //NPC_GROUNDATTACK#Doton Gouremu#
@@ -2654,7 +2654,7 @@
 4074,27,10,0,0,0,0,0,0,0,0,0,0 //AL_WARP#Tensoo no Jutsu#
 4074,2290,10,0,0,0,0,0,0,0,0,0,0 //SC_INVISIBILITY#Reika no Jutsu#
 4074,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
-4074,848,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
+4074,4061,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
 4074,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
 4074,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#

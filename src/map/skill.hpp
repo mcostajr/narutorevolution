@@ -533,8 +533,7 @@ int skill_blockmerc_start (struct mercenary_data*,uint16 skill_id,int);
 
 // (Epoque:) To-do: replace this macro with some sort of skill tree check (rather than hard-coded skill names)
 #define skill_ischangesex(id) ( \
-	((id) >= BD_ADAPTATION     && (id) <= DC_SERVICEFORYOU) || ((id) >= CG_ARROWVULCAN && (id) <= CG_MARIONETTE) || \
-	((id) >= CG_LONGINGFREEDOM && (id) <= CG_TAROTCARD)     || ((id) >= WA_SWING_DANCE && (id) <= WM_UNLIMITED_HUMMING_VOICE))
+	((id) >= BD_ADAPTATION     && (id) <= DC_SERVICEFORYOU))
 
 // Skill action, (return dmg,heal)
 int64 skill_attack( int attack_type, struct block_list* src, struct block_list *dsrc,struct block_list *bl,uint16 skill_id,uint16 skill_lv,t_tick tick,int flag );
@@ -1359,67 +1358,6 @@ enum e_skill {
 	NPC_IMMUNE_PROPERTY,
 	NPC_MOVE_COORDINATE,
 
-	UH_SHARINGAN = 800,
-	UH_DOSATSUGAN = 801,
-	UH_MANGEKYOU = 802,
-	UH_SUSANOO = 803,
-
-	HYU_BYAKUGAN = 804,
-	HYU_KAITEN,
-	HYU_HYAKU,
-
-	PT_1PORTAO,
-
-	AKI_KARORI,
-	AKI_NIKUDAN,
-	AKI_VERDE,
-	AKI_AMARELA,
-	AKI_VERMELHA,
-	AKI_CHOOMODO = 849,
-
-	NR_MEDITAR = 813,
-	NR_ESTRANGULAR,
-
-	SL_AMALDICOADO = 815,
-
-	KN_C1 = 816,
-	KN_C2,
-	KN_C3,
-	KN_C0,
-	KN_ARGILA,
-
-	TY_DOKI1 = 821,
-	TY_DOKI2,
-
-	IB_SALAMANDRA = 824,
-
-	SN_EREMITA = 830,
-
-	KG_KUROARI = 831,
-	KG_SANSHOUO,
-	KG_SASORI,
-	KG_KAZEKAGE,
-
-	IZ_AKAMARU = 835,
-
-	TAI_TSUUTENKYAKU,
-	TAI_DAIHOKO,
-
-	SUI_HANHONRYUU,
-	SUI_HARANBASHOU,
-
-	RAI_NAGASHI,
-
-	JIN_GENKAIHAKURI = 843,
-	JIN_KOUJIN,
-
-	NJ_CHAKRA,
-
-	HYO_ICEWALL,
-
-	VEL_MARCAHIRAI,
-	VEL_HIRAISHIN,
-
 	KN_CHARGEATK = 1001,
 	CR_SHRINK,
 	AS_SONICACCEL,
@@ -1860,6 +1798,70 @@ enum e_skill {
 	ECL_SADAGUI,
 	ECL_SEQUOIADUST,
 	ECLAGE_RECALL,
+
+	NJ_CHAKRA = 4000,
+	SN_EREMITA = 4001,
+
+	TAI_TSUUTENKYAKU = 4010,
+	TAI_DAIHOKO,
+
+	// Katon = 5130
+
+	SUI_HANHONRYUU = 4040,
+	SUI_HARANBASHOU,
+
+	RAI_NAGASHI = 4050,
+
+	VEL_MARCAHIRAI = 4060,
+	VEL_HIRAISHIN,
+		
+	UH_SHARINGAN = 4200,
+	UH_DOSATSUGAN,
+	UH_MANGEKYOU,
+	UH_SUSANOO,
+
+	KG_KUROARI = 4210,
+	KG_SANSHOUO,
+	KG_SASORI,
+	KG_KAZEKAGE,
+
+	HYU_BYAKUGAN = 4220,
+	HYU_KAITEN,
+	HYU_HYAKU,
+
+	PT_1PORTAO = 4230,
+
+	AKI_KARORI = 4240,
+	AKI_NIKUDAN,
+	AKI_VERDE,
+	AKI_AMARELA,
+	AKI_VERMELHA,
+	AKI_CHOOMODO,
+
+	NR_MEDITAR = 4250,
+	NR_ESTRANGULAR,
+
+	SL_AKUTIBETO = 4260,
+	SL_SETSUZOKU,
+	SL_TENJUIN,
+
+	IZ_AKAMARU = 4270,
+
+	HYO_ICEWALL = 4280,
+
+	KN_ARGILA = 4290,
+	KN_C1,
+	KN_C2,
+	KN_C3,
+	KN_C0,
+
+	TY_DOKI1 = 4300,
+	TY_DOKI2,
+
+	IB_SALAMANDRA = 4310,
+
+	JIN_GENKAIHAKURI = 4320,
+	JIN_KOUJIN,
 
 	GC_DARKCROW = 5001,
 	RA_UNLIMIT,

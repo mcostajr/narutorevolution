@@ -4889,7 +4889,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case NPC_SPLASHATTACK:
 		flag |= SD_PREAMBLE; // a fake packet will be sent for the first target to be hit
 	case AS_SPLASHER:
-	case HT_BLITZBEAT:
 	case AC_SHOWER:
 	case MA_SHOWER:
 	case MG_NAPALMBEAT:
@@ -4953,6 +4952,7 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case HYU_HYAKU:
 	case KN_C0:
 	case ASC_METEORASSAULT:
+	case HT_BLITZBEAT:
 		if( flag&1 ) {//Recursive invocation
 			int sflag = skill_area_temp[0] & 0xFFF;
 			int heal = 0;
@@ -6242,7 +6242,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		}
 		break;
 
-	case SL_AMALDICOADO:
+	case SL_TENJUIN:
 		if (tsce) {
 			clif_skill_nodamage(src, bl, skill_id, -1, status_change_end(bl, type, INVALID_TIMER));
 			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2106);
@@ -21288,7 +21288,7 @@ int skill_disable_check(struct status_change *sc, uint16 skill_id)
 {
 	switch( skill_id ) { //HP & SP Consumption Check
 		case UH_SUSANOO:
-		case SL_AMALDICOADO:
+		case SL_TENJUIN:
 		case BS_MAXIMIZE:
 		case NV_TRICKDEAD:
 		case TF_HIDING:

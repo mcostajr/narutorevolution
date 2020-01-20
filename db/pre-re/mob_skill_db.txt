@@ -180,7 +180,7 @@
 30085,Shikamaru Shippuuden@RG_CLOSECONFINE,attack,1005,4,700,0,1000,no,target,always,,,,,,,,
 30085,Shikamaru Shippuuden@GN_DEMONIC_FIRE,attack,2485,2,700,0,1000,no,target,always,,,,,,,,
 30125,Jounin Konoha@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
-30125,Jounin Konoha@RAI_NAGASHI,attack,840,2,700,0,1000,no,self,always,,,,,,,,
+30125,Jounin Konoha@RAI_NAGASHI,attack,4050,2,700,0,1000,no,self,always,,,,,,,,
 30125,Jounin Konoha@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 
 30045,Hinata Shippuuden@SR_TIGERCANNON,attack,2330,1,1000,0,1000,no,target,always,,,,,,,,
@@ -208,12 +208,12 @@
 30080,Sakura Shippuuden@AB_HIGHNESSHEAL,chase,2051,4,700,0,1000,no,friend,always,,,,,,,,
 30080,Sakura Shippuuden@KN_BOWLINGBASH,attack,62,10,700,0,1000,no,target,always,,,,,,,,
 30082,Sasuke Shippuuden@MG_FIREBALL,attack,17,10,700,0,1000,no,target,always,,,,,,,,
-30082,Sasuke Shippuuden@RAI_NAGASHI,attack,840,2,500,0,1000,no,self,always,,,,,,,,
+30082,Sasuke Shippuuden@RAI_NAGASHI,attack,4050,2,500,0,1000,no,self,always,,,,,,,,
 30082,Sasuke Shippuuden@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
 
 
 30083,Sasuke CS2@MG_FIREBALL,attack,17,10,700,0,1000,no,target,always,,,,,,,,
-30083,Sasuke CS2@RAI_NAGASHI,attack,840,2,500,0,1000,no,self,always,,,,,,,,
+30083,Sasuke CS2@RAI_NAGASHI,attack,4050,2,500,0,1000,no,self,always,,,,,,,,
 30083,Sasuke CS2@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
 
 
@@ -225,7 +225,7 @@
 30098,Gai@TK_TURNKICK,attack,417,2,700,0,1000,no,self,always,,,,,,,,
 30098,Gai@TK_DOWNKICK,attack,415,6,700,0,1000,no,self,always,,,,,,,,
 30131,Kakashi@MG_COLDBOLT,attack,14,15,800,0,1000,no,target,always,,,,,,,,
-30131,Kakashi@RAI_NAGASHI,attack,840,2,800,0,1000,no,self,always,,,,,,,,
+30131,Kakashi@RAI_NAGASHI,attack,4050,2,800,0,1000,no,self,always,,,,,,,,
 30131,Kakashi@SC_MAELSTROM,attack,2302,3,500,0,1000,no,target,always,,,,,,,,
 30117,Yamato@SO_EARTHGRAVE,attack,2446,15,700,0,1000,no,target,always,,,,,,,,
 30117,Yamato@WZ_FROSTNOVA,attack,88,15,700,0,1000,no,self,always,,,,,,,,
@@ -270,7 +270,7 @@
 
 // Kirigakure
 30127,Jounin Nevoa@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
-30127,Jounin Nevoa@RAI_NAGASHI,attack,840,2,700,0,5000,no,self,always,,,,,,,,
+30127,Jounin Nevoa@RAI_NAGASHI,attack,4050,2,700,0,5000,no,self,always,,,,,,,,
 30127,Jounin Nevoa@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 30118,Zabuza@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 30118,Zabuza@WZ_FROSTNOVA,attack,88,10,700,0,1000,no,self,always,,,,,,,,
@@ -278,10 +278,10 @@
 
 //Kumogakure
 30128,Jounin Nuvem@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
-30128,Jounin Nuvem@RAI_NAGASHI,attack,840,2,700,0,1000,no,self,always,,,,,,,,
+30128,Jounin Nuvem@RAI_NAGASHI,attack,4050,2,700,0,1000,no,self,always,,,,,,,,
 30128,Jounin Nuvem@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 
-30038,Darui@RAI_NAGASHI,attack,840,2,1000,0,1000,no,self,always,,,,,,,,
+30038,Darui@RAI_NAGASHI,attack,4050,2,1000,0,1000,no,self,always,,,,,,,,
 30038,Darui@MG_LIGHTNINGBOLT,attack,20,10,2000,0,1000,no,target,always,,,,,,,,
 30038,Darui@MG_THUNDERSTORM,attack,21,10,2000,0,1000,no,target,always,,,,,,,,
 30076,Raikage@SR_RIDEINLIGHTNING,attack,2518,2,700,0,1000,no,target,always,,,,,,,,
@@ -289,7 +289,7 @@
 
 // Sunagakure
 30126,Jounin Suna@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
-30126,Jounin Suna@RAI_NAGASHI,attack,840,2,700,0,1000,no,self,always,,,,,,,,
+30126,Jounin Suna@RAI_NAGASHI,attack,4050,2,700,0,1000,no,self,always,,,,,,,,
 30126,Jounin Suna@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 
 30042,Gaara Shippuuden@MG_STONECURSE,attack,16,10,700,0,1000,no,target,always,,,,,,,,
@@ -313,7 +313,7 @@
 
 // Iwagakure
 30129,Jounin Pedra@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
-30129,Jounin Pedra@RAI_NAGASHI,attack,840,2,700,0,1000,no,self,always,,,,,,,,
+30129,Jounin Pedra@RAI_NAGASHI,attack,4050,2,700,0,1000,no,self,always,,,,,,,,
 30129,Jounin Pedra@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 
 30063,Mifune@SM_BASH,attack,5,10,700,0,1000,no,target,always,,,,,,,,
@@ -325,7 +325,7 @@
 
 // Otogakure
 30130,Jounin Som@WZ_JUPITEL,attack,84,10,700,0,1000,no,target,always,,,,,,,,
-30130,Jounin Som@RAI_NAGASHI,attack,840,2,700,0,1000,no,self,always,,,,,,,,
+30130,Jounin Som@RAI_NAGASHI,attack,4050,2,700,0,1000,no,self,always,,,,,,,,
 30130,Jounin Som@MG_COLDBOLT,attack,14,10,700,0,1000,no,target,always,,,,,,,,
 
 30078,Sakon2@MO_EXPLOSIONSPIRITS,attack,270,5,700,0,1000,no,self,always,,,,,,,,

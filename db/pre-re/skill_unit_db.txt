@@ -35,7 +35,7 @@
 // Taijutsu
 3006,0x86,    ,  1, 1,1000,enemy, 0x018	//KO_BAKURETSU
 
-836,0xcb,    ,  1, 2,2500,enemy, 0x010	//TAI_TSUUTENKYAKU
+4010,0xcb,    ,  1, 2,2500,enemy, 0x010	//TAI_TSUUTENKYAKU
 
 //----------------------------------------------
 // Medicina
@@ -79,7 +79,7 @@
 2040,0x10B‬,    ,  3, 0,1000,enemy, 0x010	//AB_ADORAMUS
 
   85, 0x86,    ,  7, 1,1250,enemy,0x018		//WZ_VERMILION
- 840, 0x86,    ,  5, 0,1000,enemy, 0x010	//RAI_NAGASHI
+4050, 0x86,    ,  5, 0,1000,enemy, 0x010	//RAI_NAGASHI
 2444, 0xdd,    ,  -1, 0,285,enemy, 0x8018	//SO_ELECTRICWALK
 
 // -----------------------------
@@ -114,7 +114,7 @@
 // Hyouton
 2236,0x86,    ,  5, 0,1000,enemy, 0x018		//RA_AIMEDBOLT
   87,0x8d,    , -1, 0,  -1,all,   0x9010	//WZ_ICEWALL
- 846,0x10e,   ,  2, 0,  -1,all,    0x18		//Area IceWall
+4280,0x10e,   ,  2, 0,  -1,all,    0x18		//HYO_ICEWALL
 
 // -----------------------------
 // Nara
@@ -138,7 +138,7 @@
 
 // -----------------------------
 // Jinton
-844, 0x86,    ,  1, 5,1000,enemy, 0x010	//JN_KOUJIN
+4321, 0x86,    ,  1, 5,1000,enemy, 0x010	//JIN_KOUJIN
 
 // -----------------------------
 // Hozuki

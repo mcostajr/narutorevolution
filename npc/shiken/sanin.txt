@@ -13,7 +13,7 @@ if(Class > 4061 || Class < 4060) {
 	close; 
 }
 
-if(BaseLevel < 175 || JobLevel < 10) { 
+if(BaseLevel < 255 || JobLevel < 10) { 
 	mes "[Sanin Shiken]"; 
 	mes "Você não tem level de Base ou Job suficiente."; 
 	close; 

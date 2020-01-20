@@ -74,11 +74,11 @@
 //****
 // Skill Basica
 1,0,0,0,0,0,0,9,0,no,0,0,0,none,0,0x0,					NV_BASIC,Basic Skill
-845,0,6,4,0,0x1,0,1,1,no,0,0x1,0,magic,0,0x0,			NJ_CHAKRA,Concentrar Chakra
+4000,0,6,4,0,0x1,0,1,1,no,0,0x1,0,magic,0,0x0,			NJ_CHAKRA,Concentrar Chakra
 524,9,8,1,-1,0x48,0,5,5,no,0,0x1,0,weapon,0,0x0,		NJ_KUNAI,Arremessar Kunai
 3012,0,6,4,0,0x1,0,1,0,no,0,0x1,2,none,7,0x0,			KO_ZANZOU,Kawarime no Jutsu
 426,0,6,4,0,0x1,0,5,1,no,0,0x1,0,weapon,0,0x0,			TK_HIGHJUMP,Salto Ninja
-830,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,			SN_EREMITA,Modo Eremita
+4001,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,			SN_EREMITA,Modo Eremita
 
 
 //-------------------------------------------------------------------------------------------
@@ -117,8 +117,8 @@
 2037,13,6,1,-1,0,0,10,1,no,0,0,0,weapon,0,0x0,			GC_CROSSRIPPERSLASHER,Soshuujin
 2324,3,8,4,-1,0,0,10,-3,yes,0,0x200,0,weapon,0,0x0,		LG_HESPERUSLIT,Te Waza Gohon - Nukite
 267,9,8,1,-1,0,0,10,-3,no,0,0x40000,0,weapon,0,0x0,		MO_FINGEROFFENSIVE,Oodama Rasengan
-836,5,8,2,-1,0x2,3,10,-3,no,0,0,0,weapon,0,0x10000,		TAI_TSUUTENKYAKU,Tsuutenkyaku
-837,0,6,4,-1,0x42,3,10,1,no,0,0,0,weapon,7,0x0,			TAI_DAIHOKO,Daihoko
+4010,5,8,2,-1,0x2,3,10,-3,no,0,0,0,weapon,0,0x10000,		TAI_TSUUTENKYAKU,Tsuutenkyaku
+4011,0,6,4,-1,0x42,3,10,1,no,0,0,0,weapon,7,0x0,			TAI_DAIHOKO,Daihoko
 2418,9,6,2,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,			WM_SEVERE_RAINSTORM,Sogu Tensasai
 2516,9,6,1,-1,0x2,5,10,1,no,0,0,0,weapon,0,0x0,			WM_SEVERE_RAINSTORM_MELEE,Sogu Tensasai ATK
 359,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,			LK_BERSERK,Dohatsuten
@@ -145,8 +145,8 @@
 
 //-------------------------------------------------------------------------------------------------------------
 // Suiton
-838,9,6,1,1,0,0,15,1,no,0,0,0,magic,0,0x0,									SUI_HANHONRYUU,Suiton Hahonryuu
-839,0,6,4,1,0x2,5,15,1:1:-2:-2:-3:-3:-4:-4:-5:-5,no,0,0,0,magic,0,0x0,		SUI_HARANBASHOU,Suiton Haran Banshou
+4040,9,6,1,1,0,0,15,1,no,0,0,0,magic,0,0x0,									SUI_HANHONRYUU,Suiton Hahonryuu
+4041,0,6,4,1,0x2,5,15,1:1:-2:-2:-3:-3:-4:-4:-5:-5,no,0,0,0,magic,0,0x0,		SUI_HARANBASHOU,Suiton Haran Banshou
 2447,9,6,2,1,0,0,15,-5,no,0,0,0,magic,0,0x0,								SO_DIAMONDDUST,Suiton Homatsu Rappa
 //
 2274,0,6,4,1,0x1,0,10,1,no,0,0,0,none,0,0x0,		NC_STEALTHFIELD,Suiton Kirigakure
@@ -172,7 +172,7 @@
 2040,9,8,2,7,0,0,10,-10,no,0,0,0,magic,0,0x0,	AB_ADORAMUS,Raiton Jibashi
 //
 85,9,6,2,7,0,0,10,-10,no,0,0,0,magic,0,0x0,		WZ_VERMILION,Raiton Kirin
-840,9,6,4,7,0,0,10,-5,no,0,0,0,magic,0,0x0,		RAI_NAGASHI,Raiton Chidori Nagashi
+4050,9,6,4,7,0,0,10,-5,no,0,0,0,magic,0,0x0,	RAI_NAGASHI,Raiton Chidori Nagashi
 2444,9,6,4,4,0,0,10,-5,no,0,0,0,magic,0,0x1000,	SO_ELECTRICWALK,Raiton Raigaa Bomu
 
 //-------------------------------------------------------------------------------------------------------------
@@ -216,13 +216,13 @@
 //
 29,9,6,4,0,0x1,9,10,1,no,0,0,0,magic,0,0x1000,		AL_INCAGI,Shunshin no Jutsu
 26,0,6,4,0,0x1,0,2,1,yes,0,0,0,magic,0,0x40,		AL_TELEPORT,Mueisho Shunshin
-847,9,6,2,0,0x1,0,10,1,no,0,0,1,none,0,0x0,			VEL_MARCAHIRAI,Marca Hiraishin
+4060,9,6,2,0,0x1,0,10,1,no,0,0,1,none,0,0x0,		VEL_MARCAHIRAI,Marca Hiraishin
 3021,9,6,16,0,0x1,0,10,1,no,0,0,0,none,0,0x0,		KO_GENWAKU,Troca de Posição
 //
 27,9,6,2,0,0x1,0,10,1,no,0,0,3,magic,0,0x0,			AL_WARP,Tensoo no Jutsu
 2290,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,		SC_INVISIBILITY,Reika no Jutsu
 264,12,6,2,0,0x1,0,10,1,no,0,0,0,none,0,0x0,		MO_BODYRELOCATION,Hiraishin no Jutsu
-848,9,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,			VEL_HIRAISHIN,Hiraishin Lv2 no Jutsu
+4061,9,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,		VEL_HIRAISHIN,Hiraishin Lv2 no Jutsu
 
 //-------------------------------------------------------------------------------------------
 // Medicina
@@ -307,21 +307,21 @@
 // Habilidade Hiden
 //****
 // Uchiha
-800,9,6,4,0,0x1,0,3,0,no,0,0,0,none,0,0x0,					UH_SHARINGAN,Sharingan
-801,0,0,0,0,0,0,3,0,no,0,0,0,none,0,0x0,					UH_DOSATSUGAN,Dosatsugan
+4200,9,6,4,0,0x1,0,3,0,no,0,0,0,none,0,0x0,					UH_SHARINGAN,Sharingan
+4201,0,0,0,0,0,0,3,0,no,0,0,0,none,0,0x0,					UH_DOSATSUGAN,Dosatsugan
 5003,7,6,1,-1,0x2,6:7,2,1,no,0,0,0,weapon,0,0x0,            GN_ILLUSIONDOPING,Genjutsu: Sharingan
-802,9,6,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,					UH_MANGEKYOU,Mangekyou Sharingan
-803,0,6,4,0,0x1,0,1,1,yes,0,0x1,0,magic,0,0x0,				UH_SUSANOO,Susanoo
+4202,9,6,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,					UH_MANGEKYOU,Mangekyou Sharingan
+4203,0,6,4,0,0x1,0,1,1,yes,0,0x1,0,magic,0,0x0,				UH_SUSANOO,Susanoo
 2008,9,6,2,3,0x42,1:2:3:4,4,1,no,0,0x40000,0,magic,0,0x0,	RK_DRAGONBREATH,Amaterasu
 
 //****
 // Kugutsu
 503,-9,6,1,-1,0x40,0,1,10,no,0,0,0,magic,0,0x0,	GS_BULLSEYE,Hyakki no Soen
 244,0,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,		AM_REST,Voltar
-831,1,0,4,0,0x1,0,1,0,no,0,0,0,weapon,0,0x0,	KG_KUROARI,Criar Kuroari
-832,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,		KG_SANSHOUO,Criar Sanshouo
-833,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,		KG_SASORI,Criar Sasori
-834,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,		KG_KAZEKAGE,Criar Kazekage
+4210,1,0,4,0,0x1,0,1,0,no,0,0,0,weapon,0,0x0,	KG_KUROARI,Criar Kuroari
+4211,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,		KG_SANSHOUO,Criar Sanshouo
+4212,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,		KG_SASORI,Criar Sasori
+4213,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,		KG_KAZEKAGE,Criar Kazekage
 
 // Kuroari
 8003,0,0,0,0,0,0,5,0,no,0,0,0,none,0,0x0,				HLIF_BRAIN,Eficiência em Genjutsu
@@ -355,42 +355,50 @@
 
 //****
 // Hyuuga
-804,9,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,					HYU_BYAKUGAN,Byakugan
+4220,9,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,					HYU_BYAKUGAN,Byakugan
 263,-1,8,0,-1,0,0,5,-4,no,0,0x40000,0,weapon,0,0x10,		MO_TRIPLEATTACK,Yon sho
 272,-2,8,4,-1,0,0,5,-8,no,0,0x201,0,weapon,0,0x0,			MO_CHAINCOMBO,Hachi Sho
 273,-2,6,4,-1,0x2,2,4,-10,no,0,0x40200,0,weapon,0,0x0,		MO_COMBOFINISH,Juuroku Sho
-805,0,6,4,3,0x2,1:2:2:3,4,1,no,0,0x40000,0,weapon,2,0x0,	HYU_KAITEN,Kaiten
+4221,0,6,4,3,0x2,1:2:2:3,4,1,no,0,0x40000,0,weapon,2,0x0,	HYU_KAITEN,Kaiten
 371,-2,8,4,-1,0,0,3,-10,no,0,0x201,0,weapon,0,0x0,			CH_TIGERFIST,Sanjuni Sho
 372,-2,8,4,-1,0,0,2,-10,no,0,0x200,0,weapon,0,0x0,			CH_CHAINCRUSH,Rokujuyon Sho
-806,0,6,4,3,0x2,3,4,1,no,0,0,0,weapon,0,0x0,				HYU_HYAKU,Hyaku Nijuhachi Sho
+4222,0,6,4,3,0x2,3,4,1,no,0,0,0,weapon,0,0x0,				HYU_HYAKU,Hyaku Nijuhachi Sho
 
 //****
 // Portões de Chakra
-807,0,6,4,0,0x1,0,7,0,no,0,0,0,none,0,0x0,					PT_1PORTAO,Abrir 1 ao 7 Portão
+4230,0,6,4,0,0x1,0,7,0,no,0,0,0,none,0,0x0,					PT_1PORTAO,Abrir 1 ao 7 Portão
 2443,0,6,4,3,0,0,1,1,no,0,0,30,weapon,0,0x1000,				SO_FIREWALK,Abrir 8 Portão
-368,9,6,1,0,0x40,0,3,1,no,0,0,0,weapon,3,0x0,				PA_SACRIFICE,Hirudora
-394,3,8,1,-1,0,0,2,-5,no,0,0,0,weapon,0,0x0,				CG_ARROWVULCAN,Asa Kujaku
+394,3,8,1,-1,0,0,3,-5,no,0,0,0,weapon,0,0x0,				CG_ARROWVULCAN,Asa Kujaku
+368,9,6,1,0,0x40,0,2,1,no,0,0,0,weapon,3,0x0,				PA_SACRIFICE,Hirudora
 480,1,8,1,0,0,0,1,-5,no,0,0,0,weapon,0,0x0,					PA_SHIELDCHAIN,Sekizo
 
 //****
 // Akimichi
-808,0,0,0,0,0,0,4,0,no,0,0,0,none,0,0x0,					AKI_KARORI,Dosatsugan
-809,0,6,4,-1,0x2,5:5:6:6,4,1,no,0,0x40000,0,weapon,0,0x0,	AKI_NIKUDAN,Nikudan Sensha
-810,9,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,					AK_VERDE,Pilula Verde
-811,9,6,4,0,0x1,0,3,0,no,0,0,0,none,0,0x0,					AK_AMARELA,Pilula Amarela
-812,9,6,4,0,0x1,0,2,0,no,0,0,0,none,0,0x0,					AK_VERMELHA,Pilula Vermelha
+4240,0,0,0,0,0,0,4,0,no,0,0,0,none,0,0x0,					AKI_KARORI,Dosatsugan
+4241,0,6,4,-1,0x2,5:5:6:6,4,1,no,0,0x40000,0,weapon,0,0x0,	AKI_NIKUDAN,Nikudan Sensha
+4242,9,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,					AK_VERDE,Pilula Verde
+4243,9,6,4,0,0x1,0,3,0,no,0,0,0,none,0,0x0,					AK_AMARELA,Pilula Amarela
+4244,9,6,4,0,0x1,0,2,0,no,0,0,0,none,0,0x0,					AK_VERMELHA,Pilula Vermelha
 271,-2,6,1,0,0x60,0,1,1,no,0,0x40000,0,weapon,0,0x0,		MO_EXTREMITYFIST,Chodan Bakugeki
-849,9,6,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,					AKI_CHOOMODO,Choo Modo
+4245,9,6,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,					AKI_CHOOMODO,Choo Modo
 
 //****
-// Selo Amaldiçoado
-815,9,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,		SL_AMALDICOADO,Selo Amaldiçoado
+// Nara
+1005,2:4:6:8,6,1,0,0x1,0,4,1,no,0,0x1,0,weapon,0,0x0,	RG_CLOSECONFINE,Kage Mane
+512,-9,6,1,-1,0,0,4,1,no,0,0,0,weapon,0,0x0,			GS_TRACKING,Kage Kubi Shibari
+2334,0,6,4,0,0x3,2:3:4:5,4,1,no,0,0,0,none,0,0x0,		SR_CURSEDCIRCLE,Kage Nui
+2485,9,6,2,3,0,0,4,-2:-3:-4:-5,no,0,0,0,magic,0,0x0,	GN_DEMONIC_FIRE,Kageyose no Jutsu
+4250,0,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,				NR_MEDITAR,Meditar
+
+//****
+// Ten no Juin
+4262,9,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,		SL_TENJUIN,Ten no Juin Modo
 
 //****
 // Inuzuka
 253,-2,8,1,-1,0,0,4,-2,no,0,0x40000,0,weapon,0,0x0,	CR_HOLYCROSS,Sogin Roga
 3004,5:6:8:9,8,1,-1,0,0,4,-6,no,0,0,0,weapon,0,0x0,	KO_JYUMONJIKIRI,Tsuga
-835,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,			IZ_AKAMARU,Criar Ninken
+4270,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,			IZ_AKAMARU,Criar Ninken
 
 //Akamaru
 8016,0,0,0,0,0,0,5,0,no,0,0,0,none,0,0x0,						HVAN_EXPLOSION,Pressas Afiadas
@@ -405,25 +413,17 @@
 2236,9,8,2,6,0,0,4,-5,no,0,0,0,magic,0,0x0,				RA_AIMEDBOLT,Hyourou no Jutsu
 2204,1,8,4,6,0x2,9,4,-5,no,0,0,0,magic,0,0x0,			WL_JACKFROST,Hissatsu Hyousou
 87,9,6,2,6,0,0,4,1,no,0,0,1,magic,0,0x0,				WZ_ICEWALL,Makyou Hyoushou
-846,9,6,2,6,0,0,4,1,no,0,0,1,magic,0,0x0,				HYO_ICEWALL,DeBuff Makyou Hyoushou
-
-//****
-// Nara
-1005,2:4:6:8,6,1,0,0x1,0,4,1,no,0,0x1,0,weapon,0,0x0,	RG_CLOSECONFINE,Kage Mane
-512,-9,6,1,-1,0,0,4,1,no,0,0,0,weapon,0,0x0,			GS_TRACKING,Kage Kubi Shibari
-2334,0,6,4,0,0x3,2:3:4:5,4,1,no,0,0,0,none,0,0x0,		SR_CURSEDCIRCLE,Kage Nui
-2485,9,6,2,3,0,0,4,-2:-3:-4:-5,no,0,0,0,magic,0,0x0,	GN_DEMONIC_FIRE,Kageyose no Jutsu
-813,0,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,				NR_MEDITAR,Meditar
+4280,9,6,2,6,0,0,4,1,no,0,0,1,magic,0,0x0,				HYO_ICEWALL,DeBuff Makyou Hyoushou
 
 //****
 // Kibaku Nendo
 515,9,8,1,8,0,0,4,-5,no,0,0,0,weapon,0,0x0,				GS_RAPIDSHOWER,Tori
 2304,0,6,4,8,0x40,0,4,1,no,0,0x40000,0,weapon,8,0x0,	SC_FEINTBOMB,Copia Explosiva
-820,0,6,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,				KN_ARGILA,Preparar Argila
-816,4,6,2,8,0x1,0,4,1,no,0,0,5,none,0,0x0,				KN_C1,C1
-817,4,6,2,8,0x1,0,4,1,no,0,0,1,none,0,0x0,				KN_C2,C2
-818,4,6,2,8,0x1,0,4,1,no,0,0,1,none,0,0x0,				KN_C3,C3
-819,0,6,4,8,0xCA,6,4,1,no,0,0x40000,0,misc,3,0x304000,	KN_C0,C0
+4290,0,6,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,				KN_ARGILA,Preparar Argila
+4291,4,6,2,8,0x1,0,4,1,no,0,0,5,none,0,0x0,				KN_C1,C1
+4292,4,6,2,8,0x1,0,4,1,no,0,0,1,none,0,0x0,				KN_C2,C2
+4293,4,6,2,8,0x1,0,4,1,no,0,0,1,none,0,0x0,				KN_C3,C3
+4294,0,6,4,8,0xCA,6,4,1,no,0,0x40000,0,misc,3,0x304000,	KN_C0,C0
 2267,0,6,4,8,0xCA,6,1,1,no,0,0x40000,0,misc,3,0x304000,	NC_SELFDESTRUCTION,Katsu
 // Passarinho
 521,-9,6,2,3,0x42,1,4,1,no,0,0,0,weapon,3,0x100,		GS_GROUNDDRIFT,Minas Explosivas
@@ -449,8 +449,8 @@
 326,0,6,4,0,0x3,5,4,1,no,0,0,0,none,0,0x0,		DC_SCREAM,Mateki: Mí
 2205,11,6,1,0,0x1,0,4,1,no,0,0,0,magic,0,0x400,	WL_MARSHOFABYSS,Mateki: Mugen Onsa
 328,0,6,4,0,0x1,0,4,1,no,0,0x20,0,misc,0,0x1,	DC_DONTFORGETME,Mateki: Dó
-821,4,6,2,0,0x1,0,3,1,no,0,0,1,none,0,0x0,		TY_DOKI1,Kuchiyose Doki
-822,9,6,1,0,0x1,0,1,1,no,0,0,1,magic,0,0x0,		TY_DOKI2,Makyou no Ran
+4300,4,6,2,0,0x1,0,3,1,no,0,0,1,none,0,0x0,		TY_DOKI1,Kuchiyose Doki
+4301,9,6,1,0,0x1,0,1,1,no,0,0,1,magic,0,0x0,	TY_DOKI2,Makyou no Ran
 
 //****
 // Ibuse
@@ -458,7 +458,7 @@
 379,9,6,1,5,0x8,0,4,1,no,0,0,0,weapon,0,0x0,		ASC_BREAKER,Kamakiri
 406,0,6,4,5,0xA,5,4,1,no,0,0x40000,0,weapon,0,0x0,	ASC_METEORASSAULT,Kibaku Enjin
 2021,10,6,1,0,0x1,0,4,1,no,0,0,0,none,0,0x0,		GC_VENOMIMPRESS,Potencializar Veneno
-824,4,6,2,0,0x1,0,4,1,no,0,0,1,none,0,0x0,			IB_SALAMANDRA,Kuchiyose Salamandra
+4310,4,6,2,0,0x1,0,4,1,no,0,0,1,none,0,0x0,			IB_SALAMANDRA,Kuchiyose Salamandra
 //Salamandra
 52,-2,6,1,5,0,0,10,1,no,0,0,0,weapon,0,0x0,				TF_POISON,Envenenar
 140,2,6,2,5,0x1,0,10,1,no,0,0,2,weapon,0,0x0,			AS_VENOMDUST,Névoa Tóxica
@@ -496,8 +496,8 @@
 444,0,6,4,0,0x1,0,4,1,no,0,0,0,misc,0,0x0,				SG_FUSION,Keijūgan
 519,-9,6,1,-1,0,0,4,1,no,0,0,0,magic,0,0x100,			GS_FULLBUSTER,Genkai Hakuri: Hashira
 2202,9,8,1,9,0x2,1:1:1:2:2,5,-2,no,0,0,0,magic,0,0x400,	WL_SOULEXPANSION,Jinton: Keiyaku Suru
-843,9,6,16,9,0,0,4,1,no,0,0,0,magic,0,0x400,			JIN_GENKAIHAKURI,Genkai Hakuri no Jutsu
-844,9,6,2,9,0,0,4,5,no,0,0,0,magic,0,0x400,				JIN_KOUJIN,Koujin no Jutsu
+4320,9,6,16,9,0,0,4,1,no,0,0,0,magic,0,0x400,			JIN_GENKAIHAKURI,Genkai Hakuri no Jutsu
+4321,9,6,2,9,0,0,4,5,no,0,0,0,magic,0,0x400,			JIN_KOUJIN,Koujin no Jutsu
 
 //****
 // Ressonante
