@@ -14077,7 +14077,7 @@ int skill_unit_onplace_timer(struct skill_unit *unit, struct block_list *bl, t_t
 						if( bl->type == BL_PC )
 							status_zap(bl, 0, 15); // sp damage to players
 						else // mobs
-						if( status_charge(ss, 0, 2) ) { // costs 2 SP per hit
+						if( status_charge(ss, 0, 10) ) { // costs 2 SP per hit
 							if( !skill_attack(BF_WEAPON,ss,&unit->bl,bl,sg->skill_id,sg->skill_lv,tick+(t_tick)count*sg->interval,0) )
 								status_charge(ss, 0, 8); //costs additional 8 SP if miss
 						} else { //should end when out of sp.
@@ -20893,13 +20893,20 @@ void skill_init_unit_layout (void) {
 					}
 					break;
 				case NJ_KAENSIN: {
-						static const int dx[] = {-2,-1, 0, 1, 2,-2,-1, 0, 1, 2,-2,-1, 1, 2,-2,-1, 0, 1, 2,-2,-1, 0, 1, 2};
-						static const int dy[] = { 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 0, 0, 0, 0,-1,-1,-1,-1,-1,-2,-2,-2,-2,-2};
-						skill_unit_layout[pos].count = 24;
-						memcpy(skill_unit_layout[pos].dx,dx,sizeof(dx));
-						memcpy(skill_unit_layout[pos].dy,dy,sizeof(dy));
-					}
-					break;
+					static const int dx[] = {
+						0,-1, 0, 1,-2,-1, 0, 1, 2,-3,-2,-1, 0, 1, 2, 3,-4,-3,-2,-1, 0, 1, 2, 3, 4,-5,-4,-3,-2,-1, 0, 1, 2, 3, 4, 5,
+						0,-1, 0, 1,-2,-1, 0, 1, 2,-3,-2,-1, 0, 1, 2, 3,-4,-3,-2,-1, 0, 1, 2, 3, 4
+
+					};
+					static const int dy[] = {
+						5, 4, 4, 4, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						-5,-4,-4,-4,-3,-3,-3,-3,-3,-2,-2,-2,-2,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1
+					};
+					skill_unit_layout[pos].count = 61;
+					memcpy(skill_unit_layout[pos].dx, dx, sizeof(dx));
+					memcpy(skill_unit_layout[pos].dy, dy, sizeof(dy));
+				}
+				break;
 				case NJ_TATAMIGAESHI: {
 						//Level 1 (count 4, cross of 3x3)
 						static const int dx1[] = {-1, 0, 1,-1, 0, 1,-1, 0, 1};

@@ -108,3 +108,29 @@
 // Ten no Juin
 4260,0,0,10:20:30:40,0,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0	//SL_AKUTIBETO
 4262,0,0,10:20:30,0,0,0,99,0,0,none,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0	//SL_TENJUIN
+
+// Inuzuka
+
+// Hyouton
+
+// Kibaku Nendo
+
+// Aburame
+
+// Jashin
+
+// Tayuya
+
+// Hanzaki
+
+// Byakugo no In
+
+// Kaguya
+
+// Shakuton
+
+// Jinton
+
+// Kyomei Supika
+
+// Kidoumaru

@@ -261,6 +261,8 @@ void initChangeTables(void)
 
 	set_sc(ALL_FULL_THROTTLE, SC_FULL_THROTTLE, EFST_FULL_THROTTLE, SCB_SPEED | SCB_STR | SCB_AGI | SCB_VIT | SCB_INT | SCB_DEX | SCB_LUK);
 
+	set_sc(SG_SUN_WARM, SC_WARM, EFST_SG_SUN_WARM, SCB_NONE);
+
 	/* ----------------------------------------------------------------------------------------------------------------------------------- */
 	/* Basica */
 	set_sc(NJ_CHAKRA, SC_RECOVERCHAKRA, EFST_RECOVERCHAKRA, SCB_NONE);
@@ -528,7 +530,6 @@ void initChangeTables(void)
 	add_sc( TK_SEVENWIND		, SC_SEVENWIND		);
 	set_sc( TK_SEVENWIND		, SC_GHOSTWEAPON	, EFST_PROPERTYTELEKINESIS, SCB_ATK_ELE );
 	set_sc( TK_SEVENWIND		, SC_SHADOWWEAPON	, EFST_PROPERTYDARK, SCB_ATK_ELE );
-	set_sc( SG_SUN_WARM		, SC_WARM		, EFST_SG_SUN_WARM, SCB_NONE );
 	set_sc( SG_MOON_WARM		, SC_WARM, EFST_SG_MOON_WARM, SCB_NONE);
 	set_sc( SG_STAR_WARM		, SC_WARM, EFST_SG_STAR_WARM, SCB_NONE);
 	set_sc( SG_SUN_COMFORT		, SC_SUN_COMFORT	, EFST_SUN_COMFORT	, SCB_DEF2 );

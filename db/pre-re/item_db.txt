@@ -2003,7 +2003,7 @@
 30112,Hyouton,Hyouton,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_HYOUTON"; },{},{}
 30122,Shakuton,Shakuton,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_SHAKUTON"; },{},{}
 30123,Jinton,Jinton,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_JINTON"; },{},{}
-30124,Ressonante,Ressonante,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_RESSONANTE"; },{},{}
+30124,Kyomei_Supika,Kyomei Supika,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_RESSONANTE"; },{},{}
 
 // Ofensiva Taijutsu
 30106,Hyuuga,Hyuuga,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2102,{ bonus bNoWalkDelay; bonus bIntravision,0; callfunc "KG_HYUUGA"; },{},{}
