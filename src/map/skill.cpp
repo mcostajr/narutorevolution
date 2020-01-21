@@ -6171,6 +6171,11 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
 		clif_skill_damage(src, bl, tick, status_get_amotion(src), 0, -30000, 1, skill_id, skill_lv, DMG_SKILL);
 		break;
+	/* Ten no Juin */
+	case SL_AKUTIBETO:
+		clif_skill_nodamage(src, bl, skill_id, skill_lv,
+			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		break;
 
 	/*
 	*	Jutsus Equipamento
@@ -6246,13 +6251,13 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		if (tsce) {
 			clif_skill_nodamage(src, bl, skill_id, -1, status_change_end(bl, type, INVALID_TIMER));
 			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2106);
+			status_charge(bl, 0, sstatus->max_sp * 50 / 100);
 			map_freeblock_unlock();
 			return 0;
 		} else {
 			clif_skill_nodamage(src, bl, skill_id, skill_lv,
 				sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
-			if (tsc->data[SC_AMALDICOADO]->val1 == 4)
-				clif_changelook(&sd->bl, LOOK_HEAD_MID, 1804);
+			clif_changelook(&sd->bl, LOOK_HEAD_MID, 1804);
 		}
 		break;
 

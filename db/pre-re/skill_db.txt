@@ -385,20 +385,23 @@
 //****
 // Nara
 1005,2:4:6:8,6,1,0,0x1,0,4,1,no,0,0x1,0,weapon,0,0x0,	RG_CLOSECONFINE,Kage Mane
-512,-9,6,1,-1,0,0,4,1,no,0,0,0,weapon,0,0x0,			GS_TRACKING,Kage Kubi Shibari
-2334,0,6,4,0,0x3,2:3:4:5,4,1,no,0,0,0,none,0,0x0,		SR_CURSEDCIRCLE,Kage Nui
-2485,9,6,2,3,0,0,4,-2:-3:-4:-5,no,0,0,0,magic,0,0x0,	GN_DEMONIC_FIRE,Kageyose no Jutsu
-4250,0,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,				NR_MEDITAR,Meditar
+512,-9,6,1,-1,0,0,3,1,no,0,0,0,weapon,0,0x0,			GS_TRACKING,Kage Kubi Shibari
+2334,0,6,4,0,0x3,3:5,2,1,no,0,0,0,none,0,0x0,			SR_CURSEDCIRCLE,Kage Nui
+2485,9,6,2,3,0,0,1,-5,no,0,0,0,magic,0,0x0,				GN_DEMONIC_FIRE,Kageyose no Jutsu
+4250,0,6,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,				NR_MEDITAR,Meditar
 
 //****
 // Ten no Juin
-4262,9,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,		SL_TENJUIN,Ten no Juin Modo
+4260,9,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,		SL_AKUTIBETO,Senjutsu: Shiru Akutibeto
+4261,0,0,0,0,0,0,3,0,no,0,0,0,none,0,0x0,		SL_SETSUZOKU,Senjutsu Setsuzoku
+4262,9,6,4,0,0x1,0,3,0,no,0,0,0,none,0,0x0,		SL_TENJUIN,Ten no Juin Modo
 
 //****
 // Inuzuka
 253,-2,8,1,-1,0,0,4,-2,no,0,0x40000,0,weapon,0,0x0,	CR_HOLYCROSS,Sogin Roga
-3004,5:6:8:9,8,1,-1,0,0,4,-6,no,0,0,0,weapon,0,0x0,	KO_JYUMONJIKIRI,Tsuga
+// Voltar
 4270,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,			IZ_AKAMARU,Criar Ninken
+3004,9,8,1,-1,0,0,1,-6,no,0,0,0,weapon,0,0x0,		KO_JYUMONJIKIRI,Tsuga
 
 //Akamaru
 8016,0,0,0,0,0,0,5,0,no,0,0,0,none,0,0x0,						HVAN_EXPLOSION,Pressas Afiadas
@@ -453,7 +456,7 @@
 4301,9,6,1,0,0x1,0,1,1,no,0,0,1,magic,0,0x0,	TY_DOKI2,Makyou no Ran
 
 //****
-// Ibuse
+// Hanzaki
 138,1,6,4,5,0x1,0,4,1,no,0,0x400,0,weapon,0,0x0,	AS_ENCHANTPOISON,Envenenar Arma
 379,9,6,1,5,0x8,0,4,1,no,0,0,0,weapon,0,0x0,		ASC_BREAKER,Kamakiri
 406,0,6,4,5,0xA,5,4,1,no,0,0x40000,0,weapon,0,0x0,	ASC_METEORASSAULT,Kibaku Enjin

@@ -901,6 +901,7 @@ enum sc_type : int16 {
 
 	//----------------------
 	//Selos
+	SC_AKUTIBETO,
 	SC_AMALDICOADO,
 
 	SC_EREMITA,
@@ -2023,7 +2024,8 @@ enum efst_types : short{
 
 	EFST_MEDITAR = 1209,
 
-	EFST_AMALDICOADO = 1210,
+	EFST_AKUTIBETO = 1210,
+	EFST_AMALDICOADO = 1211,
 
 	EFST_EREMITA = 1214,
 	EFST_RECOVERCHAKRA = 1215,

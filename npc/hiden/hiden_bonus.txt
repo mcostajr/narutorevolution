@@ -54,10 +54,10 @@ function	script	KG_NARA	{
 }
 
 function	script	KG_SELOAMALDICOADO	{
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 4262,1; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 4262,2; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 4262,3; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 4262,4; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 4260,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 4260,2; skill 4261,1; skill 4262,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 4260,3; skill 4261,2; skill 4262,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 4260,4; skill 4261,3; skill 4262,3; }
 	end;
 }
 

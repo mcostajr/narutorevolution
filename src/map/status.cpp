@@ -251,6 +251,7 @@ void initChangeTables(void)
 
 	set_sc(NR_MEDITAR, SC_MEDITAR, EFST_MEDITAR, SCB_NONE);
 
+	set_sc(SL_AKUTIBETO, SC_AKUTIBETO, EFST_AKUTIBETO, SCB_NONE);
 	set_sc(SL_TENJUIN, SC_AMALDICOADO, EFST_AMALDICOADO, SCB_STR | SCB_AGI | SCB_VIT | SCB_INT | SCB_DEX | SCB_LUK);
 
 	set_sc(SG_FUSION, SC_FUSION, EFST_BLANK, SCB_SPEED);
@@ -3323,9 +3324,12 @@ static int status_get_spbonus(struct block_list *bl, enum e_status_bonus type) {
 			/*
 			*	Naruto
 			*/
+			// Akimihci
 			if (sc->data[SC_CHOOMODO])
 				bonus += sc->data[SC_CHOOMODO]->val3;
-
+			// Ten no Juin
+				if (sc->data[SC_AKUTIBETO])
+					bonus += sc->data[SC_AKUTIBETO]->val2;
 			// ---------------------------
 			/*
 			if(sc->data[SC_INCMSPRATE])
@@ -4719,8 +4723,12 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 			val += 3 + 3 * skill;
 		*/
 		if (sc && sc->count) {
+			// 
 			if (sc->data[SC_AMARELA])
 				val += sc->data[SC_AMARELA]->val3;
+			//
+			if (sc->data[SC_AKUTIBETO] && pc_checkskill(sd, SL_SETSUZOKU))
+				val += pc_checkskill(sd, SL_SETSUZOKU) * 3 * status->max_sp/100;
 			/*
 			if (sc->data[SC_SHRIMPBLESSING])
 				val *= 150 / 100;
@@ -9826,9 +9834,12 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		val4 = tick / t_tickime;
 		break;
 
-	// Selo Amaldicoado
+	// Ten no Juin
+	case SC_AKUTIBETO:
+		val2 = 5 * val1;
+		break;
 	case SC_AMALDICOADO:
-		val2 = 10 + 10 * val1; //Allstats%
+		val2 = 5 + 15 * val1; //Allstats%
 		t_tickime = 1000;
 		val4 = tick / t_tickime;
 		break;
@@ -13268,7 +13279,7 @@ TIMER_FUNC(status_change_timer){
 				return 0;
 			}
 			break;
-		/* Selo Amaldicoado */
+		/* Ten no Juin */
 		case SC_AMALDICOADO:
 			if (--(sce->val4) >= 0) {
 				status_charge(bl, 0, status->max_sp * 1 / 100);
