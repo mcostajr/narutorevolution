@@ -1265,7 +1265,7 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 					break; // If a normal attack is a skill, it's splash damage. [Inkfish]
 				if(sd) {
 					// Automatic trigger of Blitz Beat
-					if (pc_isfalcon(sd) && (skill=pc_checkskill(sd,HT_BLITZBEAT))>0 && rnd()%1000 <= (sstatus->agi/5)*10 ) {
+					if (pc_isfalcon(sd) && (skill=pc_checkskill(sd,HT_BLITZBEAT))>0 && rnd()%1000 <= sstatus->agi*10/7+1 ) {
 						skill_castend_damage_id(src,bl,HT_BLITZBEAT,skill,tick,SD_LEVEL);
 					}
 					// Automatic trigger of Warg Strike [Jobbie]
@@ -3582,7 +3582,12 @@ int64 skill_attack (int attack_type, struct block_list* src, struct block_list *
 	}
 
 	if(damage > 0 && !status_has_mode(tstatus,MD_STATUS_IMMUNE)) {
-		if( skill_id == RG_INTIMIDATE ) {
+		if (skill_id == RG_INTIMIDATE) {
+			int rate = 50 + skill_lv * 5;
+			rate = rate + (status_get_lv(src) - status_get_lv(bl));
+			if (rnd() % 100 < rate)
+				skill_addtimerskill(src, tick + 800, bl->id, 0, 0, skill_id, skill_lv, 0, flag);
+		} else if( skill_id == RG_INTIMIDATE ) {
 			int rate = 50 + skill_lv * 5;
 			rate = rate + (status_get_lv(src) - status_get_lv(bl));
 			if(rnd()%100 < rate)
@@ -4543,7 +4548,7 @@ static int skill_tarotcard(struct block_list* src, struct block_list *target, ui
 int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint16 skill_id, uint16 skill_lv, t_tick tick, int flag)
 {
 	struct map_session_data *sd = NULL;
-	struct status_data *tstatus;
+	struct status_data *sstatus, *tstatus;
 	struct status_change *sc, *tsc;
 
 	if (skill_id > 0 && !skill_lv) return 0;
@@ -4579,6 +4584,7 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		tsc = NULL;
 
 	tstatus = status_get_status_data(bl);
+	sstatus = status_get_status_data(src);
 
 	map_freeblock_lock();
 
@@ -4986,6 +4992,13 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 			skill_area_temp[2] = 0;
 
 			switch ( skill_id ) {
+				// Aburame
+				case HT_BLITZBEAT:
+					if (rnd() % 1000 <= sstatus->agi*10/25 + 1)
+						status_heal(src, 0, tstatus->max_sp*5/100, 2);
+					break;
+
+				// ----------------------------
 				case GN_CARTCANNON:
 				case SU_SCRATCH:
 					clif_skill_nodamage(src,bl,skill_id,skill_lv,1);

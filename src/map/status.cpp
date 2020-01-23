@@ -2459,7 +2459,7 @@ int status_base_amotion_pc(struct map_session_data* sd, struct status_data* stat
  */
 unsigned short status_base_atk(const struct block_list *bl, const struct status_data *status, int level)
 {
-	int flag = 0, str, dstr;
+	int flag = 0, str, dstr, agi;
 
 	if (!(bl->type&battle_config.enable_baseatk))
 		return 0;
@@ -2467,19 +2467,21 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 	if (bl->type == BL_PC)
 	switch(((TBL_PC*)bl)->status.weapon) {
 		case W_BOW:
-		case W_MUSICAL:
+		/*case W_MUSICAL:
 		case W_WHIP:
 		case W_REVOLVER:
 		case W_RIFLE:
 		case W_GATLING:
 		case W_SHOTGUN:
-		case W_GRENADE:
+		case W_GRENADE:*/
 			flag = 1;
 	}
 	if (flag) {
-		str = status->str;
+		str = status->agi;
+		agi = status->str;
 	} else {
 		str = status->str;
+		agi = status->agi;
 	}
 	
 
@@ -5108,7 +5110,7 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	}
 
 	if(flag&SCB_DEF2) {
-		if (status->vit == b_status->vit)
+		if (status->vit == b_status->vit && status->agi == b_status->agi/5)
 			status->def2 = status_calc_def2(bl, sc, b_status->def2);
 		else
 			status->def2 = status_calc_def2(bl, sc, b_status->def2
@@ -5124,7 +5126,7 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	}
 
 	if(flag&SCB_MDEF2) {
-		if (status->int_ == b_status->int_ && status->vit == b_status->vit)
+		if (status->int_ == b_status->int_ && status->vit == b_status->vit && status->agi == b_status->agi / 5)
 
 			status->mdef2 = status_calc_mdef2(bl, sc, b_status->mdef2);
 		else

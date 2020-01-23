@@ -117,19 +117,3 @@ Body:
     Reward:
         TitleID: 1004
     Score: 10
-  - ID: 110005
-    Group: "AG_JOB_CHANGE"
-    Name: "Graduação Sanin"
-    Condition: " Class == 4064 || Class == 4065 "
-    Reward:
-        ItemID: 30221
-        TitleID: 1005
-    Score: 10
-  - ID: 110006
-    Group: "AG_JOB_CHANGE"
-    Name: "Graduação Renegado"
-    Condition: " Class == 4073 || Class == 4074 "
-    Reward:
-        ItemID: 30222
-        TitleID: 1006
-    Score: 10

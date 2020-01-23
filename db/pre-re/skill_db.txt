@@ -420,8 +420,8 @@
 
 //****
 // Kibaku Nendo
-515,9,8,1,8,0,0,4,-5,no,0,0,0,weapon,0,0x0,				GS_RAPIDSHOWER,Tori
 4290,0,6,4,0,0x1,0,4,0,no,0,0,0,none,0,0x0,				KN_ARGILA,Preparar Argila
+515,9,8,1,8,0,0,4,-5,no,0,0,0,weapon,0,0x0,				GS_RAPIDSHOWER,Tori
 4291,4,6,2,8,0x1,0,4,1,no,0,0,5,none,0,0x0,				KN_C1,C1
 2304,0,6,4,8,0x40,0,3,1,no,0,0x40000,0,weapon,8,0x0,	SC_FEINTBOMB,Copia Explosiva
 4292,4,6,2,8,0x1,0,2,1,no,0,0,1,none,0,0x0,				KN_C2,C2
@@ -445,7 +445,7 @@
 254,5,6,4,0,0x48,0,4,1,no,0,0x100,0,weapon,0,0x1,	CR_GRANDCROSS,Kaiten Renbu
 2560,11,6,1,0,0x1,0,4,1,no,0,0,1:2:3:4,none,0,0x0,	RL_C_MARKER,Chi o Nomu
 25,9,6,4,0,0x1,0,4,1,no,0,0,1,magic,0,0x0,			AL_PNEUMA,Shiji Hyoketsu
-2287,7,6,1,0,0x1,0,4,1,no,0,0,0,none,0,0,			SC_SHADOWFORM,Gishiki Modo
+2287,7,6,1,0,0x1,0,3,1,no,0,0,0,none,0,0,			SC_SHADOWFORM,Gishiki Modo
 
 //****
 // Tayuya
@@ -465,8 +465,8 @@
 //Salamandra
 52,-2,6,1,5,0,0,10,1,no,0,0,0,weapon,0,0x0,				TF_POISON,Envenenar
 140,2,6,2,5,0x1,0,10,1,no,0,0,2,weapon,0,0x0,			AS_VENOMDUST,Névoa Tóxica
-141,1,6,1,-1,0x51,2,10,1,yes,0,0,0,weapon,0,0x0,		AS_SPLASHER,Explosão Tóxica
-2448,9,6,1,5,0x2,1:1:1:1:2,5,1,yes,0,0,0,magic,0,0x0,	SO_POISON_BUSTER,Implosão Tóxica
+2032,5,6,2,0,0x1,0,5,1,yes,0,0,1,none,0,0x0,			GC_POISONSMOKE,Poison Smoke
+2450,9,6,2,5,0,0,5,1,yes,0,0,0,magic,0,0x0,				SO_CLOUD_KILL,Cloud Kill
 378,0,6,16,5,0x1,0,5,1,no,0,0,0,weapon,0,0x0,			ASC_EDP,Encantar com Veneno Mortal
 
 //****
@@ -636,6 +636,7 @@
 // Assassin
 135,0,6,4,0,0x1,0,4,1,no,0,0x1,0,weapon,0,0x80040,		AS_CLOAKING,Furtividade
 139,0,6,4,0,0,0,10,1,no,0,0,0,weapon,0,0x0,		AS_POISONREACT,Poison React
+141,1,6,1,-1,0x51,2,10,1,yes,0,0,0,weapon,0,0x0,		AS_SPLASHER,Explosão Tóxica
 
 //****
 // 1st Class Quest
@@ -1277,7 +1278,6 @@
 2029,0,6,4,-1,0x22,1,5,1,no,0,0,0,weapon,3,0x0,	GC_COUNTERSLASH,Counter Slash
 2030,-2,6,4,-1,0,0,5,1,no,0,0x200,0,weapon,0,0x0,	GC_WEAPONCRUSH,Weapon Crush
 2031,1,6,1,-1,0,0,5,1,no,0,0,0,weapon,0,0x0,	GC_VENOMPRESSURE,Venom Pressure
-2032,5,6,2,0,0x1,0,5,1,yes,0,0,1,none,0,0x0,	GC_POISONSMOKE,Poison Smoke
 2033,0,6,4,0,0x1,0,5,1,no,0,0,0,weapon,0,0x80040,	GC_CLOAKINGEXCEED,Cloaking Exceed
 2034,0,6,4,-1,0x2,3,1,1,no,0,0,0,weapon,0,0x0,	GC_PHANTOMMENACE,Expandir Chakra
 2035,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,		GC_HALLUCINATIONWALK,Hallucination Walk
@@ -1450,7 +1450,7 @@
 //****
 // SO Sorcerer (statis blocking need to be confirmed)
 2445,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,		SO_SPELLFIST,Spell Fist
-2450,9,6,2,5,0,0,5,1,yes,0,0,0,magic,0,0x0,		SO_CLOUD_KILL,Cloud Kill
+2448,9,6,1,5,0x2,1:1:1:1:2,5,1,yes,0,0,0,magic,0,0x0,	SO_POISON_BUSTER,Implosão Tóxica
 2452,9,6,2,3,0x1,0,5,1,yes,0,0,0,magic,0,0x0,			SO_WARMER,WARMER
 2454,9,6,1,4,0x2,3,1,1,no,0,0,0,magic,0,0x0,	SO_VARETYR_SPEAR,SO_VARETYR_SPEAR
 2456,0,6,4,0,0x1,0,4,1,yes,0,0,0,none,0,0x0,	SO_EL_CONTROL,Spirit Control

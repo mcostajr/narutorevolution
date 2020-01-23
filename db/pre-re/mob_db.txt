@@ -4,7 +4,7 @@
 // ID,Sprite_Name,kROName,iROName,LV,HP,SP,EXP,JEXP,HEXP,Range1,ATK1,ATK2,DEF,MDEF,STR,AGI,VIT,INT,DEX,LUK,Range2,Range3,Scale,Race,Element,Mode,Speed,aDelay,aMotion,dMotion,MEXP,MVP1id,MVP1per,MVP2id,MVP2per,MVP3id,MVP3per,Drop1id,Drop1per,Drop2id,Drop2per,Drop3id,Drop3per,Drop4id,Drop4per,Drop5id,Drop5per,Drop6id,Drop6per,Drop7id,Drop7per,Drop8id,Drop8per,Drop9id,Drop9per,DropCardid,DropCardper
 
 30000,TRONCO,Tronco de Madeira,Tronco de Madeira,1,10,0,0,0,0,1,1,2,100,99,0,0,0,0,0,0,7,12,0,3,22,0x00000040,100,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-30001,BONECO_TREINO,Boneco de Treino,Boneco de Treino,1,-1,0,0,0,0,1,1,1,0,0,1,1,1,1,1,1,10,12,1,7,20,0x6200000,100,1472,384,288,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+30001,BONECO_TREINO,Boneco de Treino,Boneco de Treino,1,-1,10000,0,0,0,1,1,1,0,0,1,1,1,1,1,1,10,12,1,7,20,0x6200000,100,1472,384,288,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 30095,Konohamaru,Konohamaru,Konohamaru,5,72,1,173,173,0,1,12,3,24,0,12,5,5,5,12,5,10,12,1,7,80,0x81,100,1000,672,480,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 30116,Udon,Udon,Udon,1,60,1,151,173,0,1,8,1,2,5,6,1,1,0,6,5,10,12,1,7,80,0x83,100,1000,672,480,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
