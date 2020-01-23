@@ -17,17 +17,19 @@ if(BaseLevel < 175 || JobLevel < 35) {
 	if(select("- Não:- Sim") == 1) close;
 	
 	if(Class == 4008) { 
-		jobchange 4060; 
-		SkillPoint += 1;
-		mes "[Jounin Elite Shiken]";
-		mes "Parabéns você acaba de se tornar um Jounin Elite, agora inicia sua jornada para se tornar um Sanin.";
-		close;
+		if(SkillPoint > 0) { mes "[Chunin Shiken]"; mes "Você precisa usar todos os pontos de job."; close; }
+			jobchange 4060; 
+			SkillPoint += 1;
+			mes "[Jounin Elite Shiken]";
+			mes "Parabéns você acaba de se tornar um Jounin Elite, agora inicia sua jornada para se tornar um Sanin.";
+			close;
 	}
 	if(Class == 4010) {
-		jobchange 4061; 
-		SkillPoint += 1;
-		mes "[Jounin Elite Shiken]";
-		mes "Parabéns você acaba de se tornar um Jounin Elite, agora inicia sua jornada para se tornar um Sanin.";
-		close;
+		if(SkillPoint > 0) { mes "[Chunin Shiken]"; mes "Você precisa usar todos os pontos de job."; close; }
+			jobchange 4061; 
+			SkillPoint += 1;
+			mes "[Jounin Elite Shiken]";
+			mes "Parabéns você acaba de se tornar um Jounin Elite, agora inicia sua jornada para se tornar um Sanin.";
+			close;
 	}
 }

@@ -3,34 +3,35 @@ academia,60,36,8	script	Chunin Shiken	79,{
 .@npc$ = "[" + strnpcinfo(1) + "]";
 
 pegarrapido:
-if(Class > 2 || Class < 1) { mes "[Chunin Shiken]"; mes "Você não é um genin."; close; }
-if(JobLevel < 50) { mes "[Chunin Shiken]"; mes "Você não tem level de job suficiente."; close; }
-if(raidchunin == 2) {
-	if(Class == 1) { 
-		jobchange 7;
-		SkillPoint += 1;
-		mes "[Chunin Shiken]";
-		mes "Parabéns você acaba de se tornar um Chunnin, agora inicia sua jornada para se tornar um Jounin.";
-		next;
-		mes "[Chunin Shiken]";
-		mes "Para isso você precisa atingir o nível máximo do servidor e conseguir 100% de mérito Jounin.";
-		mes "Você consegue aumentar o mérito através de caça de monstros ou nukenins e finalizar raids ou missões shinobi.";
-		mes "(Para visualizar seu mérito digite @merito)";
-		close;
+	if(Class > 2 || Class < 1) { mes "[Chunin Shiken]"; mes "Você não é um genin."; close; }
+	if(JobLevel < 50) { mes "[Chunin Shiken]"; mes "Você não tem level de job suficiente."; close; }
+	if(raidchunin == 2) {
+		if(SkillPoint > 0) { mes "[Chunin Shiken]"; mes "Você precisa usar todos os pontos de job."; close; }
+			if(Class == 1) {
+				jobchange 7;
+				SkillPoint += 1;
+				mes "[Chunin Shiken]";
+				mes "Parabéns você acaba de se tornar um Chunnin, agora inicia sua jornada para se tornar um Jounin.";
+				next;
+				mes "[Chunin Shiken]";
+				mes "Para isso você precisa atingir o nível máximo do servidor e conseguir 100% de mérito Jounin.";
+				mes "Você consegue aumentar o mérito através de caça de monstros ou nukenins e finalizar raids ou missões shinobi.";
+				mes "(Para visualizar seu mérito digite @merito)";
+				close;
+			}
+			if(Class == 2) {
+				jobchange 9;
+				SkillPoint += 1;
+				mes "[Chunin Shiken]";
+				mes "Parabéns você acaba de se tornar um Chunnin, agora inicia sua jornada para se tornar um Jounin.";
+				next;
+				mes "[Chunin Shiken]";
+				mes "Para isso você precisa atingir o nível máximo do servidor e conseguir 100% de mérito Jounin.";
+				mes "Você consegue aumentar o mérito através de caça de monstros ou nukenins e finalizar raids ou missões shinobi.";
+				mes "(Para visualizar seu mérito digite @merito)";
+				close;
+			}
 	}
-	if(Class == 2) {
-		jobchange 9;
-		SkillPoint += 1;
-		mes "[Chunin Shiken]";
-		mes "Parabéns você acaba de se tornar um Chunnin, agora inicia sua jornada para se tornar um Jounin.";
-		next;
-		mes "[Chunin Shiken]";
-		mes "Para isso você precisa atingir o nível máximo do servidor e conseguir 100% de mérito Jounin.";
-		mes "Você consegue aumentar o mérito através de caça de monstros ou nukenins e finalizar raids ou missões shinobi.";
-		mes "(Para visualizar seu mérito digite @merito)";
-		close;
-	}
-}
 
 	mes "[Chunin Shiken]";
 	mes "Bem vindo ao Chunnin Shiken, pequeno Genin, deseja iniciar o teste para graduação?";

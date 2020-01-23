@@ -11,17 +11,19 @@ academia,158,36,8	script	Jounin Shiken	417,{
 		close; 
 	}
 	if(Class == 7) { 
-		jobchange 4008;
-		SkillPoint += 1;
-		mes "[Jounin Shiken]";
-		mes "Parabéns você acaba de se tornar um Jounin, agora inicia sua jornada para se tornar um Jounin de Elite.";
-		close;
+		if(SkillPoint > 0) { mes "[Chunin Shiken]"; mes "Você precisa usar todos os pontos de job."; close; }
+			jobchange 4008;
+			SkillPoint += 1;
+			mes "[Jounin Shiken]";
+			mes "Parabéns você acaba de se tornar um Jounin, agora inicia sua jornada para se tornar um Jounin de Elite.";
+			close;
 	}
 	if(Class == 9) {
-		jobchange 4010; 
-		SkillPoint += 1;
-		mes "[Jounin Shiken]";
-		mes "Parabéns você acaba de se tornar um Jounin, agora inicia sua jornada para se tornar um Jounin de Elite.";
-		close;
+		if(SkillPoint > 0) { mes "[Chunin Shiken]"; mes "Você precisa usar todos os pontos de job."; close; }
+			jobchange 4010; 
+			SkillPoint += 1;
+			mes "[Jounin Shiken]";
+			mes "Parabéns você acaba de se tornar um Jounin, agora inicia sua jornada para se tornar um Jounin de Elite.";
+			close;
 	}
 }
