@@ -111,9 +111,9 @@ function	script	KG_TAYUYA	{
 
 function	script	KG_IBUSE	{
 	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 138,1; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 138,2; skill 379,2; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 138,3; skill 379,3; skill 406,3; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 138,4; skill 379,4; skill 406,4; skill 2021,4; skill 4310,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 138,2; skill 379,1; skill 406,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 138,3; skill 379,2; skill 406,2; skill 2021,1; skill 2450,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 138,4; skill 379,3; skill 406,3; skill 2021,2; skill 2450,2; skill 4310,1; }
 	end;
 }
 

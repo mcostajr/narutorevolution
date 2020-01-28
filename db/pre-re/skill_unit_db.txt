@@ -125,6 +125,10 @@
  25,0x85,    ,  2, 0,  -1,friend,   0x2003	//AL_PNEUMA
 
 // -----------------------------
+// Hanzaki
+2450,0xe0,    ,  0, 3, 500,enemy, 0x8010	//SO_CLOUD_KILL
+
+// -----------------------------
 // Tayuya
 328,0xad,    ,  1:2:3:5, 0,  -1,enemy, 0x2	//DC_DONTFORGETME
 
@@ -238,7 +242,6 @@
 2419,0xde,    ,  0, 1,1000,enemy, 0x1014 //WM_POEMOFNETHERWORLD
 
 2443,0xdc,    ,  0, 0,1000,enemy, 0x00A	//SO_FIREWALK
-2450,0xe0,    ,  0, 3, 500,enemy, 0x8010	//SO_CLOUD_KILL
 2452,0xe4,    ,  3, 0,  -1,all,   0xA010	//SO_WARMER
 2465,0xf1,    ,  1, 0,  -1,all,   0x2010	//SO_FIRE_INSIGNIA
 2466,0xf2,    ,  1, 0,  -1,all,   0x2010	//SO_WATER_INSIGNIA

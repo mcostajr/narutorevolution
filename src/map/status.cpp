@@ -2477,9 +2477,11 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 			flag = 1;
 	}
 	if (flag) {
+		dstr =
 		str = status->agi;
 		agi = status->str;
 	} else {
+		dstr =
 		str = status->str;
 		agi = status->agi;
 	}
@@ -2495,14 +2497,18 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 			str += dstr*dstr;
 			break;
 		case BL_PC:
-			dstr = str / 5;
+			str = (dstr * 10 + agi * 10 / 3 + status->dex * 10 / 5 + status->luk * 10 / 5 + level * 10 / 5) / 10;
+
+			dstr = str / 10;
 			str += dstr*dstr;
-			str += status->agi / 3 + status->dex / 5;  /* NRO */
+			str += status->agi / 3 + status->dex / 5 + status->luk / 5;
 			break;
 		default:// Others
-			dstr = str / 5;
+			str = dstr + level;
+
+			dstr = str / 10;
 			str += dstr*dstr;
-			str += status->agi / 3 + status->dex / 5;  /* NRO */
+			str += status->agi / 3 + status->dex / 5 + status->luk / 5;
 			break;
 	}
 
@@ -2520,37 +2526,30 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 unsigned int status_weapon_atk(struct weapon_atk wa, struct map_session_data *sd)
 {
 	float str = sd->base_status.str;
-	float int_ = sd->base_status.int_;
-	float stat;
+	//float int_ = sd->base_status.int_;
+	//float stat;
 	int weapon_atk_bonus = 0;
 
-	if(sd->bonus.weapon_atk_rate) {
+	/*if(sd->bonus.weapon_atk_rate) {
 		stat = str;
 	} else {
 		stat = int_;
-	}
-
+	}*/
+	if (wa.range > 3 && !pc_checkskill(sd, SU_SOULATTACK))
+		str = sd->base_status.agi;
 	if (sd->bonus.weapon_atk_rate)
 		weapon_atk_bonus = wa.atk * sd->bonus.weapon_atk_rate / 100;
 
 	// wa.atk2 = refinement, wa.atk = base equip atk
-	return wa.atk + wa.atk2 + (int)(wa.atk * (stat / 200) + weapon_atk_bonus);
+	return wa.atk + wa.atk2 + (int)(wa.atk * (str / 200) + weapon_atk_bonus);
 }
 //#endif
-
-unsigned short status_base_matk_min(struct block_list *bl, const struct status_data* status) {
-	return status->int_ + (status->int_ / 5) * (status->int_ / 5) + (status->agi / 3) + (status->dex / 5);  /* NRO */
-}
-unsigned short status_base_matk_max(struct block_list *bl, const struct status_data* status) {
-	return status->int_ + (status->int_/5) * (status->int_/5) + (status->agi/3) + (status->dex/5);  /* NRO */
-}
-
 
 /*
 * Calculates minimum attack variance 80% from db's ATK1 for non BL_PC
 * status->batk (base attack) will be added in battle_calc_base_damage
 */
-unsigned short status_base_atk_min(struct block_list *bl, const struct status_data* status)
+unsigned short status_base_atk_min(struct block_list *bl, const struct status_data* status, int level)
 {
 	switch (bl->type) {
 		case BL_PET:
@@ -2569,7 +2568,7 @@ unsigned short status_base_atk_min(struct block_list *bl, const struct status_da
 * Calculates maximum attack variance 120% from db's ATK1 for non BL_PC
 * status->batk (base attack) will be added in battle_calc_base_damage
 */
-unsigned short status_base_atk_max(struct block_list *bl, const struct status_data* status)
+unsigned short status_base_atk_max(struct block_list *bl, const struct status_data* status, int level)
 {
 	switch (bl->type) {
 		case BL_PET:
@@ -2584,7 +2583,43 @@ unsigned short status_base_atk_max(struct block_list *bl, const struct status_da
 	}
 }
 
+/*
+* Calculates minimum magic attack
+*/
+unsigned short status_base_matk_min(struct block_list *bl, const struct status_data* status, int level)
+{
+	switch (bl->type) {
+	case BL_PET:
+	case BL_MOB:
+	case BL_MER:
+	case BL_ELEM:
+		return status->int_ + level + status->rhw.matk * 70 / 100;
+	case BL_HOM:
+		return status_get_homint(bl) + level + (status_get_homint(bl) + status_get_homdex(bl)) / 5;
+	case BL_PC:
+	default:
+		return status->int_ + (status->int_ / 2) + (status->dex / 5) + (status->agi / 3) + (status->luk / 5) + (level / 5);
+	}
+}
 
+/*
+* Calculates maximum magic attack
+*/
+unsigned short status_base_matk_max(struct block_list *bl, const struct status_data* status, int level)
+{
+	switch (bl->type) {
+	case BL_PET:
+	case BL_MOB:
+	case BL_MER:
+	case BL_ELEM:
+		return status->int_ + level + status->rhw.matk * 130 / 100;
+	case BL_HOM:
+		return status_get_homint(bl) + level + (status_get_homluk(bl) + status_get_homint(bl) + status_get_homdex(bl)) / 3;
+	case BL_PC:
+	default:
+		return status->int_ + (status->int_ / 2) + (status->dex / 5) + (status->agi / 3) + (status->luk / 5) + (level / 5);
+	}
+}
 
 /**
  * Fills in the misc data that can be calculated from the other status info (except for level)
@@ -2650,24 +2685,15 @@ void status_calc_misc(struct block_list *bl, struct status_data *status, int lev
 		status->mdef2 = cap_value(stat, 0, SHRT_MAX);
 	}
 
+#else
 	// ATK
 	if (bl->type != BL_PC) {
 		status->rhw.atk2 = status_base_atk_max(bl, status, level);
 		status->rhw.atk = status_base_atk_min(bl, status, level);
 	}
-
-	// MAtk
+	// Matk
 	status->matk_min = status_base_matk_min(bl, status, level);
 	status->matk_max = status_base_matk_max(bl, status, level);
-#else
-	// ATK
-	if (bl->type != BL_PC) {
-		status->rhw.atk2 = status_base_atk_max(bl, status);
-		status->rhw.atk = status_base_atk_min(bl, status);
-	}
-	// Matk
-	status->matk_min = status_base_matk_min(bl, status);
-	status->matk_max = status_base_matk_max(bl, status);
 	// Hit
 	stat = status->hit;
 	stat += level + status->dex; /* NRO */
@@ -5246,8 +5272,13 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	}
 
 	if(flag&SCB_MATK) {
-		status->matk_min = status_base_matk_min(bl, status) + (sd ? sd->bonus.ematk : 0);
-		status->matk_max = status_base_matk_max(bl, status) + (sd ? sd->bonus.ematk : 0);
+		/**
+		 * RE MATK Formula (from irowiki:http:// irowiki.org/wiki/MATK)
+		 * MATK = (sMATK + wMATK + eMATK) * Multiplicative Modifiers
+		 **/
+		int lv = status_get_lv(bl);
+		status->matk_min = status_base_matk_min(bl, status, lv);
+		status->matk_max = status_base_matk_max(bl, status, lv);
 
 		switch( bl->type ) {
 			case BL_PC: {
@@ -5477,13 +5508,7 @@ void status_calc_bl_(struct block_list* bl, enum scb_flag flag, enum e_status_ca
 #endif
 		}
 
-		if(
-//#ifdef RENEWAL
-			b_status.watk != status->watk || b_status.watk2 != status->watk2 || b_status.eatk != status->eatk
-//#else
-//			b_status.rhw.atk2 != status->rhw.atk2 || b_status.lhw.atk2 != status->lhw.atk2
-//#endif
-			)
+		if(	b_status.watk != status->watk || b_status.watk2 != status->watk2 || b_status.eatk != status->eatk)
 			clif_updatestatus(sd,SP_ATK2);
 
 		if(b_status.def2 != status->def2) {
@@ -11457,7 +11482,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_FRESHSHRIMP: {
 				int min = 0, max = 0;
 
-#ifdef RENEWAL
 				min = status_base_matk_min(src, status, status_get_lv(src));
 				max = status_base_matk_max(src, status, status_get_lv(src));
 				if (status->rhw.matk > 0) {
@@ -11468,7 +11492,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 					min += wMatk - variance;
 					max += wMatk + variance;
 				}
-#endif
 
 				if (sd && sd->right_weapon.overrefine > 0) {
 					min++;
