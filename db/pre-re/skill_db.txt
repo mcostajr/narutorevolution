@@ -352,7 +352,6 @@
 8007,9,6,1,0,0,0,5,1,no,0,0,0,weapon,0,0x0,						HAMI_SKIN,Dinamic
 8008,1,6,4,0,0x2,5,5,1,no,0,0,0,weapon,0,0x0,					HAMI_BLOODLUST,Ataque em Area
 
-
 //****
 // Hyuuga
 4220,9,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,					HYU_BYAKUGAN,Byakugan
@@ -441,14 +440,17 @@
 
 //****
 // Jashin
-248,0,0,0,0,0,0,4,0,no,0,0,0,none,0,0x0,			CR_TRUST,Jashinkyo
-254,5,6,4,0,0x48,0,4,1,no,0,0x100,0,weapon,0,0x1,	CR_GRANDCROSS,Kaiten Renbu
-2560,11,6,1,0,0x1,0,4,1,no,0,0,1:2:3:4,none,0,0x0,	RL_C_MARKER,Chi o Nomu
-25,9,6,4,0,0x1,0,4,1,no,0,0,1,magic,0,0x0,			AL_PNEUMA,Shiji Hyoketsu
-2287,7,6,1,0,0x1,0,3,1,no,0,0,0,none,0,0,			SC_SHADOWFORM,Gishiki Modo
+248,0,0,0,0,0,0,4,0,no,0,0,0,none,0,0x0,				CR_TRUST,Jashinkyo
+254,0,6,4,0,0x48,0,4,1,no,0,0x100,0,weapon,0,0x1,		CR_GRANDCROSS,Kaiten Renbu
+2560,11,6,1,0,0x1,0,4,1,no,0,0,1:2:3:4,none,0,0x0,		RL_C_MARKER,Chi o Nomu
+25,9,6,4,0,0x1,0,4,1,no,0,0,1,magic,0,0x0,				AL_PNEUMA,Shiji Hyoketsu
+4330,0,6,4,-1,0x3,-1,3,1,no,0,0,0,weapon,0,0x0,			JAS_CORTE,Corte na Língua
+4331,0,6,4,-1,0x3,-1,2,1,no,0,0,0,weapon,0,0x0,			JAS_ESTOCADA,Estocadas
+4332,0,6,4,-1,0x3,-1,1,1,no,0,0,0,weapon,0,0x0,			JAS_CORACAO,Critical
+2287,7,6,1,0,0x1,0,3,1,no,0,0,0,none,0,0,				SC_SHADOWFORM,Gishiki Modo
 
 //****
-// Tayuya
+// Hokumon no Tayuya
 326,0,6,4,0,0x3,5,4,1,no,0,0,0,none,0,0x0,		DC_SCREAM,Mateki: Mí
 2205,11,6,1,0,0x1,0,4,1,no,0,0,0,magic,0,0x400,	WL_MARSHOFABYSS,Mateki: Mugen Onsa
 328,0,6,4,0,0x1,0,4,1,no,0,0x20,0,misc,0,0x1,	DC_DONTFORGETME,Mateki: Dó
@@ -461,7 +463,7 @@
 379,9,6,1,5,0x8,0,3,1,no,0,0,0,weapon,0,0x0,		ASC_BREAKER,Kamakiri
 406,0,6,4,5,0xA,5,3,1,no,0,0x40000,0,weapon,0,0x0,	ASC_METEORASSAULT,Kibaku Enjin
 2021,10,6,1,0,0x1,0,2,1,no,0,0,0,none,0,0x0,		GC_VENOMIMPRESS,Potencializar Veneno
-2450,9,6,2,5,0,0,2,1,no,0,0,0,magic,0,0x0,			SO_CLOUD_KILL,Hyogen
+2450,0,6,4,5,0,0,2,1,no,0,0,0,magic,0,0x0,			SO_CLOUD_KILL,Hyogen
 4310,4,6,2,0,0x1,0,1,1,no,0,0,1,none,0,0x0,			IB_SALAMANDRA,Kuchiyose no Jutsu: Ibuse
 //Salamandra
 52,-2,6,1,5,0,0,10,1,no,0,0,0,weapon,0,0x0,				TF_POISON,Envenenar
@@ -471,11 +473,11 @@
 
 //****
 // Byakugo no In
-363,0,0,0,0,0,0,4,0,no,0,0,0,magic,0,0x0,				HP_MEDITATIO,Efetividade em Cura
-2051,9,6,16,0,0x1,0,4,1,no,0,0,0,none,0,0x0,			AB_HIGHNESSHEAL,Highness Heal
-2050,9,6,16,0,0x1,0,4,1,no,0,0,0,none,0,0x0,			AB_RENOVATIO,Shosen Jutsu
-266,2,6,1,-1,0x40,0,1,1,no,0,0x40000,0,weapon,0,0x0,	MO_INVESTIGATE,Kongouken
-5014,0,6,4,0,0x1,0,4,1,no,0,0,0,none,0,0x0, 			ALL_FULL_THROTTLE,Ninpou Souzou Saisei
+363,0,0,0,0,0,0,4,0,no,0,0,0,magic,0,0x0,				HP_MEDITATIO,Byakugou no In
+266,2,6,1,-1,0x40,0,3,1,no,0,0x40000,0,none,0,0x0,	MO_INVESTIGATE,Chakra no Mesu
+2050,9,6,16,0,0x1,0,3,1,no,0,0,0,none,0,0x0,			AB_RENOVATIO,Shosen Jutsu
+//
+5014,0,6,4,0,0x1,0,1,1,no,0,0,0,none,0,0x0, 			ALL_FULL_THROTTLE,Ninpou Souzou Saisei
 
 //****
 // Kaguya
@@ -525,8 +527,8 @@
 
 //****
 // Swordman
-4,0,0,0,0,0,0,1,0,no,0,0x1,0,none,0,0x0,				SM_RECOVERY,Increase HP Recovery
-7,0,6,4,3,0x2,1:2:2:3,4,1,no,0,0x40000,0,weapon,2,0x0,		SM_MAGNUM,Magnum
+4,0,6,4,0,0x1,0,10,1,no,0,0x1,0,none,0,0x0,			SM_RECOVERY,Increase HP Recovery
+7,0,6,4,3,0x2,1:2:2:3,4,1,no,0,0x40000,0,weapon,2,0x0,	SM_MAGNUM,Magnum
 8,0,6,4,0,0x1,0,1,1,no,0,0,0,weapon,0,0x0,				SM_ENDURE,Endure
 
 //****
@@ -1292,6 +1294,7 @@
 2045,0,6,4,0,0x3,15,10,1,no,0,0,0,none,0,0x0,	AB_PRAEFATIO,Prefatio
 2046,0,6,4,6,0x3,15,10,1,yes,0,0,0,magic,0,0x0,	AB_ORATIO,Oratio
 2049,0,0,0,0,0,0,10,0,no,0,0,0,none,0,0x0,		AB_EUCHARISTICA,Eucharistica
+2051,9,6,16,0,0x1,0,4,1,no,0,0,0,none,0,0x0,			AB_HIGHNESSHEAL,Highness Heal
 2052,11,6,1,0,0x1,0,5,1,yes,0,0x400,0,magic,0,0x10020,	AB_CLEARANCE,Clearance
 2053,11,6,16,0,0x1,0,5,1,yes,0,0,0,magic,0,0x0,	AB_EXPIATIO,Expiatio //CHECK Does this also give the buff to party members?
 2054,0,6,4,6,0x1,0,10,1,yes,0,0,0,none,0,0x0,	AB_DUPLELIGHT,Duple Light //CHECK Had issues adding a skill level check to make the % go higher with the skills level. Will do later.

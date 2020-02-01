@@ -2010,20 +2010,20 @@
 30107,Portoes_de_Chakra,Portões de Chakra,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_PORTOES"; },{},{}
 30108,Akimichi,Akimichi,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_AKIMICHI"; },{},{}
 30111,Inuzuka,Inuzuka,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,1459,{ bonus bNoWalkDelay; callfunc "KG_INUZUKA"; },{},{}
-30118,Hanzaki,Hanzaki,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2112,{ bonus bNoWalkDelay; callfunc "KG_IBUSE"; },{},{}
+30118,Hanzaki,Hanzaki,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2112,{ bonus bNoWalkDelay; callfunc "KG_HANZAKI"; },{},{}
 30121,Kaguya,Kaguya,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2114,{ bonus bNoWalkDelay; callfunc "KG_KAGUYA"; },{},{}
 30125,Kidoumaru,Kidoumaru,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_KIDOUMARU"; },{},{}
 
 // Hibrido
 30105,Kugutsu,Kugutsu,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2101,{ bonus bNoWalkDelay; callfunc "KG_KUGUTSU"; },{},{}
-30110,Ten_no_Juin,Ten no Juin,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2106,{ bonus bNoWalkDelay; callfunc "KG_SELOAMALDICOADO"; },{},{}
+30110,Ten_no_Juin,Ten no Juin,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2106,{ bonus bNoWalkDelay; callfunc "KG_TENJUIN"; },{},{}
 30114,Kibaku,Kibaku Nendo,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2109,{ bonus bNoWalkDelay; callfunc "KG_KIBAKU"; },{},{}
 30115,Aburame,Aburame,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,,{ bonus bNoWalkDelay; callfunc "KG_ABURAME"; },{ atcommand "@option 0 0 16"; },{ atcommand "@option 0"; }
 30116,Jashin,Jashin,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2110,{ bonus bNoWalkDelay; callfunc "KG_JASHIN"; },{},{}
 
 // Suporte
 30119,Byakugo,Byakugo no In,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2113,{ bonus bNoWalkDelay; callfunc "KG_BYAKUGO"; },{},{}
-30117,Tayuya,Tayuya,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2111,{ bonus bNoWalkDelay; callfunc "KG_TAYUYA"; },{},{}
+30117,Hokumon_no_Tayuya,Hokumon no Tayuya,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,2111,{ bonus bNoWalkDelay; callfunc "KG_TAYUYA"; },{},{}
 
 // Habilidades Futuras
 30126,Manipulacao_Raiton,Manipulacao Raiton,4,10,,100,,0,,0,0xFFFFFFFF,63,2,512,,0,0,1777,{ callfunc "KG_RAIKAGE"; },{},{}

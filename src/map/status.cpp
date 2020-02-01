@@ -257,6 +257,8 @@ void initChangeTables(void)
 	set_sc(SG_FUSION, SC_FUSION, EFST_BLANK, SCB_SPEED);
 	add_sc(JIN_GENKAIHAKURI, SC_WHITEIMPRISON);
 
+	add_sc(AL_PNEUMA, SC_PNEUMA);
+	set_sc_with_vfx(RL_C_MARKER, SC_C_MARKER, EFST_C_MARKER, SCB_FLEE);
 	set_sc(SC_SHADOWFORM, SC__SHADOWFORM, EFST_SHADOWFORM, SCB_NONE);
 
 	set_sc(ALL_FULL_THROTTLE, SC_FULL_THROTTLE, EFST_FULL_THROTTLE, SCB_SPEED | SCB_STR | SCB_AGI | SCB_VIT | SCB_INT | SCB_DEX | SCB_LUK);
@@ -332,7 +334,6 @@ void initChangeTables(void)
 	add_sc( MG_SAFETYWALL		, SC_SAFETYWALL		);
 	add_sc( MG_FROSTDIVER		, SC_FREEZE		);
 	add_sc( MG_STONECURSE		, SC_STONE		);
-	add_sc( AL_PNEUMA		, SC_PNEUMA		);
 	set_sc( AL_DECAGI		, SC_DECREASEAGI	, EFST_DEC_AGI, SCB_AGI|SCB_SPEED );
 	set_sc( AL_CRUCIS		, SC_SIGNUMCRUCIS	, EFST_CRUCIS, SCB_DEF );
 	set_sc( AL_ANGELUS		, SC_ANGELUS		, EFST_ANGELUS		, SCB_DEF2 );
@@ -900,7 +901,6 @@ void initChangeTables(void)
 	set_sc( RL_FALLEN_ANGEL , SC_FALLEN_ANGEL, EFST_BLANK, SCB_NONE );
 	set_sc( RL_SLUGSHOT		, SC_STUN		, EFST_SLUGSHOT	, SCB_NONE );
 	set_sc( RL_HEAT_BARREL	, SC_HEAT_BARREL	, EFST_HEAT_BARREL	, SCB_HIT|SCB_ASPD );
-	set_sc_with_vfx( RL_C_MARKER	, SC_C_MARKER		, EFST_C_MARKER		, SCB_FLEE );
 	set_sc_with_vfx( RL_AM_BLAST	, SC_ANTI_M_BLAST	, EFST_ANTI_M_BLAST	, SCB_NONE );
 
 	// New Mounts
@@ -2541,7 +2541,7 @@ unsigned int status_weapon_atk(struct weapon_atk wa, struct map_session_data *sd
 		weapon_atk_bonus = wa.atk * sd->bonus.weapon_atk_rate / 100;
 
 	// wa.atk2 = refinement, wa.atk = base equip atk
-	return wa.atk + wa.atk2 + (int)(wa.atk * (str / 200) + weapon_atk_bonus);
+	return wa.atk + wa.atk2 + (int)(/*wa.atk * (str / 200) +*/ weapon_atk_bonus);
 }
 //#endif
 
@@ -2715,14 +2715,14 @@ void status_calc_misc(struct block_list *bl, struct status_data *status, int lev
 	//Critical
 	if( bl->type&battle_config.enable_critical ) {
 		stat = status->cri;
-		stat += 10 + (status->agi*10/3); // (every 1 agi(SPT) = +0.3 critical)  /* NRO */
+		stat += 10 + (status->luk*10/3); // (every 1 agi(LUK) = +0.3 critical)  /* NRO */
 		status->cri = cap_value(stat, 1, SHRT_MAX);
 	} else
 		status->cri = 0;
 
 	if (bl->type&battle_config.enable_perfect_flee) {
 		stat = status->flee2;
-		stat += status->dex + 10; // (every 10 dex = +1 perfect flee) /* NRO */
+		stat += status->luk + 10; // (every 10 luk = +1 perfect flee) /* NRO */
 		status->flee2 = cap_value(stat, 0, SHRT_MAX);
 	} else
 		status->flee2 = 0;
@@ -3288,9 +3288,11 @@ static int status_get_spbonus(struct block_list *bl, enum e_status_bonus type) {
 		//Only for BL_PC
 		if (bl->type == BL_PC) {
 			struct map_session_data *sd = map_id2sd(bl->id);
-			//uint8 i;
+			uint8 i;
 
 			bonus += sd->bonus.sp;
+			if ((i = pc_checkskill(sd, HP_MEDITATIO)) > 0)
+				bonus += 250 * i;
 			/*if ((i = pc_checkskill(sd,SL_KAINA)) > 0)
 				bonus += 30 * i;
 			if ((i = pc_checkskill(sd,RA_RESEARCHTRAP)) > 0)
@@ -3341,8 +3343,7 @@ static int status_get_spbonus(struct block_list *bl, enum e_status_bonus type) {
 
 			if ((i = pc_checkskill(sd, NJ_NINPOU)) > 0)
 				bonus += i / (25/10);
-			/*if((i = pc_checkskill(sd,HP_MEDITATIO)) > 0)
-				bonus += i;
+			/*
 			if((i = pc_checkskill(sd,HW_SOULDRAIN)) > 0)
 				bonus += 2 * i;
 			*/
@@ -4254,6 +4255,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 
 	// Relative modifiers from passive skills
 #ifndef RENEWAL_ASPD
+	/*
 	if((skill=pc_checkskill(sd,SA_ADVANCEDBOOK))>0 && sd->status.weapon == W_BOOK)
 		base_status->aspd_rate -= 5*skill;
 	if((skill = pc_checkskill(sd,SG_DEVIL)) > 0 && pc_is_maxjoblv(sd))
@@ -4265,6 +4267,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 		base_status->aspd_rate += 500-100*pc_checkskill(sd,KN_CAVALIERMASTERY);
 	else if(pc_isridingdragon(sd))
 		base_status->aspd_rate += 250-50*pc_checkskill(sd,RK_DRAGONTRAINING);
+	*/
 #else // Needs more info
 	if((skill = pc_checkskill(sd,SG_DEVIL)) > 0 && pc_is_maxjoblv(sd))
 		base_status->aspd_rate += 30*skill;
@@ -6160,7 +6163,6 @@ static unsigned short status_calc_batk(struct block_list *bl, struct status_chan
 	if (sc->data[SC_CHOOMODO])
 		batk += sc->data[SC_CHOOMODO]->val3;
 
-
 	if(sc->data[SC_ATKPOTION])
 		batk += sc->data[SC_ATKPOTION]->val1;
 	if(sc->data[SC_BATKFOOD])
@@ -6391,9 +6393,6 @@ static unsigned short status_calc_matk(struct block_list *bl, struct status_chan
 		matk += sc->data[SC_VERMELHA]->val2;
 	if (sc->data[SC_CHOOMODO])
 		matk += sc->data[SC_CHOOMODO]->val3;
-	// Byakugo
-	if (sc->data[SC_FULL_THROTTLE])
-		matk += sc->data[SC_FULL_THROTTLE]->val2;
 
 #ifndef RENEWAL
 	/// Take note fixed value first before % modifiers [PRE-RENEWAL]
@@ -7010,7 +7009,7 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 				val = max( val, 50 - 10 * sc->data[SC_LONGING]->val1 );
 			else
 			if( sd && sc->data[SC_DANCING] )
-				val = max( val, 500 - (40 + 10 * (sc->data[SC_SPIRIT] && sc->data[SC_SPIRIT]->val2 == SL_BARDDANCER)) * pc_checkskill(sd,(sd->status.sex?BA_MUSICALLESSON:DC_DANCINGLESSON)) );
+				val = max( val, 0);
 			if( sc->data[SC_QUAGMIRE] || sc->data[SC_HALLUCINATIONWALK_POSTDELAY] || (sc->data[SC_GLOOMYDAY] && sc->data[SC_GLOOMYDAY]->val4) )
 				val = max( val, 50 );
 			if( sc->data[SC_DONTFORGETME] )
@@ -7335,9 +7334,9 @@ static short status_calc_aspd_rate(struct block_list *bl, struct status_change *
 {
 	int i;
 
-	/*if(!sc || !sc->count)
+	if(!sc || !sc->count)
 		return cap_value(aspd_rate, 0, SHRT_MAX);
-	*/
+	
 	if( !sc->data[SC_QUAGMIRE] ) {
 		int max = 0;
 
@@ -12074,7 +12073,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	// 1st thing to execute when loading status
 	switch (type) {
 		case SC_FULL_THROTTLE:
-			status_percent_heal(bl,100,0);
+			status_percent_heal(bl,10+5*sce->val1,0);
 			break;
 		case SC_BERSERK:
 			if (!(sce->val2)) { // Don't heal if already set
@@ -13326,7 +13325,7 @@ TIMER_FUNC(status_change_timer){
 			break;
 		case SC_FULL_THROTTLE:
 			if (--(sce->val4) >= 0) {
-				status_heal(bl, status->max_hp * 15 / 100, 0, 0);
+				status_heal(bl,  3750*sce->val1, 0, 0);
 				sc_timer_next(1000 + tick);
 				return 0;
 			}

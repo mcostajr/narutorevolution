@@ -517,13 +517,8 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 
 		// -----------------------------------------------------------
 
-
 		case BA_APPLEIDUN:
-#ifdef RENEWAL
-			hp = 100 + 5 * skill_lv + (status_get_vit(src) / 2); // HP recovery
-#else
 			hp = 30 + 5 * skill_lv + (status_get_vit(src) / 2); // HP recovery
-#endif
 			if (sd)
 				hp += 5 * pc_checkskill(sd, BA_MUSICALLESSON);
 			break;
@@ -541,29 +536,17 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 		default:
 			if (skill_lv >= battle_config.max_heal_lv)
 				return battle_config.max_heal;
-#ifdef RENEWAL
+
 			/**
 			 * Renewal Heal Formula
 			 * Formula: ( [(Base Level + INT) / 5] x 30 ) x (Heal Level / 10) x (Modifiers) + MATK
 			 */
 			hp = (status_get_lv(src) + status_get_int(src)) / 5 * 30 * skill_lv / 10;
-#else
-			/* Formula Heal */
-			hp = (status_get_lv(src) + status_get_int(src)) / 8 * (4 + (skill_lv * 8));
-#endif
 
 			if (sd && ((skill = pc_checkskill(sd, HP_MEDITATIO)) > 0))
-#ifdef RENEWAL
-				hp_bonus += skill * 2;
-#else
 				hp += hp * skill * 2 / 100;
-#endif
 			else if (src->type == BL_HOM && (skill = hom_checkskill(((TBL_HOM*)src), HLIF_BRAIN)) > 0)
-#ifdef RENEWAL
-				hp_bonus += skill * 2;
-#else
 				hp += hp * skill * 2 / 100;
-#endif
 			if (sd && tsd && sd->status.partner_id == tsd->status.char_id && (sd->class_&MAPID_UPPERMASK) == MAPID_SUPER_NOVICE && sd->status.sex == 0)
 				hp *= 2;
 			break;
@@ -1351,7 +1334,6 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 
 	// Raiton
 	//---------------------------------
-
 	case NPC_WINDATTACK:
 		sc_start(src, bl, SC_STOP, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
@@ -1368,7 +1350,7 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 
 	// Hyuuga
 	//---------------------------------
-		case CH_TIGERFIST: {
+	case CH_TIGERFIST: {
 		uint16 basetime = skill_get_time(skill_id, skill_lv);
 		uint16 mintime = 30 * (status_get_lv(src) + 100);
 
@@ -1376,16 +1358,16 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 				basetime /= 5;
 			basetime = min((basetime * status_get_agi(bl)) / -200 + basetime, mintime) / 2;
 			sc_start(src, bl, SC_STOP, (1 + skill_lv) * 10, 0, basetime);
-		}
+	}
+	break;
+
+	// Byakugo no In
+	//---------------------------------
+	case MO_INVESTIGATE:
+		sc_start(src, bl, SC_BLIND, 10, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
 
-		
-	// Uchiha
-	//---------------------------------
-	case CG_ARROWVULCAN:
-		sc_start4(src, bl, SC_BURNING, 10*skill_lv, skill_lv, 1000, src->id, 0, skill_get_time(skill_id, skill_lv));
-		
-	//---------------------------------
+	//----------------------------------------------------------------------------------------------------------------------------------------
 
 	case NPC_BLINDATTACK:
 	case NPC_SILENCEATTACK:
@@ -1447,13 +1429,6 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 
 	case NPC_GRANDDARKNESS:
 		sc_start(src, bl, SC_BLIND, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
-		attack_type |= BF_WEAPON;
-		break;
-
-	case CR_GRANDCROSS:
-		//Chance to cause blind status vs demon and undead element, but not against players
-		if(!dstsd && (battle_check_undead(tstatus->race,tstatus->def_ele) || tstatus->race == RC_DEMON))
-			sc_start(src,bl,SC_BLIND,100,skill_lv,skill_get_time2(skill_id,skill_lv));
 		attack_type |= BF_WEAPON;
 		break;
 
@@ -2298,17 +2273,16 @@ int skill_counter_additional_effect (struct block_list* src, struct block_list *
 		}
 	}
 
-	switch(skill_id) {
 	/*
+	switch(skill_id) {
 	case MO_EXTREMITYFIST:
 		sc_start(src,src,SC_EXTREMITYFIST,100,skill_lv,skill_get_time2(skill_id,skill_lv));
 		break;
-	*/
 	case CR_GRANDCROSS:
 	case NPC_GRANDDARKNESS:
 		attack_type |= BF_WEAPON;
 		break;
-	}
+	}*/
 
 	if(sd && (sd->class_&MAPID_UPPERMASK) == MAPID_STAR_GLADIATOR &&
 		map_getmapflag(sd->bl.m, MF_NOSUNMOONSTARMIRACLE) == 0)	//SG_MIRACLE [Komurka]
@@ -3331,7 +3305,7 @@ int64 skill_attack (int attack_type, struct block_list* src, struct block_list *
 	}
 
 	switch( skill_id ) {
-		case CR_GRANDCROSS:
+		/*case CR_GRANDCROSS:
 		case NPC_GRANDDARKNESS:
 			if( battle_config.gx_disptype)
 				dsrc = src;
@@ -3340,6 +3314,7 @@ int64 skill_attack (int attack_type, struct block_list* src, struct block_list *
 			else
 				flag|= SD_ANIMATION;
 			break;
+		*/
 		case NJ_TATAMIGAESHI: //For correct knockback.
 			dsrc = src;
 			flag|= SD_ANIMATION;
@@ -3600,8 +3575,10 @@ int64 skill_attack (int attack_type, struct block_list* src, struct block_list *
 		}
 	}
 
+	/*
 	if(skill_id == CR_GRANDCROSS || skill_id == NPC_GRANDDARKNESS)
 		dmg.flag |= BF_WEAPON;
+	*/
 
 	if( sd && src != bl && damage > 0 && ( dmg.flag&BF_WEAPON ||
 		(dmg.flag&BF_MISC && (skill_id == RA_CLUSTERBOMB || skill_id == RA_FIRINGTRAP || skill_id == RA_ICEBOUNDTRAP)) ) )
@@ -3981,6 +3958,9 @@ int skill_area_sub_count (struct block_list *src, struct block_list *target, uin
 				}
 			}
 		case RL_D_TAIL:
+		case JAS_CORTE:
+		case JAS_ESTOCADA:
+		case JAS_CORACAO:
 			if (src->type != BL_PC)
 				return 0;
 			{
@@ -4697,6 +4677,9 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	/*
 		Naruto
 	*/
+	// Taijutsu
+	case MO_FINGEROFFENSIVE:
+
 	// Portões
 	case CG_ARROWVULCAN:
 		skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
@@ -4713,6 +4696,11 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag | SD_ANIMATION);
 		break;
 
+	case MO_CHAINCOMBO:
+		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		//status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
+		break;
+
 	case CH_CHAINCRUSH:
 		if (bl->type == BL_PC) {
 			clif_specialeffect(&sd->bl, 608, AREA);
@@ -4722,23 +4710,30 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
 
+	case MO_COMBOFINISH:
+		/*if (!(flag & 1) && sc && sc->data[SC_SPIRIT] && sc->data[SC_SPIRIT]->val2 == SL_MONK)
+		{	//Becomes a splash attack when Soul Linked.
+			map_foreachinshootrange(skill_area_sub, bl,
+				skill_get_splash(skill_id, skill_lv), BL_CHAR | BL_SKILL,
+				src, skill_id, skill_lv, tick, flag | BCT_ENEMY | 1,
+				skill_castend_damage_id);
+		}
+		else*/
+			skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		break;
+
+	// Byakugo no In
+	case MO_INVESTIGATE:
+		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, flag);
+		break;
+
 	case LK_JOINTBEAT:
 		flag = 1 << rnd() % 6;
 		if (flag != BREAK_NECK && tsc && tsc->data[SC_JOINTBEAT] && tsc->data[SC_JOINTBEAT]->val2 & BREAK_NECK)
 			flag = BREAK_NECK; // Target should always receive double damage if neck is already broken
 		if (skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag))
 			sc_start4(src, bl, SC_JOINTBEAT, 50 + (skill_lv + 1), skill_lv, flag&BREAK_FLAGS, src->id, 0, skill_get_time2(skill_id, skill_lv));
-		break;
-
-	case MO_COMBOFINISH:
-		if (!(flag&1) && sc && sc->data[SC_SPIRIT] && sc->data[SC_SPIRIT]->val2 == SL_MONK)
-		{	//Becomes a splash attack when Soul Linked.
-			map_foreachinshootrange(skill_area_sub, bl,
-				skill_get_splash(skill_id, skill_lv),BL_CHAR|BL_SKILL,
-				src,skill_id,skill_lv,tick, flag|BCT_ENEMY|1,
-				skill_castend_damage_id);
-		} else
-			skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
 		break;
 
 	case TK_STORMKICK: // Taekwon kicks [Dralnu]
@@ -4815,21 +4810,8 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 			status_change_end(src, SC_CAMOUFLAGE, INVALID_TIMER);
 		break;
 
-	case MO_INVESTIGATE:
-		skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
-		break;
-
 	case RG_BACKSTAP:
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
-		break;
-
-	case MO_FINGEROFFENSIVE:
-		skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
-		break;
-
-	case MO_CHAINCOMBO:
-		skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
-		status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
 		break;
 
 	case NJ_ISSEN:
@@ -4955,9 +4937,13 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case NPC_EARTHQUAKE:
 	//
 	case AKI_NIKUDAN:
+	//
 	case HYU_HYAKU:
+	//
 	case KN_C0:
+	//
 	case ASC_METEORASSAULT:
+	//
 	case HT_BLITZBEAT:
 		if( flag&1 ) {//Recursive invocation
 			int sflag = skill_area_temp[0] & 0xFFF;
@@ -5951,6 +5937,9 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		break;
 	case RL_QD_SHOT:
 	case RL_D_TAIL:
+	case JAS_CORTE:
+	case JAS_ESTOCADA:
+	case JAS_CORACAO:
 		if (!sd || (tsc && tsc->data[SC_C_MARKER])) {
 			if (skill_id == RL_QD_SHOT && skill_area_temp[1] == bl->id )
 				break;
@@ -10944,6 +10933,9 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		}
 		break;
 	case RL_D_TAIL:
+	case JAS_CORTE:
+	case JAS_ESTOCADA:
+	case JAS_CORACAO:
 		map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR, src, skill_id, skill_lv, tick, flag|BCT_ENEMY|SD_SPLASH|1, skill_castend_damage_id);
 		break;
 	case RL_QD_SHOT:
@@ -11273,6 +11265,9 @@ static int8 skill_castend_id_check(struct block_list *src, struct block_list *ta
 			}
 			break;
 		case RL_D_TAIL:
+		case JAS_CORTE:
+		case JAS_ESTOCADA:
+		case JAS_CORACAO:
 			if (src) {
 				int count = 0;
 
@@ -11540,7 +11535,6 @@ TIMER_FUNC(skill_castend_id){
 			case RL_FIREDANCE:
 				sd->canequip_tick = tick + skill_get_time(ud->skill_id, ud->skill_lv);
 				break;
-			case CR_GRANDCROSS:
 			case NPC_GRANDDARKNESS:
 				if( (sc = status_get_sc(src)) && sc->data[SC_STRIPSHIELD] )
 				{
@@ -12018,11 +12012,6 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 
 	case CR_GRANDCROSS:
 	case NPC_GRANDDARKNESS:
-		/*if (src->type == BL_PC) {
-			clif_specialeffect(&sd->bl, 106, AREA);
-		} else {
-			clif_specialeffect(src, 106, AREA);
-		}*/
 		skill_unitsetting(src, skill_id, skill_lv, x, y, 0);
 		break;
 	case WZ_ICEWALL:
@@ -14032,8 +14021,9 @@ int skill_unit_onplace_timer(struct skill_unit *unit, struct block_list *bl, t_t
 			return 0;
 		ts->tick = tick+sg->interval;
 
-		if ((skill_id==CR_GRANDCROSS || skill_id==NPC_GRANDDARKNESS) && !battle_config.gx_allhit)
+		/*if ((skill_id==CR_GRANDCROSS || skill_id==NPC_GRANDDARKNESS) && !battle_config.gx_allhit)
 			ts->tick += (t_tick)sg->interval*(map_count_oncell(bl->m,bl->x,bl->y,BL_CHAR,0)-1);
+		*/
 	}
 
 	// Wall of Thorn damaged by Fire element unit [Cydh]
@@ -15374,7 +15364,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 	    }
 	}
 	// perform skill-specific checks (and actions)
-	switch( skill_id ) {
+	switch (skill_id) {
 		/*
 		*	Naruto
 		*/
@@ -15405,6 +15395,12 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 				return false;
 			break;
 
+		case JAS_CORTE:
+		case JAS_ESTOCADA:
+		case JAS_CORACAO:
+			if (!(sc && sc->data[SC_PNEUMA]))
+				return false;
+			break;
 		// --------------------------------------------------------------
 
 		case RG_GRAFFITI:
@@ -20792,7 +20788,6 @@ void skill_init_unit_layout (void) {
 			switch (skill_id) {
 				case WL_EARTHSTRAIN:
 				case RL_FIRE_RAIN:
-				case CR_GRANDCROSS:
 				case NPC_GRANDDARKNESS:
 					// these will be handled later
 					break;

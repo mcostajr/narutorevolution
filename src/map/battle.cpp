@@ -1029,7 +1029,7 @@ bool battle_check_sc(struct block_list *src, struct block_list *target, struct s
 		return false;
 	}
 
-	if( sc->data[SC_PNEUMA] && (d->flag&(BF_MAGIC|BF_LONG)) == BF_LONG ) {
+	if( sc->data[SC_PNEUMA] && ((d->flag&(BF_LONG | BF_MAGIC)) == BF_LONG || (d->flag&(BF_MAGIC | BF_SHORT)) == BF_SHORT )) {
 		d->dmg_lv = ATK_BLOCK;
 		return false;
 	}
@@ -2441,13 +2441,9 @@ static int is_attack_piercing(struct Damage* wd, struct block_list *src, struct 
 	if(src != NULL) {
 		struct map_session_data *sd = BL_CAST(BL_PC, src);
 		struct status_data *tstatus = status_get_status_data(target);
-#ifdef RENEWAL
-		if( skill_id != PA_SACRIFICE && skill_id != CR_GRANDCROSS && skill_id != NPC_GRANDDARKNESS
-			&& skill_id != KO_HAPPOKUNAI && skill_id != ASC_BREAKER ) // Renewal: Soul Breaker no longer gains ice pick effect and ice pick effect gets crit benefit [helvetica]
-#else
-		if( skill_id != PA_SACRIFICE && skill_id != CR_GRANDCROSS && skill_id != NPC_GRANDDARKNESS
-			&& skill_id != KO_HAPPOKUNAI && !is_attack_critical(wd, src, target, skill_id, skill_lv, false) )
-#endif
+
+		if( skill_id != CR_GRANDCROSS && skill_id != NPC_GRANDDARKNESS ) // Renewal: Soul Breaker no longer gains ice pick effect and ice pick effect gets crit benefit [helvetica]
+
 		{ //Elemental/Racial adjustments
 			if( sd && (sd->right_weapon.def_ratio_atk_ele & (1<<tstatus->def_ele) || sd->right_weapon.def_ratio_atk_ele & (1<<ELE_ALL) ||
 				sd->right_weapon.def_ratio_atk_race & (1<<tstatus->race) || sd->right_weapon.def_ratio_atk_race & (1<<RC_ALL) ||
@@ -2655,13 +2651,16 @@ static bool attack_ignores_def(struct Damage* wd, struct block_list *src, struct
 	struct map_session_data *sd = BL_CAST(BL_PC, src);
 	int nk = battle_skill_get_damage_properties(skill_id, wd->miscflag);
 
-#ifndef RENEWAL
+#ifdef RENEWAL
 	if (is_attack_critical(wd, src, target, skill_id, skill_lv, false))
 		return true;
 	else
 #endif
 	if (sc && sc->data[SC_FUSION])
 		return true;
+
+	else if (skill_id != CR_GRANDCROSS && skill_id != NPC_GRANDDARKNESS) // Renewal: Soul Breaker no longer gains ignore DEF from weapon [helvetica]
+
 	{	//Ignore Defense?
 		if (sd && (sd->right_weapon.ignore_def_ele & (1<<tstatus->def_ele) || sd->right_weapon.ignore_def_ele & (1<<ELE_ALL) ||
 			sd->right_weapon.ignore_def_race & (1<<tstatus->race) || sd->right_weapon.ignore_def_race & (1<<RC_ALL) ||
@@ -2875,40 +2874,39 @@ static void battle_calc_attack_masteries(struct Damage* wd, struct block_list *s
 	struct status_data *sstatus = status_get_status_data(src);
 	int t_class = status_get_class(target);
 
-	if (sd && battle_skill_stacks_masteries_vvs(skill_id) &&
-		skill_id != MO_INVESTIGATE &&
-		skill_id != MO_EXTREMITYFIST &&
-		skill_id != CR_GRANDCROSS)
+	if (sd && battle_skill_stacks_masteries_vvs(skill_id))
 	{	//Add mastery damage
 		uint16 skill;
 
 		wd->damage = battle_addmastery(sd,target,wd->damage,0);
-#ifdef RENEWAL
+//#ifdef RENEWAL
 		wd->masteryAtk = battle_addmastery(sd,target,wd->weaponAtk,0);
-#endif
+//#endif
 		if (is_attack_left_handed(src, skill_id)) {
 			wd->damage2 = battle_addmastery(sd,target,wd->damage2,1);
-#ifdef RENEWAL
+//#ifdef RENEWAL
 			wd->masteryAtk2 = battle_addmastery(sd,target,wd->weaponAtk2,1);
-#endif
+//#endif
 		}
 
-#ifdef RENEWAL
+//#ifdef RENEWAL
 		//General skill masteries
-		if(skill_id == TF_POISON) //Additional ATK from Envenom is treated as mastery type damage [helvetica]
+		/*if(skill_id == TF_POISON) //Additional ATK from Envenom is treated as mastery type damage [helvetica]
 			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 15 * skill_lv);
 		if (skill_id != MC_CARTREVOLUTION && pc_checkskill(sd, BS_HILTBINDING) > 0)
 			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 4);
 		if (skill_id != CR_SHIELDBOOMERANG)
 			ATK_ADD2(wd->masteryAtk, wd->masteryAtk2, ((wd->div_ < 1) ? 1 : wd->div_) * sd->right_weapon.star, ((wd->div_ < 1) ? 1 : wd->div_) * sd->left_weapon.star);
-#endif
-
+		*/
+//#endif
+		/*
 		if (skill_id == NJ_SYURIKEN && (skill = pc_checkskill(sd,NJ_TOBIDOUGU)) > 0) {
 			ATK_ADD(wd->damage, wd->damage2, 3 * skill);
-#ifdef RENEWAL
+//#ifdef RENEWAL
 			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 3 * skill);
-#endif
-		}
+//#endif
+		
+		}*/
 
 		switch(skill_id) {
 			case RA_WUGDASH:
@@ -2918,42 +2916,42 @@ static void battle_calc_attack_masteries(struct Damage* wd, struct block_list *s
 					skill = pc_checkskill(sd, RA_TOOTHOFWUG);
 
 					ATK_ADD(wd->damage, wd->damage2, 30 * skill);
-#ifdef RENEWAL
+//#ifdef RENEWAL
 					ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 30 * skill);
-#endif
+//#endif
 				}
 				break;
 		}
 
 		if (sc) { // Status change considered as masteries
-#ifdef RENEWAL
+#//ifdef RENEWAL
 			if (sc->data[SC_NIBELUNGEN]) // With renewal, the level 4 weapon limitation has been removed
 				ATK_ADD(wd->masteryAtk, wd->masteryAtk2, sc->data[SC_NIBELUNGEN]->val2);
-#endif
+//#endif
 
 			if(sc->data[SC_CAMOUFLAGE]) {
 				ATK_ADD(wd->damage, wd->damage2, 30 * min(10, sc->data[SC_CAMOUFLAGE]->val3));
-#ifdef RENEWAL
+//#ifdef RENEWAL
 				ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 30 * min(10, sc->data[SC_CAMOUFLAGE]->val3));
-#endif
+//#endif
 			}
 			if(sc->data[SC_GN_CARTBOOST]) {
 				ATK_ADD(wd->damage, wd->damage2, 10 * sc->data[SC_GN_CARTBOOST]->val1);
-#ifdef RENEWAL
+//#ifdef RENEWAL
 				ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 10 * sc->data[SC_GN_CARTBOOST]->val1);
-#endif
+//#endif
 			}
 			if (sc->data[SC_P_ALTER]) {
 				ATK_ADD(wd->damage, wd->damage2, sc->data[SC_P_ALTER]->val2);
-#ifdef RENEWAL
+//#ifdef RENEWAL
 				ATK_ADD(wd->masteryAtk, wd->masteryAtk2, sc->data[SC_P_ALTER]->val2);
-#endif
+//#endif
 			}
 		}
 	}
 }
 
-#ifdef RENEWAL
+//#ifdef RENEWAL
 /*=========================================
  * Calculate the various Renewal ATK parts
  *-----------------------------------------
@@ -3001,7 +2999,7 @@ static void battle_calc_damage_parts(struct Damage* wd, struct block_list *src,s
 	wd->damage = 0;
 	wd->damage2 = 0;
 }
-#endif
+//#endif
 
 /*==========================================================
  * Calculate basic ATK that goes into the skill ATK formula
@@ -3477,8 +3475,8 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio = min(500000, skillratio); //We stop at roughly 50k SP for overflow protection
 			break;
 
-		// ------------------------------------------------------------------
-		// Inuzuka
+	// ------------------------------------------------------------------
+	// Inuzuka
 		case CR_HOLYCROSS:
 			skillratio += 500 * skill_lv;
 			break;
@@ -3501,6 +3499,16 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 380 * skill_lv;
 			break;
 
+		case JAS_CORTE:
+		case JAS_ESTOCADA:
+		case JAS_CORACAO:
+			skillratio += 100 * skill_lv;
+			break;
+	// ------------------------------------------------------------------
+	//Byakugo
+		case MO_INVESTIGATE:
+			skillratio += 400 * skill_lv;
+			break;
 	// ------------------------------------------------------------------
 	// Kaguya
 		case KN_PIERCE:
@@ -3547,7 +3555,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case ASC_METEORASSAULT:
 			skillratio += 1000 * skill_lv;
 			break;
-
+		case SO_CLOUD_KILL:
+			skillratio += -100 + 40 * skill_lv;
+			break;
 	// ------------------------------------------------------------------
 	// Kidoumaru
 		case AC_DOUBLE:
@@ -4592,10 +4602,10 @@ static void battle_calc_attack_post_defense(struct Damage* wd, struct block_list
 		//
 	}
 
-#ifndef RENEWAL
+//#ifndef RENEWAL
 	battle_calc_attack_masteries(wd, src, target, skill_id, skill_lv);
 
-#endif
+//#endif
 	//Set to min of 1
 	if (is_attack_right_handed(src, skill_id) && wd->damage < 1) wd->damage = 1;
 	if (is_attack_left_handed(src, skill_id) && wd->damage2 < 1) wd->damage2 = 1;
@@ -5871,12 +5881,6 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						RE_LVL_DMOD(120);
 						if( sc && sc->data[SC_CURSED_SOIL_OPTION] )
 							skillratio += (sd ? sd->status.job_level * 5 : 0);
-						break;
-					case SO_CLOUD_KILL:
-						skillratio += -100 + 40 * skill_lv;
-						RE_LVL_DMOD(100);
-						if (sc && sc->data[SC_CURSED_SOIL_OPTION])
-							skillratio += (sd ? sd->status.job_level : 0);
 						break;
 					case SO_VARETYR_SPEAR: //MATK [{( Endow Tornado skill level x 50 ) + ( Caster INT x Varetyr Spear Skill level )} x Caster Base Level / 100 ] %
 						skillratio += -100 + status_get_int(src) * skill_lv + ((sd) ? pc_checkskill(sd, SA_LIGHTNINGLOADER) * 50 : 0);
