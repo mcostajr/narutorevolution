@@ -4109,19 +4109,18 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 // ------ ATTACK CALCULATION ------
 
 	// Base batk value is set in status_calc_misc
-//#ifndef RENEWAL
+#ifndef RENEWAL_STAT
 	// !FIXME: Weapon-type bonus (Why is the weapon_atk bonus applied to base attack?)
-/*	if (sd->status.weapon < MAX_WEAPON_TYPE && sd->weapon_atk[sd->status.weapon])
+	if (sd->status.weapon < MAX_WEAPON_TYPE && sd->weapon_atk[sd->status.weapon])
 		base_status->batk += sd->weapon_atk[sd->status.weapon];
 	// Absolute modifiers from passive skills
-	if((skill=pc_checkskill(sd,BS_HILTBINDING))>0)
+	if ((skill = pc_checkskill(sd, BS_HILTBINDING)) > 0)
 		base_status->batk += 4;
-*/
-//#else
+#else
 	base_status->watk = status_weapon_atk(base_status->rhw, sd);
 	base_status->watk2 = status_weapon_atk(base_status->lhw, sd);
 	base_status->eatk = sd->bonus.eatk;
-//#endif
+#endif
 
 // ----- HP MAX CALCULATION -----
 	base_status->max_hp = sd->status.max_hp = status_calc_maxhpsp_pc(sd,base_status->vit,true);
@@ -4213,12 +4212,12 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 // ----- HIT CALCULATION -----
 
 	// Absolute modifiers from passive skills
-#ifndef RENEWAL
+#ifndef RENEWAL_STAT
 	if((skill=pc_checkskill(sd,BS_WEAPONRESEARCH))>0)
 		base_status->hit += skill*2;
 #endif
 	if((skill=pc_checkskill(sd,AC_VULTURE))>0) {
-#ifndef RENEWAL
+#ifndef RENEWAL_STAT
 		base_status->hit += skill;
 #endif
 		if(sd->status.weapon == W_BOW)
@@ -4273,7 +4272,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 	if(pc_ismadogear(sd) && pc_checkskill(sd, NC_MAINFRAME) > 0)
 		base_status->def += 20 + (pc_checkskill(sd, NC_MAINFRAME) * 20);
 
-#ifndef RENEWAL
+#ifndef RENEWAL_STAT
 	if (!battle_config.weapon_defense_type && base_status->def > battle_config.max_def) {
 		base_status->def2 += battle_config.over_def_bonus*(base_status->def -battle_config.max_def);
 		base_status->def = (unsigned char)battle_config.max_def;
@@ -4290,7 +4289,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 		base_status->mdef = cap_value(i, DEFTYPE_MIN, DEFTYPE_MAX);
 	}
 
-#ifndef RENEWAL
+#ifndef RENEWAL_STAT
 	if (!battle_config.magic_defense_type && base_status->mdef > battle_config.max_def) {
 		base_status->mdef2 += battle_config.over_def_bonus*(base_status->mdef -battle_config.max_def);
 		base_status->mdef = (signed char)battle_config.max_def;
@@ -5095,51 +5094,62 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 			ud->state.change_walk_target = ud->state.speed_changed = 1;
 	}
 
-	if(flag&SCB_STR) {
+	if (flag&SCB_STR) {
 		status->str = status_calc_str(bl, sc, b_status->str);
-		flag|=SCB_BATK;
-		if( bl->type&BL_HOM )
+		flag |= SCB_BATK;
+		if (bl->type&BL_HOM)
 			flag |= SCB_WATK;
 	}
 
-	if(flag&SCB_AGI) {
+	if (flag&SCB_AGI) {
 		status->agi = status_calc_agi(bl, sc, b_status->agi);
-
+		flag |= SCB_FLEE
+#ifdef RENEWAL_STAT
+			| SCB_DEF2
+#endif
+			;
+		if (bl->type&(BL_PC | BL_HOM))
+			flag |= SCB_ASPD | SCB_DSPD;
 	}
 
-	if(flag&SCB_VIT) {
+	if (flag&SCB_VIT) {
 		status->vit = status_calc_vit(bl, sc, b_status->vit);
-		flag|=SCB_DEF2|SCB_MDEF2;
-
-		if( bl->type&(BL_PC|BL_HOM|BL_MER|BL_ELEM) )
+		flag |= SCB_DEF2 | SCB_MDEF2;
+		if (bl->type&(BL_PC | BL_HOM | BL_MER | BL_ELEM))
 			flag |= SCB_MAXHP;
-		if( bl->type&BL_HOM )
+		if (bl->type&BL_HOM)
 			flag |= SCB_DEF;
 	}
 
-	if(flag&SCB_INT) {
+	if (flag&SCB_INT) {
 		status->int_ = status_calc_int(bl, sc, b_status->int_);
-		flag|=SCB_MATK|SCB_MDEF2;
-
-		if( bl->type&(BL_PC|BL_HOM|BL_MER|BL_ELEM) )
+		flag |= SCB_MATK | SCB_MDEF2;
+		if (bl->type&(BL_PC | BL_HOM | BL_MER | BL_ELEM))
 			flag |= SCB_MAXSP;
-		if( bl->type&BL_HOM )
+		if (bl->type&BL_HOM)
 			flag |= SCB_MDEF;
 	}
 
-	if(flag&SCB_DEX) {
+	if (flag&SCB_DEX) {
 		status->dex = status_calc_dex(bl, sc, b_status->dex);
-		flag|=SCB_BATK | SCB_HIT | SCB_FLEE | SCB_CRI | SCB_ASPD;
-
-		if( bl->type&(BL_PC|BL_HOM) )
-			flag |= SCB_DSPD;
-		if( bl->type&BL_HOM )
+		flag |= SCB_BATK | SCB_HIT
+#ifdef RENEWAL_STAT
+			| SCB_MATK | SCB_MDEF2
+#endif
+			;
+		if (bl->type&(BL_PC | BL_HOM))
+			flag |= SCB_ASPD;
+		if (bl->type&BL_HOM)
 			flag |= SCB_WATK;
 	}
 
-	if(flag&SCB_LUK) {
+	if (flag&SCB_LUK) {
 		status->luk = status_calc_luk(bl, sc, b_status->luk);
-		flag|=SCB_BATK;
+		flag |= SCB_BATK | SCB_CRI | SCB_FLEE2
+#ifdef RENEWAL_STAT
+			| SCB_MATK | SCB_HIT | SCB_FLEE
+#endif
+			;
 	}
 
 	if(flag&SCB_BATK && b_status->batk) {
@@ -5154,25 +5164,60 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	}
 
 	if(flag&SCB_WATK) {
+#ifndef RENEWAL_STAT
+		status->rhw.atk = status_calc_watk(bl, sc, b_status->rhw.atk);
+		if (!sd) // Should not affect weapon refine bonus
+			status->rhw.atk2 = status_calc_watk(bl, sc, b_status->rhw.atk2);
+
+		if (sd && sd->bonus.weapon_atk_rate)
+			status->rhw.atk += status->rhw.atk * sd->bonus.weapon_atk_rate / 100;
+		if(b_status->lhw.atk) {
+			if (sd) {
+				sd->state.lr_flag = 1;
+				status->lhw.atk = status_calc_watk(bl, sc, b_status->lhw.atk);
+				sd->state.lr_flag = 0;
+			} else {
+				status->lhw.atk = status_calc_watk(bl, sc, b_status->lhw.atk);
+				status->lhw.atk2= status_calc_watk(bl, sc, b_status->lhw.atk2);
+			}
+		}
+#else
 		if(!b_status->watk) { // We only have left-hand weapon
 			status->watk = 0;
 			status->watk2 = status_calc_watk(bl, sc, b_status->watk2);
 		}
 		else status->watk = status_calc_watk(bl, sc, b_status->watk);
+#endif
 	}
 
 	if(flag&SCB_HIT) {
-		if (status->dex == b_status->dex)
+		if (status->dex == b_status->dex
+#ifdef RENEWAL_STAT
+			&& status->luk == b_status->luk
+#endif
+			)
 			status->hit = status_calc_hit(bl, sc, b_status->hit);
 		else
-			status->hit = status_calc_hit(bl, sc, b_status->hit + (status->dex - b_status->dex));
+			status->hit = status_calc_hit(bl, sc, b_status->hit + (status->dex - b_status->dex)
+#ifdef RENEWAL_STAT
+			 + (status->luk/3 - b_status->luk/3)
+#endif
+			 );
 	}
 
 	if(flag&SCB_FLEE) {
-		if (status->dex == b_status->dex)
+		if (status->agi == b_status->agi
+#ifdef RENEWAL_STAT
+			&& status->luk == b_status->luk
+#endif
+			)
 			status->flee = status_calc_flee(bl, sc, b_status->flee);
 		else
-			status->flee = status_calc_flee(bl, sc, b_status->flee +(status->dex - b_status->dex));
+			status->flee = status_calc_flee(bl, sc, b_status->flee +(status->agi - b_status->agi)
+#ifdef RENEWAL_STAT
+			+ (status->luk/5 - b_status->luk/5)
+#endif
+			);
 	}
 
 	if(flag&SCB_DEF) {
@@ -5183,11 +5228,19 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	}
 
 	if(flag&SCB_DEF2) {
-		if (status->vit == b_status->vit && status->agi == b_status->agi/5)
+		if (status->vit == b_status->vit
+#ifdef RENEWAL_STAT
+			&& status->agi == b_status->agi
+#endif
+			)
 			status->def2 = status_calc_def2(bl, sc, b_status->def2);
 		else
 			status->def2 = status_calc_def2(bl, sc, b_status->def2
-				+ (status->vit - b_status->vit)
+#ifdef RENEWAL_STAT
+			+ (int)( ((float)status->vit/2 - (float)b_status->vit/2) + ((float)status->agi/5 - (float)b_status->agi/5) )
+#else
+			+ (status->vit - b_status->vit)
+#endif
 		);
 	}
 
@@ -5199,12 +5252,19 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	}
 
 	if(flag&SCB_MDEF2) {
-		if (status->int_ == b_status->int_ && status->vit == b_status->vit && status->agi == b_status->agi / 5)
-
+		if (status->int_ == b_status->int_ && status->vit == b_status->vit
+#ifdef RENEWAL_STAT
+			&& status->dex == b_status->dex
+#endif
+			)
 			status->mdef2 = status_calc_mdef2(bl, sc, b_status->mdef2);
 		else
 			status->mdef2 = status_calc_mdef2(bl, sc, b_status->mdef2 +(status->int_ - b_status->int_)
-				+ ((status->vit - b_status->vit)>>1)
+#ifdef RENEWAL_STAT
+			+ (int)( ((float)status->dex/5 - (float)b_status->dex/5) + ((float)status->vit/5 - (float)b_status->vit/5) )
+#else
+			+ ((status->vit - b_status->vit)>>1)
+#endif
 			);
 	}
 
@@ -5225,10 +5285,10 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	}
 
 	if(flag&SCB_CRI && b_status->cri) {
-		if (status->agi == b_status->agi)
+		if (status->luk == b_status->luk)
 			status->cri = status_calc_critical(bl, sc, b_status->cri);
 		else
-			status->cri = status_calc_critical(bl, sc, b_status->cri + 3*(status->agi - b_status->agi));
+			status->cri = status_calc_critical(bl, sc, b_status->cri + 3*(status->luk - b_status->luk));
 
 		/// After status_calc_critical so the bonus is applied despite if you have or not a sc bugreport:5240
 		if( bl->type == BL_PC && ((TBL_PC*)bl)->status.weapon == W_KATAR )
@@ -5236,10 +5296,10 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	}
 
 	if(flag&SCB_FLEE2 && b_status->flee2) {
-		if (status->dex == b_status->dex)
+		if (status->agi == b_status->agi)
 			status->flee2 = status_calc_flee2(bl, sc, b_status->flee2);
 		else
-			status->flee2 = status_calc_flee2(bl, sc, b_status->flee2 +(status->dex - b_status->dex));
+			status->flee2 = status_calc_flee2(bl, sc, b_status->flee2 +(status->agi - b_status->agi));
 	}
 
 	if(flag&SCB_ATK_ELE) {
@@ -5453,10 +5513,10 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	if(flag&SCB_DSPD) {
 		int dmotion;
 		if( bl->type&BL_PC ) {
-			if (b_status->dex == status->dex)
+			if (b_status->agi == status->agi)
 				status->dmotion = status_calc_dmotion(bl, sc, b_status->dmotion);
 			else {
-				dmotion = 800-status->dex *4;
+				dmotion = 800-status->agi *4;
 				status->dmotion = cap_value(dmotion, 400, 800);
 				if(battle_config.pc_damage_delay_rate != 100)
 					status->dmotion = status->dmotion*battle_config.pc_damage_delay_rate/100;
@@ -5464,7 +5524,7 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 				status->dmotion = status_calc_dmotion(bl, sc, status->dmotion);
 			}
 		} else if( bl->type&BL_HOM ) {
-			dmotion = 800-status->dex*4;
+			dmotion = 800-status->agi *4;
 			status->dmotion = cap_value(dmotion, 400, 800);
 			status->dmotion = status_calc_dmotion(bl, sc, b_status->dmotion);
 		} else { // Mercenary and mobs
