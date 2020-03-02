@@ -114,31 +114,25 @@ int hom_class2mapid(int hom_class)
 {
 	switch(hom_class)
 	{
-		// Marionete
-		case 30500:	return MAPID_KUROARI;
-		case 30501:	return MAPID_SANSHOUO;
-		case 30502:	return MAPID_SASORI;
-		case 30503:	return MAPID_KAZEKAGE;
-		
 		// Akamaru
-		case 30504:	return MAPID_AKAMARU_BABY1;
-		case 30505:	return MAPID_AKAMARU_BABY2;
-		case 30506:	return MAPID_AKAMARU_BABY3;
-		case 30507:	return MAPID_AKAMARU_BABY4;
+		case 30500:	return MAPID_AKAMARU_BABY1;
+		case 30501:	return MAPID_AKAMARU_BABY2;
+		case 30502:	return MAPID_AKAMARU_BABY3;
+		case 30503:	return MAPID_AKAMARU_BABY4;
 		
-		case 30514:	return MAPID_AKAMARU1;
-		case 30515:	return MAPID_AKAMARU2;
-		case 30516:	return MAPID_AKAMARU3;
-		case 30517:	return MAPID_AKAMARU4;
+		case 30510:	return MAPID_AKAMARU1;
+		case 30511:	return MAPID_AKAMARU2;
+		case 30512:	return MAPID_AKAMARU3;
+		case 30513:	return MAPID_AKAMARU4;
 		
 		// Kuromaru
-		case 30508:	return MAPID_KUROMARU_BABY1;
-		case 30509:	return MAPID_KUROMARU_BABY2;
-		case 30510:	return MAPID_KUROMARU_BABY3;
+		case 30504:	return MAPID_KUROMARU_BABY1;
+		case 30505:	return MAPID_KUROMARU_BABY2;
+		case 30506:	return MAPID_KUROMARU_BABY3;
 		
-		case 30518:	return MAPID_KUROMARU1;
-		case 30519:	return MAPID_KUROMARU2;
-		case 30520:	return MAPID_KUROMARU3;
+		case 30514:	return MAPID_KUROMARU1;
+		case 30515:	return MAPID_KUROMARU2;
+		case 30516:	return MAPID_KUROMARU3;
 
 		default:				return -1;
 	}
@@ -206,34 +200,21 @@ void hom_damage(struct homun_data *hd) {
 */
 int hom_dead(struct homun_data* hd)
 {
-	struct map_session_data* sd = hd->master;
-	struct item tmp_item;
+	//There's no intimacy penalties on death (from Tharis)
+	struct map_session_data *sd = hd->master;
 
-	int flag;
+	clif_emotion(&hd->bl, ET_KEK);
 
-	sd = hd->master;
-	hd = sd->hd;
-	hom_save(hd);
-
-	sd = hd->master;
+	//Delete timers when dead.
 	hom_hungry_timer_delete(hd);
 	hd->homunculus.hp = 0;
 
-	memset(&tmp_item, 0, sizeof(tmp_item));
-	tmp_item.nameid = hd->homunculus.class_;
-	tmp_item.identify = 1;
-	tmp_item.card[0] = CARD0_HUN;
-	tmp_item.card[1] = GetWord(hd->homunculus.hom_id, 0);
-	tmp_item.card[2] = GetWord(hd->homunculus.hom_id, 1);
-	tmp_item.card[3] = 1;
-	if ((flag = pc_additem(sd, &tmp_item, 1, LOG_TYPE_CONSUME))) {
-		clif_additem(sd, 0, 0, flag);
-		map_addflooritem(&tmp_item, 1, sd->bl.m, sd->bl.x, sd->bl.y, 0, 0, 0, 0, 0);
-	}
+	if (!sd) //unit remove map will invoke unit free
+		return 3;
 
-	hd->homunculus.intimacy = 0;
-	return unit_remove_map(&hd->bl, CLR_OUTSIGHT);
-
+	clif_emotion(&sd->bl, ET_CRY);
+	//Remove from map (if it has no intimacy, it is auto-removed from memory)
+	return 3;
 }
 
 /**
@@ -244,32 +225,28 @@ int hom_dead(struct homun_data* hd)
 
 int hom_vaporize(struct map_session_data* sd, int flag)
 {
-	struct homun_data* hd;
-	struct item tmp_item;
+	struct homun_data *hd;
 
 	nullpo_ret(sd);
 
 	hd = sd->hd;
-	hom_save(hd);
-
-	if (!hd)
+	if (!hd || hd->homunculus.vaporize)
 		return 0;
 
-	memset(&tmp_item, 0, sizeof(tmp_item));
+	if (status_isdead(&hd->bl))
+		return 0; //Can't vaporize a dead homun.
 
-	tmp_item.nameid = hd->homunculus.class_;
-	tmp_item.identify = 1;
-	tmp_item.card[0] = CARD0_HUN;
-	tmp_item.card[1] = GetWord(hd->homunculus.hom_id, 0);
-	tmp_item.card[2] = GetWord(hd->homunculus.hom_id, 1);
-	tmp_item.card[3] = 0;
-	if ((flag = pc_additem(sd, &tmp_item, 1, LOG_TYPE_CONSUME))) {
-		clif_additem(sd, 0, 0, flag);
-		map_addflooritem(&tmp_item, 1, sd->bl.m, sd->bl.x, sd->bl.y, 0, 0, 0, 0, 0);
-	}
+	if (flag == HOM_ST_REST && get_percentage(hd->battle_status.hp, hd->battle_status.max_hp) < 80)
+		return 0;
 
-	sd = hd->master;
-	hd->homunculus.intimacy = 0;
+	hd->regen.state.block = 3; //Block regen while vaporized.
+	//Delete timers when vaporized.
+	hom_hungry_timer_delete(hd);
+	hd->homunculus.vaporize = flag ? flag : HOM_ST_REST;
+	if (battle_config.hom_setting&HOMSET_RESET_REUSESKILL_VAPORIZED)
+		memset(hd->blockskill, 0, sizeof(hd->blockskill));
+	clif_hominfo(sd, sd->hd, 0);
+	hom_save(hd);
 	return unit_remove_map(&hd->bl, CLR_OUTSIGHT);
 }
 
@@ -590,9 +567,9 @@ int hom_evolution(struct homun_data *hd)
 	struct map_session_data *sd;
 	nullpo_ret(hd);
 
-	if(!hd->homunculusDB->evo_class || hd->homunculus.class_ == hd->homunculusDB->evo_class) {
+	if (!hd->homunculusDB->evo_class || hd->homunculus.class_ == hd->homunculusDB->evo_class) {
 		clif_emotion(&hd->bl, ET_SWEAT);
-		return 0 ;
+		return 0;
 	}
 	sd = hd->master;
 	if (!sd)
@@ -609,20 +586,21 @@ int hom_evolution(struct homun_data *hd)
 	min = &hd->homunculusDB->emin;
 	hom->max_hp += rnd_value(min->HP, max->HP);
 	hom->max_sp += rnd_value(min->SP, max->SP);
-	hom->str += 10*rnd_value(min->str, max->str);
-	hom->agi += 10*rnd_value(min->agi, max->agi);
-	hom->vit += 10*rnd_value(min->vit, max->vit);
-	hom->int_+= 10*rnd_value(min->int_,max->int_);
-	hom->dex += 10*rnd_value(min->dex, max->dex);
-	hom->luk += 10*rnd_value(min->luk, max->luk);
-	hom->intimacy = 500;
+	hom->str += 10 * rnd_value(min->str, max->str);
+	hom->agi += 10 * rnd_value(min->agi, max->agi);
+	hom->vit += 10 * rnd_value(min->vit, max->vit);
+	hom->int_ += 10 * rnd_value(min->int_, max->int_);
+	hom->dex += 10 * rnd_value(min->dex, max->dex);
+	hom->luk += 10 * rnd_value(min->luk, max->luk);
+	hom->intimacy = battle_config.homunculus_evo_intimacy_reset;
 
 	unit_remove_map(&hd->bl, CLR_OUTSIGHT);
-	map_addblock(&hd->bl);
+	if (map_addblock(&hd->bl))
+		return 0;
 
 	clif_spawn(&hd->bl);
 	clif_emotion(&sd->bl, ET_BEST);
-	clif_specialeffect(&hd->bl,EF_HO_UP,AREA);
+	clif_specialeffect(&hd->bl, EF_HO_UP, AREA);
 
 	//status_Calc flag&1 will make current HP/SP be reloaded from hom structure
 	hom->hp = hd->battle_status.hp;
@@ -630,9 +608,9 @@ int hom_evolution(struct homun_data *hd)
 	status_calc_homunculus(hd, SCO_FIRST);
 
 	if (!(battle_config.hom_setting&HOMSET_NO_INSTANT_LAND_SKILL))
-		skill_unit_move(&sd->hd->bl,gettick(),1); // apply land skills immediately
+		skill_unit_move(&sd->hd->bl, gettick(), 1); // apply land skills immediately
 
-	return 1 ;
+	return 1;
 }
 
 /**

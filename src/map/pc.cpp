@@ -5116,40 +5116,6 @@ bool pc_isUseitem(struct map_session_data *sd,int n)
 		return false;
 
 	switch( nameid ) {
-		case ITEMID_KUROARI:
-		case ITEMID_SANSHOUO:
-		case ITEMID_SASORI:
-		case ITEMID_KAZEKAGE:
-		case ITEMID_AKAMARU1:
-		case ITEMID_AKAMARU2:
-		case ITEMID_AKAMARU3:
-		case ITEMID_AKAMARU4:
-		case ITEMID_AKAMARU5:
-		case ITEMID_AKAMARU6:
-		case ITEMID_AKAMARU7:
-		case ITEMID_AKAMARU_EVO1:
-		case ITEMID_AKAMARU_EVO2:
-		case ITEMID_AKAMARU_EVO3:
-		case ITEMID_AKAMARU_EVO4:
-		case ITEMID_AKAMARU_EVO5:
-		case ITEMID_AKAMARU_EVO6:
-		case ITEMID_AKAMARU_EVO7:
-			if (sd->hd == NULL) {
-				if (sd->inventory.u.items_inventory[n].card[3] > 2) {
-					hom_create_request(sd, (sd->inventory.u.items_inventory[n].card[3]));
-					return true;
-				}
-				if (sd->inventory.u.items_inventory[n].card[3] == 1) {
-					clif_displaymessage(sd->fd, "Está Morto.");
-					return false;
-				}
-				if (sd->inventory.u.items_inventory[n].card[3] == 0) {
-					sd->status.hom_id = MakeDWord(sd->inventory.u.items_inventory[n].card[1], sd->inventory.u.items_inventory[n].card[2]);
-					intif_homunculus_requestload(sd->status.account_id, MakeDWord(sd->inventory.u.items_inventory[n].card[1], sd->inventory.u.items_inventory[n].card[2]));
-					return true;
-				}
-			}
-			return false;
 		case ITEMID_WING_OF_FLY:
 		case ITEMID_GIANT_FLY_WING:
 		case ITEMID_N_FLY_WING:
@@ -7730,7 +7696,7 @@ int pc_resetskill(struct map_session_data* sd, int flag)
 		if( i != sd->sc.option )
 			pc_setoption(sd, i);
 
-		if( hom_is_active(sd->hd) && pc_checkskill(sd, AM_CALLHOMUN) )
+		if( hom_is_active(sd->hd) && (pc_checkskill(sd, AM_CALLHOMUN) || pc_checkskill(sd, IZ_AKAMARU)))
 			hom_vaporize(sd, HOM_ST_ACTIVE);
 
 		if (sd->sc.data[SC_SPRITEMABLE] && pc_checkskill(sd, SU_SPRITEMABLE))
@@ -9132,7 +9098,7 @@ bool pc_jobchange(struct map_session_data *sd,int job, char upper)
 	if(i != sd->sc.option)
 		pc_setoption(sd, i);
 
-	if(hom_is_active(sd->hd) && !pc_checkskill(sd, AM_CALLHOMUN))
+	if(hom_is_active(sd->hd) && (!pc_checkskill(sd, AM_CALLHOMUN) || !pc_checkskill(sd, IZ_AKAMARU)))
 		hom_vaporize(sd, HOM_ST_ACTIVE);
 
 	if (sd->sc.data[SC_SPRITEMABLE] && !pc_checkskill(sd, SU_SPRITEMABLE))

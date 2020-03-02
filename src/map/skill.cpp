@@ -6300,107 +6300,24 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	*	Jutsu de Homunculu
 	*/
 	case KG_KUROARI:
-	{
-		struct item tmp_item;
-
-		if (sd->hd == NULL) {
-			memset(&tmp_item, 0, sizeof(tmp_item));
-
-			tmp_item.nameid = 30500;
-			tmp_item.identify = 1;
-			tmp_item.card[0] = CARD0_HUN;
-			tmp_item.card[3] = 30500;
-			if ((flag = pc_additem(sd, &tmp_item, 1, LOG_TYPE_CONSUME))) {
-				clif_additem(sd, 0, 0, flag);
-				map_addflooritem(&tmp_item, 1, sd->bl.m, sd->bl.x, sd->bl.y, 0, 0, 0, 0, 0);
-			}
-		}
-		clif_skill_fail(sd, skill_id, USESKILL_FAIL, 0);
-		return 0;
-
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-	}
+		mercenary_create(sd, 2937, skill_get_time(skill_id, skill_lv));
 	break;
 
 	case KG_SANSHOUO:
-	{
-		struct item tmp_item;
-
-		if (sd->hd == NULL) {
-			memset(&tmp_item, 0, sizeof(tmp_item));
-
-			tmp_item.nameid = 30501;
-			tmp_item.identify = 1;
-			tmp_item.card[0] = CARD0_HUN;
-			tmp_item.card[3] = 30501;
-			if ((flag = pc_additem(sd, &tmp_item, 1, LOG_TYPE_CONSUME))) {
-				clif_additem(sd, 0, 0, flag);
-				map_addflooritem(&tmp_item, 1, sd->bl.m, sd->bl.x, sd->bl.y, 0, 0, 0, 0, 0);
-			}
-		}
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-	}
-	break;
+		mercenary_create(sd, 2937, skill_get_time(skill_id, skill_lv));
+		break;
 
 	case KG_SASORI:
-	{
-		struct item tmp_item;
-
-		if (sd->hd == NULL) {
-			memset(&tmp_item, 0, sizeof(tmp_item));
-
-			tmp_item.nameid = 30502;
-			tmp_item.identify = 1;
-			tmp_item.card[0] = CARD0_HUN;
-			tmp_item.card[3] = 30502;
-			if ((flag = pc_additem(sd, &tmp_item, 1, LOG_TYPE_CONSUME))) {
-				clif_additem(sd, 0, 0, flag);
-				map_addflooritem(&tmp_item, 1, sd->bl.m, sd->bl.x, sd->bl.y, 0, 0, 0, 0, 0);
-			}
-		}
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-	}
-	break;
+		mercenary_create(sd, 2937, skill_get_time(skill_id, skill_lv));
+		break;
 
 	case KG_KAZEKAGE:
-	{
-		struct item tmp_item;
-
-		if (sd->hd == NULL) {
-			memset(&tmp_item, 0, sizeof(tmp_item));
-
-			tmp_item.nameid = 30503;
-			tmp_item.identify = 1;
-			tmp_item.card[0] = CARD0_HUN;
-			tmp_item.card[3] = 30503;
-			if ((flag = pc_additem(sd, &tmp_item, 1, LOG_TYPE_CONSUME))) {
-				clif_additem(sd, 0, 0, flag);
-				map_addflooritem(&tmp_item, 1, sd->bl.m, sd->bl.x, sd->bl.y, 0, 0, 0, 0, 0);
-			}
-		}
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-	}
-	break;
-
-	case IZ_AKAMARU:
-	{
-		struct item tmp_item;
-
-		if (sd->hd == NULL) {
-			memset(&tmp_item, 0, sizeof(tmp_item));
-
-			tmp_item.nameid = 30504;
-			tmp_item.identify = 1;
-			tmp_item.card[0] = CARD0_HUN;
-			tmp_item.card[3] = rnd_value(30504, 30510);
-			if ((flag = pc_additem(sd, &tmp_item, 1, LOG_TYPE_CONSUME))) {
-				clif_additem(sd, 0, 0, flag);
-				map_addflooritem(&tmp_item, 1, sd->bl.m, sd->bl.x, sd->bl.y, 0, 0, 0, 0, 0);
-			}
-		}
-		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-	}
-	break;
+		mercenary_create(sd, 2937, skill_get_time(skill_id, skill_lv));
+		break;
 
 	// ------------------------------------------------------------------------
 
@@ -8984,6 +8901,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		}
 		break;
 
+	case IZ_AKAMARU:
 	case AM_CALLHOMUN:	//[orn]
 		if (sd && !hom_call(sd))
 			clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
@@ -15695,6 +15613,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 			if (status->sp == status->max_sp)
 				return false; //Unusable when at full SP.
 			break;
+		case IZ_AKAMARU:
 		case AM_CALLHOMUN: //Can't summon if a hom is already out
 			if (sd->status.hom_id && sd->hd && !sd->hd->homunculus.vaporize) {
 				clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
@@ -15707,68 +15626,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 				return false;
 			}
 			break;
-		case KG_KUROARI: {
-			int count = 0;
 
-			for (i = 0; i < MAX_INVENTORY; i++)
-			if (sd->inventory.u.items_inventory[i].nameid == ITEMID_KUROARI)
-				count += sd->inventory.u.items_inventory[i].amount;
-			if (count >= 1) {
-				clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
-				return false;
-			}
-		}
-		break;
-		case KG_SANSHOUO: {
-			int count = 0;
-
-			for (i = 0; i < MAX_INVENTORY; i++)
-			if (sd->inventory.u.items_inventory[i].nameid == ITEMID_SANSHOUO)
-				count += sd->inventory.u.items_inventory[i].amount;
-			if (count >= 1) {
-				clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
-				return false;
-			}
-		}
-		break;
-		case KG_SASORI: {
-			int count = 0;
-
-			for (i = 0; i < MAX_INVENTORY; i++)
-			if (sd->inventory.u.items_inventory[i].nameid == ITEMID_SASORI)
-				count += sd->inventory.u.items_inventory[i].amount;
-			if (count >= 1) {
-				clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
-				return false;
-			}
-		}
-		break;
-
-		case KG_KAZEKAGE: {
-			int count = 0;
-
-			for (i = 0; i < MAX_INVENTORY; i++)
-			if (sd->inventory.u.items_inventory[i].nameid == ITEMID_KAZEKAGE)
-				count += sd->inventory.u.items_inventory[i].amount;
-			if (count >= 1) {
-				clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
-				return false;
-			}
-		}
-		break;
-
-		case IZ_AKAMARU: {
-			int count = 0;
-
-			for (i = 0; i < MAX_INVENTORY; i++)
-				if (sd->inventory.u.items_inventory[i].nameid >= ITEMID_AKAMARU1 && sd->inventory.u.items_inventory[i].nameid <= ITEMID_AKAMARU7)
-					count += sd->inventory.u.items_inventory[i].amount;
-			if (count >= 1) {
-				clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
-				return false;
-			}
-		}
-		break;
 		case AB_ANCILLA: {
 				int count = 0;
 
@@ -16748,6 +16606,7 @@ struct skill_condition skill_get_requirement(struct map_session_data* sd, uint16
 							if (i != skill_lv%11 - 1)
 								continue;
 							break;
+						case IZ_AKAMARU:
 						case AM_CALLHOMUN:
 							if (sd->status.hom_id) //Don't delete items when hom is already out.
 								continue;

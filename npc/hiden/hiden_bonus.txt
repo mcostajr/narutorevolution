@@ -164,3 +164,11 @@ function	script	KG_KIDOUMARU	{
 	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 44,4; skill 46,4; skill 405,3; skill 2233,2; skill 382,1; }
 	end;
 }
+
+function	script	KG_AKADO	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 2294,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 2294,2; skill 2210,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 2294,3; skill 2210,2; skill 325,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 2294,4; skill 2210,3; skill 325,2; skill 375,1;}
+	end;
+}
