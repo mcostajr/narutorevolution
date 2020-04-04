@@ -1123,7 +1123,8 @@ void party_exp_share(struct party_data* p, struct block_list* src, unsigned int 
 					job_gained = (unsigned int)cap_value(apply_rate(job_exp, rate), 1, UINT_MAX);
 			}
 		}
-		pc_gainexp(sd[i], src, base_gained, job_gained, 0);
+		//pc_gainexp(sd[i], src, base_gained, job_gained, 0);
+		pc_gainexp(sd[i], src, base_exp, job_exp, hiden_exp, 0);
 #else
 		pc_gainexp(sd[i], src, base_exp, job_exp, hiden_exp, 0);
 #endif

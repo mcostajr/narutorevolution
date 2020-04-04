@@ -104,9 +104,9 @@ static unsigned int status_calc_maxsp(struct block_list *bl, uint64 maxsp);
 static unsigned char status_calc_element(struct block_list *bl, struct status_change *sc, int element);
 static unsigned char status_calc_element_lv(struct block_list *bl, struct status_change *sc, int lv);
 static enum e_mode status_calc_mode(struct block_list *bl, struct status_change *sc, enum e_mode mode);
-//#ifdef RENEWAL
+#ifdef RENEWAL
 static unsigned short status_calc_ematk(struct block_list *,struct status_change *,int);
-//#endif
+#endif
 static int status_get_hpbonus(struct block_list *bl, enum e_status_bonus type);
 static int status_get_spbonus(struct block_list *bl, enum e_status_bonus type);
 static unsigned int status_calc_maxhpsp_pc(struct map_session_data* sd, unsigned int stat, bool isHP);
@@ -306,8 +306,8 @@ void initChangeTables(void)
 	add_sc(PR_LEXDIVINA, SC_SILENCE);
 
 	/* Kugutsu */
-	add_sc(HLIF_CHANGE, SC_SILENCE);
-	add_sc(MH_PAIN_KILLER, SC_STUN);
+	add_sc(MS_REFLECTSHIELD, SC_STUN);
+	add_sc(MA_DOUBLE, SC_SILENCE);
 
 	set_sc(HYO_ICEWALL, SC_ICEWALL, EFST_OWL, SCB_NONE);
 
@@ -342,11 +342,11 @@ void initChangeTables(void)
 	set_sc( KN_TWOHANDQUICKEN	, SC_TWOHANDQUICKEN	, EFST_TWOHANDQUICKEN	, SCB_ASPD );
 	set_sc( KN_AUTOCOUNTER		, SC_AUTOCOUNTER	, EFST_AUTOCOUNTER	, SCB_NONE );
 	set_sc( PR_IMPOSITIO		, SC_IMPOSITIO		, EFST_IMPOSITIO		,
-//#ifndef RENEWAL
-//		SCB_WATK );
-//#else
+#ifndef RENEWAL
+		SCB_WATK );
+#else
 		SCB_NONE );
-//#endif
+#endif
 	set_sc( PR_SUFFRAGIUM		, SC_SUFFRAGIUM		, EFST_SUFFRAGIUM		, SCB_NONE );
 	set_sc( PR_ASPERSIO		, SC_ASPERSIO		, EFST_ASPERSIO		, SCB_ATK_ELE );
 	set_sc( PR_BENEDICTIO		, SC_BENEDICTIO		, EFST_BENEDICTIO		, SCB_DEF_ELE );
@@ -653,7 +653,9 @@ void initChangeTables(void)
 	set_sc(MH_MAGMA_FLOW		, SC_MAGMA_FLOW		, EFST_MAGMA_FLOW		, SCB_NONE );
 	set_sc(MH_PYROCLASTIC		, SC_PYROCLASTIC	, EFST_PYROCLASTIC	, SCB_BATK|SCB_ATK_ELE );
 	set_sc(MH_LAVA_SLIDE		, SC_BURNING        , EFST_BURNT          , SCB_MDEF );
+	set_sc(MS_BOWLINGBASH, SC_BURNING        , EFST_BURNT          , SCB_MDEF );
 	set_sc(MH_NEEDLE_OF_PARALYZE	, SC_PARALYSIS		, EFST_NEEDLE_OF_PARALYZE	, SCB_DEF2 );
+	set_sc(MS_BASH, SC_POISON		, EFST_BLANK		, SCB_DEF2|SCB_REGEN );
 	add_sc(MH_POISON_MIST		, SC_BLIND		);
 
 	add_sc(MH_STYLE_CHANGE		, SC_STYLE_CHANGE	);
@@ -662,9 +664,7 @@ void initChangeTables(void)
 	set_sc(MH_CBC			, SC_CBC		, EFST_CBC			, SCB_FLEE );
 	set_sc(MH_EQC			, SC_EQC		, EFST_EQC			, SCB_DEF2|SCB_MAXHP );
 
-	add_sc( MER_CRASH		, SC_STUN		);
 	set_sc( MER_PROVOKE		, SC_PROVOKE		, EFST_PROVOKE		, SCB_DEF|SCB_DEF2|SCB_BATK|SCB_WATK );
-	add_sc( MS_MAGNUM		, SC_WATK_ELEMENT	);
 	add_sc( MER_SIGHT		, SC_SIGHT		);
 	set_sc( MER_DECAGI		, SC_DECREASEAGI	, EFST_DEC_AGI, SCB_AGI|SCB_SPEED );
 	set_sc( MER_MAGNIFICAT		, SC_MAGNIFICAT		, EFST_MAGNIFICAT		, SCB_REGEN );
@@ -674,12 +674,8 @@ void initChangeTables(void)
 	add_sc( MA_FREEZINGTRAP		, SC_FREEZE		);
 	set_sc( MER_AUTOBERSERK		, SC_AUTOBERSERK	, EFST_AUTOBERSERK	, SCB_NONE );
 	set_sc( ML_AUTOGUARD		, SC_AUTOGUARD		, EFST_AUTOGUARD		, SCB_NONE );
-	set_sc( MS_REFLECTSHIELD	, SC_REFLECTSHIELD	, EFST_REFLECTSHIELD	, SCB_NONE );
 	set_sc( ML_DEFENDER		, SC_DEFENDER		, EFST_DEFENDER		, SCB_SPEED|SCB_ASPD );
-	set_sc( MS_PARRYING		, SC_PARRYING		, EFST_PARRYING		, SCB_NONE );
 	set_sc( MS_BERSERK		, SC_BERSERK		, EFST_BERSERK		, SCB_DEF|SCB_DEF2|SCB_MDEF|SCB_MDEF2|SCB_FLEE|SCB_SPEED|SCB_ASPD|SCB_MAXHP|SCB_REGEN );
-	add_sc( ML_SPIRALPIERCE		, SC_STOP		);
-	set_sc( MER_QUICKEN		, SC_MERC_QUICKEN	, EFST_BLANK		, SCB_ASPD );
 	add_sc( ML_DEVOTION		, SC_DEVOTION		);
 	set_sc( MER_KYRIE		, SC_KYRIE		, EFST_KYRIE		, SCB_NONE );
 	set_sc( MER_BLESSING		, SC_BLESSING		, EFST_BLESSING		, SCB_STR|SCB_INT|SCB_DEX );
@@ -2499,8 +2495,14 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 {
 	int flag = 0, str, dex, dstr;
 
+#ifdef RENEWAL
+	if (!(bl->type&battle_config.enable_baseatk_renewal))
+		return 0;
+#else
 	if (!(bl->type&battle_config.enable_baseatk))
 		return 0;
+#endif
+
 
 	if (bl->type == BL_PC)
 	switch(((TBL_PC*)bl)->status.weapon) {
@@ -2515,11 +2517,16 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 			flag = 1;
 	}
 	if (flag) {
+#ifdef RENEWAL
 		dstr =
+#endif
 		str = status->dex;
 		dex = status->str;
-	} else {
+	}
+	else {
+#ifdef RENEWAL
 		dstr =
+#endif
 		str = status->str;
 		dex = status->dex;
 	}
@@ -2531,36 +2538,30 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 	**/
 	switch (bl->type) {
 		case BL_HOM:
+#ifdef RENEWAL
 			str = 2 * level + status_get_homstr(bl);
-
+#else
 			dstr = str / 10;
-			str += dstr*dstr;
-			/*dstr = str / 10;
-			str += dstr*dstr;*/
+			str += dstr * dstr;
+#endif
 			break;
 		case BL_PC:
+#ifdef RENEWAL
 			str = (dstr * 10 + dex * 10 / 5 + status->luk * 10 / 3 + level * 10 / 4) / 10;
-
-			dstr = str / 10;
-			str += dstr*dstr;
-			str += dex / 5 + status->luk / 5;
-			/*str = (dstr * 10 + agi * 10 / 3 + status->dex * 10 / 5 + status->luk * 10 / 5 + level * 10 / 5) / 10;
-
-			dstr = str / 10;
-			str += dstr*dstr;
-			str += status->agi / 3 + status->dex / 5 + status->luk / 5;*/
-			break;
-		default:// Others
-			str = dstr + level;
-
+#else
 			dstr = str / 10;
 			str += dstr * dstr;
 			str += dex / 5 + status->luk / 5;
-			/*str = dstr + level;
-
+#endif
+			break;
+		default:// Others
+#ifdef RENEWAL
+			str = dstr + level;
+#else
 			dstr = str / 10;
-			str += dstr*dstr;
-			str += status->agi / 3 + status->dex / 5 + status->luk / 5;*/
+			str += dstr * dstr;
+			str += dex / 5 + status->luk / 5;
+#endif
 			break;
 	}
 
@@ -2568,7 +2569,6 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 }
 
 #ifdef RENEWAL
-#endif
 /**
  * Weapon attack value calculated for Players
  * @param wa: Weapon attack
@@ -2578,25 +2578,22 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 unsigned int status_weapon_atk(struct weapon_atk wa, struct map_session_data *sd)
 {
 	float str = sd->base_status.str;
-	//float int_ = sd->base_status.int_;
-	//float stat;
 	int weapon_atk_bonus = 0;
 
-	/*if(sd->bonus.weapon_atk_rate) {
-		stat = str;
-	} else {
-		stat = int_;
-	}*/
 	if ((wa.range > 3 || sd->status.weapon == W_MUSICAL || sd->status.weapon == W_WHIP) && !pc_checkskill(sd, SU_SOULATTACK))
 		str = sd->base_status.dex;
 	if (sd->bonus.weapon_atk_rate)
 		weapon_atk_bonus = wa.atk * sd->bonus.weapon_atk_rate / 100;
-
-	// wa.atk2 = refinement, wa.atk = base equip atk
-	return wa.atk + wa.atk2 + (int)(wa.atk * (str / 200) + weapon_atk_bonus);
+	// wa.atk2 = refinement, wa.atk = base equip atk, wa.atk*str/200 = bonus str
+	//return wa.atk + wa.atk2 + (int)(wa.atk * (str / 200) + weapon_atk_bonus);
+	return wa.atk + wa.atk2 + (int)(weapon_atk_bonus);
 }
-//#endif
+#endif
 
+#ifndef RENEWAL
+unsigned short status_base_matk_min(const struct status_data* status) { return status->int_ + (status->int_ / 7) * (status->int_ / 7); }
+unsigned short status_base_matk_max(const struct status_data* status) { return status->int_ + (status->int_ / 5) * (status->int_ / 5); }
+#else
 /*
 * Calculates minimum attack variance 80% from db's ATK1 for non BL_PC
 * status->batk (base attack) will be added in battle_calc_base_damage
@@ -2604,15 +2601,15 @@ unsigned int status_weapon_atk(struct weapon_atk wa, struct map_session_data *sd
 unsigned short status_base_atk_min(struct block_list *bl, const struct status_data* status, int level)
 {
 	switch (bl->type) {
-		case BL_PET:
-		case BL_MOB:
-		case BL_MER:
-		case BL_ELEM:
-			return status->rhw.atk * 80 / 100;
-		case BL_HOM:
-			return (status_get_homstr(bl) + status_get_homdex(bl)) / 5;
-		default:
-			return status->rhw.atk;
+	case BL_PET:
+	case BL_MOB:
+	case BL_MER:
+	case BL_ELEM:
+		return status->rhw.atk * 80 / 100;
+	case BL_HOM:
+		return (status_get_homstr(bl) + status_get_homdex(bl)) / 5;
+	default:
+		return status->rhw.atk;
 	}
 }
 
@@ -2623,15 +2620,15 @@ unsigned short status_base_atk_min(struct block_list *bl, const struct status_da
 unsigned short status_base_atk_max(struct block_list *bl, const struct status_data* status, int level)
 {
 	switch (bl->type) {
-		case BL_PET:
-		case BL_MOB:
-		case BL_MER:
-		case BL_ELEM:
-			return status->rhw.atk * 120 / 100;
-		case BL_HOM:
-			return (status_get_homluk(bl) + status_get_homstr(bl) + status_get_homdex(bl)) / 3;
-		default:
-			return status->rhw.atk2;
+	case BL_PET:
+	case BL_MOB:
+	case BL_MER:
+	case BL_ELEM:
+		return status->rhw.atk * 120 / 100;
+	case BL_HOM:
+		return (status_get_homluk(bl) + status_get_homstr(bl) + status_get_homdex(bl)) / 3;
+	default:
+		return status->rhw.atk2;
 	}
 }
 
@@ -2650,7 +2647,7 @@ unsigned short status_base_matk_min(struct block_list *bl, const struct status_d
 		return status_get_homint(bl) + level + (status_get_homint(bl) + status_get_homdex(bl)) / 5;
 	case BL_PC:
 	default:
-		return status->int_ + (status->int_ / 2) + (status->dex / 5) + (status->agi / 3) + (status->luk / 5) + (level / 5);
+		return status->int_ + (status->int_ / 2) + (status->dex / 5) + (status->luk / 3) + (level / 4);
 	}
 }
 
@@ -2669,9 +2666,10 @@ unsigned short status_base_matk_max(struct block_list *bl, const struct status_d
 		return status_get_homint(bl) + level + (status_get_homluk(bl) + status_get_homint(bl) + status_get_homdex(bl)) / 3;
 	case BL_PC:
 	default:
-		return status->int_ + (status->int_ / 2) + (status->dex / 5) + (status->agi / 3) + (status->luk / 5) + (level / 5);
+		return status->int_ + (status->int_ / 2) + (status->dex / 5) + (status->luk / 3) + (level / 4);
 	}
 }
+#endif
 
 /**
  * Fills in the misc data that can be calculated from the other status info (except for level)
@@ -2767,14 +2765,14 @@ void status_calc_misc(struct block_list *bl, struct status_data *status, int lev
 	//Critical
 	if( bl->type&battle_config.enable_critical ) {
 		stat = status->cri;
-		stat += 10 + (status->luk*10/3); // (every 1 agi(LUK) = +0.3 critical)  /* NRO */
+		stat += 10 + (status->luk*10/3); // (every 1 agi(LUK) = +0.3 critical)
 		status->cri = cap_value(stat, 1, SHRT_MAX);
 	} else
 		status->cri = 0;
 
 	if (bl->type&battle_config.enable_perfect_flee) {
 		stat = status->flee2;
-		stat += status->luk + 10; // (every 10 luk = +1 perfect flee) /* NRO */
+		stat += status->luk + 10; // (every 10 luk = +1 perfect flee)
 		status->flee2 = cap_value(stat, 0, SHRT_MAX);
 	} else
 		status->flee2 = 0;
@@ -3806,12 +3804,12 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 			wa->atk += sd->inventory_data[index]->atk;
 			if(r)
 				wa->atk2 = refine_info[wlv].bonus[r-1] / 100;
-//#ifdef RENEWAL
+#ifdef RENEWAL
 			wa->matk += sd->inventory_data[index]->matk;
 			wa->wlv = wlv;
 			if(r && sd->weapontype1 != W_BOW) // Renewal magic attack refine bonus
 				wa->matk += refine_info[wlv].bonus[r-1] / 100;
-//#endif
+#endif
 			if(r) // Overrefine bonus.
 				wd->overrefine = refine_info[wlv].randombonus_max[r-1] / 100;
 			wa->range += sd->inventory_data[index]->range;
@@ -3825,10 +3823,10 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 				if (!calculating) // Abort, run_script retriggered this. [Skotlex]
 					return 1;
 			}
-//#ifdef RENEWAL
+#ifdef RENEWAL
 			if (sd->bonus.weapon_matk_rate)
 				wa->matk += wa->matk * sd->bonus.weapon_matk_rate / 100;
-//#endif
+#endif
 			if(sd->inventory.u.items_inventory[index].card[0] == CARD0_FORGE) { // Forged weapon
 				wd->star += (sd->inventory.u.items_inventory[index].card[1]>>8);
 				if(wd->star >= 15) wd->star = 40; // 3 Star Crumbs now give +40 dmg
@@ -4109,7 +4107,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 // ------ ATTACK CALCULATION ------
 
 	// Base batk value is set in status_calc_misc
-#ifndef RENEWAL_STAT
+#ifndef RENEWAL
 	// !FIXME: Weapon-type bonus (Why is the weapon_atk bonus applied to base attack?)
 	if (sd->status.weapon < MAX_WEAPON_TYPE && sd->weapon_atk[sd->status.weapon])
 		base_status->batk += sd->weapon_atk[sd->status.weapon];
@@ -4212,12 +4210,12 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 // ----- HIT CALCULATION -----
 
 	// Absolute modifiers from passive skills
-#ifndef RENEWAL_STAT
+#ifndef RENEWAL
 	if((skill=pc_checkskill(sd,BS_WEAPONRESEARCH))>0)
 		base_status->hit += skill*2;
 #endif
 	if((skill=pc_checkskill(sd,AC_VULTURE))>0) {
-#ifndef RENEWAL_STAT
+#ifndef RENEWAL
 		base_status->hit += skill;
 #endif
 		if(sd->status.weapon == W_BOW)
@@ -4272,7 +4270,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 	if(pc_ismadogear(sd) && pc_checkskill(sd, NC_MAINFRAME) > 0)
 		base_status->def += 20 + (pc_checkskill(sd, NC_MAINFRAME) * 20);
 
-#ifndef RENEWAL_STAT
+#ifndef RENEWAL
 	if (!battle_config.weapon_defense_type && base_status->def > battle_config.max_def) {
 		base_status->def2 += battle_config.over_def_bonus*(base_status->def -battle_config.max_def);
 		base_status->def = (unsigned char)battle_config.max_def;
@@ -4289,7 +4287,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 		base_status->mdef = cap_value(i, DEFTYPE_MIN, DEFTYPE_MAX);
 	}
 
-#ifndef RENEWAL_STAT
+#ifndef RENEWAL
 	if (!battle_config.magic_defense_type && base_status->mdef > battle_config.max_def) {
 		base_status->mdef2 += battle_config.over_def_bonus*(base_status->mdef -battle_config.max_def);
 		base_status->mdef = (signed char)battle_config.max_def;
@@ -5104,7 +5102,7 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	if (flag&SCB_AGI) {
 		status->agi = status_calc_agi(bl, sc, b_status->agi);
 		flag |= SCB_FLEE
-#ifdef RENEWAL_STAT
+#ifdef RENEWAL
 			| SCB_DEF2
 #endif
 			;
@@ -5133,7 +5131,7 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	if (flag&SCB_DEX) {
 		status->dex = status_calc_dex(bl, sc, b_status->dex);
 		flag |= SCB_BATK | SCB_HIT
-#ifdef RENEWAL_STAT
+#ifdef RENEWAL
 			| SCB_MATK | SCB_MDEF2
 #endif
 			;
@@ -5146,7 +5144,7 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	if (flag&SCB_LUK) {
 		status->luk = status_calc_luk(bl, sc, b_status->luk);
 		flag |= SCB_BATK | SCB_CRI | SCB_FLEE2
-#ifdef RENEWAL_STAT
+#ifdef RENEWAL
 			| SCB_MATK | SCB_HIT | SCB_FLEE
 #endif
 			;
@@ -5164,7 +5162,7 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 	}
 
 	if(flag&SCB_WATK) {
-#ifndef RENEWAL_STAT
+#ifndef RENEWAL
 		status->rhw.atk = status_calc_watk(bl, sc, b_status->rhw.atk);
 		if (!sd) // Should not affect weapon refine bonus
 			status->rhw.atk2 = status_calc_watk(bl, sc, b_status->rhw.atk2);
@@ -5192,14 +5190,14 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 
 	if(flag&SCB_HIT) {
 		if (status->dex == b_status->dex
-#ifdef RENEWAL_STAT
+#ifdef RENEWAL
 			&& status->luk == b_status->luk
 #endif
 			)
 			status->hit = status_calc_hit(bl, sc, b_status->hit);
 		else
 			status->hit = status_calc_hit(bl, sc, b_status->hit + (status->dex - b_status->dex)
-#ifdef RENEWAL_STAT
+#ifdef RENEWAL
 			 + (status->luk/3 - b_status->luk/3)
 #endif
 			 );
@@ -5207,14 +5205,14 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 
 	if(flag&SCB_FLEE) {
 		if (status->agi == b_status->agi
-#ifdef RENEWAL_STAT
+#ifdef RENEWAL
 			&& status->luk == b_status->luk
 #endif
 			)
 			status->flee = status_calc_flee(bl, sc, b_status->flee);
 		else
 			status->flee = status_calc_flee(bl, sc, b_status->flee +(status->agi - b_status->agi)
-#ifdef RENEWAL_STAT
+#ifdef RENEWAL
 			+ (status->luk/5 - b_status->luk/5)
 #endif
 			);
@@ -5229,14 +5227,14 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 
 	if(flag&SCB_DEF2) {
 		if (status->vit == b_status->vit
-#ifdef RENEWAL_STAT
+#ifdef RENEWAL
 			&& status->agi == b_status->agi
 #endif
 			)
 			status->def2 = status_calc_def2(bl, sc, b_status->def2);
 		else
 			status->def2 = status_calc_def2(bl, sc, b_status->def2
-#ifdef RENEWAL_STAT
+#ifdef RENEWAL
 			+ (int)( ((float)status->vit/2 - (float)b_status->vit/2) + ((float)status->agi/5 - (float)b_status->agi/5) )
 #else
 			+ (status->vit - b_status->vit)
@@ -5253,14 +5251,14 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 
 	if(flag&SCB_MDEF2) {
 		if (status->int_ == b_status->int_ && status->vit == b_status->vit
-#ifdef RENEWAL_STAT
+#ifdef RENEWAL
 			&& status->dex == b_status->dex
 #endif
 			)
 			status->mdef2 = status_calc_mdef2(bl, sc, b_status->mdef2);
 		else
 			status->mdef2 = status_calc_mdef2(bl, sc, b_status->mdef2 +(status->int_ - b_status->int_)
-#ifdef RENEWAL_STAT
+#ifdef RENEWAL
 			+ (int)( ((float)status->dex/5 - (float)b_status->dex/5) + ((float)status->vit/5 - (float)b_status->vit/5) )
 #else
 			+ ((status->vit - b_status->vit)>>1)
@@ -5613,21 +5611,27 @@ void status_calc_bl_(struct block_list* bl, enum scb_flag flag, enum e_status_ca
 		if(b_status.speed != status->speed)
 			clif_updatestatus(sd,SP_SPEED);
 
-		if(b_status.batk != status->batk
-//#ifndef RENEWAL
+		if (b_status.batk != status->batk
+#ifndef RENEWAL
 			|| b_status.rhw.atk != status->rhw.atk || b_status.lhw.atk != status->lhw.atk
-//#endif
+#endif
 			)
-			clif_updatestatus(sd,SP_ATK1);
+			clif_updatestatus(sd, SP_ATK1);
 
-		if(b_status.def != status->def) {
-			clif_updatestatus(sd,SP_DEF1);
+		if (b_status.def != status->def) {
+			clif_updatestatus(sd, SP_DEF1);
 #ifdef RENEWAL
-			clif_updatestatus(sd,SP_DEF2);
+			clif_updatestatus(sd, SP_DEF2);
 #endif
 		}
 
-		if(	b_status.watk != status->watk || b_status.watk2 != status->watk2 || b_status.eatk != status->eatk)
+			if (
+#ifdef RENEWAL
+				b_status.watk != status->watk || b_status.watk2 != status->watk2 || b_status.eatk != status->eatk
+#else
+				b_status.rhw.atk2 != status->rhw.atk2 || b_status.lhw.atk2 != status->lhw.atk2
+#endif
+				)
 			clif_updatestatus(sd,SP_ATK2);
 
 		if(b_status.def2 != status->def2) {
@@ -5640,19 +5644,17 @@ void status_calc_bl_(struct block_list* bl, enum scb_flag flag, enum e_status_ca
 			clif_updatestatus(sd,SP_FLEE2);
 		if(b_status.cri != status->cri)
 			clif_updatestatus(sd,SP_CRITICAL);
-//#ifndef RENEWAL
 #ifndef RENEWAL
-		if(b_status.matk_max != status->matk_max)
-			clif_updatestatus(sd,SP_MATK1);
-		if(b_status.matk_min != status->matk_min)
-			clif_updatestatus(sd,SP_MATK2);
-#endif
-//#else
-		if(b_status.matk_max != status->matk_max || b_status.matk_min != status->matk_min) {
-			clif_updatestatus(sd,SP_MATK2);
-			clif_updatestatus(sd,SP_MATK1);
+		if (b_status.matk_max != status->matk_max)
+			clif_updatestatus(sd, SP_MATK1);
+		if (b_status.matk_min != status->matk_min)
+			clif_updatestatus(sd, SP_MATK2);
+#else
+		if (b_status.matk_max != status->matk_max || b_status.matk_min != status->matk_min) {
+			clif_updatestatus(sd, SP_MATK2);
+			clif_updatestatus(sd, SP_MATK1);
 		}
-//#endif
+#endif
 		if(b_status.mdef != status->mdef) {
 			clif_updatestatus(sd,SP_MDEF1);
 #ifdef RENEWAL
@@ -6436,7 +6438,7 @@ static unsigned short status_calc_watk(struct block_list *bl, struct status_chan
 	return (unsigned short)cap_value(watk,0,USHRT_MAX);
 }
 
-//#ifdef RENEWAL
+#ifdef RENEWAL
 /**
  * Adds equip magic attack modifications based on status changes [RENEWAL]
  * @param bl: Object to change matk [PC]
@@ -6490,7 +6492,7 @@ static unsigned short status_calc_ematk(struct block_list *bl, struct status_cha
 
 	return (unsigned short)cap_value(matk,0,USHRT_MAX);
 }
-//#endif
+#endif
 
 /**
  * Adds magic attack modifications based on status changes

@@ -128,7 +128,7 @@ end;
 }
 
 
-prontera,156,171,5	script	Eventos#rBR	715,{
+konoha3,211,194,5	script	Eventos#rBR	715,{
 
 	.@npc$ = "[^0190ff Eventos ^000000]";
 

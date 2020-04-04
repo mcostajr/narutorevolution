@@ -4484,37 +4484,6 @@ ACMD_FUNC(clanspy){
 }
 
 /*==========================================
- * @repairmarionete [Valaris]
- *------------------------------------------*/
-ACMD_FUNC(repairmarionete)
-{
-	int count, n;
-	int homid;
-	nullpo_retr(-1, sd);
-
-	count = 0;
-
-	for (n = 0; n < MAX_INVENTORY; n++) {
-		if (sd->inventory.u.items_inventory[n].nameid && sd->inventory.u.items_inventory[n].card[3] == 1) {
-			homid = MakeDWord(sd->inventory.u.items_inventory[n].card[1], sd->inventory.u.items_inventory[n].card[2]);
-			sd->inventory.u.items_inventory[n].card[3] = 0;
-			clif_produceeffect(sd, 0, sd->inventory.u.items_inventory[n].nameid);
-			count++;
-		}
-	}
-
-	if (count > 0) {
-		clif_misceffect(&sd->bl, 3);
-		clif_displaymessage(fd, msg_txt(sd, 1505));
-	} else {
-		clif_displaymessage(fd, msg_txt(sd, 1506));
-		return -1;
-	}
-
-	return 0;
-}
-
-/*==========================================
  * @repairall [Valaris]
  *------------------------------------------*/
 ACMD_FUNC(repairall)
@@ -10253,7 +10222,6 @@ void atcommand_basecommands(void) {
 		ACMD_DEF(guildspy),
 		ACMD_DEF(partyspy),
 		ACMD_DEF(clanspy),
-		ACMD_DEF(repairmarionete),
 		ACMD_DEF(repairall),
 		ACMD_DEF(guildrecall),
 		ACMD_DEF(partyrecall),

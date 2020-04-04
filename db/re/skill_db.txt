@@ -152,7 +152,7 @@
 2274,0,6,4,1,0x1,0,10,1,no,0,0,0,none,0,0x0,		NC_STEALTHFIELD,Suiton Kirigakure
 2449,9,6,2,1,0,0,10,-3,no,0,0,0,magic,0,0x0,		SO_PSYCHIC_WAVE,Suiton Daibakufu
 539,0,6,4,1,0,0,10,1,no,0,0,0,magic,0,0x0,			NJ_HYOUSYOURAKU,Suiton Daikodan
-18,0,8,4,1,0x30,0,10,10,no,0,0,1,magic,0,0x0,		MG_FIREWALL,Suiton Suijinheki
+18,0,8,4,1,0x30,0,10,1,no,0,0,1,magic,0,0x0,		MG_FIREWALL,Suiton Suijinheki
 847,9,6,2,6,0,0,4,1,no,0,0,1,magic,0,0x0,			SUI_SUIJINHEKI,DeBuff Suijinheki
 //
 14,9,6,2,1,0,0,10,-5,no,0,0,0,magic,0,0x0,			MG_COLDBOLT,Suiton Suiryuudan
@@ -186,7 +186,7 @@
 2446,9,6,2,2,0,0,10,-8,no,0,0,0,magic,0,0x10000,							SO_EARTHGRAVE,Doton Ganseki Kuzushi
 527,0,9,4,2,0,0,10,-5,no,0,0,0,magic,5,0x0,									NJ_TATAMIGAESHI,Doton Tajuu Doryuuheki
 //
-185,4,6,2,0,0x1,0,10,1,no,0,0,1,none,0,0x0,			NPC_GROUNDATTACK,Doton Gouremu
+185,1,0,4,0,0x1,0,10,0,no,0,0,0,none,0,0x0,			NPC_GROUNDATTACK,Doton Gouremu
 666,0,6,4,2,0x3,8,10,1,no,0,0,0,none,0,0x0,			NPC_WIDESTONE,Doton Sando
 653,0,8,4,2,0x6,7,10,1,no,0,0x40000,0,magic,0,0x0,	NPC_EARTHQUAKE,Doton Ari Jigoku
 
@@ -316,22 +316,26 @@
 
 //****
 // Kugutsu
-503,-9,6,1,-1,0x40,0,1,10,no,0,0,0,magic,0,0x0,	GS_BULLSEYE,Hyakki no Soen
-244,0,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,		AM_REST,Voltar
-4210,1,0,4,0,0x1,0,1,0,no,0,0,0,weapon,0,0x0,	KG_KUROARI,Criar Kuroari
-4211,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,		KG_SANSHOUO,Criar Sanshouo
-4212,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,		KG_SASORI,Criar Sasori
+4210,1,0,4,0,0x1,0,4,0,no,0,0,0,weapon,0,0x0,	KG_KUROARI,Criar Kuroari
+4211,1,0,4,0,0x1,0,3,0,no,0,0,0,none,0,0x0,		KG_SANSHOUO,Criar Sanshouo
+4212,1,0,4,0,0x1,0,2,0,no,0,0,0,none,0,0x0,		KG_SASORI,Criar Sasori
 4213,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,		KG_KAZEKAGE,Criar Kazekage
+503,-9,6,1,-1,0x40,0,1,10,no,0,0,0,magic,0,0x0,	GS_BULLSEYE,Hyakki no Soen
 
 // Kuroari
-8003,0,0,0,0,0,0,5,0,no,0,0,0,none,0,0x0,				HLIF_BRAIN,Eficiência em Genjutsu
-8019,5,6,1,5,0,0,5,1,no,0,0,0,magic,0,0x0,				MH_NEEDLE_OF_PARALYZE,Injetar Veneno
-8020,5,6,2,5,0,0,5,1,no,0,0,1,magic,0,0x0,				MH_POISON_MIST,Névoa Venenosa
-8041,9,0,2,2,0x1,0,5,1,no,0,0x1,3,magic,0,0x11000,		MH_LAVA_SLIDE,Névoa Paralisante
-8021,9,6,1,0,0x1,0,5,1,no,0,0,0,none,0,0x0,				MH_PAIN_KILLER,Stun
-8004,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,			HLIF_CHANGE,Silence
+8201,5,6,1,5,0,0,5,1,no,0,0,0,magic,0,0x0,			MS_BASH,Injetar Veneno
+8202,5,6,2,5,0,0,5,1,no,0,0,1,magic,0,0x0,			MS_MAGNUM,Névoa Venenosa
+8203,9,0,2,2,0x1,0,5,1,no,0,0x1,3,magic,0,0x11000,	MS_BOWLINGBASH,Névoa Paralisante
+8205,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,		MS_REFLECTSHIELD,Stun
+8207,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,		MA_DOUBLE,Silence
 
 // Sanshouo
+8208,-9,6,2,-1,0x2,2,10,1,no,0,0x40000,0,weapon,2,0x81,	MA_SHOWER,Arrow_Shower
+8209,9,6,2,3,0x42,1,1,1,no,0,0,0,weapon,3,0x100,	MA_SKIDTRAP,Minas
+8210,3,6,2,2,0xC0,0,5,1,no,0,0x80,0,misc,0,0x3800,	MA_LANDMINE,Land_Mine
+8211,3,6,2,0,0x3,2,5,1,no,0,0x80,0,misc,0,0x3000,	MA_SANDMAN,Sandman
+8212,3,6,2,1,0x42,1,5,1,no,0,0x80,0,weapon,0,0x3800,	MA_FREEZINGTRAP,Freezing_Trap
+
 8005,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,		HAMI_CASTLE,Troca de Lugar
 8006,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,		HAMI_DEFENCE,Sanshouo
 8040,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,		MH_GRANITIC_ARMOR,Ampliar Defesa
@@ -339,18 +343,18 @@
 8022,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,		MH_LIGHT_OF_REGENE,Ningyo no Kokoro
 
 //Sasori
-8013,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,		HVAN_CAPRICE,Haidoroponpu
-8014,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,		HVAN_CHAOTIC,Soen Katsugeki
-8015,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,		HVAN_INSTRUCT,Rēzābīmu
-8026,1,8,4,0,0x2,4,5,-5,no,0,0,0,magic,0,0x0,	MH_SILENT_BREEZE,Yōu no Mai
-8001,9,6,4,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,	HLIF_HEAL,Lanças Duplas
+8213,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,	MA_REMOVETRAP,Haidoroponpu
+8214,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,	MA_CHARGEARROW,Soen Katsugeki
+8215,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,	MA_SHARPSHOOTING,Rēzābīmu
+8216,1,8,4,0,0x2,4,5,-5,no,0,0,0,magic,0,0x0,	ML_PIERCE,Yōu no Mai
+8217,9,6,4,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,	ML_BRANDISH,Lanças Duplas
 
 //Kazekage
-8009,2,8,1,0,0,0,5,-1:-2:-2:-2:-3,no,0,0,0,weapon,0,0x0,		HFLI_MOON,Ataque Rapido
-8025,7,8,1,0,0,0,5,-6,no,0,0,0,weapon,0,0x0,					MH_XENO_SLASHER,Milhares de Mãos
-8010,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,						HFLI_FLEET,Modo de Ataque
-8007,9,6,1,0,0,0,5,1,no,0,0,0,weapon,0,0x0,						HAMI_SKIN,Dinamic
-8008,1,6,4,0,0x2,5,5,1,no,0,0,0,weapon,0,0x0,					HAMI_BLOODLUST,Ataque em Area
+8218,2,8,1,0,0,0,5,-1:-2:-2:-2:-3,no,0,0,0,weapon,0,0x0,	ML_SPIRALPIERCE,Ataque Rapido
+8223,7,8,1,0,0,0,5,-6,no,0,0,0,weapon,0,0x0,	MER_QUICKEN,Two-Milhares de Mãos
+8225,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,		MER_CRASH,Modo de Ataque
+8226,9,6,1,0,0,0,5,1,no,0,0,0,weapon,0,0x0,		MER_REGAIN,Dinamic
+8227,1,6,4,0,0x2,5,5,1,no,0,0,0,weapon,0,0x0,	MER_TENDER,Ataque em Area
 
 //****
 // Hyuuga
@@ -398,8 +402,8 @@
 //****
 // Inuzuka
 253,-2,8,1,-1,0,0,4,-2,no,0,0x40000,0,weapon,0,0x0,	CR_HOLYCROSS,Sogin Roga
-// Voltar
 4270,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,			IZ_AKAMARU,Criar Ninken
+244,0,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,			AM_REST,Voltar
 3004,9,8,1,-1,0,0,1,-6,no,0,0,0,weapon,0,0x0,		KO_JYUMONJIKIRI,Tsuga
 
 //Akamaru
@@ -423,12 +427,12 @@
 515,9,8,1,8,0,0,4,-5,no,0,0,0,weapon,0,0x0,				GS_RAPIDSHOWER,Tori
 4291,4,6,2,8,0x1,0,4,1,no,0,0,5,none,0,0x0,				KN_C1,C1
 2304,0,6,4,8,0x40,0,3,1,no,0,0x40000,0,weapon,8,0x0,	SC_FEINTBOMB,Copia Explosiva
-4292,4,6,2,8,0x1,0,2,1,no,0,0,1,none,0,0x0,				KN_C2,C2
+4292,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,				KN_C2,C2
 4293,4,6,2,8,0x1,0,1,1,no,0,0,1,none,0,0x0,				KN_C3,C3
 4294,0,6,4,8,0xCA,6,1,1,no,0,0x40000,0,misc,3,0x304000,	KN_C0,C0
 2267,0,6,4,8,0xCA,6,1,1,no,0,0x40000,0,misc,3,0x304000,	NC_SELFDESTRUCTION,Katsu
 // Passarinho
-521,-9,6,2,3,0x42,1,4,1,no,0,0,0,weapon,3,0x100,		GS_GROUNDDRIFT,Minas Explosivas
+8228,9,6,2,3,0x42,1,1,1,no,0,0,0,weapon,3,0x100,	MER_BENEDICTION,Minas Explosivas
 
 //****
 // Aburame
@@ -464,7 +468,7 @@
 406,0,6,4,5,0xA,5,3,1,no,0,0x40000,0,weapon,0,0x0,	ASC_METEORASSAULT,Kibaku Enjin
 2021,10,6,1,0,0x1,0,2,1,no,0,0,0,none,0,0x0,		GC_VENOMIMPRESS,Potencializar Veneno
 2450,0,6,4,5,0,0,2,1,no,0,0,0,magic,0,0x0,			SO_CLOUD_KILL,Hyogen
-4310,4,6,2,0,0x1,0,1,1,no,0,0,1,none,0,0x0,			IB_SALAMANDRA,Kuchiyose no Jutsu: Ibuse
+4310,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,			IB_SALAMANDRA,Kuchiyose no Jutsu: Ibuse
 //Salamandra
 52,-2,6,1,5,0,0,10,1,no,0,0,0,weapon,0,0x0,				TF_POISON,Envenenar
 140,2,6,2,5,0x1,0,10,1,no,0,0,2,weapon,0,0x0,			AS_VENOMDUST,Névoa Tóxica
@@ -1036,7 +1040,7 @@
 
 //****
 // Other 2nd Skills
-475,0,0,4,0,0x1,0,4,1,yes,0,0,0,none,0,0x0,					ST_PRESERVE,Memorizar
+475,0,0,4,0,0x1,0,4,1,yes,0,0,0,none,0,0x0,		ST_PRESERVE,Memorizar
 473,0,6,4,0,0x1,0,1,1,no,0,0,0,none,0,0x0,		SM_SELFPROVOKE,Provoke Self
 474,0,0,4,0,0x1,0,10,1,no,0,0x2,0,none,0,0x0,	NPC_EMOTION_ON,Emotion ON
 476,1,6,1,0,0x1,0,10,1,yes,0,0,0,weapon,0,0x0,	ST_FULLSTRIP,Divest All
@@ -1055,7 +1059,7 @@
 491,1,6,2,0,0x1,0,2,1,no,0,0,0,none,0,0x0,		CR_CULTIVATION,Plant Cultivation
 492,0,6,4,0:1:2:3:4:5:6:7:8:9,0x1,0,10,1,no,0,0x2,0,none,0,0x0,	ITEM_ENCHANTARMS,Weapon Enchantment
 493,0,6,4,0,0x1,0,1,1,no,0,0,0,none,0,0x0,		TK_MISSION,Taekwon Mission
-494,9,6,16,0,0x1,0,5,1,yes,0,0,0,magic,0,0x0,	SL_HIGH,Spirit of Rebirth
+494,9,6,16,0,0x1,0,5,1,yes,0,0,0,magic,0,0x0,		SL_HIGH,Spirit of Rebirth
 496,0,6,4,0,0x1,0,1,0,no,0,0x8,0,none,0,0x0,		AM_TWILIGHT1,Twilight Alchemy 1
 497,0,6,4,0,0x1,0,1,0,no,0,0x8,0,none,0,0x0,		AM_TWILIGHT2,Twilight Alchemy 2
 498,0,6,4,0,0x1,0,1,0,no,0,0x8,0,none,0,0x0,		AM_TWILIGHT3,Twilight Alchemy 3
@@ -1078,6 +1082,7 @@
 516,0,8,4,-1,0x2,3,10,1,no,0,0,0,weapon,0,0x0,	GS_DESPERADO,Desperado
 517,0,6,4,-1,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	GS_GATLINGFEVER,Gatling Fever
 518,2,6,1,-1,0,0,10,1,no,0,0,0,weapon,5,0x0,		GS_DUST,Dust
+521,-9,6,2,3,0x42,1,4,1,no,0,0,0,weapon,3,0x100,		GS_GROUNDDRIFT,Ground Drift
 
 //****
 // Ninja
@@ -1641,17 +1646,28 @@
 5072,9,6,1,0,0x3,1:1:1:2:2,5,0,yes,0,0,0,magic,0,0x0,		AB_VITUPERATUM,Vituperatum
 5073,0,6,4,0,0x1,0,1,0,yes,0,0,0,none,0,0x0,		AB_CONVENIO,Convenio
 
-
-
-
-
 //****
 // Homunculus S
 //---------------------------------------------------------------
-8002,9,6,1,-1,0,0,5,1,no,0,0,0,none,0,0x0,				HLIF_AVOID,Avoid
+8001,9,6,4,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,	HLIF_HEAL,Healing Touch
+8002,9,6,1,-1,0,0,5,1,no,0,0,0,none,0,0x0,		HLIF_AVOID,Avoid
+8003,0,0,0,0,0,0,5,0,no,0,0,0,none,0,0x0,		HLIF_BRAIN,Brain
+8004,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,	HLIF_CHANGE,Change
+8007,9,6,1,0,0,0,5,1,no,0,0,0,weapon,0,0x0,		HAMI_SKIN,Adamantium Skin
+8008,1,6,4,0,0x2,5,5,1,no,0,0,0,weapon,0,0x0,		HAMI_BLOODLUST,Bloodlust
+8009,2,8,1,0,0,0,5,-1:-2:-2:-2:-3,no,0,0,0,weapon,0,0x0,	HFLI_MOON,Moonlight
+8010,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,		HFLI_FLEET,Fleeting Move
+8013,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,		HVAN_CAPRICE,Caprice
+8014,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,		HVAN_CHAOTIC,Benediction of Chaos
+8015,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,		HVAN_INSTRUCT,Instruct
 8018,9,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,		MH_SUMMON_LEGION,Summon Legion
+8019,5,6,1,5,0,0,5,1,no,0,0,0,magic,0,0x0,		MH_NEEDLE_OF_PARALYZE,Needle of Paralyze
+8020,5,6,2,5,0,0,5,1,no,0,0,1,magic,0,0x0,		MH_POISON_MIST,Poison Mist
+8021,9,6,1,0,0x1,0,5,1,no,0,0,0,none,0,0x0,		MH_PAIN_KILLER,Pain Killer
 8023,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,		MH_OVERED_BOOST,Overed Boost
 8024,7,8,1,4:0:4:0:4,0,0,5,-6,yes,0,0,0,magic,0,0x0,	MH_ERASER_CUTTER,Eraser Cutter
+8025,7,8,1,0,0,0,5,-6,no,0,0,0,weapon,0,0x0,	MH_XENO_SLASHER,Xeno Slasher
+8026,1,8,4,0,0x2,4,5,-5,no,0,0,0,magic,0,0x0,	MH_SILENT_BREEZE,Silent Breeze
 8027,0,6,4,0,0x1,0,1,1,no,0,0,0,none,0,0x0,		MH_STYLE_CHANGE,Style Change
 8029,1,6,4,0,0,0,5,1,no,0,0x200,0,weapon,0,0x0,	MH_SILVERVEIN_RUSH,Silver Bain Rush
 8030,1,6,4,0,0,0,5,1,no,0,0x200,0,weapon,0,0x0,	MH_MIDNIGHT_FRENZY,Midnight Frenzy
@@ -1663,38 +1679,19 @@
 8037,1,6,4,0,0,0,5,1,no,0,0x200,0,weapon,0,0x0,	MH_CBC,Continual Break Combo
 8038,1,6,4,0,0,0,5,1,no,0,0x200,0,misc,0,0x0,	MH_EQC,Eternal Quick Combo
 8039,0,6,4,3,0x2,1:1:1:2:2,5,1,no,0,0,0,weapon,0,0x0,	MH_MAGMA_FLOW,Magma Flow
+8041,9,0,2,2,0x1,0,5,1,no,0,0x1,3,magic,0,0x11000,		MH_LAVA_SLIDE,Lava Slide
 8043,7,6,2,0,0x1,0,5,1,no,0,0,3,none,0,0x0,		MH_VOLCANIC_ASH,Volcanic Ash
 
 //****
 // Mercenary Skill Place holders
-8201,-1,6,1,-1,0,0,10,1,no,0,0,0,weapon,0,0x0,	MS_BASH,Bash
-8202,0,6,4,3,0x2,2,10,1,no,0,0x40000,0,weapon,2,0x0,	MS_MAGNUM,Magnum_Break
-8203,-2,6,1,-1,0x2,1,10,1,no,0,0x40000,0,weapon,1,0x0,	MS_BOWLINGBASH,Bowling_Bash
-8204,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	MS_PARRYING,Parry
-8205,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	MS_REFLECTSHIELD,Shield_Reflect
+8204,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,		MS_PARRYING,Parry
 8206,0,6,4,0,0x1,0,1,1,no,0,0,0,weapon,0,0x0,	MS_BERSERK,Frenzy
-8207,-9,8,1,-1,0,0,10,2,no,0,0,0,weapon,0,0x80,	MA_DOUBLE,Double_Strafe
-8208,-9,6,2,-1,0x2,2,10,1,no,0,0x40000,0,weapon,2,0x81,	MA_SHOWER,Arrow_Shower
-8209,3,6,2,0,0x1,0,5,1,no,0,0x80,0,misc,6:7:8:9:10,0x3000,	MA_SKIDTRAP,Skid_Trap
-8210,3,6,2,2,0xC0,0,5,1,no,0,0x80,0,misc,0,0x3800,	MA_LANDMINE,Land_Mine
-8211,3,6,2,0,0x3,2,5,1,no,0,0x80,0,misc,0,0x3000,	MA_SANDMAN,Sandman
-8212,3,6,2,1,0x42,1,5,1,no,0,0x80,0,weapon,0,0x3800,	MA_FREEZINGTRAP,Freezing_Trap
-8213,2,6,32,0,0x1,0,1,1,no,0,0x40000,0,misc,0,0x0,	MA_REMOVETRAP,Remove_Trap
-8214,-9,6,1,-1,0x2,0,1,1,no,0,0x1,0,weapon,6,0x80,	MA_CHARGEARROW,Arrow_Repel
-8215,9,8,1,-1,0,1,5,1,yes,0,0x40000,14,weapon,0,0x0,	MA_SHARPSHOOTING,Focused_Arrow_Strike
-8216,-2,8,1,-1,0,0,10,3,no,0,0,0,weapon,0,0x0,	ML_PIERCE,Pierce
-8217,-2,6,1,-1,0x1,2,10,1,no,0,0,5,weapon,2,0x20000,	ML_BRANDISH,Brandish_Spear
-8218,5,8,1,-1,0x20,0,5,5,no,0,0x40000,0,weapon,0,0x20000,	ML_SPIRALPIERCE,Spiral_Pierce
 8219,0,6,4,0,0x1,0,5,1,no,0,0,0,weapon,0,0x0,	ML_DEFENDER,Defending_Aura
 8220,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	ML_AUTOGUARD,Guard
 8221,7:8:9:10:11,6,16,0,0x1,0,5,1,yes,0,0x600,0,none,0,0x0,	ML_DEVOTION,Sacrifice
 8222,0,6,4,0,0x3,-1,5,1,yes,0,0,0,magic,0,0x0,	MER_MAGNIFICAT,Magnificat
-8223,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	MER_QUICKEN,Two-Hand_Quicken
 8224,0,6,4,3,0x3,3,1,1,yes,0,0,0,magic,0,0x0,	MER_SIGHT,Sight
-8225,1,8,1,-1,0,0,5,3,no,0,0,0,weapon,0,0x0,	MER_CRASH,Crash
-8226,9,6,16,0,0x1,0,1,1,yes,0,0x1000,0,magic,0,0x0,	MER_REGAIN,Regain
-8227,9,6,16,0,0x1,0,1,1,yes,0,0x1000,0,magic,0,0x0,	MER_TENDER,Tender
-8228,9,6,16,0,0x1,0,1,1,yes,0,0x1000,0,magic,0,0x0,	MER_BENEDICTION,Benediction
+
 8229,9,6,16,0,0x1,0,1,1,yes,0,0x1000,0,magic,0,0x0,	MER_RECUPERATE,Recuperate
 8230,9,6,16,0,0x1,0,1,1,yes,0,0x1000,0,magic,0,0x0,	MER_MENTALCURE,Mental_Cure
 8231,9,6,16,0,0x1,0,1,1,yes,0,0x1000,0,magic,0,0x0,	MER_COMPRESS,Compress

@@ -89,14 +89,6 @@
 30017,Doki3@KN_BOWLINGBASH,attack,62,10,700,0,1000,no,target,always,,,,,,,,
 30017,Doki3@KN_CHARGEATK,attack,1001,1,700,0,1000,no,target,always,,,,,,,,
 
-// Ibuse
-30021,Salamandra@SO_CLOUD_KILL,attack,2450,5,700,0,1000,no,target,always,,,,,,,,
-30021,Salamandra@TF_POISON,attack,52,10,700,0,1000,no,target,always,,,,,,,,
-30021,Salamandra@AS_VENOMDUST,attack,140,10,700,0,1000,no,target,always,,,,,,,,
-30021,Salamandra@AS_SPLASHER,attack,141,10,700,0,1000,no,target,always,,,,,,,,
-30021,Salamandra@SO_POISON_BUSTER,attack,2448,5,700,0,1000,no,target,always,,,,,,,,
-30021,Salamandra@ASC_EDP,attack,378,10,500,0,60000,no,self,always,,,,,,,,
-
 // --------------- Kuchiyose ---------------
 30033,Filhote de Cobra@TF_POISON,attack,52,10,700,0,1000,no,target,always,,,,,,,,
 30034,Filhote de Katsuyu@AL_HEAL,attack,28,10,700,0,1000,no,target,always,,,,,,,,

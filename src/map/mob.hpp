@@ -69,6 +69,8 @@ enum MOBID {
 	MOBID_S_HORNET			= 2158,
 	MOBID_S_GIANT_HORNET,
 	MOBID_S_LUCIOLA_VESPA,
+
+	MOBID_HIRAISHIN = 2042,
 };
 
 ///Mob skill states.

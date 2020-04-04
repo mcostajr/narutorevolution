@@ -2294,10 +2294,10 @@ struct weapon_atk {
 	unsigned short atk, atk2;
 	unsigned short range;
 	unsigned char ele;
-//#ifdef RENEWAL
+#ifdef RENEWAL
 	unsigned short matk;
 	unsigned char wlv;
-//#endif
+#endif
 };
 
 extern sc_type SkillStatusChangeTable[MAX_SKILL];   /// skill  -> status
@@ -2318,10 +2318,10 @@ struct status_data {
 		eatk;
 	unsigned short
 		batk,
-//#ifdef RENEWAL
+#ifdef RENEWAL
 		watk,
 		watk2,
-//#endif
+#endif
 		matk_min, matk_max,
 		speed,
 		amotion, adelay, dmotion;

@@ -65,9 +65,9 @@ enum e_battle_check_target : uint32 {
 
 /// Damage structure
 struct Damage {
-//#ifdef RENEWAL
+#ifdef RENEWAL
 	int64 statusAtk, statusAtk2, weaponAtk, weaponAtk2, equipAtk, equipAtk2, masteryAtk, masteryAtk2;
-//#endif
+#endif
 	int64 damage, /// Right hand damage
 		damage2; /// Left hand damage
 	enum e_damage_type type; /// Check clif_damage for type

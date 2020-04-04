@@ -8855,35 +8855,6 @@ BUILDIN_FUNC(repair)
 }
 
 /*==========================================
- * repairmarionete {<char_id>}
- *------------------------------------------*/
-BUILDIN_FUNC(repairmarionete)
-{
-	int n, homid, repaircounter = 0;
-	TBL_PC *sd;
-
-	if (!script_charid2sd(2, sd))
-		return SCRIPT_CMD_FAILURE;
-
-	for (n = 0; n < MAX_INVENTORY; n++)
-	{
-		if (sd->inventory.u.items_inventory[n].nameid && sd->inventory.u.items_inventory[n].card[3] == 1) {
-			homid = MakeDWord(sd->inventory.u.items_inventory[n].card[1], sd->inventory.u.items_inventory[n].card[2]);
-			sd->inventory.u.items_inventory[n].card[3] = 0;
-			clif_produceeffect(sd, 0, sd->inventory.u.items_inventory[n].nameid);
-			repaircounter++;
-		}
-	}
-
-	if (repaircounter)
-	{
-		clif_misceffect(&sd->bl, 3);
-	}
-
-	return SCRIPT_CMD_SUCCESS;
-}
-
-/*==========================================
  * repairall {<char_id>}
  *------------------------------------------*/
 BUILDIN_FUNC(repairall)
@@ -13785,11 +13756,11 @@ BUILDIN_FUNC(getiteminfo)
 
 	if (i_data && n <= 16) {
 		int *item_arr = (int*)&i_data->value_buy;
-/*#ifndef RENEWAL
+#ifndef RENEWAL
 		if (n == 16)
 			script_pushint(st,0);
 		else
-#endif*/
+#endif
 		script_pushint(st,item_arr[n]);
 	} else
 		script_pushint(st,-1);
@@ -24655,7 +24626,6 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(getbrokenid,"i?"), // [Valaris]
 	BUILDIN_DEF(repair,"i?"), // [Valaris]
 	BUILDIN_DEF(repairall,"?"),
-	BUILDIN_DEF(repairmarionete,"?"),
 	BUILDIN_DEF(getequipisequiped,"i?"),
 	BUILDIN_DEF(getequipisenableref,"i?"),
 	BUILDIN_DEF(getequiprefinerycnt,"i?"),

@@ -1173,7 +1173,7 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 
 	if( sd )
 	{ // These statuses would be applied anyway even if the damage was blocked by some skills. [Inkfish]
-		if( skill_id != WS_CARTTERMINATION && skill_id != AM_DEMONSTRATION && skill_id != CR_REFLECTSHIELD && skill_id != MS_REFLECTSHIELD && skill_id != ASC_BREAKER ) {
+		if( skill_id != WS_CARTTERMINATION && skill_id != AM_DEMONSTRATION && skill_id != CR_REFLECTSHIELD && skill_id != ASC_BREAKER ) {
 			// Trigger status effects
 			enum sc_type type;
 			unsigned int time;
@@ -1322,15 +1322,14 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		sc_start(src, bl, SC_FREEZE, (10 + 10 * skill_lv), skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
 
-	case WZ_STORMGUST:
-		//On third hit, there is a 150% to freeze the target
-		if(tsc->sg_counter >= 3 &&
-			sc_start(src,bl,SC_FREEZE,150,skill_lv,skill_get_time2(skill_id,skill_lv)))
-			tsc->sg_counter = 0;
-		// Being it only resets on success it'd keep stacking and eventually overflowing on mvps, so we reset at a high value
-		else if( tsc->sg_counter > 250 )
-			tsc->sg_counter = 0;
+#ifndef RENEWAL // The storm gust counter was dropped in renewal
+	case WZ_STORMGUST: //SG counter does not reset per stormgust. IE: One hit from a SG and two hits from another will freeze you.
+		if (tsc)
+			tsc->sg_counter++; //SG hit counter.
+		if (skill_attack(skill_get_type(sg->skill_id), ss, &unit->bl, bl, sg->skill_id, sg->skill_lv, tick, 0) <= 0 && tsc)
+			tsc->sg_counter = 0; //Attack absorbed.
 		break;
+#endif
 
 	// Raiton
 	//---------------------------------
@@ -1374,10 +1373,6 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 	case NPC_POISON:
 	case NPC_BLEEDING:
 		sc_start(src, bl, status_skill2sc(skill_id), 100, skill_lv, skill_get_time2(skill_id, skill_lv));
-		break;
-
-	case MER_CRASH:
-		sc_start(src,bl,SC_STUN,(6*skill_lv),skill_lv,skill_get_time2(skill_id,skill_lv));
 		break;
 
 	case AS_VENOMKNIFE:
@@ -1785,13 +1780,14 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		}
 		break;
 	case MH_LAVA_SLIDE:
+	case MS_BOWLINGBASH:
 		sc_start4(src,bl, SC_BURNING, 10 * skill_lv, skill_lv, 1000, src->id, 0, skill_get_time2(skill_id, skill_lv));
 		break;
 	case MH_STAHL_HORN:
 		sc_start(src,bl, SC_STUN, (20 + 4 * (skill_lv-1)), skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
-	case MH_NEEDLE_OF_PARALYZE:
-		sc_start(src,bl, SC_PARALYSIS, 40 + (5*skill_lv), skill_lv, skill_get_time(skill_id, skill_lv));
+	case MS_BASH:
+		sc_start(src,bl, SC_POISON, 40 + (5*skill_lv), skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 	case MH_SILVERVEIN_RUSH:
 		sc_start4(src,bl,SC_STUN,20 + (5*skill_lv),skill_lv,src->id,0,0,skill_get_time(skill_id,skill_lv));
@@ -3727,7 +3723,7 @@ static int skill_check_unit_range_sub(struct block_list *bl, va_list ap)
 		case RL_B_TRAP:
 		case SC_ESCAPE:
 			//Non stackable on themselves and traps (including venom dust which does not has the trap inf2 set)
-			if (skill_id != g_skill_id && !(skill_get_inf2(g_skill_id)&INF2_TRAP) && g_skill_id != AS_VENOMDUST && g_skill_id != MH_POISON_MIST)
+			if (skill_id != g_skill_id && !(skill_get_inf2(g_skill_id)&INF2_TRAP) && g_skill_id != AS_VENOMDUST && g_skill_id != MS_MAGNUM)
 				return 0;
 			break;
 		default: //Avoid stacking with same kind of trap. [Skotlex]
@@ -4058,13 +4054,15 @@ static TIMER_FUNC(skill_timerskill){
 				case NPC_STUNATTACK:
 
 				case PR_LEXDIVINA:
+
 				//Kuroari
-				case HLIF_CHANGE:
-				case MH_PAIN_KILLER:
+				case MS_REFLECTSHIELD:
+				case MA_DOUBLE:
 					if (src->type == BL_MOB) {
 						sc_start(src, target, status_skill2sc(skl->skill_id), skl->type, skl->skill_lv, skill_get_time2(status_sc2skill(status_skill2sc(skl->skill_id)), 1));
 						break;
 					}
+
 				case PR_STRECOVERY:
 					sc_start(src, target, status_skill2sc(skl->skill_id), skl->type, skl->skill_lv, skill_get_time2(skl->skill_id, skl->skill_lv));
 					break;
@@ -4569,21 +4567,17 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	map_freeblock_lock();
 
 	switch(skill_id) {
-	case MER_CRASH:
 	case SM_BASH:
-	case MS_BASH:
 	case MC_MAMMONITE:
 	case TF_DOUBLE:
 	case AC_DOUBLE:
 	case MA_DOUBLE:
 	case AS_SONICBLOW:
 	case KN_PIERCE:
-	case ML_PIERCE:
 	case KN_SPEARBOOMERANG:
 	case TF_POISON:
 	case TF_SPRINKLESAND:
 	case AC_CHARGEARROW:
-	case MA_CHARGEARROW:
 	case RG_INTIMIDATE:
 	case AM_ACIDTERROR:
 	case BA_MUSICALSTRIKE:
@@ -4616,7 +4610,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case NPC_PETRIFYATTACK:
 	case LK_AURABLADE:
 	case LK_SPIRALPIERCE:
-	case ML_SPIRALPIERCE:
 	case LK_HEADCRUSH:
 	case HW_MAGICCRASHER:
 	case ITM_TOMAHAWK:
@@ -4641,7 +4634,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 #ifndef RENEWAL
 	case ASC_BREAKER:
 #endif
-	case HFLI_MOON:	//[orn]
 	case NPC_BLEEDING:
 	case NPC_CRITICALWOUND:
 	case NPC_HELLPOWER:
@@ -4680,6 +4672,8 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	// Taijutsu
 	case MO_FINGEROFFENSIVE:
 
+	// Kugutsu
+	case ML_SPIRALPIERCE:
 	// Portões
 	case CG_ARROWVULCAN:
 		skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
@@ -4784,7 +4778,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		break;
 
 	case SN_SHARPSHOOTING:
-	case MA_SHARPSHOOTING:
 	case NJ_KAMAITACHI:
 	case NPC_DARKPIERCING:
 	case NPC_ACIDBREATH:
@@ -4814,43 +4807,57 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
 
+#ifndef RENEWAL
 	case NJ_ISSEN:
+#endif
 	case MO_EXTREMITYFIST:
-		{
-			struct block_list *mbl = bl; // For NJ_ISSEN
-			short x, y, i = 2; // Move 2 cells (From target)
-			short dir = map_calc_dir(src,bl->x,bl->y);
+	{
+		struct block_list *mbl = bl; // For NJ_ISSEN
+		short x, y, i = 2; // Move 2 cells (From target)
+		short dir = map_calc_dir(src, bl->x, bl->y);
 
-			skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
-			if (skill_id == MO_EXTREMITYFIST) {
-				status_set_sp(src, 0, 0);
-			} else {
-				status_set_hp(src, 1, 0);
-			}
-			if (skill_id == MO_EXTREMITYFIST) {
-				mbl = src; // For MO_EXTREMITYFIST
-				i = 3; // Move 3 cells (From caster)
-			}
-			if (dir > 0 && dir < 4)
-				x = -i;
-			else if (dir > 4)
-				x = i;
-			else
-				x = 0;
-			if (dir > 2 && dir < 6)
-				y = -i;
-			else if (dir == 7 || dir < 2)
-				y = i;
-			else
-				y = 0;
-			// Ashura Strike still has slide effect in GVG
-			if ((mbl == src || (!map_flag_gvg2(src->m) && !map_getmapflag(src->m, MF_BATTLEGROUND))) &&
-				unit_movepos(src, mbl->x + x, mbl->y + y, 1, 1)) {
-				clif_blown(src);
-				clif_spiritball(src);
-			}
+#ifdef RENEWAL
+		if (skill_id == MO_EXTREMITYFIST && sd && sd->spiritball_old > 5)
+			flag |= 1; // Give +100% damage increase
+#endif
+		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		if (skill_id == MO_EXTREMITYFIST) {
+			status_set_sp(src, 0, 0);
+			status_change_end(src, SC_EXPLOSIONSPIRITS, INVALID_TIMER);
+			status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
+#ifdef RENEWAL
+			sc_start(src, src, SC_EXTREMITYFIST2, 100, skill_lv, skill_get_time(skill_id, skill_lv));
+#endif
 		}
-		break;
+		else {
+			status_set_hp(src, 1, 0);
+			status_change_end(src, SC_NEN, INVALID_TIMER);
+			status_change_end(src, SC_HIDING, INVALID_TIMER);
+		}
+		if (skill_id == MO_EXTREMITYFIST) {
+			mbl = src; // For MO_EXTREMITYFIST
+			i = 3; // Move 3 cells (From caster)
+		}
+		if (dir > 0 && dir < 4)
+			x = -i;
+		else if (dir > 4)
+			x = i;
+		else
+			x = 0;
+		if (dir > 2 && dir < 6)
+			y = -i;
+		else if (dir == 7 || dir < 2)
+			y = i;
+		else
+			y = 0;
+		// Ashura Strike still has slide effect in GVG
+		if ((mbl == src || (!map_flag_gvg2(src->m) && !map_getmapflag(src->m, MF_BATTLEGROUND))) &&
+			unit_movepos(src, mbl->x + x, mbl->y + y, 1, 1)) {
+			clif_blown(src);
+			clif_spiritball(src);
+		}
+	}
+	break;
 
 	case HT_POWER:
 		if( tstatus->race == RC_BRUTE || tstatus->race == RC_INSECT )
@@ -4881,7 +4888,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case MA_SHOWER:
 	case MG_NAPALMBEAT:
 	case MG_FIREBALL:
-	case HAMI_BLOODLUST:
 	case RG_RAID:
 	case RK_LUXANIMA:
 	case HW_NAPALMVULCAN:
@@ -4927,15 +4933,17 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case RL_S_STORM:
 	case RL_R_TRIP:
 	case RL_HAMMER_OF_GOD:
-	case MH_XENO_SLASHER:
 	case NC_ARMSCANNON:
 	case SU_SCRATCH:
 	case SU_LUNATICCARROTBEAT:
 	case SU_LUNATICCARROTBEAT2:
-	//
+	// Taijutsu
 	case TAI_DAIHOKO:
 	case NPC_EARTHQUAKE:
-	//
+	// Kugutsu
+	case MER_QUICKEN:
+	case MER_TENDER:
+	// Akimichi
 	case AKI_NIKUDAN:
 	//
 	case HYU_HYAKU:
@@ -4990,7 +4998,7 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 					clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
 					break;
 				case LG_MOONSLASHER:
-				case MH_XENO_SLASHER:
+				case MER_QUICKEN:
 					clif_skill_damage(src,bl,tick, status_get_amotion(src), 0, -30000, 1, skill_id, skill_lv, DMG_SKILL);
 					break;
 				case NPC_EARTHQUAKE: //FIXME: Isn't EarthQuake a ground skill after all?
@@ -5044,7 +5052,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		break;
 		
 	case SM_MAGNUM:
-	case MS_MAGNUM:
 	case HYU_KAITEN:
 		if( flag&1 ) {
 			// For players, damage depends on distance, so add it to flag if it is > 1
@@ -5063,7 +5070,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		break;
 
 	case KN_BOWLINGBASH:
-	case MS_BOWLINGBASH:
 		{
 			int min_x,max_x,min_y,max_y,i,c,dir,tx,ty;
 			// Chain effect and check range gets reduction by recursive depth, as this can reach 0, we don't use blowcount
@@ -5210,13 +5216,14 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case RL_MASS_SPIRAL:
 	case RK_WINDCUTTER:
 	case WM_LULLABY_DEEPSLEEP:
-	case MH_SILENT_BREEZE:
 	case GS_FULLBUSTER:
 	case WL_SOULEXPANSION:
 	// Katon
 	case WZ_SIGHTRASHER:
 	// Medicina
 	case AL_HEAL:
+	// Kugutsu
+	case ML_PIERCE:
 		skill_attack(BF_MAGIC,src,src,bl,skill_id,skill_lv,tick,flag);
 		break;
 
@@ -5233,9 +5240,9 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		break;
 
 	// Kugutsu
-	case HVAN_CAPRICE:
-	case HVAN_CHAOTIC:
-	case HVAN_INSTRUCT:
+	case MA_REMOVETRAP:
+	case MA_CHARGEARROW:
+	case MA_SHARPSHOOTING:
 		skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
 
@@ -5875,15 +5882,19 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 			map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR|BL_SKILL, src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
 		break;
 
+
 	case MH_STAHL_HORN:
-	case MH_NEEDLE_OF_PARALYZE:
-	case MH_SONIC_CRAW:
 	case MH_MIDNIGHT_FRENZY:
 	case MH_SILVERVEIN_RUSH:
+	// Kugutsu
+	case MS_BASH:
+	// Inuzuka
+	case MH_SONIC_CRAW:
 		skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
 
-	case HAMI_SKIN:
+	case MER_REGAIN:
+	// Inuzuka
 	case HFLI_SBR44:
 		if (unit_movepos(src, bl->x, bl->y, 2, 1)) {
 			skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
@@ -6116,6 +6127,12 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		return 1; //Skills that cause an status should be blocked if the target element blocks its element.
 
 	map_freeblock_lock();
+
+
+	int id_kuroari[] = { 30550, 30551, 30552, 30553 };
+	int id_sanshouo[] = { 30554, 30555, 30556 };
+	int id_sasori[] = { 30557, 30558 };
+
 	switch(skill_id)
 	{
 	/*
@@ -6297,26 +6314,51 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			BF_MAGIC, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
 		break;
 	/*
-	*	Jutsu de Homunculu
+	*	Jutsu de Mercenarey
 	*/
-	case KG_KUROARI:
+	case NPC_GROUNDATTACK:
+		if (sd->md)
+			mercenary_delete(sd->md, 3);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-		mercenary_create(sd, 2937, skill_get_time(skill_id, skill_lv));
-	break;
+		mercenary_create(sd, 30094, skill_get_time(skill_id, skill_lv));
+		break;
+
+	case KG_KUROARI:
+		if(sd->md)
+			mercenary_delete(sd->md, 3);
+		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+		mercenary_create(sd, id_kuroari[skill_lv-1], skill_get_time(skill_id, skill_lv));
+		break;
 
 	case KG_SANSHOUO:
+		if (sd->md)
+			mercenary_delete(sd->md, 3);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-		mercenary_create(sd, 2937, skill_get_time(skill_id, skill_lv));
+		mercenary_create(sd, id_sanshouo[skill_lv - 1], skill_get_time(skill_id, skill_lv));
 		break;
 
 	case KG_SASORI:
+		if (sd->md)
+			mercenary_delete(sd->md, 3);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-		mercenary_create(sd, 2937, skill_get_time(skill_id, skill_lv));
+		mercenary_create(sd, id_sasori[skill_lv - 1], skill_get_time(skill_id, skill_lv));
 		break;
 
 	case KG_KAZEKAGE:
+		if (sd->md)
+			mercenary_delete(sd->md, 3);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-		mercenary_create(sd, 2937, skill_get_time(skill_id, skill_lv));
+		mercenary_create(sd, 30559, skill_get_time(skill_id, skill_lv));
+		break;
+
+	case KN_C2:
+		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+		mercenary_create(sd, 30019, skill_get_time(skill_id, skill_lv));
+		break;
+
+	case IB_SALAMANDRA:
+		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+		mercenary_create(sd, 30021, skill_get_time(skill_id, skill_lv));
 		break;
 
 	// ------------------------------------------------------------------------
@@ -6466,8 +6508,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		break;
 
 	//Kuroari
-	case HLIF_CHANGE:
-	case MH_PAIN_KILLER:
+	case MS_REFLECTSHIELD:
+	case MA_DOUBLE:
 		skill_addtimerskill(src, tick+1000, bl->id, 0, 0, skill_id, skill_lv, 100, flag);
 		clif_skill_nodamage (src, bl, skill_id, skill_lv, 1);
 		break;
@@ -6735,7 +6777,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		break;
 	//Passive Magnum, should had been casted on yourself.
 	case SM_MAGNUM:
-	case MS_MAGNUM:
 	case HYU_KAITEN:
 		skill_area_temp[1] = 0;
 		map_foreachinshootrange(skill_area_sub, src, skill_get_splash(skill_id, skill_lv), BL_SKILL|BL_CHAR,
@@ -6774,10 +6815,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case LK_BERSERK:
 	case MS_BERSERK:
 	case KN_TWOHANDQUICKEN:
-	case MER_QUICKEN:
 	case CR_SPEARQUICKEN:
 	case CR_REFLECTSHIELD:
-	case MS_REFLECTSHIELD:
 	case AS_POISONREACT:
 	case MC_LOUD:
 	case MG_ENERGYCOAT:
@@ -6785,7 +6824,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case MO_BLADESTOP:
 	case LK_AURABLADE:
 	case LK_PARRYING:
-	case MS_PARRYING:
 	case LK_CONCENTRATION:
 	case WS_CARTBOOST:
 	case SN_SIGHT:
@@ -7140,7 +7178,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		}
 		break;
 
-	case HAMI_BLOODLUST:
+	case MER_TENDER:
 	case RG_RAID:
 	case RK_LUXANIMA:
 		skill_area_temp[1] = 0;
@@ -7162,7 +7200,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case RL_FIREDANCE:
 	case RL_R_TRIP:
 	case WM_LULLABY_DEEPSLEEP:
-	case MH_SILENT_BREEZE:
+	case ML_PIERCE:
 	//
 	case TAI_DAIHOKO:
 	//
@@ -7537,11 +7575,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		break;
 
 	// Mercenary Supportive Skills
-	case MER_BENEDICTION:
-		status_change_end(bl, SC_CURSE, INVALID_TIMER);
-		status_change_end(bl, SC_BLIND, INVALID_TIMER);
-		clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
-		break;
 	case MER_COMPRESS:
 		status_change_end(bl, SC_BLEEDING, INVALID_TIMER);
 		clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
@@ -7554,16 +7587,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		status_change_end(bl, SC_POISON, INVALID_TIMER);
 		status_change_end(bl, SC_DPOISON, INVALID_TIMER);
 		status_change_end(bl, SC_SILENCE, INVALID_TIMER);
-		clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
-		break;
-	case MER_REGAIN:
-		status_change_end(bl, SC_SLEEP, INVALID_TIMER);
-		status_change_end(bl, SC_STUN, INVALID_TIMER);
-		clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
-		break;
-	case MER_TENDER:
-		status_change_end(bl, SC_FREEZE, INVALID_TIMER);
-		status_change_end(bl, SC_STONE, INVALID_TIMER);
 		clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
 		break;
 
@@ -8473,7 +8496,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		}
 		break;
 
-	case MA_REMOVETRAP:
 	case HT_REMOVETRAP:
 		{
 			struct skill_unit* su;
@@ -11119,24 +11141,23 @@ static int8 skill_castend_id_check(struct block_list *src, struct block_list *ta
 			}
 			break;
 
-		
 		// Genjutsu
-		case PR_LEXDIVINA:
-		case MER_LEXDIVINA:
-		case HLIF_CHANGE:
-			{
-				//If it's not an enemy, and not silenced, you can't use the skill on them. [Skotlex]
-				if (battle_check_target(src,target, BCT_ENEMY) <= 0 && (!tsc || !tsc->data[SC_SILENCE]))
-					return USESKILL_FAIL_LEVEL;
-				else
-					return -1; //Works on silenced allies
-			}
-			break;
-
-		case MH_PAIN_KILLER:
+		case MS_REFLECTSHIELD:
 		case NPC_STUNATTACK: {
 			//If it's not an enemy, and not silenced, you can't use the skill on them. [Skotlex]
 			if (battle_check_target(src, target, BCT_ENEMY) <= 0 && (!tsc || !tsc->data[SC_STUN]))
+				return USESKILL_FAIL_LEVEL;
+			else
+				return -1; //Works on silenced allies
+		}
+		break;
+
+		case PR_LEXDIVINA:
+		case MER_LEXDIVINA:
+		case MA_DOUBLE:
+		{
+			//If it's not an enemy, and not silenced, you can't use the skill on them. [Skotlex]
+			if (battle_check_target(src,target, BCT_ENEMY) <= 0 && (!tsc || !tsc->data[SC_SILENCE]))
 				return USESKILL_FAIL_LEVEL;
 			else
 				return -1; //Works on silenced allies
@@ -11791,6 +11812,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case AL_PNEUMA:
 	case WZ_FIREPILLAR:
 	case MH_LAVA_SLIDE:
+	case MS_BOWLINGBASH:
 	case WZ_QUAGMIRE:
 	case WZ_VERMILION:
 	case WZ_STORMGUST:
@@ -11798,7 +11820,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case PR_SANCTUARY:
 	case PR_MAGNUS:
 	case HT_SKIDTRAP:
-	case MA_SKIDTRAP:
+	case MER_BENEDICTION:
 	case HT_LANDMINE:
 	case MA_LANDMINE:
 	case HT_ANKLESNARE:
@@ -11882,9 +11904,8 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case KO_BAKURETSU:
 	case KO_ZENKAI:
 	case MH_VOLCANIC_ASH:
-	case MH_POISON_MIST:
+	case MS_MAGNUM:
 	case MH_STEINWAND:
-	case MH_XENO_SLASHER:
 	case LG_KINGS_GRACE:
 	case RL_B_TRAP:
 
@@ -11895,16 +11916,19 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case NC_STEALTHFIELD:
 	case MG_COLDBOLT:
 
+	// Raiton
+	case AB_ADORAMUS:
+	case SO_ELECTRICWALK:
+
+	// Kugutsu
+	case MER_QUICKEN:
+
 	// Hyouton
 	case RA_AIMEDBOLT:
 	case HYO_ICEWALL:
 
 	// Jinton
 	case JIN_KOUJIN:
-
-	// Raiton
-	case AB_ADORAMUS:
-	case SO_ELECTRICWALK:
 		flag|=1;//Set flag to 1 to prevent deleting ammo (it will be deleted on group-delete).
 	case GS_GROUNDDRIFT: //Ammo should be deleted right away.
 	case GN_WALLOFTHORN:
@@ -12074,44 +12098,12 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		}
 	}
 	break;
-	//Doton
-	case NPC_GROUNDATTACK:
-		{
-			struct mob_data *md;
-
-			md = mob_once_spawn_sub(src, src->m, x, y, status_get_name(src), 30094, "", SZ_BIG, AI_NONE);
-			if (md) {
-				md->master_id = src->id;
-				md->special_state.ai = AI_LEGION;
-				if (md->deletetimer != INVALID_TIMER)
-					delete_timer(md->deletetimer, mob_timer_delete);
-				md->deletetimer = add_timer(gettick() + skill_get_time(skill_id, skill_lv), mob_timer_delete, md->bl.id, 0);
-				mob_spawn(md); //Now it is ready for spawning.
-			}
-		}
-		break;
 	//Kibaku Nendo
 	case KN_C1:
 	{
 		struct mob_data *md;
 
 		md = mob_once_spawn_sub(src, src->m, x, y, status_get_name(src), 30018, "", SZ_SMALL, AI_NONE);
-		if (md) {
-			md->master_id = src->id;
-			md->special_state.ai = AI_LEGION;
-			if (md->deletetimer != INVALID_TIMER)
-				delete_timer(md->deletetimer, mob_timer_delete);
-			md->deletetimer = add_timer(gettick() + skill_get_time(skill_id, skill_lv), mob_timer_delete, md->bl.id, 0);
-			mob_spawn(md); //Now it is ready for spawning.
-		}
-	}
-	break;
-
-	case KN_C2:
-	{
-		struct mob_data *md;
-
-		md = mob_once_spawn_sub(src, src->m, x, y, status_get_name(src), 30019, "", SZ_SMALL, AI_NONE);
 		if (md) {
 			md->master_id = src->id;
 			md->special_state.ai = AI_LEGION;
@@ -12206,22 +12198,6 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 				mob_spawn(md); //Now it is ready for spawning.
 			}
 			break;
-		}
-	}
-	break;
-	// Ibuse
-	case IB_SALAMANDRA:
-	{
-		struct mob_data *md;
-
-		md = mob_once_spawn_sub(src, src->m, x, y, status_get_name(src), 30021, "", SZ_BIG, AI_NONE);
-		if (md) {
-			md->master_id = src->id;
-			md->special_state.ai = AI_LEGION;
-			if (md->deletetimer != INVALID_TIMER)
-				delete_timer(md->deletetimer, mob_timer_delete);
-			md->deletetimer = add_timer(gettick() + skill_get_time(skill_id, skill_lv), mob_timer_delete, md->bl.id, 0);
-			mob_spawn(md); //Now it is ready for spawning.
 		}
 	}
 	break;
@@ -13056,6 +13032,7 @@ struct skill_unit_group *skill_unitsetting(struct block_list *src, uint16 skill_
 		val1=skill_lv+2;
 		break;
 	case MH_LAVA_SLIDE:
+	case MS_BOWLINGBASH:
 	case WZ_QUAGMIRE:	//The target changes to "all" if used in a gvg map. [Skotlex]
 	case AM_DEMONSTRATION:
 	case GN_HELLS_PLANT:
@@ -14694,6 +14671,7 @@ int skill_unit_onleft(uint16 skill_id, struct block_list *bl, t_tick tick)
 	switch (skill_id)
 	{
 		case MH_LAVA_SLIDE:
+		case MS_BOWLINGBASH:
 		case WZ_QUAGMIRE:
 			if (bl->type==BL_MOB)
 				break;
@@ -15065,9 +15043,9 @@ static int skill_check_condition_mob_master_sub(struct block_list *bl, va_list a
 	skill=va_arg(ap,int);
 	c=va_arg(ap,int *);
 
-	ai = (unsigned)(skill == AM_SPHEREMINE?AI_SPHERE:skill == KO_ZANZOU?AI_ZANZOU:skill == MH_SUMMON_LEGION?AI_LEGION:skill == NC_SILVERSNIPER?AI_FAW:skill == NC_MAGICDECOY?AI_FAW:
-		skill == IB_SALAMANDRA ? AI_LEGION:skill == KN_C1 ? AI_LEGION: skill == KN_C2 ? AI_LEGION: skill == KN_C3 ? AI_LEGION:
-		skill == NPC_GROUNDATTACK ? AI_LEGION: skill == VEL_MARCAHIRAI ? AI_FAW: skill == VEL_HIRAISHIN? AI_FAW : AI_FLORA);
+	ai = (unsigned)(skill == AM_SPHEREMINE?AI_SPHERE:skill == KO_ZANZOU?AI_ZANZOU:skill == MH_SUMMON_LEGION?AI_LEGION:skill == NC_SILVERSNIPER?AI_FAW:skill == NC_MAGICDECOY?
+		AI_LEGION:skill == KN_C1 ? AI_LEGION: skill == KN_C3 ? AI_LEGION:
+		skill == VEL_MARCAHIRAI ? AI_FAW: skill == VEL_HIRAISHIN? AI_FAW : AI_FLORA);
 	if( md->master_id != src_id || md->special_state.ai != ai)
 		return 0; //Non alchemist summoned mobs have nothing to do here.
 
@@ -16127,22 +16105,6 @@ bool skill_check_condition_castend(struct map_session_data* sd, uint16 skill_id,
 			}
 		}
 		break;
-		// Doton
-		case NPC_GROUNDATTACK:
-		{
-			int c = 0;
-			int maxcount = skill_get_maxcount(skill_id,skill_lv);
-			int mob_class = 30094;
-
-			if( battle_config.land_skill_limit && maxcount > 0 && ( battle_config.land_skill_limit&BL_PC ) ) {
-				map_foreachinmap(skill_check_condition_mob_master_sub, sd->bl.m, BL_MOB, sd->bl.id, mob_class, skill_id, &c);
-				if( c >= maxcount ) {
-					clif_skill_fail(sd , skill_id, USESKILL_FAIL_LEVEL, 0);
-					return false;
-				}
-			}
-		}
-		break;
 		// Kibaku
 		case KN_C1:
 		{
@@ -16159,21 +16121,6 @@ bool skill_check_condition_castend(struct map_session_data* sd, uint16 skill_id,
 			}
 		}
 		break;
-		case KN_C2:
-		{
-			int c = 0;
-			int maxcount = skill_get_maxcount(skill_id, skill_lv);
-			int mob_class = 30019;
-
-			if (battle_config.land_skill_limit && maxcount > 0 && (battle_config.land_skill_limit&BL_PC)) {
-				map_foreachinmap(skill_check_condition_mob_master_sub, sd->bl.m, BL_MOB, sd->bl.id, mob_class, skill_id, &c);
-				if (c >= maxcount) {
-					clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
-					return false;
-				}
-			}
-		}
-		break;
 		case KN_C3:
 		{
 			int c = 0;
@@ -16184,22 +16131,6 @@ bool skill_check_condition_castend(struct map_session_data* sd, uint16 skill_id,
 				map_foreachinmap(skill_check_condition_mob_master_sub, sd->bl.m, BL_MOB, sd->bl.id, mob_class, skill_id, &c);
 				if (c >= maxcount) {
 					clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
-					return false;
-				}
-			}
-		}
-		break;
-		//Ibuse
-		case IB_SALAMANDRA:
-		{
-			int c = 0;
-			int maxcount = skill_get_maxcount(skill_id,skill_lv);
-			int mob_class = 30021;
-
-			if( battle_config.land_skill_limit && maxcount > 0 && ( battle_config.land_skill_limit&BL_PC ) ) {
-				map_foreachinmap(skill_check_condition_mob_master_sub, sd->bl.m, BL_MOB, sd->bl.id, mob_class, skill_id, &c);
-				if( c >= maxcount ) {
-					clif_skill_fail(sd , skill_id, USESKILL_FAIL_LEVEL, 0);
 					return false;
 				}
 			}

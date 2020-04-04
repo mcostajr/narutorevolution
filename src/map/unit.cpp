@@ -1739,10 +1739,10 @@ int unit_skilluse_id2(struct block_list *src, int target_id, uint16 skill_id, ui
 		if( skill_get_state(ud->skill_id) == ST_MOVE_ENABLE ) {
 			if( !unit_can_reach_bl(src, target, range + 1, 1, NULL, NULL) )
 				return 0; // Walk-path check failed.
-		} else if( src->type == BL_MER && skill_id == MA_REMOVETRAP ) {
+		/*} else if( src->type == BL_MER && skill_id == MA_REMOVETRAP ) {
 			if( !battle_check_range(battle_get_master(src), target, range + 1) )
 				return 0; // Aegis calc remove trap based on Master position, ignoring mercenary O.O
-		} else if( !battle_check_range(src, target, range) )
+		*/} else if( !battle_check_range(src, target, range) )
 			return 0; // Arrow-path check failed.
 	}
 
