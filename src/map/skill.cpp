@@ -545,6 +545,8 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 
 			if (sd && ((skill = pc_checkskill(sd, HP_MEDITATIO)) > 0))
 				hp += hp * skill * 2 / 100;
+			if (sd && ((skill = pc_checkskill(sd, SM_RECOVERY)) > 0))
+				hp += hp * skill * 5 / 100;
 			else if (src->type == BL_HOM && (skill = hom_checkskill(((TBL_HOM*)src), HLIF_BRAIN)) > 0)
 				hp += hp * skill * 2 / 100;
 			if (sd && tsd && sd->status.partner_id == tsd->status.char_id && (sd->class_&MAPID_UPPERMASK) == MAPID_SUPER_NOVICE && sd->status.sex == 0)
@@ -1464,8 +1466,6 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 
 	case DC_UGLYDANCE:
 		rate = 5+5*skill_lv;
-		if(sd && (skill=pc_checkskill(sd,DC_DANCINGLESSON)))
-			rate += 5+skill;
 		status_zap(bl, 0, rate);
 		break;
 	case SL_STUN:
@@ -6128,7 +6128,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 
 	map_freeblock_lock();
 
-
+	int id_gouremu[] = { 30094, 30094, 30094, 30094, 30094, 30094, 30094, 30094, 30094, 30094 };
 	int id_kuroari[] = { 30550, 30551, 30552, 30553 };
 	int id_sanshouo[] = { 30554, 30555, 30556 };
 	int id_sasori[] = { 30557, 30558 };
@@ -6320,7 +6320,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		if (sd->md)
 			mercenary_delete(sd->md, 3);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-		mercenary_create(sd, 30094, skill_get_time(skill_id, skill_lv));
+		mercenary_create(sd, id_gouremu[skill_lv - 1], skill_get_time(skill_id, skill_lv));
 		break;
 
 	case KG_KUROARI:
@@ -7431,6 +7431,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		break;
 
 	case BD_ADAPTATION:
+	case DC_UGLYDANCE:
 		if(tsc && tsc->data[SC_DANCING]){
 			clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
 			status_change_end(bl, SC_DANCING, INVALID_TIMER);
@@ -7528,11 +7529,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				}
 			}
 		}
-		break;
-
-	case NV_FIRSTAID:
-		clif_skill_nodamage(src,bl,skill_id,5,1);
-		status_heal(bl,5,0,0);
 		break;
 
 	case AL_CURE:
@@ -7817,8 +7813,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 					if( potion_hp > 0 ) {
 						hp = potion_hp * (100 + pc_checkskill(sd,AM_POTIONPITCHER)*10 + pc_checkskill(sd,AM_LEARNINGPOTION)*5)*bonus/10000;
 						hp = hp * (100 + (tstatus->vit<<1)) / 100;
-						if( dstsd )
-							hp = hp * (100 + pc_checkskill(dstsd,SM_RECOVERY)*10) / 100;
+						//if( dstsd )
+						//	hp = hp * (100 + pc_checkskill(dstsd,SM_RECOVERY)*10) / 100;
 					}
 					if( potion_sp > 0 ) {
 						sp = potion_sp * (100 + pc_checkskill(sd,AM_POTIONPITCHER)*10 + pc_checkskill(sd,AM_LEARNINGPOTION)*5)*bonus/10000;
@@ -7847,8 +7843,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				}
 				hp = (hp + rnd()%(skill_lv*20+1)) * (150 + skill_lv*10) / 100;
 				hp = hp * (100 + (tstatus->vit<<1)) / 100;
-				if( dstsd )
-					hp = hp * (100 + pc_checkskill(dstsd,SM_RECOVERY)*10) / 100;
+				//if( dstsd )
+				//	hp = hp * (100 + pc_checkskill(dstsd,SM_RECOVERY)*10) / 100;
 			}
 			if( dstsd && (j = pc_skillheal2_bonus(dstsd, skill_id)) ) {
 				hp += hp * j / 100;
@@ -8677,8 +8673,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			hp = hp * (100 + (tstatus->vit<<1))/100;
 			sp = sp * (100 + (tstatus->int_<<1))/100;
 			if (dstsd) {
-				if (hp)
-					hp = hp * (100 + pc_checkskill(dstsd,SM_RECOVERY)*10 + pc_skillheal2_bonus(dstsd, skill_id))/100;
+				//if (hp)
+				//	hp = hp * (100 + pc_checkskill(dstsd,SM_RECOVERY)*10 + pc_skillheal2_bonus(dstsd, skill_id))/100;
 				//if (sp)
 				//	sp = sp * (100 + pc_checkskill(dstsd,MG_SRECOVERY)*10 + pc_skillheal2_bonus(dstsd, skill_id))/100;
 			}
@@ -9847,13 +9843,10 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 
 	case SC_IGNORANCE:
 		if( !(tsc && tsc->data[type]) ) {
-			int rate;
+			int rate = 70;
 
 			if (status_get_class_(bl) == CLASS_BOSS)
 				break;
-			rate = status_get_lv(src) / 10 + rnd_value(sstatus->dex / 12, sstatus->dex / 4) + ( sd ? sd->status.job_level : 50 ) + 10 * skill_lv
-					   - (status_get_lv(bl) / 10 + rnd_value(tstatus->agi / 6, tstatus->agi / 3) + tstatus->luk / 10 + ( dstsd ? (dstsd->max_weight / 10 - dstsd->weight / 10 ) / 100 : 0));
-			rate = cap_value(rate, skill_lv + sstatus->dex / 20, 100);
 			if (clif_skill_nodamage(src,bl,skill_id,0,sc_start(src,bl,type,rate,skill_lv,skill_get_time(skill_id,skill_lv)))) {
 				int sp = 100 * skill_lv;
 

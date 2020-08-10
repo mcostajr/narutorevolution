@@ -1911,7 +1911,7 @@ void pc_calc_skilltree(struct map_session_data *sd)
 				continue;
 
 			if (sd->status.skill[sk_idx].flag != SKILL_FLAG_PLAGIARIZED && sd->status.skill[sk_idx].flag != SKILL_FLAG_PERM_GRANTED) {
-				if (sk_id == NV_BASIC || sk_id == NV_FIRSTAID || sk_id == WE_CALLBABY)
+				if (sk_id == NV_BASIC || sk_id == WE_CALLBABY)
 					continue;
 				sd->status.skill[sk_idx].id = 0;
 			}
@@ -7527,7 +7527,6 @@ int pc_resetlvl(struct map_session_data* sd,int type)
 		if(sd->status.class_ == JOB_NOVICE_HIGH) {
 			sd->status.status_point=100;	// not 88 [celest]
 			// give platinum skills upon changing
-			pc_skill(sd,NV_FIRSTAID,1,ADDSKILL_PERMANENT);
 			pc_skill(sd,NV_TRICKDEAD,1,ADDSKILL_PERMANENT);
 		}
 	}

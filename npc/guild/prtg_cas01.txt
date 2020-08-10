@@ -1,6 +1,6 @@
 // Bandeira das Guildas (Fora do Castelo)
 //============================================================
--	script	Kriemhild#1::OutsideFlagsPR1	722,{
+-	script	Areia#1::OutsideFlagsPR1	722,{
 
 	set .@GID, GetCastleData("prtg_cas01",1);
 
@@ -42,14 +42,14 @@ OnRecvCastlePt01:
 	end;
 }
 
-prt_gld,131,60,6	duplicate(OutsideFlagsPR1)	Kriemhild#1-2	722
-prt_gld,138,68,6	duplicate(OutsideFlagsPR1)	Kriemhild#2	722
-prt_gld,138,60,6	duplicate(OutsideFlagsPR1)	Kriemhild#3	722
-prt_gld,135,60,6	duplicate(OutsideFlagsPR1)	Kriemhild#4	722
+prt_gld,131,60,6	duplicate(OutsideFlagsPR1)	Areia#1-2	722
+prt_gld,138,68,6	duplicate(OutsideFlagsPR1)	Areia#2	722
+prt_gld,138,60,6	duplicate(OutsideFlagsPR1)	Areia#3	722
+prt_gld,135,60,6	duplicate(OutsideFlagsPR1)	Areia#4	722
 
 // Bandeira das Guildas (Dentro do Castelo)
 //============================================================
--	script	Kriemhild#5::InsideFlagsPR1	722,{
+-	script	Areia#5::InsideFlagsPR1	722,{
 	end;
 
 OnRecvCastlePt01:
@@ -57,20 +57,20 @@ OnRecvCastlePt01:
 	end;
 }
 
-prtg_cas01,58,56,4	duplicate(InsideFlagsPR1)	Kriemhild#5-2	722
-prtg_cas01,64,56,4	duplicate(InsideFlagsPR1)	Kriemhild#6	722
-prtg_cas01,76,32,4	duplicate(InsideFlagsPR1)	Kriemhild#7	722
-prtg_cas01,84,32,4	duplicate(InsideFlagsPR1)	Kriemhild#8	722
-prtg_cas01,94,39,4	duplicate(InsideFlagsPR1)	Kriemhild#9	722
-prtg_cas01,94,24,4	duplicate(InsideFlagsPR1)	Kriemhild#10	722
-prtg_cas01,73,14,4	duplicate(InsideFlagsPR1)	Kriemhild#11	722
-prtg_cas01,73,6,4	duplicate(InsideFlagsPR1)	Kriemhild#12	722
-prtg_cas01,55,46,4	duplicate(InsideFlagsPR1)	Kriemhild#13	722
-prtg_cas01,45,46,4	duplicate(InsideFlagsPR1)	Kriemhild#14	722
+prtg_cas01,58,56,4	duplicate(InsideFlagsPR1)	Areia#5-2	722
+prtg_cas01,64,56,4	duplicate(InsideFlagsPR1)	Areia#6	722
+prtg_cas01,76,32,4	duplicate(InsideFlagsPR1)	Areia#7	722
+prtg_cas01,84,32,4	duplicate(InsideFlagsPR1)	Areia#8	722
+prtg_cas01,94,39,4	duplicate(InsideFlagsPR1)	Areia#9	722
+prtg_cas01,94,24,4	duplicate(InsideFlagsPR1)	Areia#10	722
+prtg_cas01,73,14,4	duplicate(InsideFlagsPR1)	Areia#11	722
+prtg_cas01,73,6,4	duplicate(InsideFlagsPR1)	Areia#12	722
+prtg_cas01,55,46,4	duplicate(InsideFlagsPR1)	Areia#13	722
+prtg_cas01,45,46,4	duplicate(InsideFlagsPR1)	Areia#14	722
 
 // Bandeira das Guildas (Cidade)
 //============================================================
-sunagakure,195,188,4	duplicate(InsideFlagsPR1)	Kriemhild#15	722
+sunagakure,195,188,4	duplicate(InsideFlagsPR1)	Areia#15	722
 
 // Funcionaria Kafra
 //============================================================

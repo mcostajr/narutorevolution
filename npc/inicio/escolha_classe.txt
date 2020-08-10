@@ -1,6 +1,134 @@
+acad_fild00,41,13,0	script	acad_fild#intro_start	HIDDEN_WARP_NPC,6,6,{
+	end;
+OnTouch:
+	navigateto("acad_fild00", 35, 28, NAV_NONE, 1); // Individual map name not required
+	if (getd(".start" + strnpcinfo(1)) == 0) {
+		setd ".start" + strnpcinfo(1), 1;
+		initnpctimer;
+		mapannounce strnpcinfo(4), "[Dica] Você pode ir para o ponto desejado clicando no chão com o botão esquerdo do mouse.", bc_map,0xFF0000;
+	}
+	end;
+OnTimer9000:
+	mapannounce strnpcinfo(4), "[Dica] Enquanto mantém pressionado o botão direito do mouse, arraste para girar a tela.", bc_map,0xFF0000;
+	end;
+OnTimer18000:
+	mapannounce strnpcinfo(4), "[Dica] Você pode sair pelo portão de urdidura azulado.", bc_map,0xFF0000;
+	end;
+OnTimer21000:
+	mapannounce strnpcinfo(4), "[Dica] Deixe essa área para continuar.", bc_map,0xFF0000;
+	stopnpctimer;
+	setd ".start" + strnpcinfo(1), 0;
+	end;
+}
+
+acad_fild00,35,28,4	script	Shikamaru Sensei	417,{
+
+	if(checkquest(1000) < 0){
+		mes "Ohayo gozaimasu! Yoroshiku onegai shimasu!";
+		mes "Seja bem-vindo a academia. Me chame de Hamaru Sensei, sou um tokubetsu jounin especializado na educação das nossas jovens mentes shinobi."; 
+		mes "Irei te instruir para que tenha uma otima experiencia de jogo, e assim, tire o melhor proveito.";
+		next;
+		mes "A primeira coisa a se fazer é aprender o basico para controlar o seu personagem.";
+		mes "Todas as ações como: andar, selecionar/pegar itens ou atacar, podem ser feitos pressionando o botão esquerdo do seu mouse.";
+		cutin "tutorial01",4;
+		next;
+		mes "As ações são bem intuitivas, e foram projetadas para facilitar a experiencia do jogador.";
+		mes "Bom agora que você já conhece o basico, vamos colocar isso em pratica.";
+		mes "Entre na academia, esta quase na horario da aula começar.";
+		setquest 1000;
+		next;
+		cutin "",255;
+		cutin "tutorial02",4;
+		navigateto("acad_fild00", 50, 22, NAV_NONE, 1);
+		mes "-! Informação !-";
+		mes "Você acabou de receber uma quest de Shikamaru Sensei. Você pode checar informações sobre ela, conforme mostra a imagem. Alt+U.";
+		close2;
+		cutin "",255;
+		end;
+	}
+	mes "Apresse-se que as aulas ja vão começar!";
+	close;
+}
+
+acad_fild00,28,16,4	script	Estudante Ninja 1	443,{
+	mes "Devolva minhas figurinhas!";
+	next;
+	mes "grrrr..";
+	estudante++;
+	close;
+}
+
+acad_fild00,31,16,2	script	Estudante Ninja 2	443,{
+	mes "Devolva minhas figurinhas!";
+	next;
+	mes "grrrr..";
+	estudante++;
+	close;
+}
+
+acad_fild00,24,14,4	script	???	516,{
+
+	if(estudante > 1 && recbasico < 1){
+		mes "Mwahaha.. Foi muito bom meu irmão mais velho me ensinar esse jutsu! Ninpo: kabe-nuke no jutsu!";
+		next;
+		recbasico = 1;
+		getitem 569,100;
+		mes "???: Ops.. Você me achou! Por favor não conte pra ninguem, eu só estava brincando! Eu já ia devolver.";
+		close;
+	}
+	end;
+}
+
+acad_fild00,50,22,4	script	Mabui#tutorial	442,{
+
+	if(checkquest(1000) == 1) {
+		mes "Olá "+strcharinfo(0)+", me chamo Mabui, sou uma kunoichi da vila oculta da Nuvem.";
+		next;
+		mes "Durante sua jornada Ninja serei sua assistente.";
+		next;
+		mes "Minhas funções incluem: Salvar Ponto de Retorno, Abrir armazém, Transporte, Alugar Carrinho.";
+		next;
+		completequest 1000;
+		setquest 1001;
+		navigateto("academia", 95, 22, NAV_NONE, 1);
+		voltar:
+		mes "Qual função deseja saber mais?";
+		switch(select("- Salvar Ponto:- Armazém:- Transporte:- Alugar Carrinho:- Nenhuma opção")) {
+			case 1:
+				mes "Faz com que seu personagem retorne ao último local salvo ao utilizar jutsus de transporte, ou ao desmaiar.";
+				next;
+				goto voltar;
+			
+			case 2:
+				mes "Abre seu depósito de itens, que pode ser acessado por todos os personagens da sua conta em nosso servidor.";
+				next;
+				goto voltar;
+				
+			case 3:
+				mes "Transporta o personagem para o mapa selecionado.";
+				next;
+				goto voltar;
+			
+			case 4:
+				mes "Personagens com a habilidade [ Usar Carrinho em nível 1 ] podem adquirir um carrinho.";
+				next;
+				goto voltar;
+				
+			case 5:
+				close;
+		}
+	} else if (checkquest(1000) < 0) {
+		mes "Olá fale com o Shikamaru Sensei antes.";
+		close;
+	} else {
+		mes "Ja te ensinei tudo que sei.";
+		close;
+	}
+}
+
 academia,95,26,4	script	Instrutor Inicial	79,{
 	
-	if(Class != JOB_NOVICE) { 
+	if(checkquest(1002) == 2) { 
 		if(pegoubandana < 1) {
 			mes "[Instrutor Inicial]";
 			mes "Olá "+strcharinfo(0)+", você esqueceu de pegar sua bandana.";
@@ -12,7 +140,7 @@ academia,95,26,4	script	Instrutor Inicial	79,{
 		close; 
 	}
 	
-	if(checkquest(1000) == 1)
+	if(checkquest(1002) == 1)
 	{
 		if (!callfunc("F_CanChangeJob")) {
 			mes "[Instrutor Inicial]";
@@ -31,8 +159,9 @@ academia,95,26,4	script	Instrutor Inicial	79,{
 						mes "[Instrutor Inicial]";
 						mes "Você realmente escolheu ser Taijutsu.";
 						if(select("- Não:- Sim") == 1) close;
-							completequest 1000;
-							setquest 1001;
+							navigateto("academia", 114, 26, NAV_NONE, 1);
+							completequest 1002;
+							setquest 1003;
 							jobchange 1;
 							SkillPoint += 1;
 							callfunc("F_BasicSkills");
@@ -43,8 +172,9 @@ academia,95,26,4	script	Instrutor Inicial	79,{
 						mes "[Instrutor Inicial]";
 						mes "Você realmente escolheu ser Ninjutsu.";
 						if(select("- Não:- Sim") == 1) close;
-							completequest 1000;
-							setquest 1001;
+							navigateto("academia", 114, 26, NAV_NONE, 1);
+							completequest 1002;
+							setquest 1003;
 							jobchange 2;
 							SkillPoint += 1;
 							callfunc("F_BasicSkills");
@@ -63,42 +193,36 @@ academia,95,26,4	script	Instrutor Inicial	79,{
 			mes "Escolha o modelo da sua Bandana.";
 				switch(select("- Bandana Normal:- Bandana de Lado:- Bandana no Pescoço:- Bandana Yamato:- Bandana Kisame:- Bandana Kakashi")) {
 					case 1:
-						getitem 569,250;
 						getitem 30006,1;
 						equip 30006;
 						pegoubandana = 1;
 						percentheal 100,100;
 						end;
 					case 2:
-						getitem 569,250;
 						getitem 30016,1;
 						equip 30016;
 						pegoubandana = 1;
 						percentheal 100,100;
 						end;
 					case 3:
-						getitem 569,250;
 						getitem 30026,1;
 						equip 30026;
 						pegoubandana = 1;
 						percentheal 100,100;
 						end;
 					case 4:
-						getitem 569,250;
 						getitem 30036,1;
 						equip 30036;
 						pegoubandana = 1;
 						percentheal 100,100;
 						end;
 					case 5:
-						getitem 569,250;
 						getitem 30046,1;
 						equip 30046;
 						pegoubandana = 1;
 						percentheal 100,100;
 						end;
 					case 6:
-						getitem 569,250;
 						getitem 30047,1;
 						equip 30047;
 						pegoubandana = 1;
@@ -111,8 +235,10 @@ academia,95,26,4	script	Instrutor Inicial	79,{
 		close;
 	}
 
-	if(inicio < 1)
+	if(checkquest(1002) < 0)
 	{
+		if(checkquest(1001) == 1)
+			completequest 1001;
 		mes "[Instrutor Inicial]";
 		mes "Bem Vindo ao mundo Shinobi";
 		next;
@@ -120,87 +246,28 @@ academia,95,26,4	script	Instrutor Inicial	79,{
 		mes "O mundo shinobi está em guerra, onde os clãs ninja batalham";
 		mes "para se tornar o clã mais poderoso e dominar o mundo ninja.";
 		next;
+		setquest 1002;
+		navigateto("academia", 105, 91, NAV_NONE, 1);
 		mes "[Instrutor Inicial]";
-		mes "Irei ensina-lo um pouco sobre a mecânica do jogo.";
-		next;
-			cutin "tutorial01",4;
-			mes "[Instrutor Inicial]";
-			mes "-! Informação !-";
-			mes "Clique no chão para movimentar seu personagem.";
-			mes "Para atacar monstros e conversar com pessoas neste mundo pode ser feito simplismente ao clicar neles.";
-			next;
-			cutin "",255;
-				cutin "tutorial02",4;
-				mes "[Instrutor Inicial]";
-				mes "-! Informação !-";
-				setquest 1000;
-				mes "Você tem uma missão dada por Iruka";
-				mes "Você pode ver o conteúdo dela na Janela de Informação de Missões.";
-				next;
-				mes "[Instrutor Inicial]";
-				mes "-! Informação !-";
-				mes "Você pode abrir a Janela de Informação de Missões pressionando as teclas ^4A4AFFALT + U^000000.";
-				next;
-					cutin "",255;
-					cutin "tutorial03",4;
-					mes "[Instrutor Inicial]";
-					mes "!- Informação -!";
-					mes "Itens podem ser facilmente equipados ou usados ao clicar duas vezes com o botão direito neles.";
-					mes "O atalho para abrir a Janela do Inventário é ALT + E.";
-					next;
-					mes "[Instrutor Inicial]";
-					mes "!- Informação -!";
-					mes "Para checar os itens que estão equipados, use o atalho ALT + Q.";
-					mes "Ou, arraste o item para o slot que você quer que o item seja equipado.";
-					next;
-						cutin "",255;
-						cutin "tutorial04",4;
-						mes "[Instrutor Inicial]";
-						mes "!- Informação -!";
-						mes "Clique com o botão direito em um item para ver informações detalhadas sobre ele.";
-						next;
-						mes "[Instrutor Inicial]";
-						mes "!- Informação -!";
-						mes "Clique com o botão direito em outros jogadores para mostrar o Menu da Comunidade, você pode entrar em um grupo, solicitar negociação, etc.";
-						next;
-							cutin "",255;
-							cutin "tutorial05",4;
-							mes "[Instrutor Inicial]";
-							mes "!- Informação -!";
-							mes "Você pode registrar uma habilidade ou um item na Janela de Atalhos arrastando-os para os slots de atalhos.";
-							next;
-							mes "[Instrutor Inicial]";
-							mes "!- Informação -!";
-							mes "Habilidades ou itens registrados podem ser usados/equipados ao pressionar a tecla correspondente.";
-							next;
-							mes "[Instrutor Inicial]";
-							mes "!- Informação -!";
-							mes "Você pode customizar o Atalho para usar qualquer tecla que você quiser como Atalho mudando a Configuração de Atalho no Menu de Opções.";
-							next;
-							mes "[Instrutor Inicial]";
-							mes "!- Informação -!";
-							mes "Registre habilidades e itens que você usa com frequência para usá-los facilmente.";
-							next;
-								cutin "",255;
-								mes "[Instrutor Inicial]";
-								mes "Para seu primeito treinamento derrote os monstros e volte quando tiver com job level 10.";
-								inicio = 1;
-								close;
+		mes "Para seu primeito treinamento derrote os monstros e volte quando tiver com job level 10.";
+		getitem 569,250;
+		close;
 	}
 
 	OnInit:
-		questinfo 1000, QTYPE_QUEST, 0, Job_Novice;
+		questinfo 1002, QTYPE_QUEST, 0, Job_Novice;
 		end;
 
 }
 
-academia,105,8,5	script	SAIDADA_ACADEMIA	WARPNPC,2,2,{
+academia,105,8,5	script	SAIDADA_ACADEMIA	WARPNPC,1,1,{
 
 	OnTouch:
-		if(checkquest(1002) == 1) { completequest 1002; }
-		if(Class != JOB_NOVICE) {
+		if(checkquest(1004) > 0) {
+			if(checkquest(1004) == 1) { 
+				completequest 1004;
+			} 
 			warp "konoha3",240,248; 
-			close2; 
 			end;
 		} else {
 			mes "Termine o treinamento para genin."; 

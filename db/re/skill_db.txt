@@ -229,6 +229,7 @@
 28,9,6,16,0,0x21,0,15,1,no,0,0x1400,0,magic,0,0x0,	AL_HEAL,Chiyute no Jutsu
 75,0,6,4,0,0x3,-1,15,1,no,0,0,0,magic,0,0x0,		PR_GLORIA,Boa Sorte
 72,9,6,16,0,0x1,0,15,1,no,0,0,0,magic,0,0x20,		PR_STRECOVERY,Kai
+33,0,6,4,0,0x3,-1,15,1,no,0,0,0,magic,0,0x0,		AL_ANGELUS,Angelus
 //
 2043,0,6,4,6,0x3,10,10,1,no,0,0,0,none,0,0x0,	AB_CHEAL,Mouryoujika
 2047,0,6,4,6,0x3,8,10,1,no,0,0,0,magic,0,0x0,	AB_LAUDAAGNUS,Kaihou Suru
@@ -242,6 +243,26 @@
 // 
 74,0,6,4,0,0x3,-1,10,1,no,0,0,0,none,0,0x0,		PR_MAGNIFICAT,Chikatsu no Jutsu
 358,0,6,4,0,0x1,0,15,1,no,0,0,0,weapon,0,0x0,		LK_TENSIONRELAX,Relaxar
+//-------------------------------------------------------------------------------------------
+// Resistência
+// Básico
+22,0,0,0,0,0,0,15,0,no,0,0,0,weapon,0,0x0,		AL_DP,Aumentar Defesa
+61,0,6,4,-1,0x20,0,15,1,no,0,0,0,weapon,0,0x0,	KN_AUTOCOUNTER,Contra Ataque
+6,9,6,1,4,0,0,15,-2,no,0,0,0,magic,0,0x0,		SM_PROVOKE,Provocar
+2309,0,6,4,0,0x3,2,3,1,no,0,0,0,none,0,0x0,		LG_TRAMPLE,Pisotear Armadilha
+144,0,0,0,0,0,0,15,0,no,0,0,0,none,0,0x0,		SM_MOVINGRECOVERY,Recuperar Hp em movimento
+// Intermediario
+390,0,0,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	ST_REJECTSWORD,Instinto de Defesa
+2015,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,	RK_STONEHARDSKIN,Escamas Rochosas
+249,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_AUTOGUARD,Bloqueio
+257,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_DEFENDER,Apanhar Flechas
+// Avançado
+268,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	MO_STEELBODY,Domu
+252,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_REFLECTSHIELD,Refletir
+2011,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,	RK_MILLENNIUMSHIELD,Shirudo
+2325,0,6,4,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,	LG_INSPIRATION,Sincronizacao
+
+
 
 //-------------------------------------------------------------------------------------------
 // Fuuinjutsu
@@ -282,24 +303,6 @@
 2455,9,6,2,0,0x3,6,10,1,no,0,0,0,magic,0,0x0,	SO_ARRULLO,Neru no Jutsu
 
 
-//-------------------------------------------------------------------------------------------
-// Resistência
-// Básico
-22,0,0,0,0,0,0,15,0,no,0,0,0,weapon,0,0x0,		AL_DP,Aumentar Defesa
-61,0,6,4,-1,0x20,0,15,1,no,0,0,0,weapon,0,0x0,	KN_AUTOCOUNTER,Contra Ataque
-6,9,6,1,4,0,0,15,-2,no,0,0,0,magic,0,0x0,		SM_PROVOKE,Provocar
-33,0,6,4,0,0x3,-1,15,1,no,0,0,0,magic,0,0x0,	AL_ANGELUS,Angelus
-144,0,0,0,0,0,0,15,0,no,0,0,0,none,0,0x0,		SM_MOVINGRECOVERY,Recuperar Hp em movimento
-// Intermediario
-390,0,0,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	ST_REJECTSWORD,Instinto de Defesa
-2015,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,	RK_STONEHARDSKIN,Escamas Rochosas
-249,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_AUTOGUARD,Bloqueio
-257,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_DEFENDER,Apanhar Flechas
-// Avançado
-268,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	MO_STEELBODY,Domu
-252,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_REFLECTSHIELD,Refletir
-2011,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,	RK_MILLENNIUMSHIELD,Shirudo
-2325,0,6,4,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,	LG_INSPIRATION,Sincronizacao
 
 //-------------------------------------------------------------------------------------------------------------
 
@@ -530,31 +533,34 @@
 //****
 // Akado
 2294,3,6,1,0,0x1,0,4,1,yes,0,0,0,none,0,0x0,	SC_IGNORANCE,Kokon Musoo
-2210,11,6,1,0,0,0,3,1,yes,0,0,0,magic,0,0x400,	WL_DRAINLIFE,Chakra Infuuin
+2210,3,6,1,0,0,0,3,1,yes,0,0,0,magic,0,0x400,	WL_DRAINLIFE,Chakra Infuuin
 325,0,8,4,0,0x1,0,2,1,no,0,0x20,0,misc,0,0x1,	DC_UGLYDANCE,Shienjin Mayu
 375,9,6,1,0,0x98,0,1,1,yes,0,0,0,magic,0,0x0,	PF_SOULBURN,Chakra Tensoo
 
 //****
 // Tairyoku Kaifuku
-374,9,6,1,0,0x1,0,1,1,yes,0,0xE00,0,none,0,0x0,	PF_SOULCHANGE,Soul Exhale
+4,0,0,0,0,0,0,4,0,no,0,0,0,magic,0,0x0,			SM_RECOVERY,Iryo-nin
+2051,9,6,16,0,0x1,0,4,1,no,0,0,0,none,0,0x0,	AB_HIGHNESSHEAL,Chyute no In
+142,5,6,2,5,0,0,3,1,no,0,0,1,magic,0,0x0,		NV_FIRSTAID,Kousui Spray
+9,0,0,0,0,0,0,2,0,no,0,0,0,magic,0,0x0,			MG_SRECOVERY,Chakra no Gisou
+145,0,0,0,0,0,0,2,0,no,0,0x1,0,weapon,0,0x0,	SM_FATALBLOW,Kagura Shingan
+374,3,6,1,0,0x1,0,1,1,yes,0,0xE00,0,none,0,0x0,	PF_SOULCHANGE,Tairyoku Kaifuku
 
 //-------------------------------------------------------------------------------------------------------------
 
 //****
 // Swordman
-4,0,6,4,0,0x1,0,10,1,no,0,0x1,0,none,0,0x0,			SM_RECOVERY,Increase HP Recovery
 7,0,6,4,3,0x2,1:2:2:3,4,1,no,0,0x40000,0,weapon,2,0x0,	SM_MAGNUM,Magnum
 8,0,6,4,0,0x1,0,1,1,no,0,0,0,weapon,0,0x0,				SM_ENDURE,Endure
 
 //****
 // Mage
-9,0,6,4,0,0x1,0,10,1,no,0,0x1,0,magic,0,0x0,			MG_SRECOVERY,Increase SP Recovery
-10,0,6,4,3,0x3,3,1,1,yes,0,0,0,magic,0,0x4000,		MG_SIGHT,Sight
+10,0,6,4,3,0x3,3,1,1,yes,0,0,0,magic,0,0x4000,	MG_SIGHT,Sight
 11,9,6,1,4,0,5,10,-5,no,0,0,0,magic,0,0x0,		MG_NAPALMBEAT,MG_NAPALMBEAT
-12,9,8,2,8,0x1,0,10,1,yes,0,0,0,magic,0,0x0,		MG_SAFETYWALL,Safety Wall (Custom)
+12,9,8,2,8,0x1,0,10,1,yes,0,0,0,magic,0,0x0,	MG_SAFETYWALL,Safety Wall (Custom)
 13,9,8,1,4,0,0,10,1,no,0,0x2000,0,magic,0,0x0,	MG_SOULSTRIKE,MG_SOULSTRIKE
-15,9,6,1,1,0,0,15,1,no,0,0,0,magic,0,0x0,									MG_FROSTDIVER,MG_FROSTDIVER
-16,2,6,1,2,0x1,0,10,1,yes,0,0,0,magic,0,0x0,		MG_STONECURSE,Stone Curse
+15,9,6,1,1,0,0,15,1,no,0,0,0,magic,0,0x0,		MG_FROSTDIVER,MG_FROSTDIVER
+16,2,6,1,2,0x1,0,10,1,yes,0,0,0,magic,0,0x0,	MG_STONECURSE,Stone Curse
 
 //****
 // Acolyte
@@ -571,7 +577,7 @@
 39,1,0,0,0,0,0,10,0,no,0,0,0,none,0,0x0,		MC_PUSHCART,Pushcart
 40,1,6,4,0,0x1,0,1,1,no,0,0,0,none,0,0x0,		MC_IDENTIFY,Item Appraisal
 41,1,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,		MC_VENDING,Vending
-42,-1,6,1,-1,0,0,10,1,no,0,0,0,weapon,0,0x0,		MC_MAMMONITE,Mammonite
+42,-1,6,1,-1,0,0,10,1,no,0,0,0,weapon,0,0x0,	MC_MAMMONITE,Mammonite
 
 //****
 // Archer
@@ -652,17 +658,15 @@
 //****
 // Assassin
 135,0,6,4,0,0x1,0,4,1,no,0,0x1,0,weapon,0,0x80040,		AS_CLOAKING,Furtividade
-139,0,6,4,0,0,0,10,1,no,0,0,0,weapon,0,0x0,		AS_POISONREACT,Poison React
+139,0,6,4,0,0,0,10,1,no,0,0,0,weapon,0,0x0,				AS_POISONREACT,Poison React
 141,1,6,1,-1,0x51,2,10,1,yes,0,0,0,weapon,0,0x0,		AS_SPLASHER,Explosão Tóxica
 
 //****
 // 1st Class Quest
-142,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,		NV_FIRSTAID,Selo de Mão: Macaco
 143,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,		NV_TRICKDEAD,Play Dead
-145,0,0,0,0,0,0,1,0,no,0,0x1,0,weapon,0,0x0,		SM_FATALBLOW,Fatal Blow
 146,0,6,4,0,0x1,0,1,1,no,0,0x1,0,weapon,0,0x0,	SM_AUTOBERSERK,Auto Berserk
 147,0,0,4,0,0x1,0,1,0,no,0,0x1,0,weapon,0,0x0,			AC_MAKINGARROW,Fabricar flechas
-148,9,6,1,4,0x2,0,10,1,no,0,0,0,magic,3,0x80,		AC_CHARGEARROW,AC_CHARGEARROW
+148,9,6,1,4,0x2,0,10,1,no,0,0,0,magic,3,0x80,		AC_CHARGEARROW,Charge Arrow
 149,1,6,1,2,0,0,1,1,no,0,0x1,0,weapon,0,0x0,		TF_SPRINKLESAND,Sand Attack
 151,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,		TF_PICKSTONE,Find Stone
 152,7,6,1,0,0x40,0,1,1,no,0,0x1,0,misc,0,0x0,	TF_THROWSTONE,Stone Fling
@@ -1306,7 +1310,6 @@
 2045,0,6,4,0,0x3,15,10,1,no,0,0,0,none,0,0x0,	AB_PRAEFATIO,Prefatio
 2046,0,6,4,6,0x3,15,10,1,yes,0,0,0,magic,0,0x0,	AB_ORATIO,Oratio
 2049,0,0,0,0,0,0,10,0,no,0,0,0,none,0,0x0,		AB_EUCHARISTICA,Eucharistica
-2051,9,6,16,0,0x1,0,4,1,no,0,0,0,none,0,0x0,			AB_HIGHNESSHEAL,Highness Heal
 2052,11,6,1,0,0x1,0,5,1,yes,0,0x400,0,magic,0,0x10020,	AB_CLEARANCE,Clearance
 2053,11,6,16,0,0x1,0,5,1,yes,0,0,0,magic,0,0x0,	AB_EXPIATIO,Expiatio //CHECK Does this also give the buff to party members?
 2054,0,6,4,6,0x1,0,10,1,yes,0,0,0,none,0,0x0,	AB_DUPLELIGHT,Duple Light //CHECK Had issues adding a skill level check to make the % go higher with the skills level. Will do later.
@@ -1387,7 +1390,6 @@
 // LG Royal Guard
 2307,11,8,1,-1,0,1,5,1,no,0,0,11,weapon,0,0x0,	LG_CANNONSPEAR,Cannon Spear
 2308,7,6,1,-1,0,0,10,1,no,0,0,0,weapon,0,0x0,	LG_BANISHINGPOINT,Banishing Point
-2309,0,6,4,0,0x3,2,3,1,no,0,0,0,none,0,0x0,		LG_TRAMPLE,Trample
 2310,1,6,1,0,0,0,5,1,no,0,0,0,weapon,0,0x0,		LG_SHIELDPRESS,Shield Press
 2311,0,6,4,0,0x3,3,5,1,no,0,0,0,none,0,0x0,	LG_REFLECTDAMAGE,Reflect Damage
 2312,5,6,1,-1,0,0,5,1,no,0,0,0,weapon,0,0x0,	LG_PINPOINTATTACK,Pinpoint Attack

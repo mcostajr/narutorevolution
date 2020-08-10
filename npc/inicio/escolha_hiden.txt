@@ -340,7 +340,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 		}
 	}
 	
-	if(checkquest(1001) == 1) {
+	if(checkquest(1003) == 1) {
 		mes "[Orochimaru]";
 		mes "Há vários anos que eu estou estudando sobre formas de aperfeiçoamento";
 		mes "Em outras palavras,";
@@ -371,8 +371,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close; 
@@ -393,8 +394,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close; 
@@ -415,8 +417,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close;
@@ -436,8 +439,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close; 
@@ -458,8 +462,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close;
@@ -480,8 +485,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close;
@@ -502,8 +508,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close; 
@@ -529,8 +536,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close; 
@@ -551,8 +559,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close; 
@@ -573,8 +582,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close; 
@@ -595,8 +605,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close; 
@@ -617,8 +628,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close; 
@@ -639,8 +651,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close; 
@@ -666,8 +679,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close;
@@ -688,8 +702,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close;
@@ -710,8 +725,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close;
@@ -732,8 +748,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close;
@@ -757,8 +774,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close;
@@ -784,8 +802,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close;
@@ -805,8 +824,9 @@ academia,114,26,3	script	Orochimaru#2	125,{
 							hidenlvl = 1;
 							hiden = 1;
 							getitem 569,250;
-							completequest 1001;
-							setquest 1002;
+							completequest 1003;
+							setquest 1004;
+							navigateto("academia", 105, 8, NAV_NONE, 1);
 							close;
 						} else {
 							close;
@@ -820,7 +840,7 @@ academia,114,26,3	script	Orochimaru#2	125,{
 	close;
 	
 	OnInit:
-		questinfo 1002, QTYPE_QUEST;
+		questinfo 1004, QTYPE_QUEST;
 		end;
 }
 

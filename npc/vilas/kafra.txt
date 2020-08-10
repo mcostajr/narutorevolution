@@ -47,4 +47,3 @@ otogakure,80,196,4	duplicate(kafra)	Mabui#7	442
 kusagakure,207,87,4	duplicate(kafra)	Mabui#8	442
 amegakure,215,186,4	duplicate(kafra)	Mabui#9	442
 takigakure,173,151,4	duplicate(kafra)	Mabui#10	442
-academia,119,24,4	duplicate(kafra)	Mabui#11	442

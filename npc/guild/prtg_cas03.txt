@@ -1,6 +1,6 @@
 // Bandeira das Guildas (Fora do Castelo)
 //============================================================
--	script	Brynhildr#1::OutsideFlagsPR3	722,{
+-	script	Fogo#1::OutsideFlagsPR3	722,{
 
 	set .@GID, GetCastleData("prtg_cas03",1);
 
@@ -42,14 +42,14 @@ OnRecvCastlePt03:
 	end;
 }
 
-prt_gld,147,140,4	duplicate(OutsideFlagsPR3)	Brynhildr#1-2	722
-prt_gld,147,136,4	duplicate(OutsideFlagsPR3)	Brynhildr#2	722
-prt_gld,158,140,4	duplicate(OutsideFlagsPR3)	Brynhildr#3	722
-prt_gld,158,136,4	duplicate(OutsideFlagsPR3)	Brynhildr#4	722
+prt_gld,147,140,4	duplicate(OutsideFlagsPR3)	Fogo#1-2	722
+prt_gld,147,136,4	duplicate(OutsideFlagsPR3)	Fogo#2	722
+prt_gld,158,140,4	duplicate(OutsideFlagsPR3)	Fogo#3	722
+prt_gld,158,136,4	duplicate(OutsideFlagsPR3)	Fogo#4	722
 
 // Bandeira das Guildas (Dentro do Castelo)
 //============================================================
--	script	Brynhildr#5::InsideFlagsPR3	722,{
+-	script	Fogo#5::InsideFlagsPR3	722,{
 	end;
 
 OnRecvCastlePt03:
@@ -57,20 +57,20 @@ OnRecvCastlePt03:
 	end;
 }
 
-prtg_cas03,168,28,4	duplicate(InsideFlagsPR3)	Brynhildr#5-2	722
-prtg_cas03,182,28,4	duplicate(InsideFlagsPR3)	Brynhildr#6	722
-prtg_cas03,43,50,4	duplicate(InsideFlagsPR3)	Brynhildr#7	722
-prtg_cas03,48,50,4	duplicate(InsideFlagsPR3)	Brynhildr#8	722
-prtg_cas03,43,58,4	duplicate(InsideFlagsPR3)	Brynhildr#9	722
-prtg_cas03,48,58,4	duplicate(InsideFlagsPR3)	Brynhildr#10	722
-prtg_cas03,158,210,4	duplicate(InsideFlagsPR3)	Brynhildr#11	722
-prtg_cas03,169,210,4	duplicate(InsideFlagsPR3)	Brynhildr#12	722
-prtg_cas03,162,201,4	duplicate(InsideFlagsPR3)	Brynhildr#13	722
-prtg_cas03,165,201,4	duplicate(InsideFlagsPR3)	Brynhildr#14	722
+prtg_cas03,168,28,4	duplicate(InsideFlagsPR3)	Fogo#5-2	722
+prtg_cas03,182,28,4	duplicate(InsideFlagsPR3)	Fogo#6	722
+prtg_cas03,43,50,4	duplicate(InsideFlagsPR3)	Fogo#7	722
+prtg_cas03,48,50,4	duplicate(InsideFlagsPR3)	Fogo#8	722
+prtg_cas03,43,58,4	duplicate(InsideFlagsPR3)	Fogo#9	722
+prtg_cas03,48,58,4	duplicate(InsideFlagsPR3)	Fogo#10	722
+prtg_cas03,158,210,4	duplicate(InsideFlagsPR3)	Fogo#11	722
+prtg_cas03,169,210,4	duplicate(InsideFlagsPR3)	Fogo#12	722
+prtg_cas03,162,201,4	duplicate(InsideFlagsPR3)	Fogo#13	722
+prtg_cas03,165,201,4	duplicate(InsideFlagsPR3)	Fogo#14	722
 
 // Bandeira das Guildas (Cidade)
 //============================================================
-konoha3,189,234,4	duplicate(InsideFlagsPR3)	Brynhildr#15	722
+konoha3,189,234,4	duplicate(InsideFlagsPR3)	Fogo#15	722
 
 // Funcionaria Kafra
 //============================================================

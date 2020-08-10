@@ -172,3 +172,11 @@ function	script	KG_AKADO	{
 	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 2294,4; skill 2210,3; skill 325,2; skill 375,1;}
 	end;
 }
+
+function	script	KG_TAIRYOKU_KAIFUKU	{
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 4,1; skill 2051,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 4,2; skill 2051,2; skill 142,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 4,3; skill 2051,3; skill 142,2; skill 9,1; skill 145,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 4,4; skill 2051,4; skill 142,3; skill 9,2; skill 145,2; skill 374,1; }
+	end;
+}

@@ -49,4 +49,3 @@ sunagakure,227,155,4	duplicate(reset)	Baki#2	50
 kirigakure,195,198,4	duplicate(reset)	Baki#3	50
 kumogakure,116,139,4	duplicate(reset)	Baki#4	50
 iwagakure,207,155,2	duplicate(reset)	Baki#5	50
-academia,121,22,4	duplicate(reset)	Baki#6	50

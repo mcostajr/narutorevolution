@@ -12,6 +12,8 @@
 // If no MobID* is given, then any mob has a chance to drop the given ItemID*.
 
 
-1000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Treinamento Inicial"
-1001,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Escolha sua Habilidade Hiden"
-1002,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Conhecer a sua Vila"
+1000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Falar Mabui"
+1001,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Conhecer Academia"
+1002,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Treinamento Inicial"
+1003,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Escolha sua Habilidade Hiden"
+1004,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Conhecer a sua Vila"

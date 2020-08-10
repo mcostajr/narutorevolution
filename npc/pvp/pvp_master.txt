@@ -471,7 +471,6 @@ function	script	getMesPM	{ return getd("$@PM_Lang"+PM_Lang+"$["+getarg(0)+"]"); 
 
 //================== DUPLICATE =====================
 pvp_room,54,85,4	duplicate(PM_source)	[PvP] Arena#1	51
-academia,122,27,4	duplicate(PM_source)	[PvP] Arena#2	51
 
 //================== WOE =====================
 
