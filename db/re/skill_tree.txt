@@ -51,11 +51,11 @@
 1,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 1,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-1,22,10,0,0,0,0,0,0,0,0,0,0  //AL_DP#Aumentar Defesa#
-1,61,10,0,0,0,0,0,0,0,0,0,0  //KN_AUTOCOUNTER#Contra Ataque#
-1,6,10,0,0,0,0,0,0,0,0,0,0  //SM_PROVOKE#Provocar#
-1,33,10,0,0,0,0,0,0,0,0,0,0  //AL_ANGELUS#Angelus#
-1,144,10,0,0,0,0,0,0,0,0,0,0  //SM_MOVINGRECOVERY#Recuperar Hp em movimento#
+1,22,10,0,0,0,0,0,0,0,0,0,0		//AL_DP#Zettai no Tate#
+1,33,10,0,0,0,0,0,0,0,0,0,0		//AL_ANGELUS#Kin no Suzu#
+1,249,10,0,0,0,0,0,0,0,0,0,0		//CR_AUTOGUARD#Shugo Fuuda#
+1,2309,10,0,0,0,0,0,0,0,0,0,0		//LG_TRAMPLE#Fuminarasu#
+1,144,10,0,0,0,0,0,0,0,0,0,0	//SM_MOVINGRECOVERY#Kiseki no Saisei#
 
 1,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 1,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -97,9 +97,11 @@
 2,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 2,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-2,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
-2,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
-2,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
+2,9,10,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
+2,75,10,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
+2,72,10,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+2,5041,10,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
+2,28,10,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 2,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 2,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -138,11 +140,11 @@
 7,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 7,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-7,22,10,0,0,0,0,0,0,0,0,0,0  //AL_DP#Aumentar Defesa#
-7,61,10,0,0,0,0,0,0,0,0,0,0  //KN_AUTOCOUNTER#Contra Ataque#
-7,6,10,0,0,0,0,0,0,0,0,0,0  //SM_PROVOKE#Provocar#
-7,33,10,0,0,0,0,0,0,0,0,0,0  //AL_ANGELUS#Angelus#
-7,144,10,0,0,0,0,0,0,0,0,0,0  //SM_MOVINGRECOVERY#Recuperar Hp em movimento#
+7,22,10,0,0,0,0,0,0,0,0,0,0		//AL_DP#Zettai no Tate#
+7,33,10,0,0,0,0,0,0,0,0,0,0		//AL_ANGELUS#Kin no Suzu#
+7,249,10,0,0,0,0,0,0,0,0,0,0		//CR_AUTOGUARD#Shugo Fuuda#
+7,2309,10,0,0,0,0,0,0,0,0,0,0		//LG_TRAMPLE#Fuminarasu#
+7,144,10,0,0,0,0,0,0,0,0,0,0	//SM_MOVINGRECOVERY#Kiseki no Saisei#
 
 7,43,10,0,0,0,0,0,0,0,0,0,0 //AC_OWL#Precisão#
 7,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -169,10 +171,10 @@
 7,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 7,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
-7,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
-7,2015,10,390,5,0,0,0,0,0,0,0,0  //RK_STONEHARDSKIN#Escamas Rochosas#
-7,249,10,2015,5,0,0,0,0,0,0,0,0  //CR_AUTOGUARD#Bloqueio#
-7,257,10,249,5,0,0,0,0,0,0,0,0  //CR_DEFENDER#Apanhar Flechas#
+7,257,10,0,0,0,0,0,0,0,0,0,0	//CR_DEFENDER#Apanhar Flechas#
+7,2313,10,0,0,0,0,0,0,0,0,0,0	//LG_FORCEOFVANGUARD#Kakutou Sutairu: Saizensen#
+7,2348,10,0,0,0,0,0,0,0,0,0,0	//SR_GENTLETOUCH_REVITALIZE#Chikara Denki#
+7,2015,10,0,0,0,0,0,0,0,0,0,0	//RK_STONEHARDSKIN#Iwahada#
 
 7,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 7,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -213,9 +215,11 @@
 9,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 9,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-9,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
-9,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
-9,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
+9,9,10,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
+9,75,10,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
+9,72,10,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+9,5041,10,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
+9,28,10,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 9,43,10,0,0,0,0,0,0,0,0,0,0 //AC_OWL#Precisão#
 9,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -295,11 +299,11 @@
 14,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 14,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-14,22,10,0,0,0,0,0,0,0,0,0,0  //AL_DP#Aumentar Defesa#
-14,61,10,0,0,0,0,0,0,0,0,0,0  //KN_AUTOCOUNTER#Contra Ataque#
-14,6,10,0,0,0,0,0,0,0,0,0,0  //SM_PROVOKE#Provocar#
-14,33,10,0,0,0,0,0,0,0,0,0,0  //AL_ANGELUS#Angelus#
-14,144,10,0,0,0,0,0,0,0,0,0,0  //SM_MOVINGRECOVERY#Recuperar Hp em movimento#
+14,22,10,0,0,0,0,0,0,0,0,0,0		//AL_DP#Zettai no Tate#
+14,33,10,0,0,0,0,0,0,0,0,0,0		//AL_ANGELUS#Kin no Suzu#
+14,249,10,0,0,0,0,0,0,0,0,0,0		//CR_AUTOGUARD#Shugo Fuuda#
+14,2309,10,0,0,0,0,0,0,0,0,0,0		//LG_TRAMPLE#Fuminarasu#
+14,144,10,0,0,0,0,0,0,0,0,0,0	//SM_MOVINGRECOVERY#Kiseki no Saisei#
 
 14,43,10,0,0,0,0,0,0,0,0,0,0 //AC_OWL#Precisão#
 14,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -325,10 +329,10 @@
 14,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 14,3021,10,0,0,0,0,0,0,0,0,0,0 	//KO_GENWAKU#Troca de Posição#
 
-14,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
-14,2015,10,390,5,0,0,0,0,0,0,0,0  //RK_STONEHARDSKIN#Escamas Rochosas#
-14,249,10,2015,5,0,0,0,0,0,0,0,0  //CR_AUTOGUARD#Bloqueio#
-14,257,10,249,5,0,0,0,0,0,0,0,0  //CR_DEFENDER#Apanhar Flechas#
+14,257,10,0,0,0,0,0,0,0,0,0,0	//CR_DEFENDER#Apanhar Flechas#
+14,2313,10,0,0,0,0,0,0,0,0,0,0	//LG_FORCEOFVANGUARD#Kakutou Sutairu: Saizensen#
+14,2348,10,0,0,0,0,0,0,0,0,0,0	//SR_GENTLETOUCH_REVITALIZE#Chikara Denki#
+14,2015,10,0,0,0,0,0,0,0,0,0,0	//RK_STONEHARDSKIN#Iwahada#
 
 14,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 14,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -369,9 +373,11 @@
 16,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 16,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-16,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
-16,75,5,0,0,0,0,0,0,0,0,0,0 //PR_GLORIA#Gloria#
-16,72,1,0,0,0,0,0,0,0,0,0,0 //PR_STRECOVERY#Souzou Saiseis#
+16,9,10,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
+16,75,10,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
+16,72,10,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+16,5041,10,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
+16,28,10,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 16,43,10,0,0,0,0,0,0,0,0,0,0 //AC_OWL#Precisão#
 16,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -453,11 +459,11 @@
 4002,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4002,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4002,22,10,0,0,0,0,0,0,0,0,0,0  //AL_DP#Aumentar Defesa#
-4002,61,10,0,0,0,0,0,0,0,0,0,0  //KN_AUTOCOUNTER#Contra Ataque#
-4002,6,10,0,0,0,0,0,0,0,0,0,0  //SM_PROVOKE#Provocar#
-4002,33,10,0,0,0,0,0,0,0,0,0,0  //AL_ANGELUS#Angelus#
-4002,144,10,0,0,0,0,0,0,0,0,0,0  //SM_MOVINGRECOVERY#Recuperar Hp em movimento#
+4002,22,10,0,0,0,0,0,0,0,0,0,0		//AL_DP#Zettai no Tate#
+4002,33,10,0,0,0,0,0,0,0,0,0,0		//AL_ANGELUS#Kin no Suzu#
+4002,249,10,0,0,0,0,0,0,0,0,0,0		//CR_AUTOGUARD#Shugo Fuuda#
+4002,2309,10,0,0,0,0,0,0,0,0,0,0		//LG_TRAMPLE#Fuminarasu#
+4002,144,10,0,0,0,0,0,0,0,0,0,0	//SM_MOVINGRECOVERY#Kiseki no Saisei#
 
 4002,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4002,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -499,9 +505,11 @@
 4003,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4003,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4003,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
-4003,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
-4003,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
+4003,9,10,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
+4003,75,10,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
+4003,72,10,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+4003,5041,10,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
+4003,28,10,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 4003,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4003,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -542,11 +550,11 @@
 4008,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4008,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4008,22,10,0,0,0,0,0,0,0,0,0,0  //AL_DP#Aumentar Defesa#
-4008,61,10,0,0,0,0,0,0,0,0,0,0  //KN_AUTOCOUNTER#Contra Ataque#
-4008,6,10,0,0,0,0,0,0,0,0,0,0  //SM_PROVOKE#Provocar#
-4008,33,10,0,0,0,0,0,0,0,0,0,0  //AL_ANGELUS#Angelus#
-4008,144,10,0,0,0,0,0,0,0,0,0,0  //SM_MOVINGRECOVERY#Recuperar Hp em movimento#
+4008,22,10,0,0,0,0,0,0,0,0,0,0		//AL_DP#Zettai no Tate#
+4008,33,10,0,0,0,0,0,0,0,0,0,0		//AL_ANGELUS#Kin no Suzu#
+4008,249,10,0,0,0,0,0,0,0,0,0,0		//CR_AUTOGUARD#Shugo Fuuda#
+4008,2309,10,0,0,0,0,0,0,0,0,0,0	//LG_TRAMPLE#Fuminarasu#
+4008,144,10,0,0,0,0,0,0,0,0,0,0		//SM_MOVINGRECOVERY#Kiseki no Saisei#
 
 4008,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4008,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -572,10 +580,10 @@
 4008,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4008,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
-4008,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
-4008,2015,10,390,5,0,0,0,0,0,0,0,0  //RK_STONEHARDSKIN#Escamas Rochosas#
-4008,249,10,2015,5,0,0,0,0,0,0,0,0  //CR_AUTOGUARD#Bloqueio#
-4008,257,10,249,5,0,0,0,0,0,0,0,0  //CR_DEFENDER#Apanhar Flechas#
+4008,257,10,0,0,0,0,0,0,0,0,0,0		//CR_DEFENDER#Apanhar Flechas#
+4008,2313,10,0,0,0,0,0,0,0,0,0,0	//LG_FORCEOFVANGUARD#Kakutou Sutairu: Saizensen#
+4008,2348,10,0,0,0,0,0,0,0,0,0,0	//SR_GENTLETOUCH_REVITALIZE#Chikara Denki#
+4008,2015,10,0,0,0,0,0,0,0,0,0,0	//RK_STONEHARDSKIN#Iwahada#
 
 4008,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 4008,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -616,9 +624,11 @@
 4010,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4010,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4010,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
-4010,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
-4010,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
+4010,9,10,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
+4010,75,10,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
+4010,72,10,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+4010,5041,10,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
+4010,28,10,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 4010,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4010,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -698,11 +708,11 @@
 4015,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4015,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4015,22,10,0,0,0,0,0,0,0,0,0,0  //AL_DP#Aumentar Defesa#
-4015,61,10,0,0,0,0,0,0,0,0,0,0  //KN_AUTOCOUNTER#Contra Ataque#
-4015,6,10,0,0,0,0,0,0,0,0,0,0  //SM_PROVOKE#Provocar#
-4015,33,10,0,0,0,0,0,0,0,0,0,0  //AL_ANGELUS#Angelus#
-4015,144,10,0,0,0,0,0,0,0,0,0,0  //SM_MOVINGRECOVERY#Recuperar Hp em movimento#
+4015,22,10,0,0,0,0,0,0,0,0,0,0		//AL_DP#Zettai no Tate#
+4015,33,10,0,0,0,0,0,0,0,0,0,0		//AL_ANGELUS#Kin no Suzu#
+4015,249,10,0,0,0,0,0,0,0,0,0,0		//CR_AUTOGUARD#Shugo Fuuda#
+4015,2309,10,0,0,0,0,0,0,0,0,0,0		//LG_TRAMPLE#Fuminarasu#
+4015,144,10,0,0,0,0,0,0,0,0,0,0	//SM_MOVINGRECOVERY#Kiseki no Saisei#
 
 4015,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4015,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -728,10 +738,10 @@
 4015,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4015,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
-4015,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
-4015,2015,10,390,5,0,0,0,0,0,0,0,0  //RK_STONEHARDSKIN#Escamas Rochosas#
-4015,249,10,2015,5,0,0,0,0,0,0,0,0  //CR_AUTOGUARD#Bloqueio#
-4015,257,10,249,5,0,0,0,0,0,0,0,0  //CR_DEFENDER#Apanhar Flechas#
+4015,257,10,0,0,0,0,0,0,0,0,0,0		//CR_DEFENDER#Apanhar Flechas#
+4015,2313,10,0,0,0,0,0,0,0,0,0,0	//LG_FORCEOFVANGUARD#Kakutou Sutairu: Saizensen#
+4015,2348,10,0,0,0,0,0,0,0,0,0,0	//SR_GENTLETOUCH_REVITALIZE#Chikara Denki#
+4015,2015,10,0,0,0,0,0,0,0,0,0,0	//RK_STONEHARDSKIN#Iwahada#
 
 4015,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 4015,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -772,9 +782,11 @@
 4017,495,10,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4017,150,10,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4017,28,10,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
-4017,75,10,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
-4017,72,10,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
+4017,9,10,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
+4017,75,10,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
+4017,72,10,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+4017,5041,10,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
+4017,28,10,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 4017,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4017,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -856,11 +868,11 @@
 4060,495,15,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4060,150,15,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4060,22,15,0,0,0,0,0,0,0,0,0,0  //AL_DP#Aumentar Defesa#
-4060,61,15,0,0,0,0,0,0,0,0,0,0  //KN_AUTOCOUNTER#Contra Ataque#
-4060,6,15,0,0,0,0,0,0,0,0,0,0  //SM_PROVOKE#Provocar#
-4060,33,15,0,0,0,0,0,0,0,0,0,0  //AL_ANGELUS#Angelus#
-4060,144,15,0,0,0,0,0,0,0,0,0,0  //SM_MOVINGRECOVERY#Recuperar Hp em movimento#
+4060,22,15,0,0,0,0,0,0,0,0,0,0		//AL_DP#Zettai no Tate#
+4060,33,15,0,0,0,0,0,0,0,0,0,0		//AL_ANGELUS#Kin no Suzu#
+4060,249,15,0,0,0,0,0,0,0,0,0,0		//CR_AUTOGUARD#Shugo Fuuda#
+4060,2309,15,0,0,0,0,0,0,0,0,0,0		//LG_TRAMPLE#Fuminarasu#
+4060,144,15,0,0,0,0,0,0,0,0,0,0	//SM_MOVINGRECOVERY#Kiseki no Saisei#
 
 4060,43,15,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4060,543,15,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -886,10 +898,10 @@
 4060,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4060,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
-4060,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
-4060,2015,10,390,5,0,0,0,0,0,0,0,0  //RK_STONEHARDSKIN#Escamas Rochosas#
-4060,249,10,2015,5,0,0,0,0,0,0,0,0  //CR_AUTOGUARD#Bloqueio#
-4060,257,10,249,5,0,0,0,0,0,0,0,0  //CR_DEFENDER#Apanhar Flechas#
+4060,257,10,0,0,0,0,0,0,0,0,0,0		//CR_DEFENDER#Apanhar Flechas#
+4060,2313,10,0,0,0,0,0,0,0,0,0,0	//LG_FORCEOFVANGUARD#Kakutou Sutairu: Saizensen#
+4060,2348,10,0,0,0,0,0,0,0,0,0,0	//SR_GENTLETOUCH_REVITALIZE#Chikara Denki#
+4060,2015,10,0,0,0,0,0,0,0,0,0,0	//RK_STONEHARDSKIN#Iwahada#
 
 4060,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 4060,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -910,10 +922,10 @@
 4060,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
 4060,4061,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
-4060,268,10,390,5,0,0,0,0,0,0,0,0 //MO_STEELBODY#Domu#
-4060,252,10,249,5,0,0,0,0,0,0,0,0 //CR_REFLECTSHIELD#Refletir#
-4060,2011,10,2015,5,0,0,0,0,0,0,0,0 //RK_MILLENNIUMSHIELD#Shirudo#
-4060,2325,10,257,5,0,0,0,0,0,0,0,0 //LG_INSPIRATION#Sincronizacao#
+4060,255,10,22,5,0,0,0,0,0,0,0,0	//CR_DEVOTION#Sokkyo Bogyo#
+4060,1002,10,22,5,0,0,0,0,0,0,0,0	//CR_SHRINK#Tsuyoi Oshi#
+4060,2318,10,22,5,0,0,0,0,0,0,0,0	//LG_PRESTIGE#Dekinai Hito#
+4060,268,10,22,5,0,0,0,0,0,0,0,0	//MO_STEELBODY#Domu#
 
 4060,544,10,0,0,0,0,0,0,0,0,0,0 //NJ_ISSEN#Shiki Fujin#
 4060,113,10,0,0,0,0,0,0,0,0,0,0 //BS_OVERTHRUST#Gaia Fuuin#
@@ -954,9 +966,11 @@
 4061,495,15,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4061,150,15,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4061,28,15,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
-4061,75,15,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
-4061,72,15,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
+4061,9,15,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
+4061,75,15,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
+4061,72,15,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+4061,5041,15,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
+4061,28,15,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 4061,43,15,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4061,543,15,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -1036,6 +1050,7 @@
 4061,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
 4061,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#
 4061,5011,10,28,10,0,0,0,0,0,0,0,0 //AB_OFFERTORIUM#Offertorium#
+4061,2039,10,28,10,0,0,0,0,0,0,0,0 //AB_ANCILLA#Kyouka Shohou#
 
 4061,544,10,0,0,0,0,0,0,0,0,0,0 //NJ_ISSEN#Shiki Fujin#
 4061,113,10,0,0,0,0,0,0,0,0,0,0 //BS_OVERTHRUST#Gaia Fuuin#
@@ -1073,11 +1088,11 @@
 4073,495,15,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4073,150,15,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4073,22,15,0,0,0,0,0,0,0,0,0,0  //AL_DP#Aumentar Defesa#
-4073,61,15,0,0,0,0,0,0,0,0,0,0  //KN_AUTOCOUNTER#Contra Ataque#
-4073,6,15,0,0,0,0,0,0,0,0,0,0  //SM_PROVOKE#Provocar#
-4073,33,15,0,0,0,0,0,0,0,0,0,0  //AL_ANGELUS#Angelus#
-4073,144,15,0,0,0,0,0,0,0,0,0,0  //SM_MOVINGRECOVERY#Recuperar Hp em movimento#
+4073,22,15,0,0,0,0,0,0,0,0,0,0		//AL_DP#Zettai no Tate#
+4073,33,15,0,0,0,0,0,0,0,0,0,0		//AL_ANGELUS#Kin no Suzu#
+4073,249,15,0,0,0,0,0,0,0,0,0,0		//CR_AUTOGUARD#Shugo Fuuda#
+4073,2309,15,0,0,0,0,0,0,0,0,0,0		//LG_TRAMPLE#Fuminarasu#
+4073,144,15,0,0,0,0,0,0,0,0,0,0	//SM_MOVINGRECOVERY#Kiseki no Saisei#
 
 4073,43,15,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4073,543,15,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -1103,10 +1118,10 @@
 4073,4060,10,0,0,0,0,0,0,0,0,0,0 	//VEL_MARCAHIRAI#Marca Hiraishin#
 4073,3021,10,0,0,0,0,0,0,0,0,0,0 //KO_GENWAKU#Troca de Posição#
 
-4073,390,10,0,0,0,0,0,0,0,0,0,0  //ST_REJECTSWORD#Instinto de Defesa#
-4073,2015,10,390,5,0,0,0,0,0,0,0,0  //RK_STONEHARDSKIN#Escamas Rochosas#
-4073,249,10,2015,5,0,0,0,0,0,0,0,0  //CR_AUTOGUARD#Bloqueio#
-4073,257,10,249,5,0,0,0,0,0,0,0,0  //CR_DEFENDER#Apanhar Flechas#
+4073,257,10,0,0,0,0,0,0,0,0,0,0		//CR_DEFENDER#Apanhar Flechas#
+4073,2313,10,0,0,0,0,0,0,0,0,0,0	//LG_FORCEOFVANGUARD#Kakutou Sutairu: Saizensen#
+4073,2348,10,0,0,0,0,0,0,0,0,0,0	//SR_GENTLETOUCH_REVITALIZE#Chikara Denki#
+4073,2015,10,0,0,0,0,0,0,0,0,0,0	//RK_STONEHARDSKIN#Iwahada#
 
 4073,34,10,0,0,0,0,0,0,0,0,0,0   //AL_BLESSING#Benção#
 4073,481,10,0,0,0,0,0,0,0,0,0,0  //HP_MANARECHARGE#Mana Recharge#
@@ -1127,10 +1142,10 @@
 4073,264,10,0,0,0,0,0,0,0,0,0,0 //MO_BODYRELOCATION#Hiraishin no Jutsu#
 4073,4061,10,0,0,0,0,0,0,0,0,0,0 //VEL_HIRAISHIN#Hiraishin Lv2 no Jutsu#
 
-4073,268,10,390,5,0,0,0,0,0,0,0,0 //MO_STEELBODY#Domu#
-4073,252,10,249,5,0,0,0,0,0,0,0,0 //CR_REFLECTSHIELD#Refletir#
-4073,2011,10,2015,5,0,0,0,0,0,0,0,0 //RK_MILLENNIUMSHIELD#Shirudo#
-4073,2325,10,257,5,0,0,0,0,0,0,0,0 //LG_INSPIRATION#Sincronizacao#
+4073,255,10,22,5,0,0,0,0,0,0,0,0	//CR_DEVOTION#Sokkyo Bogyo#
+4073,1002,10,22,5,0,0,0,0,0,0,0,0	//CR_SHRINK#Tsuyoi Oshi#
+4073,2318,10,22,5,0,0,0,0,0,0,0,0	//LG_PRESTIGE#Dekinai Hito#
+4073,268,10,22,5,0,0,0,0,0,0,0,0	//MO_STEELBODY#Domu#
 
 4073,544,10,0,0,0,0,0,0,0,0,0,0 //NJ_ISSEN#Shiki Fujin#
 4073,113,10,0,0,0,0,0,0,0,0,0,0 //BS_OVERTHRUST#Gaia Fuuin#
@@ -1171,9 +1186,11 @@
 4074,495,15,0,0,0,0,0,0,0,0,0,0  //KN_ONEHAND#Katate Sokudo#
 4074,150,15,0,0,0,0,0,0,0,0,0,0  //TF_BACKSLIDING#Nawanuke no Jutsu#
 
-4074,28,15,75,5,72,1,0,0,0,0,0,0  //AL_HEAL#Chiyute no Jutsu#
-4074,75,15,0,0,0,0,0,0,0,0,0,0  //PR_GLORIA#Gloria#
-4074,72,15,0,0,0,0,0,0,0,0,0,0  //PR_STRECOVERY#Souzou Saiseis#
+4074,9,15,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
+4074,75,15,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
+4074,72,15,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+4074,5041,15,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
+4074,28,15,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 4074,43,15,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4074,543,15,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -1252,6 +1269,7 @@
 4074,70,10,28,10,0,0,0,0,0,0,0,0 //PR_SANCTUARY#Sanctuary#
 4074,5007,10,28,10,0,0,0,0,0,0,0,0 //WM_FRIGG_SONG#Jinsei o Kyoyu Suru#
 4074,5011,10,28,10,0,0,0,0,0,0,0,0 //AB_OFFERTORIUM#Offertorium#
+4074,2039,10,28,10,0,0,0,0,0,0,0,0 //AB_ANCILLA#Kyouka Shohou#
 
 4074,544,10,0,0,0,0,0,0,0,0,0,0 //NJ_ISSEN#Shiki Fujin#
 4074,113,10,0,0,0,0,0,0,0,0,0,0 //BS_OVERTHRUST#Gaia Fuuin#

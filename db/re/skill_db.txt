@@ -77,9 +77,8 @@
 4000,0,6,4,0,0x1,0,1,1,no,0,0x1,0,magic,0,0x0,			NJ_CHAKRA,Concentrar Chakra
 524,9,8,1,-1,0x48,0,5,5,no,0,0x1,0,weapon,0,0x0,		NJ_KUNAI,Arremessar Kunai
 3012,0,6,4,0,0x1,0,1,0,no,0,0x1,2,none,7,0x0,			KO_ZANZOU,Kawarime no Jutsu
-426,0,6,4,0,0x1,0,5,1,no,0,0x1,0,weapon,0,0x0,			TK_HIGHJUMP,Salto Ninja
+5023,10,6,2,0,0,0,1,0,no,0,0,0,none,0,0x0,				SU_LOPE,Salto Ninja
 4001,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,			SN_EREMITA,Modo Eremita
-
 
 //-------------------------------------------------------------------------------------------
 // Taijutsu
@@ -226,10 +225,11 @@
 
 //-------------------------------------------------------------------------------------------
 // Medicina
-28,9,6,16,0,0x21,0,15,1,no,0,0x1400,0,magic,0,0x0,	AL_HEAL,Chiyute no Jutsu
-75,0,6,4,0,0x3,-1,15,1,no,0,0,0,magic,0,0x0,		PR_GLORIA,Boa Sorte
+9,0,0,0,0,0,0,15,0,no,0,0,0,magic,0,0x0,			MG_SRECOVERY,Iryu Chiyu
+75,0,6,4,0,0x3,-1,15,1,no,0,0,0,magic,0,0x0,		PR_GLORIA,Kaija Hoin
 72,9,6,16,0,0x1,0,15,1,no,0,0,0,magic,0,0x20,		PR_STRECOVERY,Kai
-33,0,6,4,0,0x3,-1,15,1,no,0,0,0,magic,0,0x0,		AL_ANGELUS,Angelus
+5041,9,6,16,0,0x3,0,15,1,no,0,0,0,none,0,0x0,		SU_FRESHSHRIMP,Jinsei no Kaifuku
+28,9,6,16,0,0x21,0,15,1,no,0,0x1400,0,magic,0,0x0,	AL_HEAL,Chiyute no Jutsu
 //
 2043,0,6,4,6,0x3,10,10,1,no,0,0,0,none,0,0x0,	AB_CHEAL,Mouryoujika
 2047,0,6,4,6,0x3,8,10,1,no,0,0,0,magic,0,0x0,	AB_LAUDAAGNUS,Kaihou Suru
@@ -239,6 +239,7 @@
 70,0,6,4,6,0x21,0,10,1,no,0,0,0,none,1,0x0,		PR_SANCTUARY,Iryou Chiiki
 5007,0,6,4,0,0x3,10,10,1,no,0,0,0,none,0,0x0, 	WM_FRIGG_SONG,Chikatsu Saisei
 5011,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0, 	AB_OFFERTORIUM,Saigo no Hitokuchi
+2039,0,6,4,0,0x1,0,10,1,no,0,0,0,magic,0,0x0,	AB_ANCILLA,Kyouka Shohou
 
 // 
 74,0,6,4,0,0x3,-1,10,1,no,0,0,0,none,0,0x0,		PR_MAGNIFICAT,Chikatsu no Jutsu
@@ -246,23 +247,29 @@
 //-------------------------------------------------------------------------------------------
 // Resistência
 // Básico
-22,0,0,0,0,0,0,15,0,no,0,0,0,weapon,0,0x0,		AL_DP,Aumentar Defesa
-61,0,6,4,-1,0x20,0,15,1,no,0,0,0,weapon,0,0x0,	KN_AUTOCOUNTER,Contra Ataque
-6,9,6,1,4,0,0,15,-2,no,0,0,0,magic,0,0x0,		SM_PROVOKE,Provocar
-2309,0,6,4,0,0x3,2,3,1,no,0,0,0,none,0,0x0,		LG_TRAMPLE,Pisotear Armadilha
-144,0,0,0,0,0,0,15,0,no,0,0,0,none,0,0x0,		SM_MOVINGRECOVERY,Recuperar Hp em movimento
+22,0,0,0,0,0,0,15,0,no,0,0,0,weapon,0,0x0,		AL_DP,Zettai no Tate
+33,0,6,4,0,0x3,-1,15,1,no,0,0,0,magic,0,0x0,	AL_ANGELUS,Kin no Suzu
+249,0,6,4,0,0x1,0,15,1,no,0,0,0,weapon,0,0x0,	CR_AUTOGUARD,Shugo Fuuda
+2309,0,6,4,0,0x3,2,15,1,no,0,0,0,none,0,0x0,	LG_TRAMPLE,Fuminarasu
+144,0,0,0,0,0,0,15,0,no,0,0,0,none,0,0x0,		SM_MOVINGRECOVERY,Kiseki no Saisei
 // Intermediario
-390,0,0,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	ST_REJECTSWORD,Instinto de Defesa
-2015,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,	RK_STONEHARDSKIN,Escamas Rochosas
-249,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_AUTOGUARD,Bloqueio
-257,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_DEFENDER,Apanhar Flechas
+257,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_DEFENDER,Kougeki Taimingu
+2313,0,6,4,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,	LG_FORCEOFVANGUARD,Kakutou Sutairu: Saizensen
+2348,2,6,16,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,	SR_GENTLETOUCH_REVITALIZE,Chikara Denki
+2015,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,	RK_STONEHARDSKIN,Iwahada
 // Avançado
-268,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	MO_STEELBODY,Domu
+255,7:8:9:10:11,6,16,0,0x1,0,10,1,yes,0,0x600,0,none,0,0x0,	CR_DEVOTION,Sokkyo Bogyo
+1002,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,2,0x0,				CR_SHRINK,Tsuyoi Oshi
+2318,0,6,4,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,				LG_PRESTIGE,Dekinai Hito
+268,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,				MO_STEELBODY,Domu
+
+
 252,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_REFLECTSHIELD,Refletir
 2011,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,	RK_MILLENNIUMSHIELD,Shirudo
 2325,0,6,4,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,	LG_INSPIRATION,Sincronizacao
 
-
+6,9,6,1,4,0,0,15,-2,no,0,0,0,magic,0,0x0,		SM_PROVOKE,Provocar
+390,0,0,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	ST_REJECTSWORD,Instinto de Defesa
 
 //-------------------------------------------------------------------------------------------
 // Fuuinjutsu
@@ -329,8 +336,8 @@
 8201,5,6,1,5,0,0,5,1,no,0,0,0,magic,0,0x0,			MS_BASH,Injetar Veneno
 8202,5,6,2,5,0,0,5,1,no,0,0,1,magic,0,0x0,			MS_MAGNUM,Névoa Venenosa
 8203,9,0,2,2,0x1,0,5,1,no,0,0x1,3,magic,0,0x11000,	MS_BOWLINGBASH,Névoa Paralisante
-8205,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,		MS_REFLECTSHIELD,Stun
-8207,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,		MA_DOUBLE,Silence
+8205,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,		MS_REFLECTSHIELD,Atordoar
+8207,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,		MA_DOUBLE,Silenciar
 
 // Sanshouo
 8208,-9,6,2,-1,0x2,2,10,1,no,0,0x40000,0,weapon,2,0x81,	MA_SHOWER,Arrow_Shower
@@ -542,7 +549,6 @@
 4,0,0,0,0,0,0,4,0,no,0,0,0,magic,0,0x0,			SM_RECOVERY,Iryo-nin
 2051,9,6,16,0,0x1,0,4,1,no,0,0,0,none,0,0x0,	AB_HIGHNESSHEAL,Chyute no In
 142,5,6,2,5,0,0,3,1,no,0,0,1,magic,0,0x0,		NV_FIRSTAID,Kousui Spray
-9,0,0,0,0,0,0,2,0,no,0,0,0,magic,0,0x0,			MG_SRECOVERY,Chakra no Gisou
 145,0,0,0,0,0,0,2,0,no,0,0x1,0,weapon,0,0x0,	SM_FATALBLOW,Kagura Shingan
 374,3,6,1,0,0x1,0,1,1,yes,0,0xE00,0,none,0,0x0,	PF_SOULCHANGE,Tairyoku Kaifuku
 
@@ -771,7 +777,6 @@
 // Crusader
 250,3,6,1,0,0,0,5,1,no,0,0,0,weapon,5:6:7:8:9,0x0,	CR_SHIELDCHARGE,Smite
 251,3:5:7:9:11,6,1,0,0,0,5,1,no,0,0,0,weapon,0,0x20000,	CR_SHIELDBOOMERANG,Shield Boomerang
-255,7:8:9:10:11,6,16,0,0x1,0,5,1,yes,0,0x600,0,none,0,0x0,	CR_DEVOTION,Sacrifice
 256,9,6,16,0,0x1,0,5,1,yes,0,0x200,0,none,0,0x0,	CR_PROVIDENCE,Resistant Souls
 258,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	CR_SPEARQUICKEN,Spear Quicken
 
@@ -983,6 +988,7 @@
 423,0,0,0,0,0,1,10,0,no,0,0,0,none,0,0x0,		TK_SPTIME,Happy Break
 424,0,0,0,0,0,0,5,0,no,0,0,0,weapon,0,0x0,		TK_POWER,Kihop
 425,0,6,4,2:4:1:3:8:7:6,0x1,0,7,1,no,0,0,0,weapon,0,0x0,	TK_SEVENWIND,Mild Wind
+426,0,6,4,0,0x1,0,5,1,no,0,0x1,0,weapon,0,0x0,			TK_HIGHJUMP,Salto Ninja
 
 //****
 // Star Gladiator
@@ -1222,7 +1228,6 @@
 //****
 // 2nd Quest Skills
 1001,14,6,1,-1,0,0,1,1,no,0,0x1,0,weapon,0,0x0,	KN_CHARGEATK,Charge Attack
-1002,0,6,4,0,0x1,0,1,0,no,0,0x1,0,weapon,2,0x0,	CR_SHRINK,Shrink
 1003,0,0,0,0,0,0,1,0,no,0,0x1,0,weapon,0,0x0,	AS_SONICACCEL,Sonic Acceleration
 1004,9,8,1,0,0x8,0,1,1,no,0,0x1,0,weapon,0,0x0,	AS_VENOMKNIFE,Throw Venom Knife
 1006,0,6,4,3,0,1,1,1,yes,0,0x40001,0,magic,3,0x0,	WZ_SIGHTBLASTER,Sight Blaster
@@ -1303,7 +1308,6 @@
 //****
 // AB Arch Bishop
 2038,11,8,1,6,0x2,1,5,-3,yes,0,0,0,magic,0,0x0,	AB_JUDEX,Judex
-2039,0,6,4,0,0x1,0,1,1,yes,0,0,0,magic,0,0x0,	AB_ANCILLA,Ancilla
 2041,0,6,4,0,0x3,3:7:15,3,1,yes,0,0,0,magic,0,0x0,	AB_CLEMENTIA,Crementia
 2042,0,6,4,0,0x3,3:7:15,3,1,yes,0,0,0,magic,0,0x0,	AB_CANTO,Canto Candidus
 2044,11,6,2,6,0x1,2,5,1,yes,0,0,1,magic,0,0x0,	AB_EPICLESIS,Epiclesis
@@ -1393,10 +1397,8 @@
 2310,1,6,1,0,0,0,5,1,no,0,0,0,weapon,0,0x0,		LG_SHIELDPRESS,Shield Press
 2311,0,6,4,0,0x3,3,5,1,no,0,0,0,none,0,0x0,	LG_REFLECTDAMAGE,Reflect Damage
 2312,5,6,1,-1,0,0,5,1,no,0,0,0,weapon,0,0x0,	LG_PINPOINTATTACK,Pinpoint Attack
-2313,0,6,4,0,0x1,0,5,1,yes,0,0,0,none,0,0x0,	LG_FORCEOFVANGUARD,Force of Vanguard
 2315,0,6,4,0:6:0,0x2,0,3,1,yes,0,0,0,none,2:0:0,0x0,	LG_SHIELDSPELL,Shield Spell
 2316,0,6,4,0,0x1,0,5,1,yes,0,0,0,none,0,0x0,	LG_EXEEDBREAK,Exceed Break
-2318,0,6,4,0,0x1,0,5,1,yes,0,0,0,none,0,0x0,	LG_PRESTIGE,Prestige
 2319,0,6,4,0,0x3,3,5,1,no,0,0,0,weapon,0,0x0,	LG_BANDING,Banding //CHECK Splash isnt needed right? Banding has its own UNIT ID.
 2320,0,6,4,-1,0x2,3,5,1,no,0,0,0,weapon,0,0x1000,	LG_MOONSLASHER,Tsuki no Kaiten
 2321,1,8,2,6,0x2,5,5,-7,yes,0,0,0,weapon,0,0x0,	LG_RAYOFGENESIS,Ray of Genesis
@@ -1428,7 +1430,6 @@
 2345,2,6,16,0,0x1,0,5,1,no,0,0,0,none,0,0x0,	SR_GENTLETOUCH_CURE,Gentle Touch - Cure
 2346,0,6,4,0,0x1,0,5,1,yes,0,0,0,none,0,0x0,	SR_GENTLETOUCH_ENERGYGAIN,Gentle Touch - Energy Gain
 2347,2,6,16,0,0x1,0,5,1,yes,0,0,0,none,0,0x0,	SR_GENTLETOUCH_CHANGE,Gentle Touch - Change
-2348,2,6,16,0,0x1,0,5,1,yes,0,0,0,none,0,0x0,	SR_GENTLETOUCH_REVITALIZE,Gentle Touch - Revitalize
 //More from Sura but not following ID order
 2517,0,6,4,-1,0x2,3:4:5:6:7,5,1,no,0,0,0,weapon,0,0x0,	SR_HOWLINGOFLION,Howling of Lion
 2518,11,6,2,-1,0x2,1:1:2:2:3,5,1,no,0,0,0,weapon,0,0x0,	SR_RIDEINLIGHTNING,Ride In Lightening
@@ -1599,7 +1600,6 @@
 5020,0,0,0,0,0,0,1,0,no,0,0,0,none,0,0x0,	SU_HIDE,Hide
 5021,0,0,0,0,0,0,1,0,no,0,0,0,none,0,0x0,	SU_SCRATCH,Scratch
 5022,0,0,0,0,0,0,1,0,no,0,0,0,none,0,0x0,	SU_STOOP,Stoop
-5023,0,0,0,0,0,0,1,0,no,0,0,0,none,0,0x0,	SU_LOPE,Lope
 5024,0,0,0,0,0,0,1,0,no,0,0,0,none,0,0x0,	SU_SPRITEMABLE,Spirit Marble
 5025,0,0,0,0,0,0,1,0,no,0,0,0,none,0,0x0,	SU_POWEROFLAND,Power of Land
 5026,0,0,0,0,0,0,1,0,no,0,0,0,none,0,0x0,	SU_SV_STEMSPEAR,Silvervine Stem Spear
@@ -1617,7 +1617,6 @@
 5038,0,0,0,0,0,0,1,0,no,0,0,0,none,0,0x0,	SU_TUNABELLY,Tuna Belly
 5039,0,0,0,0,0,0,1,0,no,0,0,0,none,0,0x0,	SU_TUNAPARTY,Tuna Party
 5040,0,0,0,0,0,0,1,0,no,0,0,0,none,0,0x0,	SU_BUNCHOFSHRIMP,Bunch of Shrimp
-5041,0,0,0,0,0,0,1,0,no,0,0,0,none,0,0x0,	SU_FRESHSHRIMP,Fresh Shrimp
 
 // Unknown Unconfirmed Summoner Skills - Animations Show On These
 5042,9,8,2,0,0,1:1:2:2:3,5,-5,yes,0,0,0,magic,0,0x0,		SU_CN_METEOR2,Catnip Meteor 2

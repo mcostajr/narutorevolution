@@ -16,7 +16,7 @@
 
 // Waiting Room NPCs
 //============================================================
-prontera,156,182,5	script	Registro::KvM01R_Team	418,{
+pvp_room,45,86,5	script	Registro::KvM01R_Team	418,{
 	end;
 OnInit:
 	waitingroom "Battle Station 5x5",11,"KvM01_BG_Out::OnGuillaumeJoin",1;
