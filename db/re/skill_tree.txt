@@ -6,7 +6,7 @@
 
 0,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 0,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-0,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+0,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 0,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 // Estudante
@@ -14,7 +14,7 @@
 4001,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4001,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4001,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-4001,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+4001,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 4001,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 
@@ -25,7 +25,7 @@
 1,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 1,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 1,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-1,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+1,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 1,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 1,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
@@ -68,7 +68,7 @@
 2,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 2,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 2,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-2,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+2,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 2,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 2,19,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
@@ -114,7 +114,7 @@
 7,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 7,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 7,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-7,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+7,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 7,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 7,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
@@ -186,7 +186,7 @@
 9,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 9,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 9,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-9,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+9,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 9,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 9,19,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
@@ -273,7 +273,7 @@
 14,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 14,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 14,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-14,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+14,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 14,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 14,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
@@ -344,7 +344,7 @@
 16,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 16,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 16,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-16,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+16,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 16,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 16,19,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
@@ -433,7 +433,7 @@
 4002,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4002,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4002,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-4002,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+4002,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 4002,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4002,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
@@ -476,7 +476,7 @@
 4003,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4003,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4003,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-4003,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+4003,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 4003,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4003,19,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
@@ -524,7 +524,7 @@
 4008,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4008,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4008,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-4008,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+4008,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 4008,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4008,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
@@ -595,7 +595,7 @@
 4010,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4010,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4010,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-4010,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+4010,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 4010,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4010,19,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
@@ -682,7 +682,7 @@
 4015,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4015,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4015,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-4015,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+4015,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 4015,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4015,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
@@ -753,7 +753,7 @@
 4017,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4017,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4017,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-4017,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+4017,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 4017,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4017,19,10,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
@@ -842,7 +842,7 @@
 4060,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4060,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4060,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-4060,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+4060,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 4060,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4060,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
@@ -937,7 +937,7 @@
 4061,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4061,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4061,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-4061,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+4061,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 4061,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4061,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
@@ -1062,7 +1062,7 @@
 4073,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4073,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4073,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-4073,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+4073,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 4073,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4073,132,5,0,0,0,0,0,0,0,0,0,0 	//AS_RIGHT#Hidarite#
@@ -1157,7 +1157,7 @@
 4074,4000,1,0,0,0,0,0,0,0,0,0,0 //NJ_CHAKRA#Concentrar Chakra#
 4074,524,1,0,0,0,0,0,0,0,0,0,0 //NJ_KUNAI#Arremessar Kunai#
 4074,3012,1,0,0,0,0,0,0,0,0,0,0 //KO_ZANZOU#Kawarime no Jutsu#
-4074,426,1,0,0,0,0,0,0,0,0,0,0 //TK_HIGHJUMP#Salto Ninja#
+4074,5023,1,0,0,0,0,0,0,0,0,0,0 //SU_LOPE#Salto Ninja#
 4074,4001,1,0,0,0,0,0,0,0,0,0,0 //SN_EREMITA#Modo Eremita#
 
 4074,19,15,0,0,0,0,0,0,0,0,0,0 //MG_FIREBOLT#Katon Gougakyuu#
