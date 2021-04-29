@@ -137,10 +137,11 @@ Element: Element of the monster, also for Element of db/elemental_db.txt, db/mer
 	| Fire		|  23	|  43	|  63	|  83	|
 	| Wind		|  24	|  44	|  64	|  84	|
 	| Poison	|  25	|  45	|  65	|  85	|
-	| Holy		|  26	|  46	|  66	|  86	|
-	| Shadow	|  27	|  47	|  67	|  87	|
-	| Ghost		|  28	|  48	|  68	|  88	|
-	| Undead	|  29	|  49	|  69	|  89	|
+	| Hyouton	|  26	|  46	|  66	|  86	|
+	| Raiton	|  27	|  47	|  67	|  87	|
+	| Bakuton	|  28	|  48	|  68	|  88	|
+	| Jinton	|  29	|  49	|  69	|  89	|
+	| Shakuton	|  30	|  50	|  70	|  90	|
 	+-----------+-------+-------+-------+-------+
 	| For custom start from 30, 50, 70, and 90	|
 	+-----------+-------+-------+-------+-------+
