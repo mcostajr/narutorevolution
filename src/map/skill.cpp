@@ -505,6 +505,9 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 	switch( skill_id ) {
 
 		// Medicina
+		case SU_FRESHSHRIMP:
+			hp = (status_get_lv(src) + status_get_int(src)) / 5 * 6;
+			break;
 		case PR_SANCTUARY:
 			hp = skill_lv*1000;
 			break;
@@ -525,9 +528,6 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 		case NPC_EVILLAND:
 			hp = (skill_lv > 6) ? 666 : skill_lv * 100;
 			break;
-		case SU_FRESHSHRIMP:
-			hp = (status_get_lv(src) + status_get_int(src)) / 5 * 6;
-			break;
 		case SU_BUNCHOFSHRIMP:
 			hp = (status_get_lv(src) + status_get_int(src)) / 5 * 15;
 			break;
@@ -543,34 +543,23 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 			 */
 			hp = (status_get_lv(src) + status_get_int(src)) / 5 * 30 * skill_lv / 10;
 
-			if (sd && ((skill = pc_checkskill(sd, HP_MEDITATIO)) > 0))
-				hp += hp * skill * 2 / 100;
-			if (sd && ((skill = pc_checkskill(sd, SM_RECOVERY)) > 0))
-				hp += hp * skill * 5 / 100;
-			else if (src->type == BL_HOM && (skill = hom_checkskill(((TBL_HOM*)src), HLIF_BRAIN)) > 0)
-				hp += hp * skill * 2 / 100;
 			if (sd && tsd && sd->status.partner_id == tsd->status.char_id && (sd->class_&MAPID_UPPERMASK) == MAPID_SUPER_NOVICE && sd->status.sex == 0)
 				hp *= 2;
 			break;
 	}
 
+	// Tairyoku
+	if (sd && ((skill = pc_checkskill(sd, SM_RECOVERY)) > 0))
+		hp_bonus += (skill * 5);
+
+	// Byakugo
+	if (sd && ((skill = pc_checkskill(sd, HP_MEDITATIO)) > 0))
+		hp_bonus += (skill * 375 / 100);
+	else if (src->type == BL_HOM && (skill = hom_checkskill(((TBL_HOM*)src), HLIF_BRAIN)) > 0)
+		hp_bonus += skill * 2 / 100;
+
 	if( (!heal || (target && target->type == BL_MER)) && skill_id != NPC_EVILLAND )
 		hp >>= 1;
-
-	if (sd && ((skill = pc_checkskill(sd, SU_POWEROFSEA)) > 0)) {
-#ifdef RENEWAL
-		hp_bonus += 10;
-#else
-		hp += hp * 10 / 100;
-#endif
-
-		if (pc_checkskill(sd, SU_TUNABELLY) == 5 && pc_checkskill(sd, SU_TUNAPARTY) == 5 && pc_checkskill(sd, SU_BUNCHOFSHRIMP) == 5 && pc_checkskill(sd, SU_FRESHSHRIMP) == 5)
-#ifdef RENEWAL
-			hp_bonus += 20;
-#else
-			hp += hp * 20 / 100;
-#endif
-	}
 
 	if (sd && (skill = pc_skillheal_bonus(sd, skill_id)))
 #ifdef RENEWAL
@@ -1804,10 +1793,6 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		break;
 	case NC_MAGMA_ERUPTION_DOTDAMAGE: // Burning effect from 'eruption'
 		sc_start4(src, bl, SC_BURNING, 10 * skill_lv, skill_lv, 1000, src->id, 0, skill_get_time2(skill_id, skill_lv));
-		break;
-	case GN_ILLUSIONDOPING:
-		if( sc_start(src,bl,SC_ILLUSIONDOPING,20*skill_lv,skill_lv,skill_get_time(skill_id,skill_lv)) )
-			sc_start(src,bl,SC_HALLUCINATION,100,skill_lv,skill_get_time(skill_id,skill_lv));
 		break;
 
 	case RL_SLUGSHOT:
@@ -3336,6 +3321,8 @@ int64 skill_attack (int attack_type, struct block_list* src, struct block_list *
 	switch( skill_id ) {
 		//Skills that need be passed as a normal attack for the client to display correctly.
 		case NPC_SELFDESTRUCTION:
+		case NC_SELFDESTRUCTION:
+		case KN_C0:
 			if(src->type == BL_PC)
 				dmg.blewcount = 10;
 			dmg.amotion = 0; //Disable delay or attack will do no damage since source is dead by the time it takes effect. [Skotlex]
@@ -4908,7 +4895,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case RA_WUGDASH:
 	case NC_VULCANARM:
 	case NC_COLDSLOWER:
-	case NC_SELFDESTRUCTION:
 	case NC_AXETORNADO:
 	case GC_ROLLINGCUTTER:
 	case GC_COUNTERSLASH:
@@ -4928,7 +4914,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case KO_HUUMARANKA:
 	case KO_MUCHANAGE:
 	case KO_BAKURETSU:
-	case GN_ILLUSIONDOPING:
 	case RL_FIREDANCE:
 	case RL_S_STORM:
 	case RL_R_TRIP:
@@ -4943,12 +4928,10 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	// Kugutsu
 	case MER_QUICKEN:
 	case MER_TENDER:
-	// Akimichi
+	// Akimich
 	case AKI_NIKUDAN:
 	//
 	case HYU_HYAKU:
-	//
-	case KN_C0:
 	//
 	case ASC_METEORASSAULT:
 	//
@@ -5325,8 +5308,13 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		break;
 
 	case NPC_SELFDESTRUCTION:
+	case NC_SELFDESTRUCTION:
+	case KN_C0:
 		if( tsc && tsc->data[SC_HIDING] )
 			break;
+		if (src != bl)
+			skill_attack(BF_MISC, src, src, bl, skill_id, skill_lv, tick, flag);
+		break;
 
 	// Celest
 	case PF_SOULBURN:
@@ -6219,13 +6207,16 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		}
 		break;
 
+	/* Tairyoku Kaifuku */
+	case SM_FATALBLOW:
 	/* Hyuuga */
 	case HYU_BYAKUGAN:
 		if (tsce) {
 			clif_skill_nodamage(src, bl, skill_id, -1, status_change_end(bl, type, INVALID_TIMER));
 			map_freeblock_unlock();
 			return 0;
-		} else {
+		}
+		else {
 			int number = 0;
 			struct s_mapiterator* it;
 
@@ -6243,8 +6234,13 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				++number;
 				clif_viewpoint(sd, 1, 0, md->bl.x, md->bl.y, number, 0xFF0000);
 
-				clif_skill_nodamage(src, bl, skill_id, skill_lv,
-					sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+				if (skill_id == HYU_BYAKUGAN) {
+					clif_skill_nodamage(src, bl, skill_id, skill_lv,
+						sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+				}
+				else {
+					clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+				}
 			}
 			mapit_free(it);
 		}
@@ -6493,6 +6489,23 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 		}
 		break;
+
+	case GN_ILLUSIONDOPING:
+	{
+		if (!check_distance_bl(src, bl, 0)) {
+			uint8 dir = map_calc_dir(src, bl->x, bl->y), t_dir = unit_getdir(bl);
+
+			if (map_check_dir(dir, t_dir) || bl->type == BL_SKILL) {
+				dir = dir < 4 ? dir + 4 : dir - 4; // change direction [Celest]
+				unit_setdir(bl, dir);
+				clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+				sc_start(src, bl, SC_HALLUCINATION, 100, skill_lv, skill_get_time(skill_id, skill_lv));
+			}
+			else if (sd)
+				clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
+		}
+	}
+	break;
 
 	// Genjutsu
 	case NPC_SLEEPATTACK:
@@ -7279,21 +7292,23 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		break;
 
 	case NPC_SELFDESTRUCTION:
+	case NC_SELFDESTRUCTION:
+	case KN_C0:
 		//Self Destruction hits everyone in range (allies+enemies)
 		//Except for Summoned Marine spheres on non-versus maps, where it's just enemy.
-		i = ((!md || md->special_state.ai == AI_SPHERE) && !map_flag_vs(src->m))?
-			BCT_ENEMY:BCT_ALL;
+		i = ((!md || md->special_state.ai == AI_SPHERE) && !map_flag_vs(src->m)) ?
+			BCT_ENEMY : BCT_ENEMY;
 		clif_skill_nodamage(src, src, skill_id, -1, 1);
 		map_delblock(src); //Required to prevent chain-self-destructions hitting back.
 		map_foreachinshootrange(skill_area_sub, bl,
-			skill_get_splash(skill_id, skill_lv), BL_CHAR|BL_SKILL,
-			src, skill_id, skill_lv, tick, flag|i,
+			skill_get_splash(skill_id, skill_lv), BL_CHAR | BL_SKILL,
+			src, skill_id, skill_lv, tick, flag | i,
 			skill_castend_damage_id);
-		if(map_addblock(src)) {
+		if (map_addblock(src)) {
 			map_freeblock_unlock();
 			return 1;
 		}
-		status_damage(src, src, sstatus->max_hp,0,0,1);
+		status_damage(src, src, sstatus->max_hp, 0, 0, 1);
 		break;
 
 	case AL_ANGELUS:
@@ -8634,34 +8649,42 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		break;
 
 	case PF_SOULCHANGE:
-		{
-			unsigned int sp1 = 0, sp2 = 0;
-			if (dstmd) {
-				if (dstmd->state.soul_change_flag) {
-					if(sd) clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
-					break;
-				}
-				dstmd->state.soul_change_flag = 1;
-				sp2 = sstatus->max_sp * 3 /100;
-				status_heal(src, 0, sp2, 2);
-				clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
+	{
+		unsigned int hp1 = 0, hp2 = 0, hp3 = 0, sp1 = 0, sp2 = 0;
+		/*if (dstmd) {
+			if (dstmd->state.soul_change_flag) {
+				if (sd) clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 				break;
 			}
-			sp1 = sstatus->sp;
-			sp2 = tstatus->sp;
-#ifdef	RENEWAL
-			sp1 = sp1 / 2;
-			sp2 = sp2 / 2;
-			if (tsc && tsc->data[SC_EXTREMITYFIST2])
-				sp1 = tstatus->sp;
-#endif
-			if (tsc && tsc->data[SC_NORECOVER_STATE])
-				sp1 = tstatus->sp;
-			status_set_sp(src, sp2, 3);
-			status_set_sp(bl, sp1, 3);
-			clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
+			dstmd->state.soul_change_flag = 1;
+			sp2 = sstatus->max_sp * 3 / 100;
+			status_heal(src, 0, sp2, 2);
+			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+			break;
+		}*/
+		hp1 = sstatus->max_hp;
+		sp1 = sstatus->max_sp;
+		hp3 = sstatus->hp;
+
+		hp2 = tstatus->max_hp;
+		sp2 = tstatus->max_sp;
+
+		if (bl != src) {
+			status_heal(bl, hp2 / 2, sp2 / 2, 2);
+
+			if (rnd() % 100 > 50) {
+				status_set_hp(src, hp3 / 2, 3);
+			}
+			sc_start(src, src, SC_FEAR, 100, skill_lv, 2000);
+			status_change_start(src, src, SC_COMA, 1000, 0, 0, src->id, 0, 0, SCSTART_NONE);
 		}
-		break;
+		else {
+			status_heal(src, hp1 * 15 / 100, sp1 * 15 / 100, 2);
+		}
+
+		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+	}
+	break;
 
 	// Slim Pitcher
 	case CR_SLIMPITCHER:
@@ -9697,31 +9720,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			skill_blown(src,bl,skill_get_blewcount(skill_id,skill_lv),dir,BLOWN_IGNORE_NO_KNOCKBACK);
 			clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
 		}
-		break;
-
-	case NC_SELFDESTRUCTION:
-		skill_area_temp[1] = 0;
-		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-		map_delblock(src);
-		map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR|BL_SKILL, src, skill_id, skill_lv, tick, flag|BCT_ENEMY|SD_SPLASH|1, skill_castend_damage_id);
-		if (map_addblock(src)) {
-			map_freeblock_unlock();
-			return 1;
-		}
-		status_damage(src, src, sstatus->max_hp, 0, 0, 1);
-		skill_clear_unitgroup(src);
-		break;
-
-	case KN_C0:
-		skill_area_temp[1] = 0;
-		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-		map_delblock(src);
-		map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR|BL_SKILL, src, skill_id, skill_lv, tick, flag|BCT_ENEMY|SD_SPLASH|1, skill_castend_damage_id);
-		if(map_addblock(src)) {
-		map_freeblock_unlock();
-		return 1;
-		}
-		status_damage(src, src, sstatus->max_hp, 0, 0, 1);
 		break;
 
 	case NC_EMERGENCYCOOL:
@@ -11922,6 +11920,9 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 
 	// Jinton
 	case JIN_KOUJIN:
+	//
+
+	case NV_FIRSTAID:
 		flag|=1;//Set flag to 1 to prevent deleting ammo (it will be deleted on group-delete).
 	case GS_GROUNDDRIFT: //Ammo should be deleted right away.
 	case GN_WALLOFTHORN:
@@ -13029,6 +13030,7 @@ struct skill_unit_group *skill_unitsetting(struct block_list *src, uint16 skill_
 	case WZ_QUAGMIRE:	//The target changes to "all" if used in a gvg map. [Skotlex]
 	case AM_DEMONSTRATION:
 	case GN_HELLS_PLANT:
+	case NV_FIRSTAID:
 		if( skill_id == GN_HELLS_PLANT && map_getcell(src->m, x, y, CELL_CHKLANDPROTECTOR) )
 			return NULL;
 		if (battle_config.vs_traps_bctall && (src->type&battle_config.vs_traps_bctall) && map_flag_vs(src->m))
@@ -14666,6 +14668,7 @@ int skill_unit_onleft(uint16 skill_id, struct block_list *bl, t_tick tick)
 		case MH_LAVA_SLIDE:
 		case MS_BOWLINGBASH:
 		case WZ_QUAGMIRE:
+		case NV_FIRSTAID:
 			if (bl->type==BL_MOB)
 				break;
 			if (sce)

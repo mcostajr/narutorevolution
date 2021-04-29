@@ -265,6 +265,8 @@ void initChangeTables(void)
 
 	set_sc(SG_SUN_WARM, SC_WARM, EFST_SG_SUN_WARM, SCB_NONE);
 
+	set_sc(NV_FIRSTAID, SC_KOUSUI, EFST_KOUSUI, SCB_DEF | SCB_SPEED);
+
 	/* ----------------------------------------------------------------------------------------------------------------------------------- */
 	/* Basica */
 	set_sc(NJ_CHAKRA, SC_RECOVERCHAKRA, EFST_RECOVERCHAKRA, SCB_NONE);
@@ -2992,15 +2994,7 @@ int status_calc_mob_(struct mob_data* md, enum e_status_calc_opt opt)
 				struct status_data *mstatus = status_get_status_data(mbl);
 				if (!mstatus)
 					break;
-				status->max_hp = (mstatus->batk*10) * ud->skill_lv;
-				break;
-			}
-			case KN_C2:
-			{
-				struct status_data *mstatus = status_get_status_data(mbl);
-				if (!mstatus)
-					break;
-				status->max_hp = mstatus->hp;
+				status->max_hp = (mstatus->matk_max*10) * ud->skill_lv;
 				break;
 			}
 			case KN_C3:
@@ -3008,7 +3002,7 @@ int status_calc_mob_(struct mob_data* md, enum e_status_calc_opt opt)
 				struct status_data *mstatus = status_get_status_data(mbl);
 				if (!mstatus)
 					break;
-				status->max_hp = (mstatus->batk * 100) * ud->skill_lv;
+				status->max_hp = (mstatus->matk_max * 100) * ud->skill_lv;
 				break;
 			}
 			case TY_DOKI1:
@@ -3203,7 +3197,7 @@ static int status_get_hpbonus(struct block_list *bl, enum e_status_bonus type) {
 				bonus += 1000;
 			if (pc_checkskill(sd, SU_POWEROFSEA) > 0) {
 				bonus += 1000;
-				if ((pc_checkskill(sd, SU_TUNABELLY) + pc_checkskill(sd, SU_TUNAPARTY) + pc_checkskill(sd, SU_BUNCHOFSHRIMP) + pc_checkskill(sd, SU_FRESHSHRIMP) +
+				if ((pc_checkskill(sd, SU_TUNABELLY) + pc_checkskill(sd, SU_TUNAPARTY) + pc_checkskill(sd, SU_BUNCHOFSHRIMP) +
 					pc_checkskill(sd, SU_GROOMING) + pc_checkskill(sd, SU_PURRING) + pc_checkskill(sd, SU_SHRIMPARTY)) > 19)
 						bonus += 2000;
 			}
@@ -6645,8 +6639,6 @@ static signed short status_calc_hit(struct block_list *bl, struct status_change 
 		hit -= hit * sc->data[SC_ASH]->val2 / 100;
 	if (sc->data[SC_TEARGAS])
 		hit -= hit * 50 / 100;
-	if(sc->data[SC_ILLUSIONDOPING])
-		hit -= sc->data[SC_ILLUSIONDOPING]->val2;
 	if (sc->data[SC_MTF_ASPD])
 		hit += sc->data[SC_MTF_ASPD]->val2;
 
@@ -6795,6 +6787,9 @@ static defType status_calc_def(struct block_list *bl, struct status_change *sc, 
 	if(!sc || !sc->count)
 		return (defType)cap_value(def,DEFTYPE_MIN,DEFTYPE_MAX);
 
+	if (sc->data[SC_KOUSUI])
+		def -= 4 * sc->data[SC_KOUSUI]->val1;
+
 	if(sc->data[SC_BERSERK])
 		return 0;
 	if(sc->data[SC_BARRIER])
@@ -6898,6 +6893,8 @@ static signed short status_calc_def2(struct block_list *bl, struct status_change
 		return (short)cap_value(def2,1,SHRT_MAX);
 #endif
 
+	if (sc->data[SC_KOUSUI])
+		def2 -= 4 * sc->data[SC_KOUSUI]->val1;
 	if(sc->data[SC_BERSERK])
 		return 0;
 	if(sc->data[SC_ETERNALCHAOS])
@@ -7119,6 +7116,9 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			// Uchiha
 			if (sc->data[SC_SUSANOO])
 				val = max(val, 30);
+			// Tairyoku Kaifuku
+			if (sc->data[SC_KOUSUI])
+				val = max(val, 8 * sc->data[SC_KOUSUI]->val1);
 
 			// ---------------------------------
 
@@ -8454,6 +8454,7 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 			case SC_HALLUCINATION:
 			case SC_STONE:
 			case SC_QUAGMIRE:
+			case SC_KOUSUI:
 			case SC_SUITON:
 			case SC_SWINGDANCE:
 			case SC_FIRE_INSIGNIA:
@@ -8976,6 +8977,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	switch (type) {
 	case SC_DECREASEAGI:
 	case SC_QUAGMIRE:
+	case SC_KOUSUI:
 	case SC_DONTFORGETME:
 		if(sc->data[SC_SPEEDUP1])
 			return 0;
@@ -11506,9 +11508,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_EPICLESIS:
 			val2 = 5 * val1; //HP rate bonus
 			break;
-		case SC_ILLUSIONDOPING:
-			val2 = 50; // -Hit
-			break;
 
 		case SC_OVERHEAT:
 		case SC_OVERHEAT_LIMITPOINT:
@@ -11622,7 +11621,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				if (sd) {
 					if (pc_checkskill(sd, SU_POWEROFSEA)) {
 						val2 += val2 * 10 / 100;
-						if ((pc_checkskill(sd, SU_TUNABELLY) + pc_checkskill(sd, SU_TUNAPARTY) + pc_checkskill(sd, SU_BUNCHOFSHRIMP) + pc_checkskill(sd, SU_FRESHSHRIMP) +
+						if ((pc_checkskill(sd, SU_TUNABELLY) + pc_checkskill(sd, SU_TUNAPARTY) + pc_checkskill(sd, SU_BUNCHOFSHRIMP) +
 							pc_checkskill(sd, SU_GROOMING) + pc_checkskill(sd, SU_PURRING) + pc_checkskill(sd, SU_SHRIMPARTY)) > 19)
 								val2 += val2 * 20 / 100;
 					}
@@ -14596,6 +14595,7 @@ void status_change_clear_buffs(struct block_list* bl, uint8 type)
 				break;
 			case SC_HALLUCINATION:
 			case SC_QUAGMIRE:
+			case SC_KOUSUI:
 			case SC_SIGNUMCRUCIS:
 			case SC_DECREASEAGI:
 			case SC_SLOWDOWN:

@@ -912,6 +912,9 @@ enum sc_type : int16 {
 	SC_SUIJINHEKI,
 	SC_ICEWALL,
 
+	// Tairyoku Kaifuku
+	SC_KOUSUI,
+
 	SC_MAX, //Automatically updated max, used in for's to check we are within bounds.
 };
 
@@ -2031,6 +2034,8 @@ enum efst_types : short{
 	EFST_RECOVERCHAKRA = 1215,
 
 	EFST_OWL = 1216,
+		
+	EFST_KOUSUI,
 
 	EFST_MAX,
 };

@@ -269,6 +269,7 @@
 2325,0,6,4,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,	LG_INSPIRATION,Sincronizacao
 
 6,9,6,1,4,0,0,15,-2,no,0,0,0,magic,0,0x0,		SM_PROVOKE,Provocar
+61,0,6,4,-1,0x20,0,15,1,no,0,0,0,weapon,0,0x0,	KN_AUTOCOUNTER,Contra Ataque
 390,0,0,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,	ST_REJECTSWORD,Instinto de Defesa
 
 //-------------------------------------------------------------------------------------------
@@ -319,7 +320,7 @@
 // Uchiha
 4200,9,6,4,0,0x1,0,3,0,no,0,0,0,none,0,0x0,					UH_SHARINGAN,Sharingan
 4201,0,0,0,0,0,0,3,0,no,0,0,0,none,0,0x0,					UH_DOSATSUGAN,Dosatsugan
-5003,7,6,1,-1,0x2,6:7,2,1,no,0,0,0,weapon,0,0x0,            GN_ILLUSIONDOPING,Genjutsu: Sharingan
+5003,7,6,1,0,0x1,0,2,1,no,0,0,0,magic,0,0x0,            GN_ILLUSIONDOPING,Genjutsu: Sharingan
 4202,9,6,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,					UH_MANGEKYOU,Mangekyou Sharingan
 4203,0,6,4,0,0x1,0,1,1,yes,0,0x1,0,magic,0,0x0,				UH_SUSANOO,Susanoo
 2008,9,6,2,3,0x42,1:2:3:4,4,1,no,0,0x40000,0,magic,0,0x0,	RK_DRAGONBREATH,Amaterasu
@@ -440,7 +441,7 @@
 4292,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,				KN_C2,C2
 4293,4,6,2,8,0x1,0,1,1,no,0,0,1,none,0,0x0,				KN_C3,C3
 4294,0,6,4,8,0xCA,6,1,1,no,0,0x40000,0,misc,3,0x304000,	KN_C0,C0
-2267,0,6,4,8,0xCA,6,1,1,no,0,0x40000,0,misc,3,0x304000,	NC_SELFDESTRUCTION,Katsu
+2267,0,6,4,8,0xCA,6,10,1,no,0,0x40000,0,misc,3,0x304000,NC_SELFDESTRUCTION,Katsu
 // Passarinho
 8228,9,6,2,3,0x42,1,1,1,no,0,0,0,weapon,3,0x100,	MER_BENEDICTION,Minas Explosivas
 
@@ -548,9 +549,9 @@
 // Tairyoku Kaifuku
 4,0,0,0,0,0,0,4,0,no,0,0,0,magic,0,0x0,			SM_RECOVERY,Iryo-nin
 2051,9,6,16,0,0x1,0,4,1,no,0,0,0,none,0,0x0,	AB_HIGHNESSHEAL,Chyute no In
-142,5,6,2,5,0,0,3,1,no,0,0,1,magic,0,0x0,		NV_FIRSTAID,Kousui Spray
-145,0,0,0,0,0,0,2,0,no,0,0x1,0,weapon,0,0x0,	SM_FATALBLOW,Kagura Shingan
-374,3,6,1,0,0x1,0,1,1,yes,0,0xE00,0,none,0,0x0,	PF_SOULCHANGE,Tairyoku Kaifuku
+142,5,6,2,5,0,0,3,1,no,0,0,1,magic,0,0x11000,	NV_FIRSTAID,Kousui Spray
+145,9,6,4,0,0x1,0,2,0,no,0,0,0,none,0,0x0,		SM_FATALBLOW,Kagura Shingan
+374,3,6,16,0,0x1,0,1,1,no,0,0,0,none,0,0x0,		PF_SOULCHANGE,Tairyoku Kaifuku
 
 //-------------------------------------------------------------------------------------------------------------
 
@@ -701,7 +702,7 @@
 170,-9,6,1,-1,0x20,0,10,1,no,0,0x2,0,weapon,0,0x0,	NPC_CRITICALSLASH,Defense disregard attack
 171,-9,8,1,-1,0x40,0,10,-5,no,0,0,0,weapon,0,0x0,		NPC_COMBOATTACK,Shoufuu Rendan
 172,-9,6,1,-1,0x40,0,10,1,no,0,0x2,0,weapon,0,0x0,	NPC_GUIDEDATTACK,Guided Attack
-173,5,6,4,8,0xE2,5,10,1,no,0,0x40002,0,misc,3,0x0,	NPC_SELFDESTRUCTION,Suicide bombing
+173,5,6,4,3,0xE2,5,10,1,no,0,0x40002,0,misc,3,0x0,	NPC_SELFDESTRUCTION,Suicide bombing
 174,-9,6,1,-1,0x2,3,1,1,no,0,0x40002,0,weapon,0,0x0,	NPC_SPLASHATTACK,Splash attack
 175,0,0,4,0,0x41,0,10,1,no,0,0x2,0,misc,0,0x0,	NPC_SUICIDE,Suicide
 176,-9,6,1,-1,0,0,5,1,no,0,0x1,0,weapon,0,0x0,	NPC_POISON,Poison Attack

@@ -6113,24 +6113,28 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 			// AD benefits from endow/element but damage is forced back to neutral
 			md.damage = battle_attr_fix(src, target, md.damage, ELE_NEUTRAL, tstatus->def_ele, tstatus->ele_lv);
 		}
+		break;
 
 		// -----------------------------------------------------------
 		// Kibaku Nendo
 		case GS_RAPIDSHOWER:
 			md.damage += sstatus->agi * skill_lv;
 			break;
+
 		case SC_FEINTBOMB:
 			md.damage += 250 * skill_lv;
 			break;
+
 		case GS_GROUNDDRIFT:
 			md.damage += 250 * skill_lv;
 			break;
 
-		case KN_C0:
-			md.damage = sstatus->hp * 167/100;
-			break;
 		case NC_SELFDESTRUCTION:
-			md.damage = sstatus->hp * 167/100;
+			md.damage = sstatus->hp;
+			break;
+
+		case KN_C0:
+			md.damage = sstatus->hp;
 			break;
 		
 		// -----------------------------------------------------------
@@ -6161,13 +6165,14 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 			md.damage = skill_lv * (sstatus->dex / 2 + 75) * (100 + sstatus->int_) / 100;
 			break;
 #endif
+		case NPC_SELFDESTRUCTION:
+			md.damage = sstatus->hp;
+			break;
+
 		case BA_DISSONANCE:
 			md.damage = 30 + skill_lv * 10;
 			if (sd)
 				md.damage += 3 * pc_checkskill(sd,BA_MUSICALLESSON);
-			break;
-		case NPC_SELFDESTRUCTION:
-			md.damage = sstatus->hp;
 			break;
 		case NPC_SMOKING:
 			md.damage = 3;
