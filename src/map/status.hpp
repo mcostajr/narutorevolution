@@ -884,7 +884,7 @@ enum sc_type : int16 {
 	SC_HYAKU,
 
 	//----------------------
-	//Portões
+	//Portï¿½es
 	SC_PORTAO1,
 	SC_PORTAO2,
 
@@ -2035,7 +2035,7 @@ enum efst_types : short{
 
 	EFST_OWL = 1216,
 		
-	EFST_KOUSUI,
+	EFST_KOUSUI = 1218,
 
 	EFST_MAX,
 };
