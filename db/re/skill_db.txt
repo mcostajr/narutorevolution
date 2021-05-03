@@ -115,7 +115,7 @@
 2022,3,8,1,-1,0,0,10,-5,no,0,0,0,weapon,0,0x0,			GC_CROSSIMPACT,Tsuyoi Panchi
 2037,13,6,1,-1,0,0,10,1,no,0,0,0,weapon,0,0x0,			GC_CROSSRIPPERSLASHER,Soshuujin
 2324,3,8,4,-1,0,0,10,-3,yes,0,0x200,0,weapon,0,0x0,		LG_HESPERUSLIT,Te Waza Gohon - Nukite
-267,9,8,1,-1,0,0,10,-3,no,0,0x40000,0,weapon,0,0x0,		MO_FINGEROFFENSIVE,Oodama Rasengan
+267,3,8,1,-1,0,0,10,-3,no,0,0x40000,0,weapon,3,0x0,		MO_FINGEROFFENSIVE,Oodama Rasengan
 4010,5,8,2,-1,0x2,3,10,-3,no,0,0,0,weapon,0,0x10000,		TAI_TSUUTENKYAKU,Tsuutenkyaku
 4011,0,6,4,-1,0x42,3,10,1,no,0,0,0,weapon,7,0x0,			TAI_DAIHOKO,Daihoko
 2418,9,6,2,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,			WM_SEVERE_RAINSTORM,Sogu Tensasai
