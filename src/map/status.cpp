@@ -10621,7 +10621,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val2 = 20*val1; // Power increase
 			break;
 		case SC_OVERTHRUST:
-			val2 = 35/10 * val1; // Power increase
+			val2 = val1 * (35/10); // Power increase
 			break;
 		case SC_ADRENALINE2:
 		case SC_ADRENALINE:
