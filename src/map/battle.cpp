@@ -1990,7 +1990,7 @@ static int64 battle_calc_base_damage(struct block_list *src, struct status_data 
 		type = (wa == &status->lhw) ? EQI_HAND_L : EQI_HAND_R;
 
 		if (!(flag & 1) || (flag & 2)) { //Normal attacks
-			atkmin = status->dex;
+			atkmin = status->agi;
 
 			if (sd->equip_index[type] >= 0 && sd->inventory_data[sd->equip_index[type]])
 				atkmin = atkmin * (80 + sd->inventory_data[sd->equip_index[type]]->wlv * 20) / 100;
@@ -6809,22 +6809,22 @@ enum damage_lv battle_weapon_attack(struct block_list* src, struct block_list* t
 		if (sd->state.arrow_atk)
 		{
 			short index = sd->equip_index[EQI_AMMO];
-			if (index < 0) {
+			/*if (index < 0) {
 				if (sd->weapontype1 > W_KATAR && sd->weapontype1 < W_HUUMA)
 					clif_skill_fail(sd,0,USESKILL_FAIL_NEED_MORE_BULLET,0);
 				else
 					clif_arrow_fail(sd,0);
 				return ATK_NONE;
-			}
+			}*/
 			//Ammo check by Ishizu-chan
 			if (sd->inventory_data[index]) {
 				switch (sd->status.weapon) {
-					case W_BOW:
+					/*case W_BOW:
 						if (sd->inventory_data[index]->look != A_ARROW) {
 							clif_arrow_fail(sd,0);
 							return ATK_NONE;
 						}
-						break;
+						break;*/
 					case W_REVOLVER:
 					case W_RIFLE:
 					case W_GATLING:

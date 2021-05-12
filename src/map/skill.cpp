@@ -6511,7 +6511,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case NPC_SLEEPATTACK:
 	case NPC_CURSEATTACK:
 	case NPC_STUNATTACK:
-		skill_addtimerskill(src, tick + 1000, bl->id, 0, 0, skill_id, skill_lv, ((sstatus->luk / 6 + skill_lv * 2) - (tstatus->luk / (45 / 10))), flag);
+		skill_addtimerskill(src, tick + 1000, bl->id, 0, 0, skill_id, skill_lv, (int)(round((float)(sstatus->luk * 4 / 10))), flag);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 		break;
 

@@ -2495,7 +2495,7 @@ int status_base_amotion_pc(struct map_session_data* sd, struct status_data* stat
  */
 unsigned short status_base_atk(const struct block_list *bl, const struct status_data *status, int level)
 {
-	int flag = 0, str, dex, dstr;
+	int flag = 0, str, spt, dstr;
 
 #ifdef RENEWAL
 	if (!(bl->type&battle_config.enable_baseatk_renewal))
@@ -2522,15 +2522,15 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 #ifdef RENEWAL
 		dstr =
 #endif
-		str = status->dex;
-		dex = status->str;
+		str = status->agi;
+		spt = status->str;
 	}
 	else {
 #ifdef RENEWAL
 		dstr =
 #endif
 		str = status->str;
-		dex = status->dex;
+		spt = status->agi;
 	}
 	
 
@@ -2549,7 +2549,8 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 			break;
 		case BL_PC:
 #ifdef RENEWAL
-			str = (dstr * 10 + dex * 10 / 5 + status->luk * 10 / 3 + level * 10 / 4) / 10;
+			/*str = (dstr * 10 + dex * 10 / 5 + status->luk * 10 / 3 + level * 10 / 4) / 10;*/
+			str = (dstr * 10 + status->dex * 10 / 5 + spt * 10 / 3 + level * 10 / 4) / 10;
 #else
 			dstr = str / 10;
 			str += dstr * dstr;
@@ -2583,12 +2584,12 @@ unsigned int status_weapon_atk(struct weapon_atk wa, struct map_session_data *sd
 	int weapon_atk_bonus = 0;
 
 	if ((wa.range > 3 || sd->status.weapon == W_MUSICAL || sd->status.weapon == W_WHIP) && !pc_checkskill(sd, SU_SOULATTACK))
-		str = sd->base_status.dex;
+		str = sd->base_status.agi;
 	if (sd->bonus.weapon_atk_rate)
 		weapon_atk_bonus = wa.atk * sd->bonus.weapon_atk_rate / 100;
 	// wa.atk2 = refinement, wa.atk = base equip atk, wa.atk*str/200 = bonus str
-	//return wa.atk + wa.atk2 + (int)(wa.atk * (str / 200) + weapon_atk_bonus);
-	return wa.atk + wa.atk2 + (int)(weapon_atk_bonus);
+	return wa.atk + wa.atk2 + (int)(wa.atk * (str / 200) + weapon_atk_bonus);
+	//return wa.atk + wa.atk2 + (int)(weapon_atk_bonus);
 }
 #endif
 
@@ -2713,18 +2714,19 @@ void status_calc_misc(struct block_list *bl, struct status_data *status, int lev
 	} else {
 		// Hit
 		stat = status->hit;
-		stat += level + status->dex + (bl->type == BL_PC ? status->luk / 3 + 175 : 150); //base level + ( every 1 dex = +1 hit ) + (every 3 luk = +1 hit) + 175
+		stat += level + status->dex + 175; //base level + ( every 1 dex = +1 hit ) + 175
 		status->hit = cap_value(stat, 1, SHRT_MAX);
 		// Flee
 		stat = status->flee;
-		stat += level + status->agi + (bl->type == BL_MER ? 0 : bl->type == BL_PC ? status->luk / 5 : 0) + 100; //base level + ( every 1 agi = +1 flee ) + (every 5 luk = +1 flee) + 100
+		stat += level + status->dex + (bl->type == BL_MER ? 0 : bl->type == BL_PC ? status->agi / 5 : 0) + 100; //base level + ( every 1 agi = +1 flee ) + (every 5 luk = +1 flee) + 100
 		status->flee = cap_value(stat, 1, SHRT_MAX);
 		// Def2
 		if (bl->type == BL_MER)
 			stat = (int)(status->vit + ((float)level / 10) + ((float)status->vit / 5));
 		else {
 			stat = status->def2;
-			stat += (int)(((float)level + status->vit) / 2 + (bl->type == BL_PC ? ((float)status->agi / 5) : 0)); //base level + (every 2 vit = +1 def) + (every 5 agi = +1 def)
+			//  vit /2, gen / 5, spt / 5, dex / 5
+			stat += (int)(((float)level + status->vit) / 2 + (bl->type == BL_PC ? ((float)(status->agi + status->dex + status->luk) / 5) : 0)); //base level + (every 2 vit = +1 def) + (every 5 agi = +1 def)
 		}
 		status->def2 = cap_value(stat, 0, SHRT_MAX);
 		// Mdef2
@@ -2732,7 +2734,8 @@ void status_calc_misc(struct block_list *bl, struct status_data *status, int lev
 			stat = (int)(((float)level / 10) + ((float)status->int_ / 5));
 		else {
 			stat = status->mdef2;
-			stat += (int)(bl->type == BL_PC ? (status->int_ + ((float)level / 4) + ((float)(status->dex + status->vit) / 5)) : ((float)(status->int_ + level) / 4)); //(every 4 base level = +1 mdef) + (every 1 int = +1 mdef) + (every 5 dex = +1 mdef) + (every 5 vit = +1 mdef)
+			// nin, vit / 5, spt / 5
+			stat += (int)(bl->type == BL_PC ? (status->int_ + ((float)level / 4) + ((float)(status->agi + status->vit) / 5)) : ((float)(status->int_ + level) / 4)); //(every 4 base level = +1 mdef) + (every 1 int = +1 mdef) + (every 5 dex = +1 mdef) + (every 5 vit = +1 mdef)
 		}
 		status->mdef2 = cap_value(stat, 0, SHRT_MAX);
 	}
@@ -2767,7 +2770,7 @@ void status_calc_misc(struct block_list *bl, struct status_data *status, int lev
 	//Critical
 	if( bl->type&battle_config.enable_critical ) {
 		stat = status->cri;
-		stat += 10 + (status->luk*10/3); // (every 1 agi(LUK) = +0.3 critical)
+		stat += 10 + (status->agi*10/3); // (every 1 spt = +0.3 critical)
 		status->cri = cap_value(stat, 1, SHRT_MAX);
 	} else
 		status->cri = 0;
@@ -8474,145 +8477,45 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 		sc = NULL;
 
 	switch (type) {
-	// Sangramento
-	case SC_BLEEDING:
-		sc_def = status->agi * 50;
-		sc_def2 = status->luk * 10 + status_get_lv(bl) * 10 - status_get_lv(src) * 10;
-		tick_def2 = status->luk * 10;
-		break;
-	// Cegueira
-	case SC_BLIND:
-		sc_def = (status->vit + status->int_) * 25;
-		sc_def2 = status->luk * 10 + status_get_lv(bl) * 10 - status_get_lv(src) * 10;
-		tick_def2 = status->luk * 10;
-		break;
-	// Confusão
-	case SC_CONFUSION:
-		sc_def = (status->str + status->int_) * 50;
-		sc_def2 = status_get_lv(src) * 10 - status_get_lv(bl) * 10 - status->luk * 10; // Reversed sc_def2
-		tick_def2 = status->luk * 10;
-		break;
-	// Envenenamento
-	case SC_POISON:
-	case SC_DPOISON:
-		sc_def = status->vit * 50;
-		break;
-	// Cristalizar
-	case SC_CRYSTALIZE:
-		tick_def2 = (sd ? sd->status.vit : status_get_base_status(bl)->vit) * 50;
-		break;
-	// Hipotermia
-	case SC_FREEZING:
-		tick_def2 = (status->vit + status->dex) * 25;
-		break;
+		// Genjutsu
+		case SC_STUN:
+		case SC_SLEEP:
+		case SC_SILENCE:
+		case SC_CONFUSION:
+		case SC_BLIND:
+			sc_def = status->luk * 40 + ((status->agi / 5) * 133);
+			break;
 
-	//--------------------------------------------------------------------
-	// Katon
-	case SC_BURNING:
-		tick_def2 = 75 * status->luk + 125 * status->agi;
-		break;
-	// Suiton
-	case SC_FREEZE:
-		sc_def = status->mdef * 100;
-		sc_def2 = status->luk * 10 + status_get_lv(bl) * 10 - status_get_lv(src) * 10;
-		tick_def2 = status_src->luk * -10; // Caster can increase final duration with luk
-		break;
-	// Doton
-	case SC_STONE:
-		sc_def = status->mdef * 100;
-		sc_def2 = status->luk * 10 + status_get_lv(bl) * 10 - status_get_lv(src) * 10;
-		tick_def = 0; // No duration reduction
-		break;
-	// Fuuton
-	case SC_VACUUM_EXTREME:
-		tick_def2 = (sd ? sd->status.str : status_get_base_status(bl)->str) * 50;
-		break;
-	// Genjutsu
-	case SC_STUN:
-	case SC_SILENCE:
-	case SC_SLEEP:
-	case SC_DEEPSLEEP:
-	case SC_CURSE:
-		sc_def = status->luk * 10;
-		tick_def = 0; // No duration reduction
-		break;
-	case SC_DECREASEAGI:
-		if (sd)
-			tick >>= 1; // Half duration for players.
-		sc_def2 = status->mdef * 100;
-		break;
-	//--------------------------------------------------------------------
-	// Uchiha
-	case SC_KYOUGAKU:
-		sc_def = 0;
-		break;
+		// Sangramento
+		case SC_BLEEDING:
+			sc_def = status->vit * 100;
+			tick_def2 = status->vit * 10;
+			break;
 
-	// Jinton
-	case SC_WHITEIMPRISON:
-		if (tick == 5000) // 100% on caster
+		// Envenenamento e Envenemaneto Mortal
+		case SC_POISON:
+		case SC_DPOISON:
+			sc_def = status->vit * 100;
+			tick_def2 = status->vit * 10;
 			break;
-		if (bl->type == BL_PC)
-			tick_def2 = status_get_lv(bl) * 20 + status->vit * 25 + status->agi * 10;
-		else
-			tick_def2 = (status->vit + status->luk) * 50;
-		break;
 
-	//--------------------------------------------------------------------
+		// Incêndio
+		case SC_BURNING:
+			tick_def2 = status->vit * 10;
+			break;
 
-		case SC_ANKLE:
-			if(status_has_mode(status,MD_STATUS_IMMUNE)) // Lasts 5 times less on bosses
-				tick /= 5;
-			sc_def = status->agi*50;
+		// Hipotermia
+		case SC_FREEZING:
+			sc_def = status->vit * 100;
+			tick_def2 = status->vit * 10;
 			break;
-		case SC_JOINTBEAT:
-			sc_def2 = 270 * status->str / 100; // 270 * STR / 100
-			tick_def2 = (status->luk * 50 + status->agi * 200) / 2; // (50 * LUK / 100 + 20 * AGI / 100) / 2
+
+		// Cristalizar
+		case SC_CRYSTALIZE:
+			sc_def = status->vit * 100;
+			tick_def2 = status->vit * 10;
 			break;
-		case SC_NETHERWORLD:
-			// Resistance: {(Target's Base Level / 50) + (Target's Job Level / 10)} seconds
-			tick_def2 = status_get_lv(bl) * 20 + (sd ? sd->status.job_level : 1) * 100;
-			break;
-		case SC_MARSHOFABYSS:
-			// 5 second (Fixed) + 25 second - {( INT + LUK ) / 20 second }
-			tick_def2 = (status->int_ + status->luk)*50;
-			break;
-		case SC_STASIS:
-			// 10 second (fixed) + { Stasis Skill level * 10 - (Target's VIT + DEX) / 20 }
-			tick_def2 = (status->vit + status->dex) * 50;
-			break;
-		case SC_OBLIVIONCURSE: // 100% - (100 - 0.8 x INT)
-			sc_def = status->int_*80;
-			sc_def = max(sc_def, 500); // minimum of 5% resist
-			tick_def = 0;
-			//Fall through
-		case SC_TOXIN:
-		case SC_PARALYSE:
-		case SC_VENOMBLEED:
-		case SC_MAGICMUSHROOM:
-		case SC_DEATHHURT:
-		case SC_PYREXIA:
-		case SC_LEECHESEND:
-			tick_def2 = (status->vit + status->luk) * 500;
-			break;
-		case SC_BITE: // {(Base Success chance) - (Target's AGI / 4)}
-			sc_def2 = status->agi*25;
-			break;
-		case SC_ELECTRICSHOCKER:
-			tick_def2 = (status->vit + status->agi) * 70;
-			break;
-		case SC_PARALYSIS:
-			tick_def2 = (status->vit + status->luk)*50;
-			break;
-		case SC_VOICEOFSIREN:
-			// Resistance: {(Target's Base Level / 10) + (Target's Job Level / 5)} seconds
-			tick_def2 = status_get_lv(bl) * 100 + (sd ? sd->status.job_level : 1) * 200;
-			break;
-		case SC_B_TRAP:
-			tick_def = (sd ? sd->status.str : status_get_base_status(bl)->str) * 50; //! TODO: Figure out reduction formula
-			break;
-		case SC_NORECOVER_STATE:
-			tick_def2 = status->luk * 100;
-			break;
+
 		default:
 			// Effect that cannot be reduced? Likely a buff.
 			if (!(rnd()%10000 < rate))
