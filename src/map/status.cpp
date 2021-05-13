@@ -360,7 +360,7 @@ void initChangeTables(void)
 	add_sc( WZ_METEOR		, SC_STUN		);
 	add_sc( WZ_VERMILION		, SC_BLIND		);
 	add_sc( WZ_FROSTNOVA		, SC_FREEZE		);
-	add_sc( WZ_STORMGUST		, SC_FREEZE		);
+	add_sc( WZ_STORMGUST		, SC_STORMGUST		);
 	set_sc( WZ_QUAGMIRE		, SC_QUAGMIRE		, EFST_QUAGMIRE		, SCB_AGI|SCB_DEX|SCB_ASPD|SCB_SPEED );
 	add_sc( BS_HAMMERFALL		, SC_STUN		);
 	set_sc( BS_ADRENALINE		, SC_ADRENALINE		, EFST_ADRENALINE		, SCB_ASPD );
@@ -2305,7 +2305,7 @@ bool status_check_skilluse(struct block_list *src, struct block_list *target, ui
 			return false;
 		if(!skill_id && tsc->data[SC_TRICKDEAD])
 			return false;
-		if((skill_id == WZ_STORMGUST || skill_id == WZ_FROSTNOVA || skill_id == NJ_HYOUSYOURAKU)
+		if((skill_id == WZ_FROSTNOVA || skill_id == NJ_HYOUSYOURAKU)
 			&& tsc->data[SC_FREEZE])
 			return false;
 		if(skill_id == PR_LEXAETERNA && (tsc->data[SC_FREEZE] || (tsc->data[SC_STONE] && tsc->opt1 == OPT1_STONE)))
@@ -7110,6 +7110,9 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			*	Naruto
 			* ---------------------------------
 			*/
+			// Suiton
+			if (sc->data[SC_STORMGUST])
+				val = max(val, 30);
 			// Fuuinjutsu
 			if (sc->data[SC_CONCENTRATE])
 				val = max(val, 10);

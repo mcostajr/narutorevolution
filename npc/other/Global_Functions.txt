@@ -55,9 +55,9 @@ function	script	F_CanChangeJob	{
 function	script	F_BasicSkills	{
 	skill "SM_RECOVERY",1,SKILL_PERM;
 	skill "NJ_CHAKRA",1,SKILL_PERM;
-	skill "NJ_KUNAI",5,SKILL_PERM;
+	skill "NJ_KUNAI",1,SKILL_PERM;
 	skill "KO_ZANZOU",1,SKILL_PERM;
-	skill "TK_HIGHJUMP",5,SKILL_PERM;
+	skill "SU_LOPE",1,SKILL_PERM;
 	return;
 }
 

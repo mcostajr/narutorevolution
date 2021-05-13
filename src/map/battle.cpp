@@ -5632,8 +5632,8 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += skill_lv * 500;
 						break;
 					// -------------------------------------------
-					case PR_MAGNUS:
-						skillratio += 700 * skill_lv;
+					case FUT_ATSUGAI:
+						skillratio += 650 * skill_lv;
 						break;
 					case RL_MASS_SPIRAL:
 						skillratio += 700 * skill_lv;

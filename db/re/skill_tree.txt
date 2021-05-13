@@ -99,9 +99,9 @@
 
 2,9,10,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
 2,75,10,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
-2,72,10,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+2,4020,10,0,0,0,0,0,0,0,0,0,0		//MED_KAI#Kai#
 2,5041,10,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
-2,28,10,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
+2,28,10,75,5,4020,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 2,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 2,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -217,9 +217,9 @@
 
 9,9,10,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
 9,75,10,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
-9,72,10,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+9,4020,10,0,0,0,0,0,0,0,0,0,0		//MED_KAI#Kai#
 9,5041,10,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
-9,28,10,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
+9,28,10,75,5,4020,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 9,43,10,0,0,0,0,0,0,0,0,0,0 //AC_OWL#Precisão#
 9,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -375,9 +375,9 @@
 
 16,9,10,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
 16,75,10,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
-16,72,10,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+16,4020,10,0,0,0,0,0,0,0,0,0,0		//MED_KAI#Kai#
 16,5041,10,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
-16,28,10,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
+16,28,10,75,5,4020,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 16,43,10,0,0,0,0,0,0,0,0,0,0 //AC_OWL#Precisão#
 16,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -507,9 +507,9 @@
 
 4003,9,10,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
 4003,75,10,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
-4003,72,10,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+4003,4020,10,0,0,0,0,0,0,0,0,0,0		//MED_KAI#Kai#
 4003,5041,10,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
-4003,28,10,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
+4003,28,10,75,5,4020,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 4003,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4003,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -626,9 +626,9 @@
 
 4010,9,10,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
 4010,75,10,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
-4010,72,10,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+4010,4020,10,0,0,0,0,0,0,0,0,0,0		//MED_KAI#Kai#
 4010,5041,10,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
-4010,28,10,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
+4010,28,10,75,5,4020,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 4010,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4010,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -784,9 +784,9 @@
 
 4017,9,10,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
 4017,75,10,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
-4017,72,10,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+4017,4020,10,0,0,0,0,0,0,0,0,0,0		//MED_KAI#Kai#
 4017,5041,10,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
-4017,28,10,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
+4017,28,10,75,5,4020,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 4017,43,10,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4017,543,10,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -968,9 +968,9 @@
 
 4061,9,15,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
 4061,75,15,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
-4061,72,15,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+4061,4020,15,0,0,0,0,0,0,0,0,0,0		//MED_KAI#Kai#
 4061,5041,15,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
-4061,28,15,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
+4061,28,15,75,5,4020,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 4061,43,15,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4061,543,15,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -1035,7 +1035,7 @@
 4061,666,10,502,8,91,8,2446,8,527,8,0,0 //NPC_WIDESTONE#Doton Sando#
 4061,653,10,502,8,91,8,2446,8,527,8,0,0 //NPC_EARTHQUAKE#Doton Ari Jigoku#
 
-4061,79,10,469,8,542,8,5005,8,2453,8,0,0 //PR_MAGNUS#Fuuton Atsugai#
+4061,4055,10,469,8,542,8,5005,8,2453,8,0,0 //FUT_ATSUGAI#Fuuton Atsugai#
 4061,2553,10,469,8,542,8,5005,8,2453,8,0,0 //RL_MASS_SPIRAL#Fuuton Shinkuu Taigyoku#
 4061,2005,10,469,8,542,8,5005,8,2453,8,0,0 //RK_WINDCUTTER#Fuuton Kaze Gaeshi#
 
@@ -1188,9 +1188,9 @@
 
 4074,9,15,0,0,0,0,0,0,0,0,0,0		//MG_SRECOVERY#Iryu Chiyu#
 4074,75,15,0,0,0,0,0,0,0,0,0,0		//PR_GLORIA#Kaija Hoin#
-4074,72,15,0,0,0,0,0,0,0,0,0,0		//PR_STRECOVERY#Kai#
+4074,4020,15,0,0,0,0,0,0,0,0,0,0		//MED_KAI#Kai#
 4074,5041,15,0,0,0,0,0,0,0,0,0,0	//SU_FRESHSHRIMP#Jinsei no Kaifuku#
-4074,28,15,75,5,72,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
+4074,28,15,75,5,4020,1,0,0,0,0,0,0	//AL_HEAL#Chiyute no Jutsu#
 
 4074,43,15,0,0,0,0,0,0,0,0,0,0  //AC_OWL#Precisão#
 4074,543,15,0,0,0,0,0,0,0,0,0,0 //NJ_NEN#Aura Ninja#
@@ -1254,7 +1254,7 @@
 4074,666,10,502,8,91,8,2446,8,527,8,0,0 //NPC_WIDESTONE#Doton Sando#
 4074,653,10,502,8,91,8,2446,8,527,8,0,0 //NPC_EARTHQUAKE#Doton Ari Jigoku#
 
-4074,79,10,469,8,542,8,5005,8,2453,8,0,0 //PR_MAGNUS#Fuuton Atsugai#
+4074,4055,10,469,8,542,8,5005,8,2453,8,0,0 //FUT_ATSUGAI#Fuuton Atsugai#
 4074,2553,10,469,8,542,8,5005,8,2453,8,0,0 //RL_MASS_SPIRAL#Fuuton Shinkuu Taigyoku#
 4074,2005,10,469,8,542,8,5005,8,2453,8,0,0 //RK_WINDCUTTER#Fuuton Kaze Gaeshi#
 

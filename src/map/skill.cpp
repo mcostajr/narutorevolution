@@ -4079,6 +4079,8 @@ static TIMER_FUNC(skill_timerskill){
 				case WZ_JUPITEL:
 					// Official behaviour is to hit as long as there is a line of sight, regardless of distance
 					if (skl->type > 0 && !status_isdead(target) && path_search_long(NULL,src->m,src->x,src->y,target->x,target->y,CELL_CHKWALL)) {
+						if (map_getcell(src->m, target->x, target->y, CELL_CHKREACH) && skill_check_unit_movepos(5, src, target->x, target->y, 1, 0))
+							clif_blown(src);
 						// Apply canact delay here to prevent hacks (unlimited casting)
 						ud->canact_tick = i64max(tick + status_get_amotion(src), ud->canact_tick);
 						skill_attack(BF_MAGIC, src, src, target, skl->skill_id, skl->skill_lv, tick, skl->flag);
@@ -5191,7 +5193,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case MG_FIREBOLT:
 	case SUI_HANHONRYUU:
 	case WZ_EARTHSPIKE:
-	case GS_TRIPLEACTION:
 	case MG_LIGHTNINGBOLT:
 	case KO_SETSUDAN:
 	case NPC_MAGICALATTACK:
@@ -9411,6 +9412,34 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				src, skill_id, skill_lv, tick, flag|BCT_PARTY|1, skill_castend_nodamage_id);
 		break;
 
+	case MED_KAI:
+		if (flag & 1 || !sd || !sd->status.party_id) {
+			if (tsc && (tsc->data[SC_BLIND] || tsc->data[SC_STUN] || tsc->data[SC_CURSE] ||
+				tsc->data[SC_SLEEP] || tsc->data[SC_SILENCE] || tsc->data[SC_HALLUCINATION] || tsc->data[SC_FEAR] || tsc->data[SC_WINKCHARM])) {
+				// Success Chance: (60 + 10 * Skill Level) %
+				int rate = skill_lv < 11 ? 4 * skill_lv : (40 + ((skill_lv - 10) * 10));
+				//char output[15];
+				//safesnprintf(output, sizeof(output), "%d", rate);
+				if (rnd() % 100 > rate) break;
+				status_change_end(bl, SC_BLIND, INVALID_TIMER);
+				status_change_end(bl, SC_STUN, INVALID_TIMER);
+				status_change_end(bl, SC_CURSE, INVALID_TIMER);
+				status_change_end(bl, SC_SLEEP, INVALID_TIMER);
+				status_change_end(bl, SC_SILENCE, INVALID_TIMER);
+				status_change_end(bl, SC_HALLUCINATION, INVALID_TIMER);
+				status_change_end(bl, SC_FEAR, INVALID_TIMER);
+				status_change_end(bl, SC_WINKCHARM, INVALID_TIMER);
+			}
+			else {//Success rate only applies to the curing effect and not stat bonus. Bonus status only applies to non infected targets
+				clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+			}
+		}
+		else if (sd)
+			party_foreachsamemap(skill_area_sub, sd, skill_get_splash(skill_id, skill_lv),
+				src, skill_id, skill_lv, tick, flag | BCT_PARTY | 1, skill_castend_nodamage_id);
+		break;
+
+
 	case AB_CLEARANCE:
 		if( flag&1 || (i = skill_get_splash(skill_id, skill_lv)) < 1 ) { // As of the behavior in official server Clearance is just a super version of Dispell skill. [Jobbie]
 
@@ -11806,7 +11835,6 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case MS_BOWLINGBASH:
 	case WZ_QUAGMIRE:
 	case WZ_VERMILION:
-	case WZ_STORMGUST:
 	case WZ_HEAVENDRIVE:
 	case PR_SANCTUARY:
 	case PR_MAGNUS:
@@ -11911,6 +11939,12 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case AB_ADORAMUS:
 	case SO_ELECTRICWALK:
 
+	// Doton
+	case GS_TRIPLEACTION:
+
+	// Fuuton
+	case FUT_ATSUGAI:
+
 	// Kugutsu
 	case MER_QUICKEN:
 
@@ -11931,6 +11965,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		break;
 
 
+	case WZ_STORMGUST:
 	case MG_FIREWALL:
 		sc_start(src, src, type, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		skill_unitsetting(src, skill_id, skill_lv, x, y, 0);
@@ -12025,6 +12060,12 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		}
 		break;
 
+	case TAI_TSUUTENKYAKU:
+		if (map_getcell(src->m, x, y, CELL_CHKREACH) && skill_check_unit_movepos(5, src, x, y, 1, 0))
+			clif_blown(src);
+		skill_unitsetting(src, skill_id, skill_lv, x, y, 0);
+		break;
+
 	case AL_WARP:
 		if(sd)
 		{
@@ -12037,11 +12078,6 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		if( sc && sc->data[SC_CURSEDCIRCLE_ATKER] ) //Should only remove after the skill has been casted.
 			status_change_end(src,SC_CURSEDCIRCLE_ATKER,INVALID_TIMER);
 		return 0; // not to consume item.
-	case TAI_TSUUTENKYAKU:
-		if (map_getcell(src->m, x, y, CELL_CHKREACH) && skill_check_unit_movepos(5, src, x, y, 1, 0))
-			clif_blown(src);
-			skill_unitsetting(src, skill_id, skill_lv, x, y, 0);
-		break;
 	case MO_BODYRELOCATION:
 		if (unit_movepos(src, x, y, 2, 1)) {
 #if PACKETVER >= 20111005

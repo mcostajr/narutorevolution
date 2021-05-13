@@ -75,9 +75,9 @@
 // Skill Basica
 1,0,0,0,0,0,0,9,0,no,0,0,0,none,0,0x0,					NV_BASIC,Basic Skill
 4000,0,6,4,0,0x1,0,1,1,no,0,0x1,0,magic,0,0x0,			NJ_CHAKRA,Concentrar Chakra
-524,9,8,1,-1,0x48,0,5,5,no,0,0x1,0,weapon,0,0x0,		NJ_KUNAI,Arremessar Kunai
+524,9,8,1,-1,0x48,0,1,5,no,0,0x1,0,weapon,0,0x0,		NJ_KUNAI,Arremessar Kunai
 3012,0,6,4,0,0x1,0,1,0,no,0,0x1,2,none,7,0x0,			KO_ZANZOU,Kawarime no Jutsu
-5023,10,6,2,0,0,0,1,0,no,0,0,0,none,0,0x0,				SU_LOPE,Salto Ninja
+5023,10,6,2,0,0,0,1,0,no,0,0x1,0,none,0,0x0,				SU_LOPE,Salto Ninja
 4001,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,			SN_EREMITA,Modo Eremita
 
 //-------------------------------------------------------------------------------------------
@@ -147,7 +147,7 @@
 4040,9,6,1,1,0,0,15,1,no,0,0,0,magic,0,0x0,									SUI_HANHONRYUU,Suiton Hahonryuu
 4041,0,6,4,1,0x2,5,15,1:1:-2:-2:-3:-3:-4:-4:-5:-5,no,0,0,0,magic,0,0x0,		SUI_HARANBASHOU,Suiton Haran Banshou
 2447,9,6,2,1,0,0,15,-5,no,0,0,0,magic,0,0x0,								SO_DIAMONDDUST,Suiton Homatsu Rappa
-//
+//	
 2274,0,6,4,1,0x1,0,10,1,no,0,0,0,none,0,0x0,		NC_STEALTHFIELD,Suiton Kirigakure
 2449,9,6,2,1,0,0,10,-3,no,0,0,0,magic,0,0x0,		SO_PSYCHIC_WAVE,Suiton Daibakufu
 539,0,6,4,1,0,0,10,1,no,0,0,0,magic,0,0x0,			NJ_HYOUSYOURAKU,Suiton Daikodan
@@ -155,7 +155,7 @@
 847,9,6,2,6,0,0,4,1,no,0,0,1,magic,0,0x0,			SUI_SUIJINHEKI,DeBuff Suijinheki
 //
 14,9,6,2,1,0,0,10,-5,no,0,0,0,magic,0,0x0,			MG_COLDBOLT,Suiton Suiryuudan
-89,9,6,2,1,0,0,10,1,no,0,0,0,magic,2,0x0,			WZ_STORMGUST,Suiton Suiro Sameodori
+89,9,6,4,1,0,0,10,1,no,0,0,0,magic,0,0x0,			WZ_STORMGUST,Suiton Suiro Sameodori
 2203,0,8,4,1,0x2,9,10,-10,no,0,0,0,magic,0,0x400,	WL_FROSTMISTY,Suiton Dai Bakusui Shoha
 
 
@@ -167,7 +167,7 @@
 //
 187,9,8,2,7,0,0,10,-5,no,0,0,0,magic,0,0x0,		NPC_WINDATTACK,Raiton Amigumo
 21,9,6,2,7,0,5,10,-5,no,0,0,0,magic,0,0x0,		MG_THUNDERSTORM,Raiton Senbon
-84,1,6,1,7,2,8,10,-5,no,0,0,0,magic,7,0x0,		WZ_JUPITEL,Raiton Chidori
+84,5,6,1,7,0,0,10,-5,no,0,0,0,magic,7,0x0,		WZ_JUPITEL,Raiton Chidori
 2040,9,8,2,7,0,0,10,-10,no,0,0,0,magic,0,0x0,	AB_ADORAMUS,Raiton Jibashi
 //
 85,9,6,2,7,0,0,10,-10,no,0,0,0,magic,0,0x0,		WZ_VERMILION,Raiton Kirin
@@ -180,7 +180,7 @@
 137,9,6,1,2,0x2,1,15,1,no,0,0x40000,0,magic,0,0x4,	AS_GRIMTOOTH,Doton Taiga Senbon
 2271,9,6,1,0,0x1,0,15,1,yes,0,0,0,none,0,0x0,		NC_ANALYZE,Doton Choukajuugan
 //
-502,9,6,1,2,0,0,10,-1:-1:-2:-2:-3:-3:-4:-4:-5:-5,no,0,0,0,magic,0,0x10000,	GS_TRIPLEACTION,Doton Doryuuheki
+502,9,6,2,2,0,0,10,-5,no,0,0,0,magic,0,0x10000,	GS_TRIPLEACTION,Doton Doryuuheki
 91,9,8,2,2,0,0,10,-5,no,0,0x2000,0,magic,0,0x10000,							WZ_HEAVENDRIVE,Doton Ganchuusou
 2446,9,6,2,2,0,0,10,-8,no,0,0,0,magic,0,0x10000,							SO_EARTHGRAVE,Doton Ganseki Kuzushi
 527,0,9,4,2,0,0,10,-5,no,0,0,0,magic,5,0x0,									NJ_TATAMIGAESHI,Doton Tajuu Doryuuheki
@@ -201,9 +201,9 @@
 5005,9,6,4,4,0,7,10,1,no,0,0,0,magic,5,0x0,			RK_LUXANIMA,Fuuton Shinkuuha
 2453,9,6,2,4,0x1,0,10,1,no,0,0,0,magic,0,0x1000,	SO_VACUUM_EXTREME,Fuuton Tatsu no Oshigoto
 //
-79,9,8,2,4,0,0,10,-5,no,0,0,0,magic,0,0x0,			PR_MAGNUS,Fuuton Atsugai
+4055,9,6,2,1,0,0,10,-5,no,0,0,0,magic,0,0x0,		FUT_ATSUGAI,Fuuton Atsugai
 2553,9,6,1,4,0,0,10,1,no,0,0,0,magic,0,0x0,			RL_MASS_SPIRAL,Fuuton Shinkuu Taigyoku
-2005,9,6,2,4,0x2,10,10,1,no,0,0,0,magic,3,0x0,		RK_WINDCUTTER,Fuuton Kaze Gaeshi
+2005,9,6,4,4,0x2,10,10,1,no,0,0,0,magic,3,0x0,		RK_WINDCUTTER,Fuuton Kaze Gaeshi
 
 //-------------------------------------------------------------------------------------------
 // Velocidade
@@ -227,16 +227,17 @@
 // Medicina
 9,0,0,0,0,0,0,15,0,no,0,0,0,magic,0,0x0,			MG_SRECOVERY,Iryu Chiyu
 75,0,6,4,0,0x3,-1,15,1,no,0,0,0,magic,0,0x0,		PR_GLORIA,Kaija Hoin
-72,9,6,16,0,0x1,0,15,1,no,0,0,0,magic,0,0x20,		PR_STRECOVERY,Kai
+4020,0,6,4,0,0x3,5,15,1,no,0,0,0,magic,0,0x0,		MED_KAI,Kai
+72,0,6,4,0,0x3,5,15,1,no,0,0,0,magic,0,0x0,		PR_STRECOVERY,Kai
 5041,9,6,16,0,0x3,0,15,1,no,0,0,0,none,0,0x0,		SU_FRESHSHRIMP,Jinsei no Kaifuku
 28,9,6,16,0,0x21,0,15,1,no,0,0x1400,0,magic,0,0x0,	AL_HEAL,Chiyute no Jutsu
 //
-2043,0,6,4,6,0x3,10,10,1,no,0,0,0,none,0,0x0,	AB_CHEAL,Mouryoujika
-2047,0,6,4,6,0x3,8,10,1,no,0,0,0,magic,0,0x0,	AB_LAUDAAGNUS,Kaihou Suru
-2048,0,6,4,6,0x3,8,10,1,no,0,0,0,magic,0,0x0,	AB_LAUDARAMUS,Kaihou Ramus
-54,9,6,16,6,0x1,0,10,1,no,0,0,0,magic,0,0x0,	ALL_RESURRECTION,Edo Tensei
+2043,0,6,4,0,0x3,10,10,1,no,0,0,0,none,0,0x0,	AB_CHEAL,Mouryoujika
+2047,0,6,4,0,0x3,8,10,1,no,0,0,0,magic,0,0x0,	AB_LAUDAAGNUS,Kaihou Suru
+2048,0,6,4,0,0x3,8,10,1,no,0,0,0,magic,0,0x0,	AB_LAUDARAMUS,Kaihou Ramus
+54,9,6,16,0,0x1,0,10,1,no,0,0,0,magic,0,0x0,	ALL_RESURRECTION,Edo Tensei
 //
-70,0,6,4,6,0x21,0,10,1,no,0,0,0,none,1,0x0,		PR_SANCTUARY,Iryou Chiiki
+70,0,6,4,0,0x21,0,10,1,no,0,0,0,none,1,0x0,		PR_SANCTUARY,Iryou Chiiki
 5007,0,6,4,0,0x3,10,10,1,no,0,0,0,none,0,0x0, 	WM_FRIGG_SONG,Chikatsu Saisei
 5011,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0, 	AB_OFFERTORIUM,Saigo no Hitokuchi
 2039,0,6,4,0,0x1,0,10,1,no,0,0,0,magic,0,0x0,	AB_ANCILLA,Kyouka Shohou
@@ -614,6 +615,7 @@
 71,9,6,16,0,0x1,0,4,1,yes,0,0,0,magic,0,0x0,		PR_SLOWPOISON,Slow Poison
 73,9,6,16,0,0x1,0,10,1,yes,0,0,0,magic,0,0x0,	PR_KYRIE,Kyrie Eleison
 77,5,6,1,6,0x28,0,10,1,yes,0,0,0,magic,0,0x0,	PR_TURNUNDEAD,Turn Undead
+79,9,8,2,4,0,0,10,-5,no,0,0,0,magic,0,0x0,		PR_MAGNUS,Magnus
 
 //****
 // Wizard
