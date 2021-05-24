@@ -1,4 +1,4 @@
-# This file is a part of rAthena.
+ï»¿# This file is a part of rAthena.
 #   Copyright(C) 2017 rAthena Development Team
 #   https://rathena.org - https://github.com/rathena
 #
@@ -187,35 +187,35 @@ Body:
     Score: 10
   - ID: 110000
     Group: "AG_JOB_CHANGE"
-    Name: "Graduação Genin"
+    Name: "GraduaÃ§Ã£o Genin"
     Condition: " Class == 1 || Class == 2 "
     Reward:
         TitleID: 1000
     Score: 10
   - ID: 110001
     Group: "AG_JOB_CHANGE"
-    Name: "Graduação Chunin"
+    Name: "GraduaÃ§Ã£o Chunin"
     Condition: " Class == 7 || Class == 9 "
     Reward:
         TitleID: 1001
     Score: 10
   - ID: 110002
     Group: "AG_JOB_CHANGE"
-    Name: "Graduação Jounin"
+    Name: "GraduaÃ§Ã£o Jounin"
     Condition: " Class == 4008 || Class == 4010 "
     Reward:
         TitleID: 1002
     Score: 10
   - ID: 110003
     Group: "AG_JOB_CHANGE"
-    Name: "Graduação Jounin Elite"
+    Name: "GraduaÃ§Ã£o Jounin Elite"
     Condition: " Class == 4060 || Class == 4061 "
     Reward:
         TitleID: 1003
     Score: 10
   - ID: 110004
     Group: "AG_JOB_CHANGE"
-    Name: "Graduação Renegado"
+    Name: "GraduaÃ§Ã£o Renegado"
     Condition: " Class == 4062 || Class == 4063 "
     Reward:
         TitleID: 1004

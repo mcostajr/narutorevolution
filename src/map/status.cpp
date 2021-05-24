@@ -943,6 +943,36 @@ void initChangeTables(void)
 
 	set_sc( WE_CHEERUP				, SC_CHEERUP		, EFST_CHEERUP		, SCB_STR|SCB_AGI|SCB_VIT|SCB_INT|SCB_DEX|SCB_LUK );
 
+	// Star Emperor
+	set_sc(SJ_LIGHTOFMOON, SC_LIGHTOFMOON, EFST_LIGHTOFMOON, SCB_NONE);
+	set_sc(SJ_LIGHTOFSTAR, SC_LIGHTOFSTAR, EFST_LIGHTOFSTAR, SCB_NONE);
+	set_sc(SJ_LUNARSTANCE, SC_LUNARSTANCE, EFST_LUNARSTANCE, SCB_MAXHP);
+	add_sc(SJ_FULLMOONKICK, SC_BLIND);
+	set_sc(SJ_STARSTANCE, SC_STARSTANCE, EFST_STARSTANCE, SCB_ASPD);
+	set_sc(SJ_NEWMOONKICK, SC_NEWMOON, EFST_NEWMOON, SCB_NONE);
+	set_sc(SJ_FLASHKICK, SC_FLASHKICK, EFST_FLASHKICK, SCB_NONE);
+	add_sc(SJ_STAREMPEROR, SC_SILENCE);
+	set_sc(SJ_NOVAEXPLOSING, SC_NOVAEXPLOSING, EFST_NOVAEXPLOSING, SCB_NONE);
+	set_sc(SJ_UNIVERSESTANCE, SC_UNIVERSESTANCE, EFST_UNIVERSESTANCE, SCB_STR | SCB_AGI | SCB_VIT | SCB_INT | SCB_DEX | SCB_LUK);
+	set_sc(SJ_FALLINGSTAR, SC_FALLINGSTAR, EFST_FALLINGSTAR, SCB_NONE);
+	set_sc(SJ_GRAVITYCONTROL, SC_GRAVITYCONTROL, EFST_GRAVITYCONTROL, SCB_NONE);
+	set_sc(SJ_BOOKOFDIMENSION, SC_DIMENSION, EFST_DIMENSION, SCB_NONE);
+	set_sc(SJ_BOOKOFCREATINGSTAR, SC_CREATINGSTAR, EFST_CREATINGSTAR, SCB_SPEED);
+	set_sc(SJ_LIGHTOFSUN, SC_LIGHTOFSUN, EFST_LIGHTOFSUN, SCB_NONE);
+	set_sc(SJ_SUNSTANCE, SC_SUNSTANCE, EFST_SUNSTANCE, SCB_BATK | SCB_WATK);
+
+	// Soul Reaper
+	set_sc(SP_SOULGOLEM, SC_SOULGOLEM, EFST_SOULGOLEM, SCB_DEF | SCB_MDEF);
+	set_sc(SP_SOULSHADOW, SC_SOULSHADOW, EFST_SOULSHADOW, SCB_ASPD | SCB_CRI);
+	set_sc(SP_SOULFALCON, SC_SOULFALCON, EFST_SOULFALCON, SCB_WATK | SCB_HIT);
+	set_sc(SP_SOULFAIRY, SC_SOULFAIRY, EFST_SOULFAIRY, SCB_MATK);
+	set_sc(SP_SOULCURSE, SC_SOULCURSE, EFST_SOULCURSE, SCB_NONE);
+	set_sc(SP_SHA, SC_SP_SHA, EFST_SP_SHA, SCB_SPEED);
+	set_sc(SP_SOULUNITY, SC_SOULUNITY, EFST_SOULUNITY, SCB_NONE);
+	set_sc(SP_SOULDIVISION, SC_SOULDIVISION, EFST_SOULDIVISION, SCB_NONE);
+	set_sc(SP_SOULREAPER, SC_SOULREAPER, EFST_SOULREAPER, SCB_NONE);
+	set_sc(SP_SOULCOLLECT, SC_SOULCOLLECT, EFST_SOULCOLLECT, SCB_NONE);
+
 	/* Storing the target job rather than simply SC_SPIRIT simplifies code later on */
 	SkillStatusChangeTable[skill_get_index(SL_ALCHEMIST)]	= (sc_type)MAPID_ALCHEMIST,
 	SkillStatusChangeTable[skill_get_index(SL_MONK)]		= (sc_type)MAPID_MONK,
@@ -1481,6 +1511,7 @@ void initChangeTables(void)
 	StatusChangeStateTable[SC_VACUUM_EXTREME]		|= SCS_NOMOVE;
 	StatusChangeStateTable[SC_SUHIDE]				|= SCS_NOMOVE;
 	StatusChangeStateTable[SC_SV_ROOTTWIST]			|= SCS_NOMOVE;
+	StatusChangeStateTable[SC_GRAVITYCONTROL]		|= SCS_NOMOVE;
 
 	/* StatusChangeState (SCS_) NOPICKUPITEMS */
 	StatusChangeStateTable[SC_RECOVERCHAKRA]		|= SCS_NOPICKITEM;
@@ -1521,6 +1552,7 @@ void initChangeTables(void)
 	StatusChangeStateTable[SC_SATURDAYNIGHTFEVER]	|= SCS_NOCAST;
 	StatusChangeStateTable[SC_CURSEDCIRCLE_TARGET]	|= SCS_NOCAST;
 	StatusChangeStateTable[SC_KINGS_GRACE]			|= SCS_NOCAST;
+	StatusChangeStateTable[SC_GRAVITYCONTROL]		|= SCS_NOCAST;
 
 	/* StatusChangeState (SCS_) NOCHAT (skills) */
 	StatusChangeStateTable[SC_BERSERK]				|= SCS_NOCHAT;
@@ -2268,6 +2300,7 @@ bool status_check_skilluse(struct block_list *src, struct block_list *target, ui
 				(sc->data[SC_ANKLE] && skill_block_check(src, SC_ANKLE, skill_id)) ||
 				(sc->data[SC_STASIS] && skill_block_check(src, SC_STASIS, skill_id)) ||
 				(sc->data[SC_BITE] && skill_block_check(src, SC_BITE, skill_id)) ||
+				(sc->data[SC_GRAVITYCONTROL] && skill_block_check(src, SC_GRAVITYCONTROL, skill_id)) ||
 				(sc->data[SC_KAGEHUMI] && skill_block_check(src, SC_KAGEHUMI, skill_id))
 			))
 				return false;
@@ -8799,6 +8832,9 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	if (status_change_isDisabledOnMap(type, map_getmapdata(bl->m)))
 		return 0;
 
+	if (sc->data[SC_GRAVITYCONTROL])
+		return 0; // !TODO: Confirm what statuses/conditions (if not all) are blocked.
+
 	// Uncomment to prevent status adding hp to gvg mob (like bloodylust=hp*3 etc...
 //	if (bl->type == BL_MOB)
 //		if (status_get_race2(bl) == RC2_GVG && status_sc2scb_flag(type)&SCB_MAXHP) return 0;
@@ -9844,12 +9880,12 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	/* Habilidade Hiden */
 	// Uchiha
 	case SC_SHARINGAN:
-		val2 = 5;
-		val3 = 10;
+		val2 = 8;
+		val3 = 4 * val1;
 		break;
 	case SC_MANGEKYOU:
-		val2 = 5;
-		val3 = 10;
+		val2 = 8;
+		val3 = 16;
 		break;
 	case SC_SUSANOO:
 		t_tickime = 1000;
@@ -11752,6 +11788,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				pc_setstand(sd, true);
 		case SC_FREEZE:
 		case SC_STUN:
+		case SC_GRAVITYCONTROL:
 			if (sc->data[SC_DANCING])
 				unit_stop_walking(bl, 1);
 		case SC_TRICKDEAD:
@@ -12922,6 +12959,14 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 		case SC_INTRAVISION:
 			calc_flag = SCB_ALL; // Required for overlapping
 			break;
+		
+		case SC_GRAVITYCONTROL:
+			//status_fix_damage(bl, bl, sce->val2, clif_damage(bl, bl, gettick(), 0, 0, sce->val2, 0, DMG_NORMAL, 0, false), 0);
+			status_fix_damage(bl, bl, sce->val2, clif_damage(bl, bl, gettick(), 0, 1, sce->val2, 1, DMG_NORMAL, 0, false));
+			clif_specialeffect(bl, 223, AREA);
+			clif_specialeffect(bl, 330, AREA);
+			break;
+
 		case SC_OVERED_BOOST:
 			switch (bl->type) {
 				case BL_HOM: {

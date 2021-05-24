@@ -4146,25 +4146,22 @@ static bool mob_parse_dbrow(char** str)
 	exp = (double)atoi(str[8]) * (double)battle_config.job_exp_rate / 100.;
 	entry.job_exp = (unsigned int)cap_value(exp, 0, UINT_MAX);
 
-	exp = (double)atoi(str[9]);
-	entry.hiden_exp = (unsigned int)cap_value(exp, 0, UINT_MAX);
-
-	status->rhw.range = atoi(str[10]);
+	status->rhw.range = atoi(str[9]);
 #ifdef RENEWAL
-	status->rhw.atk = atoi(str[11]); // BaseATK
-	status->rhw.matk = atoi(str[12]); // BaseMATK
+	status->rhw.atk = atoi(str[10]); // BaseATK
+	status->rhw.matk = atoi(str[11]); // BaseMATK
 #else
 	status->rhw.atk = atoi(str[11]); // MinATK
 	status->rhw.atk2 = atoi(str[12]); // MaxATK
 #endif
-	status->def = atoi(str[13]);
-	status->mdef = atoi(str[14]);
-	status->str = atoi(str[15]);
-	status->agi = atoi(str[16]);
-	status->vit = atoi(str[17]);
-	status->int_ = atoi(str[18]);
-	status->dex = atoi(str[19]);
-	status->luk = atoi(str[20]);
+	status->def = atoi(str[12]);
+	status->mdef = atoi(str[13]);
+	status->str = atoi(str[14]);
+	status->agi = atoi(str[15]);
+	status->vit = atoi(str[16]);
+	status->int_ = atoi(str[17]);
+	status->dex = atoi(str[18]);
+	status->luk = atoi(str[19]);
 	//All status should be min 1 to prevent divisions by zero from some skills. [Skotlex]
 	if (status->str < 1) status->str = 1;
 	if (status->agi < 1) status->agi = 1;
@@ -4173,8 +4170,8 @@ static bool mob_parse_dbrow(char** str)
 	if (status->dex < 1) status->dex = 1;
 	if (status->luk < 1) status->luk = 1;
 
-	entry.range2 = atoi(str[21]);
-	entry.range3 = atoi(str[22]);
+	entry.range2 = atoi(str[20]);
+	entry.range3 = atoi(str[21]);
 	if (battle_config.view_range_rate != 100) {
 		entry.range2 = entry.range2 * battle_config.view_range_rate / 100;
 		if (entry.range2 < 1)
@@ -4188,10 +4185,10 @@ static bool mob_parse_dbrow(char** str)
 	//Tests showed that chase range is effectively 2 cells larger than expected [Playtester]
 	entry.range3 += 2;
 
-	status->size = atoi(str[23]);
-	status->race = atoi(str[24]);
+	status->size = atoi(str[22]);
+	status->race = atoi(str[23]);
 
-	i = atoi(str[25]); //Element
+	i = atoi(str[24]); //Element
 	status->def_ele = i%20;
 	status->ele_lv = (unsigned char)floor(i/20.);
 	if (!CHK_ELEMENT(status->def_ele)) {
@@ -4203,7 +4200,7 @@ static bool mob_parse_dbrow(char** str)
 		return false;
 	}
 
-	status->mode = static_cast<enum e_mode>(strtol(str[26], NULL, 0));
+	status->mode = static_cast<enum e_mode>(strtol(str[25], NULL, 0));
 	if (!battle_config.monster_active_enable)
 		status->mode = static_cast<enum e_mode>(status->mode&(~MD_AGGRESSIVE));
 
@@ -4212,17 +4209,17 @@ static bool mob_parse_dbrow(char** str)
 	else // Store as Normal and overwrite in mob_race2_db for special Class
 		status->class_ = CLASS_NORMAL;
 
-	status->speed = atoi(str[27]);
+	status->speed = atoi(str[26]);
 	status->aspd_rate = 1000;
-	i = atoi(str[28]);
+	i = atoi(str[27]);
 	status->adelay = cap_value(i, battle_config.monster_max_aspd*2, 4000);
-	i = atoi(str[29]);
+	i = atoi(str[28]);
 	status->amotion = cap_value(i, battle_config.monster_max_aspd, 2000);
 	//If the attack animation is longer than the delay, the client crops the attack animation!
 	//On aegis there is no real visible effect of having a recharge-time less than amotion anyway.
 	if (status->adelay < status->amotion)
 		status->adelay = status->amotion;
-	status->dmotion = atoi(str[30]);
+	status->dmotion = atoi(str[29]);
 	if(battle_config.monster_damage_delay_rate != 100)
 		status->dmotion = status->dmotion * battle_config.monster_damage_delay_rate / 100;
 
@@ -4234,7 +4231,7 @@ static bool mob_parse_dbrow(char** str)
 
 	// MVP EXP Bonus: MEXP
 	// Some new MVP's MEXP multipled by high exp-rate cause overflow. [LuzZza]
-	exp = (double)atoi(str[31]) * (double)battle_config.mvp_exp_rate / 100.;
+	exp = (double)atoi(str[30]) * (double)battle_config.mvp_exp_rate / 100.;
 	entry.mexp = (unsigned int)cap_value(exp, 0, UINT_MAX);
 
 	//Now that we know if it is an mvp or not, apply battle_config modifiers [Skotlex]
@@ -4255,14 +4252,14 @@ static bool mob_parse_dbrow(char** str)
 
 	// MVP Drops: MVP1id,MVP1per,MVP2id,MVP2per,MVP3id,MVP3per
 	for(i = 0; i < MAX_MVP_DROP; i++) {
-		entry.mvpitem[i].nameid = atoi(str[32+i*2]);
+		entry.mvpitem[i].nameid = atoi(str[31+i*2]);
 
 		if( entry.mvpitem[i].nameid ){
 			if( itemdb_search(entry.mvpitem[i].nameid) ){
-				entry.mvpitem[i].p = atoi(str[33+i*2]);
+				entry.mvpitem[i].p = atoi(str[32+i*2]);
 				continue;
 			}else{
-				ShowWarning( "Monster \"%s\"(id: %d) is dropping an unknown item \"%s\"(MVP-Drop %d)\n", entry.name, mob_id, str[32+i*2], ( i / 2 ) + 1 );
+				ShowWarning( "Monster \"%s\"(id: %d) is dropping an unknown item \"%s\"(MVP-Drop %d)\n", entry.name, mob_id, str[31+i*2], ( i / 2 ) + 1 );
 			}
 		}
 
@@ -4272,7 +4269,7 @@ static bool mob_parse_dbrow(char** str)
 	}
 
 	for(i = 0; i < MAX_MOB_DROP; i++) {
-		int k = 32 + MAX_MVP_DROP*2 + i*2;
+		int k = 31 + MAX_MVP_DROP*2 + i*2;
 
 		entry.dropitem[i].nameid = atoi(str[k]);
 
@@ -4289,6 +4286,9 @@ static bool mob_parse_dbrow(char** str)
 		entry.dropitem[i].nameid = 0;
 		entry.dropitem[i].p = 0;
 	}
+
+	exp = (double)atoi(str[57]);
+	entry.hiden_exp = (unsigned int)cap_value(exp, 0, UINT_MAX);
 
 	db = mob_db(mob_id);
 

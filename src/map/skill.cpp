@@ -4626,7 +4626,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case NPC_BLEEDING:
 	case NPC_CRITICALWOUND:
 	case NPC_HELLPOWER:
-	case RK_SONICWAVE:
 	case AB_DUPLELIGHT_MELEE:
 	case NC_BOOSTKNUCKLE:
 	case NC_PILEBUNKER:
@@ -5198,7 +5197,7 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case NPC_MAGICALATTACK:
 	case SL_SMA:
 	case RL_MASS_SPIRAL:
-	case RK_WINDCUTTER:
+	case RK_SONICWAVE:
 	case WM_LULLABY_DEEPSLEEP:
 	case GS_FULLBUSTER:
 	case WL_SOULEXPANSION:
@@ -6304,6 +6303,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		break;
 
 	case SUI_HARANBASHOU:
+	case RK_WINDCUTTER:
 		clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
 		skill_area_temp[1] = 0;
 		map_foreachinshootrange(skill_attack_area, src,
@@ -6895,6 +6895,19 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			sc_start(src,bl,type,100,skill_lv,skill_get_time(skill_id,skill_lv)));
 		break;
 
+	case SJ_GRAVITYCONTROL: {
+			int fall_damage = sstatus->batk + sstatus->rhw.atk - tstatus->def2;
+
+			if (bl->type == BL_PC)
+				fall_damage += dstsd->weight / 10 - tstatus->def;
+			else // Monster's don't have weight. Put something in its place.
+				fall_damage += 50 * status_get_lv(src) - tstatus->def;
+
+			fall_damage = max(1, fall_damage);
+
+			clif_skill_nodamage(src, bl, skill_id, skill_lv, sc_start2(src, bl, type, 100, skill_lv, fall_damage, skill_get_time(skill_id, skill_lv)));
+		}
+		break;
 	case NPC_HALLUCINATION:
 	case NPC_HELLPOWER:
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
@@ -9429,6 +9442,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				status_change_end(bl, SC_HALLUCINATION, INVALID_TIMER);
 				status_change_end(bl, SC_FEAR, INVALID_TIMER);
 				status_change_end(bl, SC_WINKCHARM, INVALID_TIMER);
+				status_change_end(bl, SC_ILLUSIONDOPING, INVALID_TIMER);
 			}
 			else {//Success rate only applies to the curing effect and not stat bonus. Bonus status only applies to non infected targets
 				clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
@@ -12395,8 +12409,8 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		}
 		break;
 
-	case RK_WINDCUTTER:
-		clif_skill_damage(src, src, tick, status_get_amotion(src), 0, -30000, 1, skill_id, skill_lv, DMG_SKILL);
+	//case RK_WINDCUTTER:
+	//	clif_skill_damage(src, src, tick, status_get_amotion(src), 0, -30000, 1, skill_id, skill_lv, DMG_SKILL);
 	case AC_SHOWER:
 		if (skill_id == AC_SHOWER)
 			status_change_end(src, SC_CAMOUFLAGE, INVALID_TIMER);
@@ -15297,6 +15311,11 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 		*	Naruto
 		*/
 		// Uchiha
+		case GN_ILLUSIONDOPING:
+			if (!(sc && (sc->data[SC_SHARINGAN] || sc->data[SC_MANGEKYOU]) ))
+				return false;
+			break;
+
 		case UH_SUSANOO:
 		case RK_DRAGONBREATH:
 			if (!(sc && sc->data[SC_MANGEKYOU]))
