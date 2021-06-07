@@ -3429,7 +3429,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 800 * skill_lv;
 			break;
 
-		case MER_REGAIN: // Dynamic
+		case MER_PROVOKE: // Dynamic
 			skillratio += 2000 * skill_lv;
 			break;
 
@@ -3442,19 +3442,21 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += -100;
 			break;
 
-		case PA_SACRIFICE:
+		case CG_ARROWVULCAN:
 			if (sc && sc->data[SC_PROPERTYWALK]) {
 				skillratio += 2666 * skill_lv;
-			} else {
+			}
+			else {
 				skillratio += 1333 * skill_lv;
 			}
 			break;
 
-		case CG_ARROWVULCAN:
+		case PA_SACRIFICE:
 			if (sc && sc->data[SC_PROPERTYWALK]) {
-				skillratio += 3000 * skill_lv;
-			} else {
-				skillratio += 1500 * skill_lv;
+				skillratio += 4500 * skill_lv;
+			}
+			else {
+				skillratio += 2250 * skill_lv;
 			}
 			break;
 
@@ -3599,8 +3601,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case KN_SPEARSTAB:
 			skillratio += 20 * skill_lv;
 			break;
-		case KN_BRANDISHSPEAR:
-		case ML_BRANDISH: {
+		case KN_BRANDISHSPEAR: {
 				int ratio = 100 + 20 * skill_lv;
 
 				skillratio += -100 + ratio;

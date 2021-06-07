@@ -311,6 +311,8 @@ void initChangeTables(void)
 	add_sc(MS_REFLECTSHIELD, SC_STUN);
 	add_sc(MA_DOUBLE, SC_SILENCE);
 
+	set_sc( MER_CRASH		, SC_FLEET		, EFST_BLANK		, SCB_ASPD|SCB_BATK|SCB_WATK );
+
 	set_sc(HYO_ICEWALL, SC_ICEWALL, EFST_OWL, SCB_NONE);
 
 	/* First we define the skill for common ailments. These are used in skill_additional_effect through sc cards. [Skotlex] */
@@ -553,6 +555,7 @@ void initChangeTables(void)
 	set_sc( SM_SELFPROVOKE		, SC_PROVOKE		, EFST_PROVOKE		, SCB_DEF|SCB_DEF2|SCB_BATK|SCB_WATK );
 	set_sc( ST_PRESERVE		, SC_PRESERVE		, EFST_PRESERVE		, SCB_NONE );
 	set_sc( PF_DOUBLECASTING	, SC_DOUBLECAST		, EFST_DOUBLECASTING, SCB_NONE );
+	set_sc( ML_BRANDISH	, SC_DOUBLECAST		, EFST_DOUBLECASTING, SCB_NONE );
 	set_sc( HW_GRAVITATION		, SC_GRAVITATION	, EFST_GRAVITATION	, SCB_ASPD );
 	add_sc( WS_CARTTERMINATION	, SC_STUN		);
 	set_sc( WS_OVERTHRUSTMAX	, SC_MAXOVERTHRUST	, EFST_OVERTHRUSTMAX, SCB_NONE );
@@ -633,7 +636,6 @@ void initChangeTables(void)
 	add_sc( SA_ELEMENTWIND		, SC_ELEMENTALCHANGE	);
 
 	set_sc( HLIF_AVOID		, SC_AVOID		, EFST_BLANK		, SCB_SPEED );
-	set_sc( HFLI_FLEET		, SC_FLEET		, EFST_BLANK		, SCB_ASPD|SCB_BATK|SCB_WATK );
 	set_sc( HFLI_SPEED		, SC_SPEED		, EFST_BLANK		, SCB_FLEE );
 	set_sc( HAMI_DEFENCE		, SC_DEFENCE		, EFST_BLANK		,
 #ifndef RENEWAL
@@ -666,7 +668,6 @@ void initChangeTables(void)
 	set_sc(MH_CBC			, SC_CBC		, EFST_CBC			, SCB_FLEE );
 	set_sc(MH_EQC			, SC_EQC		, EFST_EQC			, SCB_DEF2|SCB_MAXHP );
 
-	set_sc( MER_PROVOKE		, SC_PROVOKE		, EFST_PROVOKE		, SCB_DEF|SCB_DEF2|SCB_BATK|SCB_WATK );
 	add_sc( MER_SIGHT		, SC_SIGHT		);
 	set_sc( MER_DECAGI		, SC_DECREASEAGI	, EFST_DEC_AGI, SCB_AGI|SCB_SPEED );
 	set_sc( MER_MAGNIFICAT		, SC_MAGNIFICAT		, EFST_MAGNIFICAT		, SCB_REGEN );
@@ -680,7 +681,6 @@ void initChangeTables(void)
 	set_sc( MS_BERSERK		, SC_BERSERK		, EFST_BERSERK		, SCB_DEF|SCB_DEF2|SCB_MDEF|SCB_MDEF2|SCB_FLEE|SCB_SPEED|SCB_ASPD|SCB_MAXHP|SCB_REGEN );
 	add_sc( ML_DEVOTION		, SC_DEVOTION		);
 	set_sc( MER_KYRIE		, SC_KYRIE		, EFST_KYRIE		, SCB_NONE );
-	set_sc( MER_BLESSING		, SC_BLESSING		, EFST_BLESSING		, SCB_STR|SCB_INT|SCB_DEX );
 	set_sc( MER_INCAGI		, SC_INCREASEAGI	, EFST_INC_AGI, SCB_AGI|SCB_SPEED );
 	set_sc( MER_INVINCIBLEOFF2	, SC_INVINCIBLEOFF	, EFST_BLANK, SCB_SPEED );
 
@@ -1212,6 +1212,10 @@ void initChangeTables(void)
 	StatusIconChangeTable[SC_REUSE_CRUSHSTRIKE] = EFST_REUSE_CRUSHSTRIKE;
 	StatusIconChangeTable[SC_REUSE_STORMBLAST] = EFST_REUSE_STORMBLAST;
 	StatusIconChangeTable[SC_ALL_RIDING_REUSE_LIMIT] = EFST_ALL_RIDING_REUSE_LIMIT;
+
+	// Hiden
+	StatusIconChangeTable[SC_AMARELADBUFF] = EFST_AMARELADBUFF;
+	StatusIconChangeTable[SC_VERMELHADBUFF] = EFST_VERMELHADBUFF;
 
 	// Clan System
 	StatusIconChangeTable[SC_CLAN_INFO] = EFST_CLAN_INFO;
@@ -4929,6 +4933,7 @@ void status_calc_regen_rate(struct block_list *bl, struct regen_data *regen, str
 	if ((sc->data[SC_POISON] && !sc->data[SC_SLOWPOISON])
 		|| (sc->data[SC_DPOISON] && !sc->data[SC_SLOWPOISON])
 		|| sc->data[SC_SUSANOO]
+		|| sc->data[SC_PROPERTYWALK]
 		|| sc->data[SC_BERSERK]
 		|| sc->data[SC_TRICKDEAD]
 		|| sc->data[SC_BLEEDING]
@@ -9670,7 +9675,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_S_LIFEPOTION:
 			case SC_L_LIFEPOTION:
 			case SC_BOSSMAPINFO:
-			case SC_STUN:
 			case SC_SLEEP:
 			case SC_POISON:
 			case SC_CURSE:
@@ -9761,6 +9765,10 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 					return 0;
 				if(sce->val1 > val1)
 					return 1;
+				break;
+			
+			case SC_STUN:
+					return 0;
 				break;
 			case SC_ENDURE:
 				if(sce->val4 && !val4)
@@ -9888,6 +9896,11 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		val3 = 16;
 		break;
 	case SC_SUSANOO:
+		t_tickime = 1000;
+		val4 = tick / t_tickime;
+		break;
+
+	case SC_VERMELHADBUFF:
 		t_tickime = 1000;
 		val4 = tick / t_tickime;
 		break;
@@ -12558,12 +12571,14 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 
 			if (!sc->data[SC_VERMELHA])
 				sc_start(bl, bl, SC_BLIND, 100, sce->val1, sec);
+				sc_start(bl, bl, SC_AMARELADBUFF, 100, sce->val1, sec);
 		}
 		break;
 		case SC_VERMELHA: {
 			int sec = skill_get_time2(status_sc2skill(type), sce->val1);
 
 			sc_start(bl, bl, SC_BLIND, 100, sce->val1, sec);
+			sc_start(bl, bl, SC_VERMELHADBUFF, 100, sce->val1, sec);
 		}
 		break;
 		case SC_CHOOMODO: {
@@ -13366,6 +13381,13 @@ TIMER_FUNC(status_change_timer){
 			}
 			break;
 		/* Akimichi */
+		case SC_VERMELHADBUFF:
+			if (--(sce->val4) >= 0) {
+				status_charge(bl, status->max_hp * 8 / 100, 0);
+				sc_timer_next(1000 + tick);
+				return 0;
+			}
+			break;
 		case SC_CHOOMODO:
 			if (--(sce->val4) >= 0) {
 				sc_timer_next(1000 + tick);

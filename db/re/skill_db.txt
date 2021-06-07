@@ -1,4 +1,4 @@
-ï»¿//id,range,hit,inf,element,nk,splash,max,list_num,castcancel,cast_defence_rate,inf2,maxcount,skill_type,blow_count,inf3,name,description
+//id,range,hit,inf,element,nk,splash,max,list_num,castcancel,cast_defence_rate,inf2,maxcount,skill_type,blow_count,inf3,name,description
 // 01 ID
 // 02 range (combo skills do not check for range when used,
 //           if range is < 5, the skill is considered melee-range)
@@ -73,12 +73,12 @@
 
 //****
 // Skill Basica
-1,0,0,0,0,0,0,9,0,no,0,0,0,none,0,0x0,NV_BASIC,Basic Skill
-4000,0,6,4,0,0x1,0,1,1,no,0,0x1,0,magic,0,0x0,NJ_CHAKRA,Concentrar Chakra
-524,9,8,1,-1,0x48,0,1,5,no,0,0x1,0,weapon,0,0x0,NJ_KUNAI,Arremessar Kunai
-3012,0,6,4,0,0x1,0,1,0,no,0,0x1,2,none,7,0x0,KO_ZANZOU,Kawarime no Jutsu
-5023,10,6,2,0,0,0,1,0,no,0,0x1,0,none,0,0x0,SU_LOPE,Salto Ninja
-4001,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,SN_EREMITA,Modo Eremita
+1,0,0,0,0,0,0,9,0,no,0,0,0,none,0,0x0,NV_BASIC,Basico: Basic Skill
+4000,0,6,4,0,0x1,0,1,1,no,0,0x1,0,magic,0,0x0,NJ_CHAKRA,Basico: Concentrar Chakra
+524,9,8,1,-1,0x48,0,1,5,no,0,0x1,0,weapon,0,0x0,NJ_KUNAI,Basico: Arremessar Kunai
+3012,0,6,4,0,0x1,0,1,0,no,0,0x1,2,none,7,0x0,KO_ZANZOU,Basico: Kawarime no Jutsu
+5023,10,6,2,0,0,0,1,0,no,0,0x1,0,none,0,0x0,SU_LOPE,Basico: Salto Ninja
+4001,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,SN_EREMITA,Basico: Modo Eremita
 
 //-------------------------------------------------------------------------------------------
 // Taijutsu
@@ -124,7 +124,7 @@
 
 //-------------------------------------------------------------------------------------------------------------
 // Ninjutsu
-// AvanÃ§ado
+// Avançado
 403,0,0,4,0,0x1,0,10,1,yes,0,0,0,magic,0,0x0,PF_MEMORIZE,Ninjutsu Kioku
 2206,0,6,4,0,0x1,0,10,1,yes,0,0,0,magic,0,0x0,WL_RECOGNIZEDSPELL,Ninjutsu Zofuku In
 
@@ -214,7 +214,7 @@
 29,9,6,4,0,0x1,9,10,1,no,0,0,0,magic,0,0x1000,AL_INCAGI,Velocidade Shunshin no Jutsu
 26,0,6,4,0,0x1,0,2,1,yes,0,0,0,magic,0,0x40,AL_TELEPORT,Velocidade Mueisho Shunshin
 4060,9,6,2,0,0x1,0,10,1,no,0,0,1,none,0,0x0,VEL_MARCAHIRAI,Velocidade Marca Hiraishin
-3021,9,6,16,0,0x1,0,10,1,no,0,0,0,none,0,0x0,KO_GENWAKU,Velocidade Troca de PosiÃ§Ã£o
+3021,9,6,16,0,0x1,0,10,1,no,0,0,0,none,0,0x0,KO_GENWAKU,Velocidade Troca de Posição
 //
 27,9,6,2,0,0x1,0,10,1,no,0,0,3,magic,0,0x0,AL_WARP,Velocidade Tensoo no Jutsu
 2290,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,SC_INVISIBILITY,Velocidade Reika no Jutsu
@@ -240,22 +240,22 @@
 2039,0,6,4,0,0x1,0,10,1,no,0,0,0,magic,0,0x0,AB_ANCILLA,Medicina Kyouka Shohou
 
 //-------------------------------------------------------------------------------------------
-// ResistÃªncia
-22,0,0,0,0,0,0,15,0,no,0,0,0,weapon,0,0x0,AL_DP,ResistÃªncia Zettai no Tate
-33,0,6,4,0,0x3,-1,15,1,no,0,0,0,magic,0,0x0,AL_ANGELUS,ResistÃªncia Kin no Suzu
-249,0,6,4,0,0x1,0,15,1,no,0,0,0,weapon,0,0x0,CR_AUTOGUARD,ResistÃªncia Shugo Fuuda
-2309,0,6,4,0,0x3,2,15,1,no,0,0,0,none,0,0x0,LG_TRAMPLE,ResistÃªncia Fuminarasu
-144,0,0,0,0,0,0,15,0,no,0,0,0,none,0,0x0,SM_MOVINGRECOVERY,ResistÃªncia Kiseki no Saisei
+// Resistência
+22,0,0,0,0,0,0,15,0,no,0,0,0,weapon,0,0x0,AL_DP,Resistência Zettai no Tate
+33,0,6,4,0,0x3,-1,15,1,no,0,0,0,magic,0,0x0,AL_ANGELUS,Resistência Kin no Suzu
+249,0,6,4,0,0x1,0,15,1,no,0,0,0,weapon,0,0x0,CR_AUTOGUARD,Resistência Shugo Fuuda
+2309,0,6,4,0,0x3,2,15,1,no,0,0,0,none,0,0x0,LG_TRAMPLE,Resistência Fuminarasu
+144,0,0,0,0,0,0,15,0,no,0,0,0,none,0,0x0,SM_MOVINGRECOVERY,Resistência Kiseki no Saisei
 //
-257,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,CR_DEFENDER,ResistÃªncia Kougeki Taimingu
-2313,0,6,4,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,LG_FORCEOFVANGUARD,ResistÃªncia Kakutou Sutairu: Saizensen
-2348,2,6,16,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,SR_GENTLETOUCH_REVITALIZE,ResistÃªncia Chikara Denki
-2015,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,RK_STONEHARDSKIN,ResistÃªncia Iwahada
+257,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,CR_DEFENDER,Resistência Kougeki Taimingu
+2313,0,6,4,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,LG_FORCEOFVANGUARD,Resistência Kakutou Sutairu: Saizensen
+2348,2,6,16,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,SR_GENTLETOUCH_REVITALIZE,Resistência Chikara Denki
+2015,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,RK_STONEHARDSKIN,Resistência Iwahada
 //
-255,7:8:9:10:11,6,16,0,0x1,0,10,1,yes,0,0x600,0,none,0,0x0,CR_DEVOTION,ResistÃªncia Sokkyo Bogyo
-1002,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,2,0x0,CR_SHRINK,ResistÃªncia Tsuyoi Oshi
-2318,0,6,4,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,LG_PRESTIGE,ResistÃªncia Dekinai Hito
-268,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,MO_STEELBODY,ResistÃªncia Domu
+255,7:8:9:10:11,6,16,0,0x1,0,10,1,yes,0,0x600,0,none,0,0x0,CR_DEVOTION,Resistência Sokkyo Bogyo
+1002,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,2,0x0,CR_SHRINK,Resistência Tsuyoi Oshi
+2318,0,6,4,0,0x1,0,10,1,yes,0,0,0,none,0,0x0,LG_PRESTIGE,Resistência Dekinai Hito
+268,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,MO_STEELBODY,Resistência Domu
 
 
 252,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,CR_REFLECTSHIELD,Refletir
@@ -275,7 +275,7 @@
 24,0,6,4,6,0x3,2,15,1,no,0,0,0,magic,0,0x0,AL_RUWACH,Fuuinjutsu Kanchi Taipu
 //
 34,9,6,16,0,0x1,0,10,1,no,0,0,0,magic,0,0x1000,AL_BLESSING,Fuuinjutsu Yori Batokurai
-481,0,0,0,0,0,0,10,0,no,0,0,0,none,0,0x0,HP_MANARECHARGE,Fuuinjutsu PerÃ­cia Ninja
+481,0,0,0,0,0,0,10,0,no,0,0,0,none,0,0x0,HP_MANARECHARGE,Fuuinjutsu Perícia Ninja
 533,0,0,0,0,0,0,10,0,no,0,0,0,none,0,0x0,NJ_NINPOU,Fuuinjutsu Regenerar Chakra
 2451,0,6,4,0,0x1,0,10,1,no,0,0,0,none,0,0x0,SO_STRIKING,Fuuinjutsu Fuuka Houin
 //
@@ -329,8 +329,8 @@
 
 // Kuroari
 8201,5,6,1,5,0,0,5,1,no,0,0,0,magic,0,0x0,MS_BASH,Kugutsu: Injetar Veneno
-8202,5,6,2,5,0,0,5,1,no,0,0,1,magic,0,0x0,MS_MAGNUM,Kugutsu: NÃ©voa Venenosa
-8203,9,0,2,2,0x1,0,5,1,no,0,0x1,3,magic,0,0x11000,MS_BOWLINGBASH,Kugutsu: NÃ©voa Paralisante
+8202,5,6,2,5,0,0,5,1,no,0,0,1,magic,0,0x0,MS_MAGNUM,Kugutsu: Névoa Venenosa
+8203,9,0,2,2,0x1,0,5,1,no,0,0x1,3,magic,0,0x11000,MS_BOWLINGBASH,Kugutsu: Névoa Paralisante
 8205,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,MS_REFLECTSHIELD,Kugutsu: Atordoar
 8207,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,MA_DOUBLE,Kugutsu: Silenciar
 
@@ -350,15 +350,15 @@
 //Sasori
 8213,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,MA_REMOVETRAP,Kugutsu: Haidoroponpu
 8214,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,MA_CHARGEARROW,Kugutsu: Soen Katsugeki
-8215,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,MA_SHARPSHOOTING,Kugutsu: RÄ“zÄbÄ«mu
-8216,1,8,4,0,0x2,4,5,-5,no,0,0,0,magic,0,0x0,ML_PIERCE,Kugutsu: YÅu no Mai
-8217,9,6,4,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,ML_BRANDISH,Kugutsu: LanÃ§as Duplas
+8215,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,MA_SHARPSHOOTING,Kugutsu: Rezabimu
+8216,1,8,4,0,0x2,4,5,-5,no,0,0,0,magic,0,0x0,ML_PIERCE,Kugutsu: You no Mai
+8217,9,6,4,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,ML_BRANDISH,Kugutsu: Lanças Duplas
 
 //Kazekage
 8218,2,8,1,0,0,0,5,-1:-2:-2:-2:-3,no,0,0,0,weapon,0,0x0,ML_SPIRALPIERCE,Kugutsu: Ataque Rapido
-8223,7,8,1,0,0,0,5,-6,no,0,0,0,weapon,0,0x0,MER_QUICKEN,Kugutsu: Two-Milhares de MÃ£os
-8225,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,MER_CRASH,Kugutsu: Modo de Ataque
-8226,9,6,1,0,0,0,5,1,no,0,0,0,weapon,0,0x0,MER_REGAIN,Kugutsu: Dinamic
+8223,7,8,1,0,0,0,5,-6,no,0,0,0,weapon,0,0x0,MER_QUICKEN,Kugutsu: Two-Milhares de Mãos
+8225,0,6,4,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,MER_CRASH,Kugutsu: Modo de Ataque
+8232,9,6,1,0,0,0,5,1,no,0,0,0,weapon,0,0x0,MER_PROVOKE,Kugutsu: Dynamic
 8227,1,6,4,0,0x2,5,5,1,no,0,0,0,weapon,0,0x0,MER_TENDER,Kugutsu: Ataque em Area
 
 //****
@@ -370,15 +370,15 @@
 4221,0,6,4,3,0x2,1:2:2:3,4,1,no,0,0x40000,0,weapon,2,0x0,HYU_KAITEN,Hyuuga: Kaiten
 371,-2,8,4,-1,0,0,3,-10,no,0,0x201,0,weapon,0,0x0,CH_TIGERFIST,Hyuuga: Sanjuni Sho
 372,-2,8,4,-1,0,0,2,-10,no,0,0x200,0,weapon,0,0x0,CH_CHAINCRUSH,Hyuuga: Rokujuyon Sho
-4222,0,6,4,3,0x2,3,4,1,no,0,0,0,weapon,0,0x0,HYU_HYAKU,Hyuuga: Hyaku Nijuhachi Sho
+4222,0,6,4,3,0x2,7,4,-5,no,0,0,0,weapon,0,0x0,HYU_HYAKU,Hyuuga: Hyaku Nijuhachi Sho
 
 //****
-// PortÃµes de Chakra
-4230,0,6,4,0,0x1,0,7,0,no,0,0,0,none,0,0x0,PT_1PORTAO,PortÃµes: Abrir 1 ao 7 PortÃ£o
-2443,0,6,4,3,0,0,1,1,no,0,0,30,weapon,0,0x1000,SO_FIREWALK,PortÃµes: Abrir 8 PortÃ£o
-394,3,8,1,-1,0,0,3,-5,no,0,0,0,weapon,0,0x0,CG_ARROWVULCAN,PortÃµes: Asa Kujaku
-368,9,6,1,0,0x40,0,2,1,no,0,0,0,weapon,3,0x0,PA_SACRIFICE,PortÃµes: Hirudora
-480,1,8,1,0,0,0,1,-5,no,0,0,0,weapon,0,0x0,PA_SHIELDCHAIN,PortÃµes: Sekizo
+// Portões de Chakra
+4230,0,6,4,0,0x1,0,7,0,no,0,0,0,none,0,0x0,PT_1PORTAO,Portões: Abrir 1 ao 7 Portão
+2443,0,6,4,3,0,0,1,1,no,0,0,30,weapon,0,0x1000,SO_FIREWALK,Portões: Abrir 8 Portão
+394,3,8,1,0,0,0,3,-5,no,0,0,0,weapon,0,0x0,CG_ARROWVULCAN,Portões: Asa Kujaku
+368,9,6,1,0,0x40,0,2,1,no,0,0,0,weapon,3,0x0,PA_SACRIFICE,Portões: Hirudora
+480,1,8,1,0,0,0,1,-5,no,0,0,0,weapon,0,0x0,PA_SHIELDCHAIN,Portões: Sekizo
 
 //****
 // Akimichi
@@ -414,7 +414,7 @@
 //Akamaru
 8016,0,0,0,0,0,0,5,0,no,0,0,0,none,0,0x0,HVAN_EXPLOSION,Inuzuka: Pressas Afiadas
 8028,4,8,1,0,0,0,5,1,no,0,0,0,weapon,0,0x0,MH_SONIC_CRAW,Inuzuka: Mordida Rapida
-8011,0,6,4,0,0x2,3:4:5:6:7,5,1,no,0,0x40000,0,weapon,0,0x0,HFLI_SPEED,Inuzuka: Farro AguÃ§ado
+8011,0,6,4,0,0x2,3:4:5:6:7,5,1,no,0,0x40000,0,weapon,0,0x0,HFLI_SPEED,Inuzuka: Farro Aguçado
 8042,0,6,4,3,0x1,0,5,1,no,0,0,0,none,0,0x0,MH_PYROCLASTIC,Inuzuka: Hyorogan
 8012,4:5:6:8:9,8,1,-1,0,0,5,-6,no,0,0,0,weapon,0,0x0,HFLI_SBR44,Inuzuka: Tsuga2
 
@@ -453,16 +453,16 @@
 254,0,6,4,0,0x48,0,4,1,no,0,0x100,0,weapon,0,0x1,CR_GRANDCROSS,Jashin: Kaiten Renbu
 2560,11,6,1,0,0x1,0,4,1,no,0,0,1:2:3:4,none,0,0x0,RL_C_MARKER,Jashin: Chi o Nomu
 25,9,6,4,0,0x1,0,4,1,no,0,0,1,magic,0,0x0,AL_PNEUMA,Jashin: Shiji Hyoketsu
-4330,0,6,4,-1,0x3,-1,3,1,no,0,0,0,weapon,0,0x0,JAS_CORTE,Jashin: Corte na LÃ­ngua
+4330,0,6,4,-1,0x3,-1,3,1,no,0,0,0,weapon,0,0x0,JAS_CORTE,Jashin: Corte na Língua
 4331,0,6,4,-1,0x3,-1,2,1,no,0,0,0,weapon,0,0x0,JAS_ESTOCADA,Jashin: Estocadas
 4332,0,6,4,-1,0x3,-1,1,1,no,0,0,0,weapon,0,0x0,JAS_CORACAO,Jashin: Critical
 2287,7,6,1,0,0x1,0,3,1,no,0,0,0,none,0,0,SC_SHADOWFORM,Jashin: Gishiki Modo
 
 //****
 // Hokumon no Tayuya
-326,0,6,4,0,0x3,5,4,1,no,0,0,0,none,0,0x0,DC_SCREAM,Tayuya: Mateki: MÃ­
+326,0,6,4,0,0x3,5,4,1,no,0,0,0,none,0,0x0,DC_SCREAM,Tayuya: Mateki: Mí
 2205,11,6,1,0,0x1,0,4,1,no,0,0,0,magic,0,0x400,WL_MARSHOFABYSS,Tayuya: Mateki: Mugen Onsa
-328,0,6,4,0,0x1,0,4,1,no,0,0x20,0,misc,0,0x1,DC_DONTFORGETME,Tayuya: Mateki: DÃ³
+328,0,6,4,0,0x1,0,4,1,no,0,0x20,0,misc,0,0x1,DC_DONTFORGETME,Tayuya: Mateki: Dó
 4300,4,6,2,0,0x1,0,3,1,no,0,0,1,none,0,0x0,TY_DOKI1,Tayuya: Kuchiyose Doki
 4301,9,6,1,0,0x1,0,1,1,no,0,0,1,magic,0,0x0,TY_DOKI2,Tayuya: Makyou no Ran
 
@@ -476,7 +476,7 @@
 4310,1,0,4,0,0x1,0,1,0,no,0,0,0,none,0,0x0,IB_SALAMANDRA,Hanzaki: Kuchiyose no Jutsu: Ibuse
 //Salamandra
 52,-2,6,1,5,0,0,10,1,no,0,0,0,weapon,0,0x0,TF_POISON,Hanzaki Salamandra: Envenenar
-140,2,6,2,5,0x1,0,10,1,no,0,0,2,weapon,0,0x0,AS_VENOMDUST,Hanzaki Salamandra: NÃ©voa TÃ³xica
+140,2,6,2,5,0x1,0,10,1,no,0,0,2,weapon,0,0x0,AS_VENOMDUST,Hanzaki Salamandra: Névoa Tóxica
 2032,5,6,2,0,0x1,0,5,1,yes,0,0,1,none,0,0x0,GC_POISONSMOKE,Hanzaki Salamandra: Poison Smoke
 378,0,6,16,5,0x1,0,5,1,no,0,0,0,weapon,0,0x0,ASC_EDP,Hanzaki Salamandra: Encantar com Veneno Mortal
 
@@ -490,7 +490,7 @@
 
 //****
 // Kaguya
-56,-2,8,1,-1,0,0,4,3,no,0,0,0,weapon,0,0x0,KN_PIERCE,Kaguya: RyÅbu
+56,-2,8,1,-1,0,0,4,3,no,0,0,0,weapon,0,0x0,KN_PIERCE,Kaguya: Ryobu
 59,3:5:7:9,6,1,-1,0,0,4,1,no,0,0,0,weapon,0,0x0,KN_SPEARBOOMERANG,Kaguya: Teshi Sendan
 2020,6:7:8:9,6,1,-1,0,0,3,1,no,0,0x400,0,weapon,0,0x0,RK_PHANTOMTHRUST,Kaguya: Tessenka no Mai: Tsuru
 2004,-1,8,1,-1,0,0,2,-5,no,0,0,0,weapon,0,0x20000,RK_HUNDREDSPEAR,Kaguya: Tessenka no Mai: Hana
@@ -507,7 +507,7 @@
 
 //****
 // Jinton
-444,0,6,4,0,0x1,0,4,1,no,0,0,0,misc,0,0x0,SG_FUSION,Jinton: KeijÅ«gan
+444,0,6,4,0,0x1,0,4,1,no,0,0,0,misc,0,0x0,SG_FUSION,Jinton: Keijugan
 519,-9,6,1,-1,0,0,4,1,no,0,0,0,magic,0,0x100,GS_FULLBUSTER,Jinton: Genkai Hakuri: Hashira
 2202,9,8,1,9,0x2,1:2,2,-2,no,0,0,0,magic,0,0x400,WL_SOULEXPANSION,Jinton: Keiyaku Suru
 4320,9,6,16,9,0,0,2,1,no,0,0,0,magic,0,0x400,JIN_GENKAIHAKURI,Jinton: Genkai Hakuri no Jutsu
@@ -521,15 +521,15 @@
 2426,9,6,2,0,0x2,2:3:4,3,1,no,0,0,0,magic,0,0x0,WM_GREAT_ECHO,Kyomei: Kaiho Kyomei
 2419,9,6,2,0,0x3,1,2,1,no,0,0x80,5,none,0,0x0,WM_POEMOFNETHERWORLD,Kyomei: Suton'noizu
 2413,9,8,1,0,0,0,2,-4:-8,no,0,0,0,magic,0,0x0,WM_METALICSOUND,Kyomei: Sozoshi Soon
-2422,1,8,4,0,0x2,9,1,-5,no,0,0,0,magic,5,0x0,WM_LULLABY_DEEPSLEEP,Kyomei: KyÅmei SupÄ«kÄ
+2422,1,8,4,0,0x2,9,1,-5,no,0,0,0,magic,5,0x0,WM_LULLABY_DEEPSLEEP,Kyomei: Kyomei Supika
 
 //****
 // Kidoumaru
 44,0,0,0,0,0,0,4,0,no,0,0,0,none,0,0x0,AC_VULTURE,Kidoumaru: Alcance
-46,0,8,1,-1,0,0,4,-2,no,0,0,0,weapon,0,0x80,AC_DOUBLE,Kidoumaru: Ya no BÄsuto
-405,7,6,1,0,0x1,0,3,1,no,0,0,3,magic,0,0x0,PF_SPIDERWEB,Kidoumaru: KumosÅkai
+46,0,8,1,-1,0,0,4,-2,no,0,0,0,weapon,0,0x80,AC_DOUBLE,Kidoumaru: Ya no Basuto
+405,7,6,1,0,0x1,0,3,1,no,0,0,3,magic,0,0x0,PF_SPIDERWEB,Kidoumaru: Kumosokai
 2233,0,8,1,-1,0x2,3:5,2,-3,no,0,0,0,weapon,0,0x80,RA_ARROWSTORM,Kidoumaru: Amagumo
-382,9,8,1,-1,0,3,1,1,no,0,0x40000,14,weapon,0,0x0,SN_SHARPSHOOTING,Kidoumaru: Kumo SenkyÅ«: Suzaku
+382,9,8,1,-1,0,3,1,1,no,0,0x40000,14,weapon,0,0x0,SN_SHARPSHOOTING,Kidoumaru: Kumo Senkyu: Suzaku
 2234,0,6,4,0,0,0,4,1,no,0,0,0,none,0,0x0,RA_FEARBREEZE,Kidoumaru: Yubi no binsho-sei
 
 //****
@@ -595,7 +595,7 @@
 57,-2,6,1,-1,0x1,2,10,1,no,0,0,5,weapon,2,0x20000,KN_BRANDISHSPEAR,Brandish Spear
 58,-1,6,1,-1,0x2,1,10,1,no,0,0x40001,0,weapon,6,0x0,KN_SPEARSTAB,Spear Stab
 60,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,KN_TWOHANDQUICKEN,Twohand Quicken
-63,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,KN_RIDING,Selo de MÃ£o: Boi
+63,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,KN_RIDING,Selo de Mão: Boi
 64,0,0,0,0,0,0,5,0,no,0,0,0,weapon,0,0x0,KN_CAVALIERMASTERY,Cavalier Mastery
 
 //****
@@ -663,7 +663,7 @@
 // Assassin
 135,0,6,4,0,0x1,0,4,1,no,0,0x1,0,weapon,0,0x80040,AS_CLOAKING,Furtividade
 139,0,6,4,0,0,0,10,1,no,0,0,0,weapon,0,0x0,AS_POISONREACT,Poison React
-141,1,6,1,-1,0x51,2,10,1,yes,0,0,0,weapon,0,0x0,AS_SPLASHER,ExplosÃ£o TÃ³xica
+141,1,6,1,-1,0x51,2,10,1,yes,0,0,0,weapon,0,0x0,AS_SPLASHER,Explosão Tóxica
 
 //****
 // 1st Class Quest
@@ -742,7 +742,7 @@
 219,1,6,1,-1,0,0,5,1,no,0,0,0,weapon,0,0x0,RG_INTIMIDATE,Snatch
 220,1,6,2,0,0x1,0,1,1,no,0,0,0,none,0,0x0,RG_GRAFFITI,Scribble
 221,0,6,2,0,0x1,0,5,1,no,0,0,0,none,0,0x0,RG_FLAGGRAFFITI,Grafiti
-222,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,RG_CLEANER,Selo de MÃ£o: Tigre
+222,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,RG_CLEANER,Selo de Mão: Tigre
 223,0,0,0,0,0,1,1,0,no,0,0,0,none,0,0x0,RG_GANGSTER,Slyness
 224,0,0,0,0,0,0,5,0,no,0,0,0,none,0,0x0,RG_COMPULSION,Haggle
 225,0,0,0,0,0,0,10,0,no,0,0,0,none,0,0x0,RG_PLAGIARISM,Intimidate
@@ -783,7 +783,7 @@
 259,0,0,0,0,0,0,10,0,no,0,0,0,weapon,0,0x0,MO_IRONHAND,Iron Fists
 260,0,0,0,0,0,0,5,0,no,0,0,0,weapon,0,0x0,MO_SPIRITSRECOVERY,Spiritual Cadence
 261,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,MO_CALLSPIRITS,Summon Spirit Sphere
-262,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,MO_ABSORBSPIRITS,Selo de MÃ£o: Cavalo
+262,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,MO_ABSORBSPIRITS,Selo de Mão: Cavalo
 265,0,0,0,0,0,0,10,0,no,0,0,0,weapon,0,0x0,MO_DODGE,Dodge
 269,0,6,4,0,0x1,0,4,1,no,0,0,0,weapon,0,0x0,MO_BLADESTOP,Root
 
@@ -1076,7 +1076,7 @@
 
 //****
 // Gunslinger
-500,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,GS_GLITTERING,Selo de MÃ£o: Coelho
+500,0,6,4,0,0x1,0,1,1,no,0,0x1,0,none,0,0x0,GS_GLITTERING,Selo de Mão: Coelho
 501,9,6,1,-1,0x50,0,1,1,no,0,0,0,misc,0,0x0,GS_FLING,Fling
 504,0,6,4,0,0x1,0,1,1,no,0,0,0,weapon,0,0x0,GS_MADNESSCANCEL,Madness Canceller
 505,0,6,4,0,0x1,0,1,1,no,0,0,0,weapon,0,0x0,GS_ADJUSTMENT,AdJustment
@@ -1467,7 +1467,7 @@
 //****
 // SO Sorcerer (statis blocking need to be confirmed)
 2445,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,SO_SPELLFIST,Spell Fist
-2448,9,6,1,5,0x2,1:1:1:1:2,5,1,yes,0,0,0,magic,0,0x0,SO_POISON_BUSTER,ImplosÃ£o TÃ³xica
+2448,9,6,1,5,0x2,1:1:1:1:2,5,1,yes,0,0,0,magic,0,0x0,SO_POISON_BUSTER,Implosão Tóxica
 2452,9,6,2,3,0x1,0,5,1,yes,0,0,0,magic,0,0x0,SO_WARMER,WARMER
 2454,9,6,1,4,0x2,3,1,1,no,0,0,0,magic,0,0x0,SO_VARETYR_SPEAR,SO_VARETYR_SPEAR
 2456,0,6,4,0,0x1,0,4,1,yes,0,0,0,none,0,0x0,SO_EL_CONTROL,Spirit Control
@@ -1604,7 +1604,7 @@
 3017,0,6,4,4,0x1,0,1,1,no,0,0,0,none,0,0x0,KO_KAZEHU_SEIRAN,Wind Charm
 3018,0,6,4,2,0x1,0,1,1,no,0,0,0,none,0,0x0,KO_DOHU_KOUKAI,Earth Charm
 3020,7,6,2,0,0,0,1,1,yes,0,0,0,magic,0,0x0,KO_ZENKAI,Cast Ninja Spell
-3022,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,KO_IZAYOI,InspiraÃ§Ã£o
+3022,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,KO_IZAYOI,Inspiração
 3023,0,6,4,0,0x3,3:4:5:6,4,0,no,0,0,0,none,0,0x0,KG_KAGEHUMI,Esmagamento Sombrio
 3024,7,6,1,0,0x1,0,5,1,no,0,0,0,none,0,0x0,KG_KYOMU,Empty Shadow
 3025,7,6,16,0,0x1,0,5,1,no,0,0,0,none,0,0x0,KG_KAGEMUSYA,Shadow Warrior
@@ -1735,18 +1735,17 @@
 8221,7:8:9:10:11,6,16,0,0x1,0,5,1,yes,0,0x600,0,none,0,0x0,ML_DEVOTION,Sacrifice
 8222,0,6,4,0,0x3,-1,5,1,yes,0,0,0,magic,0,0x0,MER_MAGNIFICAT,Magnificat
 8224,0,6,4,3,0x3,3,1,1,yes,0,0,0,magic,0,0x0,MER_SIGHT,Sight
-
+8226,9,6,1,0,0,0,5,1,no,0,0,0,weapon,0,0x0,MER_REGAIN,Regain
+8239,9,6,1,0,0,0,5,1,no,0,0,0,weapon,0,0x0,MER_BLESSING,Blessing
 8229,9,6,16,0,0x1,0,1,1,yes,0,0x1000,0,magic,0,0x0,MER_RECUPERATE,Recuperate
 8230,9,6,16,0,0x1,0,1,1,yes,0,0x1000,0,magic,0,0x0,MER_MENTALCURE,Mental_Cure
 8231,9,6,16,0,0x1,0,1,1,yes,0,0x1000,0,magic,0,0x0,MER_COMPRESS,Compress
-8232,9,6,1,0,0x1,0,10,1,no,0,0,0,none,0,0x0,MER_PROVOKE,Provoke
 8233,0,6,4,0,0x1,0,1,1,no,0,0,0,weapon,0,0x0,MER_AUTOBERSERK,Berserk
 8234,9,6,1,0,0x1,0,10,1,yes,0,0,0,magic,0,0x0,MER_DECAGI,Decrease_AGI
 8235,0,6,4,0,0x1,0,1,1,yes,0,0,0,none,0,0x0,MER_SCAPEGOAT,Scapegoat
 8236,5,6,1,0,0x1,0,10,0,yes,0,0,0,magic,0,0x0,MER_LEXDIVINA,Lex_Divina
 8237,9,6,1,0,0x1,0,1,1,yes,0,0,0,magic,0,0x0,MER_ESTIMATION,Sense
 8238,9,6,16,0,0x1,0,10,1,yes,0,0,0,magic,0,0x0,MER_KYRIE,Kyrie Eleison
-8239,9,6,16,0,0x1,0,10,1,yes,0,0,0,magic,0,0x1000,MER_BLESSING,Blessing
 8240,9,6,16,0,0x1,0,10,1,yes,0,0,0,magic,0,0x1000,MER_INCAGI,Increase Agility
 8241,0,0,0,0,0,0,1,0,no,0,0,0,none,0,0x0,MER_INVINCIBLEOFF2,Mind Blaster
 

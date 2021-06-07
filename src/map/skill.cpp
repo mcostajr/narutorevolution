@@ -1340,7 +1340,9 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 
 	// Hyuuga
 	//---------------------------------
-	case CH_TIGERFIST: {
+	case CH_TIGERFIST:
+	case CH_CHAINCRUSH:
+	case HYU_HYAKU: {
 		uint16 basetime = skill_get_time(skill_id, skill_lv);
 		uint16 mintime = 30 * (status_get_lv(src) + 100);
 
@@ -2685,6 +2687,8 @@ short skill_blown(struct block_list* src, struct block_list* target, char count,
 	}
 
 	if (tsc) {
+		if (tsc->data[SC_PROPERTYWALK]) // Shouldn't move.
+			return 0;
 		if (tsc->data[SC_SU_STOOP]) // Any knockback will cancel it.
 			status_change_end(target, SC_SU_STOOP, INVALID_TIMER);
 		if (tsc->data[SC_SV_ROOTTWIST]) // Shouldn't move.
@@ -2872,7 +2876,7 @@ void skill_combo(struct block_list* src,struct block_list *dsrc, struct block_li
 				target_id = 0; // Will target current auto-target instead
 			}
 		case CH_TIGERFIST:
-			if (!duration && pc_checkskill(sd, CH_CHAINCRUSH) > 0) {
+			if (!duration && pc_checkskill(sd, CH_CHAINCRUSH) > 0 || pc_checkskill(sd, HYU_HYAKU) > 0) {
 				duration = 1;
 				target_id = 0; // Will target current auto-target instead
 			}
@@ -4684,11 +4688,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		break;
 
 	case CH_CHAINCRUSH:
-		if (bl->type == BL_PC) {
-			clif_specialeffect(&sd->bl, 608, AREA);
-		} else {
-			clif_specialeffect(src, 608, AREA);
-		}
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
 
@@ -5045,7 +5044,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		break;
 
 	case KN_BRANDISHSPEAR:
-	case ML_BRANDISH:
 		//Coded apart for it needs the flag passed to the damage calculation.
 		if (skill_area_temp[1] != bl->id)
 			skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag|SD_ANIMATION);
@@ -5881,7 +5879,7 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
 
-	case MER_REGAIN:
+	case MER_PROVOKE:
 	// Inuzuka
 	case HFLI_SBR44:
 		if (unit_movepos(src, bl->x, bl->y, 2, 1)) {
@@ -6891,6 +6889,9 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case SU_FRESHSHRIMP:
 	case SU_ARCLOUSEDASH:
 	case NPC_MAXPAIN:
+	//
+	case ML_BRANDISH:
+	case MER_CRASH:
 		clif_skill_nodamage(src,bl,skill_id,skill_lv,
 			sc_start(src,bl,type,100,skill_lv,skill_get_time(skill_id,skill_lv)));
 		break;
@@ -7031,7 +7032,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 
 	case SM_PROVOKE:
 	case SM_SELFPROVOKE:
-	case MER_PROVOKE:
 		if( status_has_mode(tstatus,MD_STATUS_IMMUNE) || battle_check_undead(tstatus->race,tstatus->def_ele) ) {
 			map_freeblock_unlock();
 			return 1;
@@ -7279,7 +7279,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		break;
 
 	case KN_BRANDISHSPEAR:
-	case ML_BRANDISH:
 		{
 			skill_area_temp[1] = bl->id;
 
@@ -15323,12 +15322,12 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 			break;
 
 		// Portões
-		case PA_SACRIFICE:
-			if (!(sc && sc->data[SC_PORTAO1] && pc_checkskill(sd, PT_1PORTAO) >= 7))
+		case CG_ARROWVULCAN:
+			if (!(sc && (sc->data[SC_PORTAO1] || sc->data[SC_PROPERTYWALK])))
 				return false;
 			break;
-		case NC_BOOSTKNUCKLE:
-			if (!(sc && sc->data[SC_PORTAO1] && pc_checkskill(sd, PT_1PORTAO) >= 6))
+		case PA_SACRIFICE:
+			if (!(sc && (sc->data[SC_PORTAO1] || sc->data[SC_PROPERTYWALK])))
 				return false;
 			break;
 		case PA_SHIELDCHAIN:
@@ -15439,6 +15438,10 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 			break;
 		case CH_CHAINCRUSH:
 			if(!(sc && sc->data[SC_COMBO] && sc->data[SC_COMBO]->val1 == CH_TIGERFIST && sc->data[SC_BYAKUGAN]))
+				return false;
+			break;
+		case HYU_HYAKU:
+			if (!(sc && sc->data[SC_COMBO] && sc->data[SC_COMBO]->val1 == CH_TIGERFIST && sc->data[SC_BYAKUGAN]))
 				return false;
 			break;
 		//-------------------------------------------------------------------
@@ -16514,6 +16517,9 @@ struct skill_condition skill_get_requirement(struct map_session_data* sd, uint16
 		*/
 		if (sc->data[SC_RECOGNIZEDSPELL])
 			req.sp += req.sp - ((req.sp * sc->data[SC_RECOGNIZEDSPELL]->val1 * 5) / 100);
+
+		if (sc->data[SC_AMARELADBUFF])
+			req.sp += req.sp - (50 / 100);
 
 		// --------------------------------------
 

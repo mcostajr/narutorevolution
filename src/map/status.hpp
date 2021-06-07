@@ -924,7 +924,9 @@ enum sc_type : int16 {
 	//Akimichi
 	SC_VERDE,
 	SC_AMARELA,
+	SC_AMARELADBUFF,
 	SC_VERMELHA,
+	SC_VERMELHADBUFF,
 	SC_CHOOMODO,
 
 	//----------------------
@@ -2070,6 +2072,9 @@ enum efst_types : short{
 	EFST_OWL = 1216,
 		
 	EFST_KOUSUI = 1218,
+	
+	EFST_AMARELADBUFF,
+	EFST_VERMELHADBUFF,
 
 	EFST_MAX,
 };
