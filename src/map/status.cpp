@@ -251,7 +251,7 @@ void initChangeTables(void)
 
 	set_sc(NR_MEDITAR, SC_MEDITAR, EFST_MEDITAR, SCB_NONE);
 
-	set_sc(SL_AKUTIBETO, SC_AKUTIBETO, EFST_AKUTIBETO, SCB_NONE);
+	set_sc(SL_AKUTIBETO, SC_AKUTIBETO, EFST_AKUTIBETO, SCB_MAXSP);
 	set_sc(SL_TENJUIN, SC_AMALDICOADO, EFST_AMALDICOADO, SCB_STR | SCB_AGI | SCB_VIT | SCB_INT | SCB_DEX | SCB_LUK);
 
 	set_sc(SG_FUSION, SC_FUSION, EFST_BLANK, SCB_SPEED);
@@ -313,7 +313,7 @@ void initChangeTables(void)
 
 	set_sc( MER_CRASH		, SC_FLEET		, EFST_BLANK		, SCB_ASPD|SCB_BATK|SCB_WATK );
 
-	set_sc(HYO_ICEWALL, SC_ICEWALL, EFST_OWL, SCB_NONE);
+	set_sc(HYO_ICEWALL, SC_ICEWALL, EFST_ICEWALL, SCB_NONE);
 
 	/* First we define the skill for common ailments. These are used in skill_additional_effect through sc cards. [Skotlex] */
 	set_sc( NPC_PETRIFYATTACK	, SC_STONE		, EFST_BLANK		, SCB_DEF_ELE|SCB_DEF|SCB_MDEF );
@@ -1538,6 +1538,7 @@ void initChangeTables(void)
 
 	/* StatusChangeState (SCS_) NOCAST (skills) */
 	StatusChangeStateTable[SC_SUIJINHEKI]			|= SCS_NOCAST;
+	StatusChangeStateTable[SC_ICEWALL]				|= SCS_NOCAST;
 
 	StatusChangeStateTable[SC_KYOUGAKU]				|= SCS_NOCAST;
 	StatusChangeStateTable[SC_SILENCE]				|= SCS_NOCAST;
@@ -3294,7 +3295,7 @@ static int status_get_hpbonus(struct block_list *bl, enum e_status_bonus type) {
 
 			// Akimichi
 			if (sc->data[SC_CHOOMODO])
-				bonus += sc->data[SC_CHOOMODO]->val3;
+				bonus += 10;
 
 			// ---------------------------
 			//Increasing
@@ -3438,12 +3439,14 @@ static int status_get_spbonus(struct block_list *bl, enum e_status_bonus type) {
 			/*
 			*	Naruto
 			*/
-			// Akimihci
+			// Akimichi
+			if (sc->data[SC_AMARELA])
+				bonus += sc->data[SC_AMARELA]->val2;
 			if (sc->data[SC_CHOOMODO])
-				bonus += sc->data[SC_CHOOMODO]->val3;
+				bonus += 10;
 			// Ten no Juin
-				if (sc->data[SC_AKUTIBETO])
-					bonus += sc->data[SC_AKUTIBETO]->val2;
+			if (sc->data[SC_AKUTIBETO])
+				bonus += sc->data[SC_AKUTIBETO]->val2;
 			// ---------------------------
 			/*
 			if(sc->data[SC_INCMSPRATE])
@@ -4832,7 +4835,7 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 		if (sc && sc->count) {
 			// 
 			if (sc->data[SC_AMARELA])
-				val += sc->data[SC_AMARELA]->val3;
+				val += sc->data[SC_AMARELA]->val3 * status->max_sp / 100;
 			//
 			if (sc->data[SC_AKUTIBETO] && pc_checkskill(sd, SL_SETSUZOKU))
 				val += pc_checkskill(sd, SL_SETSUZOKU) * 3 * status->max_sp/100;
@@ -8427,6 +8430,7 @@ static int status_get_sc_interval(enum sc_type type)
 		case SC_POISON:
 		case SC_DPOISON:
 		case SC_LEECHESEND:
+		case SC_ICEWALL:
 			return 1000;
 		case SC_BURNING:
 		case SC_PYREXIA:
@@ -9736,6 +9740,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_REUSE_LIMIT_ASPD_POTION:
 			case SC_DORAM_BUF_01:
 			case SC_DORAM_BUF_02:
+			case SC_ICEWALL:
 				return 0;
 			case SC_PUSH_CART:
 			case SC_COMBO:
@@ -9947,10 +9952,10 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		break;
 
 	// Hyouton
-	case SC_ICEWALL:
-		t_tickime = tick;
-		tick = INFINITE_TICK;
-		break;
+	//case SC_ICEWALL:
+	//	t_tickime = tick;
+	//	tick = INFINITE_TICK;
+	//	break;
 
 	// Byakugo
 	case SC_RENOVATIO:
@@ -10240,6 +10245,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_TOXIN:
 		case SC_MAGICMUSHROOM:
 		case SC_LEECHESEND:
+		case SC_ICEWALL:
 			t_tickime = status_get_sc_interval(type);
 			val4 = tick-t_tickime; // Remaining time
 			break;
@@ -11678,6 +11684,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_MAGICMUSHROOM:
 			case SC_PYREXIA:
 			case SC_LEECHESEND:
+			case SC_ICEWALL:
 				t_tickime = tick;
 				tick = t_tickime + max(val4,0);
 				break;
@@ -12562,16 +12569,19 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 		case SC_VERDE: {
 			int sec = skill_get_time2(status_sc2skill(type), sce->val1);
 
-			if(!sc->data[SC_AMARELA])
+			if (!sc->data[SC_AMARELA]) {
+				clif_status_change(bl, EFST_DEC_AGI, 1, sec, 0, 0, 0);
 				sc_start(bl, bl, SC_SLOWDOWN, 100, sce->val1, sec);
+			}
 		}
 		break;
 		case SC_AMARELA: {
 			int sec = skill_get_time2(status_sc2skill(type), sce->val1);
 
-			if (!sc->data[SC_VERMELHA])
+			if (!sc->data[SC_VERMELHA]) {
 				sc_start(bl, bl, SC_BLIND, 100, sce->val1, sec);
 				sc_start(bl, bl, SC_AMARELADBUFF, 100, sce->val1, sec);
+			}
 		}
 		break;
 		case SC_VERMELHA: {
@@ -13325,13 +13335,19 @@ TIMER_FUNC(status_change_timer){
 	
 	switch(type) {
 		/* Basica */
-		case SC_RECOVERCHAKRA:
-			if (unit_is_walking(bl) ||!status_heal(bl, 0, status_chakra(bl), 2))
-				break;
-			status_heal(bl, 0, status_chakra(bl), 2 );
-			sc_timer_next(1000 + tick);
-			return 0;
-		break;
+	case SC_RECOVERCHAKRA: {
+		int heal = status_chakra(bl);
+		if (unit_is_walking(bl) || !status_heal(bl, 0, heal, 2))
+			break;
+		if (sc && sc->data[SC_AKAITSUKI] && heal) {
+			heal = ~heal + 1;
+			status_heal(bl, heal, 0, 2);
+		}
+		status_heal(bl, 0, heal, 2);
+		sc_timer_next(1000 + tick);
+		return 0;
+	}
+	break;
 
 		/* Velocidade */
 		case SC_WINDWALK:
@@ -13406,8 +13422,6 @@ TIMER_FUNC(status_change_timer){
 		case SC_RENOVATIO:
 			if (--(sce->val4) >= 0) {
 				int heal = status->max_hp * 5 / 100;
-				if (sc && sc->data[SC_AKAITSUKI] && heal)
-					heal = ~heal + 1;
 				status_heal(bl, heal, 0, 3);
 				sc_timer_next(5000 + tick);
 				return 0;
@@ -13523,6 +13537,15 @@ TIMER_FUNC(status_change_timer){
 			map_freeblock_lock();
 			dounlock = true;
 			status_zap(bl, damage, 0);
+		}
+		break;
+
+	case SC_ICEWALL:
+		{
+			int64 damage = 1000;
+			map_freeblock_lock();
+			dounlock = true;
+			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false));
 		}
 		break;
 

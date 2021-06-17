@@ -1164,7 +1164,7 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 
 	if( sd )
 	{ // These statuses would be applied anyway even if the damage was blocked by some skills. [Inkfish]
-		if( skill_id != WS_CARTTERMINATION && skill_id != AM_DEMONSTRATION && skill_id != CR_REFLECTSHIELD && skill_id != ASC_BREAKER ) {
+		if( skill_id != WS_CARTTERMINATION && skill_id != AM_DEMONSTRATION && skill_id != CR_REFLECTSHIELD ) {
 			// Trigger status effects
 			enum sc_type type;
 			unsigned int time;
@@ -1456,9 +1456,10 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		break;
 
 	case DC_UGLYDANCE:
-		rate = 5+5*skill_lv;
-		status_zap(bl, 0, rate);
+		rate = sstatus->max_sp * 5/100;
+		status_heal(src, 0, status_zap(bl, 0, rate), 2);
 		break;
+
 	case SL_STUN:
 		if (tstatus->size==SZ_MEDIUM) //Only stuns mid-sized mobs.
 			sc_start(src,bl,SC_STUN,(30+10*skill_lv),skill_lv,skill_get_time(skill_id,skill_lv));
@@ -4177,10 +4178,16 @@ static TIMER_FUNC(skill_timerskill){
 					skill_attack(BF_WEAPON, src, src, target, skl->skill_id, skl->skill_lv, tick, skl->flag|SD_LEVEL);
 					break;
 				case GN_SPORE_EXPLOSION:
+				{
+					struct map_session_data *sd = ((TBL_PC*)src);
+
 					clif_skill_damage(src, target, tick, status_get_amotion(src), 0, -30000, 1, skl->skill_id, skl->skill_lv, DMG_SKILL);
 					map_foreachinrange(skill_area_sub, target, skill_get_splash(skl->skill_id, skl->skill_lv), BL_CHAR,
-									   src, skl->skill_id, skl->skill_lv, tick, skl->flag|1|BCT_ENEMY, skill_castend_damage_id);
-					break;
+						src, skl->skill_id, skl->skill_lv, tick, skl->flag | 1 | BCT_ENEMY, skill_castend_damage_id);
+
+					pc_delspiritcharm(sd, sd->spiritcharm, sd->spiritcharm_type);
+				}
+				break;
 				case CH_PALMSTRIKE:
 					{
 						struct status_change* tsc = status_get_sc(target);
@@ -4619,14 +4626,10 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 #endif
 	case GS_TRACKING:
 	case GS_PIERCINGSHOT:
-	case GS_RAPIDSHOWER:
 	case GS_DUST:
 	case GS_DISARM:				// Added disarm. [Reddozen]
 	case NJ_SYURIKEN:
 	case NJ_KUNAI:
-#ifndef RENEWAL
-	case ASC_BREAKER:
-#endif
 	case NPC_BLEEDING:
 	case NPC_CRITICALWOUND:
 	case NPC_HELLPOWER:
@@ -4639,7 +4642,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case GC_CROSSIMPACT:
 	case GC_VENOMPRESSURE:
 	case SC_TRIANGLESHOT:
-	case SC_FEINTBOMB:
 	case LG_BANISHINGPOINT:
 	case LG_SHIELDPRESS:
 	case LG_RAGEBURST:
@@ -4663,11 +4665,14 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	*/
 	// Taijutsu
 	case MO_FINGEROFFENSIVE:
-
 	// Kugutsu
 	case ML_SPIRALPIERCE:
 	// Portões
 	case CG_ARROWVULCAN:
+	// Aburame
+	case SN_FALCONASSAULT:
+	// Hanzaki
+	case ASC_BREAKER:
 		skill_attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
 		break;
 
@@ -5205,6 +5210,9 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case AL_HEAL:
 	// Kugutsu
 	case ML_PIERCE:
+	// Kibaku
+	case GS_RAPIDSHOWER:
+	case SC_FEINTBOMB:
 		skill_attack(BF_MAGIC,src,src,bl,skill_id,skill_lv,tick,flag);
 		break;
 
@@ -5252,12 +5260,8 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 
 	case NPC_DARKBREATH:
 		clif_emotion(src,ET_ANGER);
-	case SN_FALCONASSAULT:
 	case CR_ACIDDEMONSTRATION:
 	case TF_THROWSTONE:
-#ifdef RENEWAL
-	case ASC_BREAKER:
-#endif
 	case NPC_SMOKING:
 	case GS_FLING:
 	case NJ_ZENYNAGE:
@@ -5315,18 +5319,32 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		break;
 
 	// Celest
-	case PF_SOULBURN:
-		if (rnd()%100 < (skill_lv < 5 ? 30 + skill_lv * 10 : 70)) {
-			clif_skill_nodamage(src,bl,skill_id,skill_lv,1);
+	case PF_SOULBURN: {
+		int damage = 100;
+		if (rnd() % 100 < (skill_lv < 5 ? 30 + skill_lv * 10 : 70)) {
+			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 			if (skill_lv == 5)
-				skill_attack(BF_MAGIC,src,src,bl,skill_id,skill_lv,tick,flag);
-			status_percent_damage(src, bl, 0, 100, false);
-		} else {
-			clif_skill_nodamage(src,src,skill_id,skill_lv,1);
-			if (skill_lv == 5)
-				skill_attack(BF_MAGIC,src,src,src,skill_id,skill_lv,tick,flag);
-			status_percent_damage(src, src, 0, 100, false);
+				skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, flag);
+			if (tsc && tsc->data[SC_AKAITSUKI] && damage) {
+				damage = ~damage + 1;
+				status_percent_damage(src, bl, damage, 0, false);
+			}
+			else {
+				status_percent_damage(src, bl, 0, damage, false);
+			}
 		}
+		else {
+			clif_skill_nodamage(src, src, skill_id, skill_lv, 1);
+			if (skill_lv == 5)
+				skill_attack(BF_MAGIC, src, src, src, skill_id, skill_lv, tick, flag);
+			if (tsc && tsc->data[SC_AKAITSUKI] && damage) {
+				damage = ~damage + 1;
+				status_percent_damage(src, src, damage, 0, false);
+			} else {
+				status_percent_damage(src, src, 0, damage, false);
+			}
+		}
+	}
 		break;
 
 	case NPC_BLOODDRAIN:
@@ -5752,8 +5770,8 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		break;
 
 	case GN_SPORE_EXPLOSION:
-		if (flag & 1)
-			skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag);
+		if(flag&1)
+			skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, flag);
 		else {
 			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 			skill_addtimerskill(src, gettick() + skill_get_time(skill_id, skill_lv), bl->id, 0, 0, skill_id, skill_lv, 0, 0);
@@ -6264,7 +6282,13 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		if (tsce) {
 			clif_skill_nodamage(src, bl, skill_id, -1, status_change_end(bl, type, INVALID_TIMER));
 			clif_changelook(&sd->bl, LOOK_HEAD_MID, 2106);
-			status_charge(bl, 0, sstatus->max_sp * 50 / 100);
+			int64 meiosp = sstatus->max_sp * 50 / 100;
+			if (sstatus->sp - meiosp <= 0) {
+				status_charge(bl, 0, sstatus->sp);
+			}
+			else {
+				status_charge(bl, 0, meiosp);
+			}
 			map_freeblock_unlock();
 			return 0;
 		} else {
@@ -6383,8 +6407,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 					heal = 0; //Needed so that it actually displays 0 when healing.
 			}
 			clif_skill_nodamage (src, bl, skill_id, heal, 1);
-			if( tsc && tsc->data[SC_AKAITSUKI] && heal && skill_id != HLIF_HEAL )
-				heal = ~heal + 1;
+			//if( tsc && tsc->data[SC_AKAITSUKI] && heal && skill_id != HLIF_HEAL )
+			//	heal = ~heal + 1;
 			heal_get_jobexp = status_heal(bl,heal,0,0);
 
 			if(sd && dstsd && heal > 0 && sd != dstsd && battle_config.heal_exp > 0){
@@ -9368,8 +9392,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 					i = 0; // Should heal by 0 or won't do anything?? in iRO it breaks the healing to members.. [malufett]
 
 				clif_skill_nodamage(src, bl, skill_id, i, 1);
-				if( tsc && tsc->data[SC_AKAITSUKI] && i )
-					i = ~i + 1;
+				//if( tsc && tsc->data[SC_AKAITSUKI] && i )
+				//	i = ~i + 1;
 				status_heal(bl, i, 0, 0);
 			}
 		} else if( sd )
@@ -9895,7 +9919,13 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				if( !dstmd )
 					status_zap(bl, 0, sp);
 
-				status_heal(src, 0, sp / 2, 3);
+				if (tsc->data[SC_AKAITSUKI] && sp) {
+					sp = ~sp + 1;
+					status_heal(src, sp, 0, 3);
+				}
+				else {
+					status_heal(src, 0, sp, 3);
+				}
 			} else if( sd )
 				clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
 		} else if( sd )
@@ -12145,15 +12175,24 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case KN_C1:
 	{
 		struct mob_data *md;
+		int qntc1 = skill_lv > 3 ? 3 : skill_lv;
 
-		md = mob_once_spawn_sub(src, src->m, x, y, status_get_name(src), 30018, "", SZ_SMALL, AI_NONE);
-		if (md) {
-			md->master_id = src->id;
-			md->special_state.ai = AI_LEGION;
-			if (md->deletetimer != INVALID_TIMER)
-				delete_timer(md->deletetimer, mob_timer_delete);
-			md->deletetimer = add_timer(gettick() + skill_get_time(skill_id, skill_lv), mob_timer_delete, md->bl.id, 0);
-			mob_spawn(md); //Now it is ready for spawning.
+		for (int i = 0; i < qntc1; i++) {
+
+			if(rand() % 2 + 1 > 1) {
+				md = mob_once_spawn_sub(src, src->m, x + (rand() % 3), y + (rand() % 3), status_get_name(src), 30018, "", SZ_SMALL, AI_NONE);
+			} else {
+				md = mob_once_spawn_sub(src, src->m, x - (rand() % 3), y - (rand() % 3), status_get_name(src), 30018, "", SZ_SMALL, AI_NONE);
+			}
+
+			if (md) {
+				md->master_id = src->id;
+				md->special_state.ai = AI_LEGION;
+				if (md->deletetimer != INVALID_TIMER)
+					delete_timer(md->deletetimer, mob_timer_delete);
+				md->deletetimer = add_timer(gettick() + skill_get_time(skill_id, skill_lv), mob_timer_delete, md->bl.id, 0);
+				mob_spawn(md); //Now it is ready for spawning.
+			}
 		}
 	}
 	break;
@@ -12373,6 +12412,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		skill_clear_unitgroup(src);
 		if ((sg = skill_unitsetting(src,skill_id,skill_lv,src->x,src->y,0)))
 			sc_start4(src,src,type,100,skill_lv,0,0,sg->group_id,skill_get_time(skill_id,skill_lv));
+		pc_delspiritcharm(sd, 1, sd->spiritcharm_type);
 		flag|=1;
 		break;
 
@@ -13253,6 +13293,7 @@ struct skill_unit_group *skill_unitsetting(struct block_list *src, uint16 skill_
 	case NJ_KAENSIN:
 		skill_clear_group(src, 1); //Delete previous Kaensins/Suitons
 		val2 = (skill_lv+1)/2 + 4;
+		pc_delspiritcharm(sd, 1, sd->spiritcharm_type);
 		break;
 	case NJ_SUITON:
 		skill_clear_group(src, 1);
@@ -14085,8 +14126,8 @@ int skill_unit_onplace_timer(struct skill_unit *unit, struct block_list *bl, t_t
 				if( status_isimmune(bl) )
 					heal = 0;
 				clif_skill_nodamage(&unit->bl, bl, AL_HEAL, heal, 1);
-				if( tsc && tsc->data[SC_AKAITSUKI] && heal )
-					heal = ~heal + 1;
+				//if( tsc && tsc->data[SC_AKAITSUKI] && heal )
+				//	heal = ~heal + 1;
 				status_heal(bl, heal, 0, 0);
 			}
 			break;
@@ -14258,8 +14299,8 @@ int skill_unit_onplace_timer(struct skill_unit *unit, struct block_list *bl, t_t
 				if (sg->src_id == bl->id && !(tsc && tsc->data[SC_SPIRIT] && tsc->data[SC_SPIRIT]->val2 == SL_BARDDANCER))
 					break; // affects self only when soullinked
 				heal = skill_calc_heal(ss,bl,sg->skill_id, sg->skill_lv, true);
-				if (tsc->data[SC_AKAITSUKI] && heal)
-					heal = ~heal + 1;
+				//if (tsc->data[SC_AKAITSUKI] && heal)
+				//	heal = ~heal + 1;
 				clif_skill_nodamage(&unit->bl, bl, AL_HEAL, heal, 1);
 				status_heal(bl, heal, 0, 0);
 			}
@@ -14418,8 +14459,8 @@ int skill_unit_onplace_timer(struct skill_unit *unit, struct block_list *bl, t_t
 						clif_skill_nodamage(&unit->bl, bl, AL_HEAL, hp, 1);
 					//if (tstatus->sp < tstatus->max_sp)
 					//	clif_skill_nodamage(&unit->bl, bl, MG_SRECOVERY, sp, 1);
-					if (tsc && tsc->data[SC_AKAITSUKI] && hp)
-						hp = ~hp + 1;
+					//if (tsc && tsc->data[SC_AKAITSUKI] && hp)
+					//	hp = ~hp + 1;
 					status_heal(bl, hp, sp, 3);
 				}
 				if (sg->val1 % 5 == 0) { // Reveal hidden players every 5 seconds
@@ -15866,6 +15907,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 		// Shakuton
 		case KO_KAIHOU:
 		case SG_SUN_WARM:
+		case NJ_KAENSIN:
 		case GN_SPORE_EXPLOSION:
 			if (sd->spiritcharm_type == CHARM_TYPE_NONE || sd->spiritcharm <= 0) {
 				clif_skill_fail(sd, skill_id, USESKILL_FAIL_SUMMON_NONE, 0);
@@ -16591,6 +16633,9 @@ struct skill_condition skill_get_requirement(struct map_session_data* sd, uint16
 						case AM_POTIONPITCHER:
 						case CR_SLIMPITCHER:
 						case CR_CULTIVATION:
+						case AKI_VERDE:
+						case AKI_AMARELA:
+						case AKI_VERMELHA:
 							if (i != skill_lv%11 - 1)
 								continue;
 							break;
@@ -20698,6 +20743,25 @@ void skill_init_unit_layout (void) {
 					memcpy(skill_unit_layout[pos].dy, dy, sizeof(dy));
 				}
 				break;
+
+				case NV_FIRSTAID: {
+
+					static const int dx[] = {
+						0, 1, 3, 2, 3, 3, 4, 4, 4, 3, 3, 2, 1, 0,-1,-3,-2,-3,
+						-4,-4,-4,-3,-3,-2,-1,-3,-3,-3,-2,-2,-2,-2,-2,-1,-1,-1,
+						-1,-1,-1,-1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,
+						2, 2, 2, 2, 2, 3, 3, 3};
+					static const int dy[] = {
+						4, 4, 2, 3, 3, 2, 1, 0,-1,-2,-3,-3,-4,-4,-4,-3,-3,-2,
+						-1, 0, 1, 2, 3, 3, 4, 1, 0,-1, 2, 1, 0,-1,-2, 3, 2, 1,
+						0,-1,-2,-3, 3, 2, 1, 0,-1,-2,-3, 3, 2, 1, 0,-1,-2,-3,
+						2, 1, 0,-1,-2, 1, 0,-1};
+
+					skill_unit_layout[pos].count = 62;
+					memcpy(skill_unit_layout[pos].dx, dx, sizeof(dx));
+					memcpy(skill_unit_layout[pos].dy, dy, sizeof(dy));
+				}
+									  break;
 
 				case PR_MAGNUS: {
 						static const int dx[] = {

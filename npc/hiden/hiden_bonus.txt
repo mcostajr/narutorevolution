@@ -40,8 +40,8 @@ function	script	KG_PORTOES	{
 function	script	KG_AKIMICHI	{
 	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 4240,1; skill 4241,1; skill 4242,1; }
 	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 4240,2; skill 4241,2; skill 4242,2; skill 4243,1; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 4240,3; skill 4241,3; skill 4242,3; skill 4243,2; skill 4244,1; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 4240,4; skill 4241,4; skill 4242,4; skill 4243,3; skill 4244,2; skill 271,1; skill 4245,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 4240,3; skill 4241,3; skill 4242,3; skill 4243,2; skill 4244,2; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 4240,4; skill 4241,4; skill 4242,3; skill 4243,3; skill 4244,3; skill 271,1; skill 4245,1; }
 	end;
 }
 
@@ -103,7 +103,7 @@ function	script	KG_JASHIN	{
 
 function	script	KG_TAYUYA	{
 	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 326,1; skill 2205,1; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 326,2; skill 2205,2; skill 5300,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 326,2; skill 2205,2; skill 4300,1; }
 	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 326,3; skill 2205,3; skill 328,3; skill 4300,2; }
 	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 326,4; skill 2205,4; skill 328,4; skill 4300,3; skill 4301,1; }
 	end;
@@ -120,8 +120,8 @@ function	script	KG_HANZAKI	{
 function	script	KG_BYAKUGO	{
 	if(getequipcardid(EQI_HEAD_MID,0) >= 30325 ) { skill 363,1;  }
 	if(getequipcardid(EQI_HEAD_MID,0) >= 30350 ) { skill 363,2; skill 266,1; skill 2050,1; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 363,3; skill 266,2; skill 2050,2; }
-	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 363,4; skill 266,3; skill 2050,3; skill 5014,4; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30375 ) { skill 363,3; skill 266,2; skill 2050,2; skill 3029,1; }
+	if(getequipcardid(EQI_HEAD_MID,0) >= 30400 ) { skill 363,4; skill 266,3; skill 2050,3; skill 3029,2; skill 5014,4; }
 	end;
 }
 

@@ -2076,6 +2076,8 @@ enum efst_types : short{
 	EFST_AMARELADBUFF,
 	EFST_VERMELHADBUFF,
 
+	EFST_ICEWALL,
+
 	EFST_MAX,
 };
 

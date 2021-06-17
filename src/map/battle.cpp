@@ -5666,6 +5666,17 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += 800 * skill_lv;
 						break;
 					//---------------------------------------------------------------
+					//Nara
+					case GS_TRACKING:
+						if (sc && sc->data[SC_CLOSECONFINE])
+							skillratio += 1000 * skill_lv;
+						else
+							skillratio += 750 * skill_lv;
+						break;
+					case GN_DEMONIC_FIRE:
+						skillratio += 1125 * skill_lv;
+						break;
+					//---------------------------------------------------------------
 					//Hyouton
 					case RA_AIMEDBOLT:
 						skillratio += 875 * skill_lv;
@@ -5681,35 +5692,37 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 							skillratio += 500 * skill_lv;
 						}
 						break;
+					
 					//---------------------------------------------------------------
-					//Nara
-					case GS_TRACKING:
-						if (sc && sc->data[SC_CLOSECONFINE])
-							skillratio += 1000 * skill_lv;
-						else
-							skillratio += 750 * skill_lv;
+					//Kibaku
+					case GS_RAPIDSHOWER:
+						skillratio += 1000 * skill_lv;
 						break;
-					case GN_DEMONIC_FIRE:
-						skillratio += 1125 * skill_lv;
+
+					case SC_FEINTBOMB:
+						skillratio += 250 * skill_lv;
 						break;
 					//---------------------------------------------------------------
 					//Shakuton
 					case KO_KAIHOU:
-						if (sd && sd->spiritcharm_type != CHARM_TYPE_NONE && sd->spiritcharm > 0) {
+						if (sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0) {
 							skillratio += 875 * skill_lv;
+							pc_delspiritcharm(sd, 1, sd->spiritcharm_type);
 						}
 						break;
 					case SG_SUN_WARM:
-						if (sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0)
+						if (sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0) {
 							skillratio += 50;
+						}
 						break;
 					case NJ_KAENSIN:
-						if (sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0)
+						if (sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0) {
 							skillratio += 150 * skill_lv;
+						}
 						break;
 					case GN_SPORE_EXPLOSION:
-						if (sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0) {
-							skillratio += 1500 * skill_lv;
+						if (sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0) {
+							skillratio += 3750 * sd->spiritcharm;
 						}
 						break;
 					//---------------------------------------------------------------
@@ -6118,18 +6131,6 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 
 		// -----------------------------------------------------------
 		// Kibaku Nendo
-		case GS_RAPIDSHOWER:
-			md.damage += sstatus->agi * skill_lv;
-			break;
-
-		case SC_FEINTBOMB:
-			md.damage += 250 * skill_lv;
-			break;
-
-		case GS_GROUNDDRIFT:
-			md.damage += 250 * skill_lv;
-			break;
-
 		case NC_SELFDESTRUCTION:
 			md.damage = sstatus->hp;
 			break;

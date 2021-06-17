@@ -1791,10 +1791,6 @@
 10006,Pilulas_Intermediaria,Pílulas Intermediaria,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ percentheal 0,30; },{},{}
 10007,Pilulas_Avançada,Pílulas Avançada,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ percentheal 0,80; },{},{}
 
-10008,Pilula_Espinafre,Pílula Espinafre,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
-10009,Pilula_Curry,Pílula Curry,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
-10010,Pilula_Pimenta,Pílula Pimenta,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
-
 10011,Fragmento_Magatama_A,Fragmento Magatama A,3,0,,0,,,,,,,,,,,,,{},{},{}
 10012,Fragmento_Magatama_S,Fragmento Magatama S,3,0,,0,,,,,,,,,,,,,{},{},{}
 10013,Fragmento_Magatama_SS,Fragmento Magatama SS,3,0,,0,,,,,,,,,,,,,{},{},{}
@@ -1812,6 +1808,19 @@
 10102,Caixa_de_Mega_Pedra,Caixa de Mega Pedra,2,1,,200,,,,,0xFFFFFFFF,63,2,,,,,,{ getrandgroupitem(IG_FIRSTAID,1); },{},{}
 
 10103,Ticket_de_Eventos,Ticket de Eventos,3,2,,10,,,,,,,,,,,,,{},{},{}
+
+10200,Pilula_Espinafre_Basica,Pílula Espinafre Basica,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+10201,Pilula_Curry_Basica,Pílula Curry Basica,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+10202,Pilula_Pimenta_Basica,Pílula Pimenta Basica,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+
+10203,Pilula_Espinafre_Intermediaria,Pílula Espinafre Intermediaria,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+10204,Pilula_Curry_Intermediaria,Pílula Curry Intermediaria,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+10205,Pilula_Pimenta_Intermediaria,Pílula Pimenta Intermediaria,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+
+10206,Pilula_Espinafre_Avançada,Pílula Espinafre Avançada,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+10207,Pilula_Curry_Avançada,Pílula Curry Avançada,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+10208,Pilula_Pimenta_Avançada,Pílula Pimenta Avançada,0,50,,70,,,,0,0xFFFFFFFF,63,2,,,,,,{ heal 0,500; },{},{}
+
 
 //===================================================================
 // Cash Shop Items
