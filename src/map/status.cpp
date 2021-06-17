@@ -308,8 +308,11 @@ void initChangeTables(void)
 	add_sc(PR_LEXDIVINA, SC_SILENCE);
 
 	/* Kugutsu */
-	add_sc(MS_REFLECTSHIELD, SC_STUN);
-	add_sc(MA_DOUBLE, SC_SILENCE);
+	add_sc( MS_REFLECTSHIELD, SC_STUN);
+	add_sc( MA_DOUBLE, SC_SILENCE);
+
+	set_sc( MA_SKIDTRAP		, SC_DEFENCE		, EFST_BLANK		, SCB_VIT );
+	set_sc( MA_LANDMINE, SC_GRANITIC_ARMOR	, EFST_GRANITIC_ARMOR	, SCB_NONE );
 
 	set_sc( MER_CRASH		, SC_FLEET		, EFST_BLANK		, SCB_ASPD|SCB_BATK|SCB_WATK );
 
@@ -637,12 +640,7 @@ void initChangeTables(void)
 
 	set_sc( HLIF_AVOID		, SC_AVOID		, EFST_BLANK		, SCB_SPEED );
 	set_sc( HFLI_SPEED		, SC_SPEED		, EFST_BLANK		, SCB_FLEE );
-	set_sc( HAMI_DEFENCE		, SC_DEFENCE		, EFST_BLANK		,
-#ifndef RENEWAL
-		SCB_DEF );
-#else
-		SCB_VIT );
-#endif
+	
 	set_sc( HAMI_BLOODLUST		, SC_BLOODLUST		, EFST_BLANK		, SCB_BATK|SCB_WATK );
 
 	/* Homunculus S */
@@ -673,7 +671,6 @@ void initChangeTables(void)
 	set_sc( MER_MAGNIFICAT		, SC_MAGNIFICAT		, EFST_MAGNIFICAT		, SCB_REGEN );
 	add_sc( MER_LEXDIVINA		, SC_SILENCE		);
 	add_sc( MA_LANDMINE		, SC_STUN		);
-	add_sc( MA_SANDMAN		, SC_SLEEP		);
 	add_sc( MA_FREEZINGTRAP		, SC_FREEZE		);
 	set_sc( MER_AUTOBERSERK		, SC_AUTOBERSERK	, EFST_AUTOBERSERK	, SCB_NONE );
 	set_sc( ML_AUTOGUARD		, SC_AUTOGUARD		, EFST_AUTOGUARD		, SCB_NONE );
@@ -6015,10 +6012,8 @@ static unsigned short status_calc_vit(struct block_list *bl, struct status_chang
 		vit += 1;
 	if(sc->data[SC_STRIPARMOR] && bl->type != BL_PC)
 		vit -= vit * sc->data[SC_STRIPARMOR]->val2/100;
-#ifdef RENEWAL
 	if(sc->data[SC_DEFENCE])
 		vit += sc->data[SC_DEFENCE]->val2;
-#endif
 	if(sc->data[SC_CHEERUP])
 		vit += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -6855,10 +6850,6 @@ static defType status_calc_def(struct block_list *bl, struct status_change *sc, 
 
 	if(sc->data[SC_DRUMBATTLE])
 		def += sc->data[SC_DRUMBATTLE]->val3;
-#ifndef RENEWAL
-	if(sc->data[SC_DEFENCE])
-		def += sc->data[SC_DEFENCE]->val2;
-#endif
 	if(sc->data[SC_INCDEFRATE])
 		def += def * sc->data[SC_INCDEFRATE]->val1/100;
 	if(sc->data[SC_EARTH_INSIGNIA] && sc->data[SC_EARTH_INSIGNIA]->val1 == 2)
@@ -10654,11 +10645,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			// val2 = 10*val1; // Speed change rate.
 			break;
 		case SC_DEFENCE:
-#ifdef RENEWAL
 			val2 = 5 + (val1 * 5); // Vit bonus
-#else
-			val2 = 2*val1; // Def bonus
-#endif
 			break;
 		case SC_BLOODLUST:
 			val2 = 20+10*val1; // Atk rate change.

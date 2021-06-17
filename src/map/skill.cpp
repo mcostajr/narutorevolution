@@ -1389,7 +1389,6 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		break;
 
 	case HT_LANDMINE:
-	case MA_LANDMINE:
 		sc_start(src,bl,SC_STUN,10,skill_lv,skill_get_time2(skill_id,skill_lv));
 		break;
 
@@ -1398,7 +1397,6 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		break;
 
 	case HT_SANDMAN:
-	case MA_SANDMAN:
 		sc_start(src,bl,SC_SLEEP,(10*skill_lv+40),skill_lv,skill_get_time2(skill_id,skill_lv));
 		break;
 
@@ -3679,18 +3677,16 @@ static int skill_check_unit_range_sub(struct block_list *bl, va_list ap)
 		case MH_STEINWAND:
 		case MG_SAFETYWALL:
 		case SC_MAELSTROM:
-			if(g_skill_id != MH_STEINWAND && g_skill_id != MG_SAFETYWALL && g_skill_id != AL_PNEUMA && g_skill_id != SC_MAELSTROM)
+		case MA_SANDMAN:
+			if(g_skill_id != MA_SANDMAN && g_skill_id != MH_STEINWAND && g_skill_id != MG_SAFETYWALL && g_skill_id != AL_PNEUMA && g_skill_id != SC_MAELSTROM)
 				return 0;
 			break;
 		case AL_WARP:
 		case HT_SKIDTRAP:
-		case MA_SKIDTRAP:
 		case HT_LANDMINE:
-		case MA_LANDMINE:
 		case HT_ANKLESNARE:
 		case HT_SHOCKWAVE:
 		case HT_SANDMAN:
-		case MA_SANDMAN:
 		case HT_FLASHER:
 		case HT_FREEZINGTRAP:
 		case MA_FREEZINGTRAP:
@@ -4877,7 +4873,6 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 		flag |= SD_PREAMBLE; // a fake packet will be sent for the first target to be hit
 	case AS_SPLASHER:
 	case AC_SHOWER:
-	case MA_SHOWER:
 	case MG_NAPALMBEAT:
 	case MG_FIREBALL:
 	case RG_RAID:
@@ -6102,7 +6097,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			break;
 		case NPC_SMOKING: //Since it is a self skill, this one ends here rather than in damage_id. [Skotlex]
 			return skill_castend_damage_id (src, bl, skill_id, skill_lv, tick, flag);
-		case MH_STEINWAND: {
+		case MH_STEINWAND:
+		case MA_SANDMAN: {
 			struct block_list *s_src = battle_get_master(src);
 			short ret = 0;
 			if(!skill_check_unit_range(src, src->x, src->y, skill_id, skill_lv))  //prevent reiteration
@@ -6967,10 +6963,18 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			sc_start2(src,bl,type,100,skill_lv,skill_id,skill_get_time(skill_id,skill_lv)));
 		break;
 	case HLIF_AVOID:
-	case HAMI_DEFENCE:
 		sc_start(src,bl,type,100,skill_lv,skill_get_time(skill_id,skill_lv)); // Master
 		clif_skill_nodamage(src,src,skill_id,skill_lv,sc_start(src,src,type,100,skill_lv,skill_get_time(skill_id,skill_lv))); // Homunc
 		break;
+
+	case MA_SKIDTRAP: {
+		bl = (struct block_list*)((TBL_MER*)src)->master;
+
+		sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)); // Master
+		clif_skill_nodamage(src, src, skill_id, skill_lv, sc_start(src, src, type, 100, skill_lv, skill_get_time(skill_id, skill_lv))); // Homunc
+	}
+	break;
+
 	case NJ_BUNSINJYUTSU:
 		status_change_end(bl, SC_BUNSINJYUTSU, INVALID_TIMER); // on official recasting cancels existing mirror image [helvetica]
 		clif_skill_nodamage(src,bl,skill_id,skill_lv,
@@ -7370,7 +7374,17 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				clif_skill_nodamage(src, &mer->master->bl, skill_id, skill_lv, sc_start(src,bl,type,100,skill_lv,skill_get_time(skill_id,skill_lv)));
 		}
 		break;
+	case MA_LANDMINE:
+		if (mer != NULL)
+		{
+			bl = (struct block_list*)((TBL_MER*)src)->master;
 
+			clif_skill_nodamage(src, src, skill_id, skill_lv, sc_start(src, src, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+			if (mer->master)
+				clif_skill_nodamage(src, bl, skill_id, skill_lv, sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		}
+		break;
+		
 	case BS_ADRENALINE:
 	case BS_ADRENALINE2:
 	case BS_WEAPONPERFECT:
@@ -9022,6 +9036,30 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		}
 		mapit_free(it);
 	}
+		break;
+
+	case MA_SHOWER:	//[orn]
+		if (mer && rnd()%100 < 20 * skill_lv) {
+			int x = src->x, y = src->y;
+			bl = (struct block_list*)((TBL_MER*)src)->master;
+
+			// Move source
+			if (unit_movepos(src, bl->x, bl->y, 0, 0)) {
+				clif_skill_nodamage(src, src, skill_id, skill_lv, 1); // Homunc
+				clif_blown(src);
+				// Move target
+				if (unit_movepos(bl, x, y, 0, 0)) {
+					clif_skill_nodamage(bl, bl, skill_id, skill_lv, 1);
+					clif_blown(bl);
+				}
+				map_foreachinallrange(unit_changetarget, src, AREA_SIZE, BL_MOB, bl, src);
+			}
+
+		}
+		else if (mer && mer->master) // Failed
+			clif_skill_fail(hd->master, skill_id, USESKILL_FAIL_LEVEL, 0);
+		else if (sd)
+			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 		break;
 
 	case HAMI_CASTLE:	//[orn]
@@ -11884,11 +11922,9 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case HT_SKIDTRAP:
 	case MER_BENEDICTION:
 	case HT_LANDMINE:
-	case MA_LANDMINE:
 	case HT_ANKLESNARE:
 	case HT_SHOCKWAVE:
 	case HT_SANDMAN:
-	case MA_SANDMAN:
 	case HT_FLASHER:
 	case HT_FREEZINGTRAP:
 	case MA_FREEZINGTRAP:
@@ -11968,6 +12004,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case MH_VOLCANIC_ASH:
 	case MS_MAGNUM:
 	case MH_STEINWAND:
+	case MA_SANDMAN:
 	case LG_KINGS_GRACE:
 	case RL_B_TRAP:
 
@@ -12453,7 +12490,6 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case AC_SHOWER:
 		if (skill_id == AC_SHOWER)
 			status_change_end(src, SC_CAMOUFLAGE, INVALID_TIMER);
-	case MA_SHOWER:
 	case NC_COLDSLOWER:
 	case RK_DRAGONBREATH:
 	case RK_DRAGONBREATH_WATER:
@@ -13067,6 +13103,7 @@ struct skill_unit_group *skill_unitsetting(struct block_list *src, uint16 skill_
 
 	switch( skill_id ) {
 	case MH_STEINWAND:
+	case MA_SANDMAN:
 		val2 = 4 + skill_lv;
 		val3 = 300 * skill_lv + 65 * ( status->int_ +  status_get_lv(src) ) + status->max_sp; //nb hp
 		break;
@@ -13126,16 +13163,13 @@ struct skill_unit_group *skill_unitsetting(struct block_list *src, uint16 skill_
 			target = BCT_ALL;
 		break;
 	case HT_SKIDTRAP:
-	case MA_SKIDTRAP:
 		//Save position of caster
 		val1 = ((src->x)<<16)|(src->y);
 	case HT_ANKLESNARE:
 	case HT_SHOCKWAVE:
 	case HT_SANDMAN:
-	case MA_SANDMAN:
 	case HT_CLAYMORETRAP:
 	case HT_LANDMINE:
-	case MA_LANDMINE:
 	case HT_FLASHER:
 	case HT_FREEZINGTRAP:
 	case MA_FREEZINGTRAP:
@@ -13472,16 +13506,13 @@ struct skill_unit_group *skill_unitsetting(struct block_list *src, uint16 skill_
 		switch( skill_id ) {
 			// HP for Skill unit that can be damaged, see also skill_unit_ondamaged
 			case HT_LANDMINE:
-			case MA_LANDMINE:
 			case HT_ANKLESNARE:
 			case HT_SHOCKWAVE:
 			case HT_SANDMAN:
-			case MA_SANDMAN:
 			case HT_FLASHER:
 			case HT_FREEZINGTRAP:
 			case MA_FREEZINGTRAP:
 			case HT_SKIDTRAP:
-			case MA_SKIDTRAP:
 			case HT_CLAYMORETRAP:
 			case HT_BLASTMINE:
 			case SC_ESCAPE:
@@ -14783,6 +14814,7 @@ int skill_unit_onleft(uint16 skill_id, struct block_list *bl, t_tick tick)
 				status_change_end(bl, SC_DANCING, INVALID_TIMER);
 			}
 		case MH_STEINWAND:
+		case MA_SANDMAN:
 		case MG_SAFETYWALL:
 		case AL_PNEUMA:
 		case SA_VOLCANO:

@@ -334,17 +334,11 @@
 8207,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,MA_DOUBLE,Kugutsu: Silenciar
 
 // Sanshouo
-8208,-9,6,2,-1,0x2,2,10,1,no,0,0x40000,0,weapon,2,0x81,MA_SHOWER,Kugutsu: Arrow_Shower
-8209,9,6,2,3,0x42,1,1,1,no,0,0,0,weapon,3,0x100,MA_SKIDTRAP,Kugutsu: Minas
-8210,3,6,2,2,0xC0,0,5,1,no,0,0x80,0,misc,0,0x3800,MA_LANDMINE,Kugutsu: Land_Mine
-8211,3,6,2,0,0x3,2,5,1,no,0,0x80,0,misc,0,0x3000,MA_SANDMAN,Kugutsu: Sandman
-8212,3,6,2,1,0x42,1,5,1,no,0,0x80,0,weapon,0,0x3800,MA_FREEZINGTRAP,Kugutsu: Freezing_Trap
-
-8005,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,HAMI_CASTLE,Kugutsu: Troca de Lugar
-8006,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,HAMI_DEFENCE,Kugutsu: Sanshouo
-8040,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,MH_GRANITIC_ARMOR,Kugutsu: Ampliar Defesa
-8033,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,MH_STEINWAND,Kugutsu: Escudo
-8022,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,MH_LIGHT_OF_REGENE,Kugutsu: Ningyo no Kokoro
+8208,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,MA_SHOWER,Kugutsu: Troca de Lugar
+8209,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,MA_SKIDTRAP,Kugutsu: Sanshouo
+8210,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,MA_LANDMINE,Kugutsu: Ampliar Defesa
+8211,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,MA_SANDMAN,Kugutsu: Escudo
+8235,0,6,4,0,0x1,0,1,1,yes,0,0,0,none,0,0x0,MER_SCAPEGOAT,Scapegoat
 
 //Sasori
 8213,9,6,1,0,0,0,5,1,no,0,0,0,magic,0,0x0,MA_REMOVETRAP,Kugutsu: Haidoroponpu
@@ -1696,6 +1690,11 @@
 8002,9,6,1,-1,0,0,5,1,no,0,0,0,none,0,0x0,HLIF_AVOID,Avoid
 8003,0,0,0,0,0,0,5,0,no,0,0,0,none,0,0x0,HLIF_BRAIN,Brain
 8004,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,HLIF_CHANGE,Change
+8005,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,HAMI_CASTLE,HAMI_CASTLE
+8006,0,6,4,0,0x1,0,5,0,no,0,0,0,none,0,0x0,HAMI_DEFENCE,HAMI_DEFENCE
+8040,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,MH_GRANITIC_ARMOR,MH_GRANITIC_ARMOR
+8033,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,MH_STEINWAND,MH_STEINWAND
+8022,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,MH_LIGHT_OF_REGENE,MH_LIGHT_OF_REGENE
 8007,9,6,1,0,0,0,5,1,no,0,0,0,weapon,0,0x0,HAMI_SKIN,Adamantium Skin
 8008,1,6,4,0,0x2,5,5,1,no,0,0,0,weapon,0,0x0,HAMI_BLOODLUST,Bloodlust
 8009,2,8,1,0,0,0,5,-1:-2:-2:-2:-3,no,0,0,0,weapon,0,0x0,HFLI_MOON,Moonlight
@@ -1729,6 +1728,7 @@
 // Mercenary Skill Place holders
 8204,9,6,1,0,0x1,0,5,1,no,0,0,0,magic,0,0x0,MS_PARRYING,Parry
 8206,0,6,4,0,0x1,0,1,1,no,0,0,0,weapon,0,0x0,MS_BERSERK,Frenzy
+8212,0,6,4,0,0x1,0,5,1,no,0,0,0,none,0,0x0,MA_FREEZINGTRAP,Freezinf Trap
 8219,0,6,4,0,0x1,0,5,1,no,0,0,0,weapon,0,0x0,ML_DEFENDER,Defending_Aura
 8220,0,6,4,0,0x1,0,10,1,no,0,0,0,weapon,0,0x0,ML_AUTOGUARD,Guard
 8221,7:8:9:10:11,6,16,0,0x1,0,5,1,yes,0,0x600,0,none,0,0x0,ML_DEVOTION,Sacrifice
@@ -1741,7 +1741,6 @@
 8231,9,6,16,0,0x1,0,1,1,yes,0,0x1000,0,magic,0,0x0,MER_COMPRESS,Compress
 8233,0,6,4,0,0x1,0,1,1,no,0,0,0,weapon,0,0x0,MER_AUTOBERSERK,Berserk
 8234,9,6,1,0,0x1,0,10,1,yes,0,0,0,magic,0,0x0,MER_DECAGI,Decrease_AGI
-8235,0,6,4,0,0x1,0,1,1,yes,0,0,0,none,0,0x0,MER_SCAPEGOAT,Scapegoat
 8236,5,6,1,0,0x1,0,10,0,yes,0,0,0,magic,0,0x0,MER_LEXDIVINA,Lex_Divina
 8237,9,6,1,0,0x1,0,1,1,yes,0,0,0,magic,0,0x0,MER_ESTIMATION,Sense
 8238,9,6,16,0,0x1,0,10,1,yes,0,0,0,magic,0,0x0,MER_KYRIE,Kyrie Eleison
