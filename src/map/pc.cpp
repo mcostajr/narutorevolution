@@ -1603,8 +1603,8 @@ void pc_reg_received(struct map_session_data *sd)
 
 	sd->vars_ok = true;
 
-	sd->change_level_2nd = pc_readglobalreg(sd, add_str(JOBCHANGE2ND_VAR));
-	sd->change_level_3rd = pc_readglobalreg(sd, add_str(JOBCHANGE3RD_VAR));
+	// sd->change_level_2nd = pc_readglobalreg(sd, add_str(JOBCHANGE2ND_VAR));
+	// sd->change_level_3rd = pc_readglobalreg(sd, add_str(JOBCHANGE3RD_VAR));
 	sd->die_counter = pc_readglobalreg(sd, add_str(PCDIECOUNTER_VAR));
 
 	sd->langtype = pc_readaccountreg(sd, add_str(LANGTYPE_VAR));
@@ -8916,15 +8916,15 @@ bool pc_jobchange(struct map_session_data *sd,int job, char upper)
 		return false; //Nothing to change.
 
 	// changing from 1st to 2nd job
-	if ((b_class&JOBL_2) && !(sd->class_&JOBL_2) && (sd->class_&MAPID_UPPERMASK) != MAPID_SUPER_NOVICE) {
-		sd->change_level_2nd = sd->status.job_level;
-		pc_setglobalreg(sd, add_str(JOBCHANGE2ND_VAR), sd->change_level_2nd);
-	}
+	// if ((b_class&JOBL_2) && !(sd->class_&JOBL_2) && (sd->class_&MAPID_UPPERMASK) != MAPID_SUPER_NOVICE) {
+	// 	sd->change_level_2nd = sd->status.job_level;
+	// 	pc_setglobalreg(sd, add_str(JOBCHANGE2ND_VAR), sd->change_level_2nd);
+	// }
 	// changing from 2nd to 3rd job
-	else if((b_class&JOBL_THIRD) && !(sd->class_&JOBL_THIRD)) {
-		sd->change_level_3rd = sd->status.job_level;
-		pc_setglobalreg(sd, add_str(JOBCHANGE3RD_VAR), sd->change_level_3rd);
-	}
+	// else if((b_class&JOBL_THIRD) && !(sd->class_&JOBL_THIRD)) {
+	// 	sd->change_level_3rd = sd->status.job_level;
+	// 	pc_setglobalreg(sd, add_str(JOBCHANGE3RD_VAR), sd->change_level_3rd);
+	// }
 
 	if(sd->cloneskill_idx > 0) {
 		if( sd->status.skill[sd->cloneskill_idx].flag == SKILL_FLAG_PLAGIARIZED ) {
