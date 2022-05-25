@@ -2122,51 +2122,17 @@ int pc_calc_skilltree_normalize_job(struct map_session_data *sd)
 		c = MAPID_NOVICE;
 	}
 	// limit 2nd class and above to first class job levels (super novices are exempt)
-	else if (sd->class_&JOBL_2 && (sd->class_&MAPID_UPPERMASK) != MAPID_SUPER_NOVICE)
+	else if (sd->class_&JOBL_2)
 	{
 		// regenerate change_level_2nd
-		if (!sd->change_level_2nd)
-		{
-			if (sd->class_&JOBL_THIRD)
-			{
-				// if neither 2nd nor 3rd jobchange levels are known, we have to assume a default for 2nd
-				if (!sd->change_level_3rd)
-					sd->change_level_2nd = job_info[pc_class2idx(pc_mapid2jobid(sd->class_&MAPID_UPPERMASK, sd->status.sex))].max_level[1];
-				else
-					sd->change_level_2nd = 1 + skill_point + sd->status.skill_point
-						- (sd->status.job_level)
-						- (sd->change_level_3rd)
-						- novice_skills;
-			}
-			else
-			{
-				sd->change_level_2nd = 1 + skill_point + sd->status.skill_point
-						- (sd->status.job_level)
-						- novice_skills;
-
-			}
-
-			pc_setglobalreg(sd, add_str(JOBCHANGE2ND_VAR), sd->change_level_2nd);
-		}
-
-		if (skill_point < novice_skills + (sd->change_level_2nd))
+		if (skill_point < novice_skills + 50)
 		{
 			c &= MAPID_BASEMASK;
 		}
 		// limit 3rd class to 2nd class/trans job levels
 		else if(sd->class_&JOBL_THIRD)
 		{
-			// regenerate change_level_3rd
-			if (!sd->change_level_3rd)
-			{
-					sd->change_level_3rd = 1 + skill_point + sd->status.skill_point
-						- (sd->status.job_level)
-						- (sd->change_level_2nd)
-						- novice_skills;
-					pc_setglobalreg(sd, add_str(JOBCHANGE3RD_VAR), sd->change_level_3rd);
-			}
-
-			if (skill_point < novice_skills + (sd->change_level_2nd) + 35 + (sd->change_level_3rd))
+			if (skill_point < novice_skills + 50 + 35)
 				c &= MAPID_UPPERMASK;
 		}
 	}
